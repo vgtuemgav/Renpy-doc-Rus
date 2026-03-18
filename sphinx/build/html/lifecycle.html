@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Жизненный цикл запущенной игры на Ren&#39;Py &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/lifecycle.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Эквиваленты операторов" href="statement_equivalents.html" />
+    <link rel="prev" title="Заставка и предзаставка" href="splashscreen_presplash.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Жизненный цикл запущенной игры на Ren'Py</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Время загрузки</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#early-phase">Фаза парсинга скриптов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#init">Фаза инициализации (Init)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#init-offset">Инструкция init offset</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Выполнение скрипта</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#splashscreen">Перед заставкой (Splashscreen)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Заставка (Splashscreen)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Главное меню</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Игровая фаза</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Жизненный цикл запущенной игры на Ren'Py</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/lifecycle.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ren-py">
+<h1>Жизненный цикл запущенной игры на Ren'Py<a class="headerlink" href="#ren-py" title="Ссылка на этот заголовок"></a></h1>
+<p>При запуске игры на Ren'Py, будь то из исполняемого файла или из лаунчера, она проходит через ряд шагов до момента её закрытия. Эта страница раскрывает различные фазы этого жизненного цикла и связанные с ними инструкции.</p>
+<section id="id1">
+<h2>Время загрузки<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
+<p>Многое происходит до того, как появится окно игры. Это и есть время загрузки. Единственное, что может быть видно на этом этапе, — это <a class="reference internal" href="splashscreen_presplash.html#presplash"><span class="std std-ref">presplash</span></a>.</p>
+<section id="early-phase">
+<span id="id2"></span><h3>Фаза парсинга скриптов<a class="headerlink" href="#early-phase" title="Ссылка на этот заголовок"></a></h3>
+<p>Чтобы прочитать код игры, Ren'Py считывает каждый из игровых файлов <code class="docutils literal notranslate"><span class="pre">.rpy</span></code> (и <code class="docutils literal notranslate"><span class="pre">_ren.py</span></code>) один за другим. Это фаза «парсинга», или «ранняя» (early) фаза. Файлы считываются в следующем порядке:</p>
+<ol class="arabic simple">
+<li><p>Файлы внутри <code class="file docutils literal notranslate"><span class="pre">renpy/common</span></code> загружаются по полному пути в юникод-порядке. Это предназначено только для использования самим Ren'Py.</p></li>
+<li><p>Только если существует <code class="file docutils literal notranslate"><span class="pre">game/libs/libs.txt</span></code>, файлы в <code class="file docutils literal notranslate"><span class="pre">game/libs</span></code> загружаются в юникод-порядке, при этом первая директория в пути (если она есть) отбрасывается. В таком порядке <code class="file docutils literal notranslate"><span class="pre">game/libs/plants/aloe.rpy</span></code> загрузится раньше, чем <code class="file docutils literal notranslate"><span class="pre">game/libs/animals/zebra.rpy</span></code>.</p></li>
+</ol>
+<ol class="arabic simple" start="5">
+<li><p>Файлы в <code class="file docutils literal notranslate"><span class="pre">game</span></code> загружаются по полному пути в юникод-порядке. (В таком порядке <code class="file docutils literal notranslate"><span class="pre">game/animals/zebra.rpy</span></code> загрузится раньше, чем <code class="file docutils literal notranslate"><span class="pre">game/plants/aloe.rpy</span></code>.)</p></li>
+<li><p>Только если существует <code class="file docutils literal notranslate"><span class="pre">game/mods/mods.txt</span></code>, файлы в <code class="file docutils literal notranslate"><span class="pre">game/mods</span></code> загружаются в юникод-порядке, при этом первая директория в пути (если она есть) отбрасывается. В таком порядке <code class="file docutils literal notranslate"><span class="pre">game/mods/plants/aloe.rpy</span></code> загрузится раньше, чем <code class="file docutils literal notranslate"><span class="pre">game/mods/animals/zebra.rpy</span></code>.</p></li>
+</ol>
+<p>Первый исполняемый код, написанный разработчиком, — это код внутри блоков <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">early</span></code>. Эти блоки
+выполняются после того, как файл, в котором они находятся, был прочитан и проанализирован, но до того, как начнётся чтение следующего файла.
+Именно поэтому инструкции, которые изменяют процесс парсинга, такие как <a class="reference internal" href="cds.html"><span class="doc">Пользовательские операторы</span></a>,
+<a class="reference internal" href="screen_python.html#creator-defined-sl"><span class="std std-ref">Инструкции экранного языка, определяемые разработчиком</span></a> или новые пользовательские <a class="reference internal" href="transforms.html#warpers"><span class="std std-ref">Варперы</span></a>, должны быть написаны в блоках <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">early</span></code>.</p>
+<p>Иногда встречается синтаксис <code class="docutils literal notranslate"><span class="pre">init</span> <span class="pre">python</span> <span class="pre">early</span></code>, но он избыточен и ничего не меняет в порядке выполнения кода по сравнению с <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">early</span></code>.</p>
+</section>
+<section id="init">
+<span id="init-phase"></span><h3>Фаза инициализации (Init)<a class="headerlink" href="#init" title="Ссылка на этот заголовок"></a></h3>
+<p>После фазы парсинга (early) начинается фаза «инициализации» (init). В это время выполняются несколько инструкций,
+включая <a class="reference internal" href="python.html#init-python-statement"><span class="std std-ref">Инструкция Init Python</span></a>, <a class="reference internal" href="python.html#define-statement"><span class="std std-ref">Инструкция Define</span></a>,
+<a class="reference internal" href="transforms.html#transform-statement"><span class="std std-ref">Инструкция Transform</span></a>, <a class="reference internal" href="displaying_images.html#image-statement"><span class="std std-ref">Инструкция image</span></a>, <a class="reference internal" href="screens.html#screen-statement"><span class="std std-ref">Инструкция screen</span></a>, и
+<a class="reference internal" href="style.html"><span class="doc">style</span></a>.</p>
+<p>Фаза init делится на последовательные эпохи, или приоритеты инициализации.
+Вопреки тому, что может подразумевать этот термин, эпохи с более низким приоритетом выполняются раньше
+эпох с более высоким приоритетом. Рекомендуется, чтобы игры использовали приоритеты инициализации от -99 до 99.
+Библиотеки и моды могут использовать от -999 до -100 и от 100 до 999. Приоритеты инициализации за пределами
+диапазона от -999 до 999 зарезервированы для внутреннего использования Ren'Py.</p>
+<p>По умолчанию эти инструкции выполняются с приоритетом инициализации 0. Однако их приоритет можно изменить с помощью
+<a class="reference internal" href="#init-offset-statement"><span class="std std-ref">Инструкция init offset</span></a> или другими способами. Инструкция <a class="reference internal" href="displaying_images.html#image-statement"><span class="std std-ref">Инструкция image</span></a> является исключением из
+обоих этих правил, так как по умолчанию она выполняется с приоритетом инициализации 500, и инструкция init offset
+добавляет или вычитает значение из этого 500, а не заменяет его.</p>
+<p>Автоматическое определение изображений из <a class="reference internal" href="displaying_images.html#image-directory"><span class="std std-ref">Каталог изображений (Images Directory)</span></a> происходит с приоритетом инициализации 0.</p>
+<p><cite>Инструкции Define &lt;define-statement&gt;</cite> выполняются во время инициализации, и переменные, установленные в
+инструкциях define, не должны изменяться, так как Ren'Py считает эти переменные константами для
+целей оптимизации производительности.</p>
+<p>Обратите внимание, что хотя инструкции <a class="reference internal" href="python.html#default-statement"><span class="std std-ref">default</span></a> не выполняются во время инициализации,
+приоритет этих инструкций влияет на порядок, в котором они будут выполнены относительно друг друга.</p>
+<section id="init-offset">
+<span id="init-offset-statement"></span><h4>Инструкция init offset<a class="headerlink" href="#init-offset" title="Ссылка на этот заголовок"></a></h4>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">init</span> <span class="pre">offset</span></code> устанавливает смещение приоритета для всех инструкций,
+которые выполняются во время инициализации. Её следует размещать в начале файла, и она применяется ко всем последующим
+инструкциям в текущем и дочерних блоках, вплоть до следующей
+инструкции <code class="docutils literal notranslate"><span class="pre">init</span> <span class="pre">offset</span></code>. Инструкция:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">offset</span> <span class="o">=</span> <span class="mi">42</span>
+</pre></div>
+</div>
+<p>устанавливает смещение приоритета в 42. В:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">offset</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">define</span> <span class="n">foo</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="k">init</span> <span class="k">offset</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">define</span> <span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">init</span> <span class="k">offset</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Первая инструкция <cite>define</cite> выполняется с приоритетом 2, что означает, что она выполняется
+после второй инструкции <cite>define</cite>, и, следовательно, <code class="docutils literal notranslate"><span class="pre">foo</span></code> в конечном итоге получает
+значение 2.</p>
+</section>
+</section>
+</section>
+<section id="id3">
+<h2>Выполнение скрипта<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>На этом этапе выполняются обычные инструкции Ren'Py, и применяются правила, описанные в <a class="reference internal" href="label.html"><span class="doc">Метки и управление потоком</span></a>.</p>
+<p>Переменные, изменяемые на этой фазе, сохраняются при сохранении игры и восстанавливаются
+при её загрузке. Окно игры появляется во время первого взаимодействия, происходящего на
+этой фазе.</p>
+<p>Конфигурационные переменные не следует изменять после начала выполнения скрипта, так как Ren'Py может кэшировать значения
+этих переменных.</p>
+<section id="splashscreen">
+<h3>Перед заставкой (Splashscreen)<a class="headerlink" href="#splashscreen" title="Ссылка на этот заголовок"></a></h3>
+<p>Действия в этом разделе выполняются при запуске Ren'Py или после возврата в главное меню. Важно отметить, что они
+выполняются даже если заставка пропускается.</p>
+<p>Перед показом заставки выполняются <a class="reference internal" href="python.html#default-statement"><span class="std std-ref">инструкции default</span></a>. Затем,
+запускаются <a class="reference internal" href="config.html#var-config.start_callbacks"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.start_callbacks</span></code></a>.</p>
+</section>
+<section id="id4">
+<h3>Заставка (Splashscreen)<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h3>
+<p>Если метка <a class="reference internal" href="splashscreen_presplash.html#adding-a-splashscreen"><span class="std std-ref">splashscreen</span></a> существует, она выполняется до тех пор, пока не вернёт управление.</p>
+<p>Заставка отображается только один раз за запуск Ren'Py и пропускается при перезапуске
+выполнения скрипта.</p>
+<p>В конце заставки, даже если она пропущена, Ren'Py выполняет <code class="docutils literal notranslate"><span class="pre">scene</span> <span class="pre">black</span></code>, чтобы очистить
+экран от заставки и установить стандартный черный фон.</p>
+</section>
+<section id="id5">
+<h3>Главное меню<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h3>
+<p>Если метка <code class="docutils literal notranslate"><span class="pre">before_main_menu</span></code> существует, она выполняется. Затем, после её завершения,
+отображается экран <a class="reference internal" href="screen_special.html#main-menu-screen"><span class="std std-ref">main_menu</span></a>, если только не существует метка <code class="docutils literal notranslate"><span class="pre">main_menu</span></code>,
+которая в таком случае выполняется вместо экрана. См. <a class="reference internal" href="label.html#special-labels"><span class="std std-ref">Специальные метки</span></a> для получения дополнительной информации.</p>
+<p>Само главное меню выполняется в своём собственном <a class="reference internal" href="label.html#context"><span class="std std-ref">контексте</span></a>. Ren'Py может выйти из этого
+контекста, вызвав действие <a class="reference internal" href="screen_actions.html#Start" title="Start"><code class="xref py py-class docutils literal notranslate"><span class="pre">Start</span></code></a>, которое также переходит к указанной метке или к метке <code class="docutils literal notranslate"><span class="pre">start</span></code>
+, если метка не задана. Возврат из метки <code class="docutils literal notranslate"><span class="pre">main_menu</span></code> также переводит игру в игровую фазу на
+метке <code class="docutils literal notranslate"><span class="pre">start</span></code>, в то время как загрузка сохранения переводит в игровую фазу в том месте, где игра была сохранена.</p>
+</section>
+<section id="id6">
+<h3>Игровая фаза<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h3>
+<p>Это фаза, в которой происходит непосредственно прохождение игры, и в этом
+режиме игроки обычно проводят большую часть своего времени. Эта фаза продолжается
+до тех пор, пока игрок не выйдет из игры, или пока игра не перезапустится и игрок не вернется в главное меню.</p>
+<p>Во время игровой фазы действие <a class="reference internal" href="screen_actions.html#ShowMenu" title="ShowMenu"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShowMenu</span></code></a> может использоваться для отображения
+экрана в новом контексте.</p>
+<p>Игровая фаза продолжается до тех пор, пока игрок не выйдет из игры или не перезапустит её,
+чтобы вернуться в главное меню. Игру можно перезапустить, выполнив возврат (return), когда в стеке вызовов нет активных вызовов,
+как объясняется в <a class="reference internal" href="label.html"><span class="doc">Метки и управление потоком</span></a>. Игру также
+можно перезапустить с помощью действия <a class="reference internal" href="screen_actions.html#MainMenu" title="MainMenu"><code class="xref py py-class docutils literal notranslate"><span class="pre">MainMenu</span></code></a> или функции <a class="reference internal" href="other.html#renpy.full_restart" title="renpy.full_restart"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.full_restart()</span></code></a>.</p>
+<p>При перезапуске игры все неперсистентные данные сбрасываются до состояния, в котором они были в
+конце фазы выполнения скрипта, а затем фаза выполнения скрипта начинается
+снова, пропуская заставку.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="splashscreen_presplash.html" class="btn btn-neutral float-left" title="Заставка и предзаставка" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="statement_equivalents.html" class="btn btn-neutral float-right" title="Эквиваленты операторов" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

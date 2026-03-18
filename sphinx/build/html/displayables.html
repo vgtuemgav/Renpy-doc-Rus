@@ -1,0 +1,973 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Displayables &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/displayables.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Трансформации" href="transforms.html" />
+    <link rel="prev" title="Перевод" href="translation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Displayables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#images">Изображения</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Image"><code class="docutils literal notranslate"><span class="pre">Image()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#svg">SVG-изображения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#displayable">Изображе-подобные Displayable-объекты</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#AlphaMask"><code class="docutils literal notranslate"><span class="pre">AlphaMask</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Borders"><code class="docutils literal notranslate"><span class="pre">Borders</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Borders.padding"><code class="docutils literal notranslate"><span class="pre">Borders.padding</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Composite"><code class="docutils literal notranslate"><span class="pre">Composite()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Crop"><code class="docutils literal notranslate"><span class="pre">Crop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DynamicImage"><code class="docutils literal notranslate"><span class="pre">DynamicImage</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Flatten"><code class="docutils literal notranslate"><span class="pre">Flatten</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Frame"><code class="docutils literal notranslate"><span class="pre">Frame</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Null"><code class="docutils literal notranslate"><span class="pre">Null</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Solid"><code class="docutils literal notranslate"><span class="pre">Solid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tile"><code class="docutils literal notranslate"><span class="pre">Tile</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Текстовые Displayable-объекты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Динамические Displayable-объекты</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ConditionSwitch"><code class="docutils literal notranslate"><span class="pre">ConditionSwitch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DynamicDisplayable"><code class="docutils literal notranslate"><span class="pre">DynamicDisplayable</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ShowingSwitch"><code class="docutils literal notranslate"><span class="pre">ShowingSwitch()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Слоевые Displayable-объекты</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Layer"><code class="docutils literal notranslate"><span class="pre">Layer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">Контейнеры компоновки и сетки</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Fixed"><code class="docutils literal notranslate"><span class="pre">Fixed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#HBox"><code class="docutils literal notranslate"><span class="pre">HBox()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#VBox"><code class="docutils literal notranslate"><span class="pre">VBox()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Grid"><code class="docutils literal notranslate"><span class="pre">Grid()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">Эффекты</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#AlphaBlend"><code class="docutils literal notranslate"><span class="pre">AlphaBlend()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">Манипуляторы изображений</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">Заполнители</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Placeholder"><code class="docutils literal notranslate"><span class="pre">Placeholder</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#displayable-prefix">Префиксы displayable-объектов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">См. также</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Displayables</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/displayables.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="displayables">
+<span id="id1"></span><h1>Displayables<a class="headerlink" href="#displayables" title="Ссылка на этот заголовок"></a></h1>
+<p>Displayable – это объект, который может быть показан пользователю.
+Displayable-объекты Ren'Py могут использоваться многими способами.</p>
+<ul class="simple">
+<li><p>Присвоение имени изображения с помощью оператора <code class="docutils literal notranslate"><span class="pre">image</span></code>.</p></li>
+<li><p>Добавление на экран с помощью оператора <code class="docutils literal notranslate"><span class="pre">add</span></code> языка экранов.</p></li>
+<li><p>Присвоение определённым переменным конфигурации.</p></li>
+<li><p>Присвоение определённым свойствам стиля.</p></li>
+</ul>
+<p>Когда функция или переменная Ren'Py ожидает displayable, ей можно предоставить
+несколько вещей:</p>
+<ul class="simple">
+<li><p>Объект типа Displayable, созданный вызовом одной из функций,
+приведённых ниже.</p></li>
+<li><p>Строку, содержащую двоеточие <code class="docutils literal notranslate"><span class="pre">:</span></code>. Они редки, но см. раздел
+<a class="reference internal" href="#displayable-prefix"><span class="std std-ref">префиксы displayable-объектов</span></a> ниже.</p></li>
+<li><p>Строку, содержащую точку <code class="docutils literal notranslate"><span class="pre">.</span></code>. Такая строка интерпретируется
+функцией <a class="reference internal" href="#Image" title="Image"><code class="xref py py-func docutils literal notranslate"><span class="pre">Image()</span></code></a> как имя файла.</p></li>
+<li><p>Цвет. Цвет может быть задан либо в виде шестнадцатеричной строки цвета
+в формате &quot;#rgb&quot;, &quot;#rgba&quot;, &quot;#rrggbb&quot; или &quot;#rrggbbaa&quot;, либо в виде объекта
+<a class="reference internal" href="color_class.html#Color" title="Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>, либо в виде кортежа (r, g, b, a), где каждый компонент
+является целым числом от 0 до 255. Цвета передаются в <a class="reference internal" href="#Solid" title="Solid"><code class="xref py py-func docutils literal notranslate"><span class="pre">Solid()</span></code></a>.</p></li>
+<li><p>Имя изображения. Любая другая строка интерпретируется как ссылка
+на изображение, определённое с помощью оператора image или автоматически
+определённое из <a class="reference internal" href="displaying_images.html#images-directory"><span class="std std-ref">каталога изображений</span></a>.</p></li>
+<li><p>Список. Если предоставлен список, каждый его элемент обрабатывается, как
+описано ниже, и проверяется на совпадение с именем файла или именем
+изображения. Если совпадение найдено, обработка списка прекращается,
+и найденный элемент обрабатывается, как описано выше.</p></li>
+</ul>
+<p>Строки могут содержать одну или несколько подстановок в квадратных скобках,
+например, &quot;eileen [mood]&quot; или &quot;eileen_[outfit]_[mood].png&quot;. Когда задана такая
+строка, создаётся динамическое изображение. Для динамического изображения
+выполняется <a class="reference internal" href="text.html#text-interpolation"><span class="std std-ref">интерполяция текста</span></a> в начале
+каждого взаимодействия (например, операторов say и меню). Результирующая
+строка обрабатывается в соответствии с правилами, приведёнными выше.</p>
+<p>Когда строка содержит &quot;[prefix_]&quot;, эта подстановка заменяется каждым
+из префиксов стиля, связанных с текущим displayable-объектом.</p>
+<section id="images">
+<span id="id2"></span><h2>Изображения<a class="headerlink" href="#images" title="Ссылка на этот заголовок"></a></h2>
+<p>Наиболее часто используемый displayable – это Image, который загружает файл
+с диска и отображает его. Поскольку Image используется очень часто, когда
+строка с именем файла используется в контексте, где ожидается displayable,
+объект Image создаётся автоматически. Единственный случай, когда необходимо
+использовать Image напрямую, – это когда вы хотите создать изображение
+со свойствами стиля.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="Image">
+<span class="sig-name descname"><span class="pre">Image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimize_bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oversample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">96</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mipmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Image" title="Ссылка на это определение"></a></dt>
+<dd><p>Загружает изображение из файла. <cite>filename</cite> — это
+строка с именем файла.</p>
+<dl class="simple">
+<dt><cite>filename</cite></dt><dd><p>Имя файла изображения, включая расширение.</p>
+</dd>
+<dt><cite>optimize_bounds</cite></dt><dd><p>Если истинно, то в память GPU загружается только та часть изображения, которая
+находится внутри ограничивающей рамки непрозрачных пикселей. (Единственная причина
+устанавливать это значение в False — это использование изображения в качестве
+входных данных для шейдера.)</p>
+</dd>
+<dt><cite>oversample</cite></dt><dd><p>Если это значение больше 1, изображение считается oversampled (с избыточной выборкой),
+с большим количеством пикселей, чем предполагает его логический размер. Например, если
+файл изображения имеет размер 2048x2048, а oversample равен 2, то для целей
+разметки изображение будет рассматриваться как изображение размером 1024x1024.</p>
+</dd>
+<dt><cite>dpi</cite></dt><dd><p>DPI для SVG-изображения. По умолчанию равно 96, но его можно
+увеличить, чтобы отрендерить SVG крупнее, и уменьшить,
+чтобы отрендерить его меньше.</p>
+</dd>
+<dt><cite>mipmap</cite></dt><dd><p>Если установлено в &quot;auto&quot;, то mipmap-уровни генерируются для изображения, только если игра масштабируется
+до размера менее 75% от её стандартного размера. Если установлено в True, mipmap-уровни генерируются всегда.
+Если установлено в False, mipmap-уровни никогда не генерируются. Если установлено в None, то используется
+значение по умолчанию из config.mipmap.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Эти две строки эквивалентны.</span>
+<span class="k">image</span> <span class="n">logo</span> <span class="o">=</span> <span class="s2">&quot;logo.png&quot;</span>
+<span class="k">image</span> <span class="n">logo</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;logo.png&quot;</span><span class="p">)</span>
+
+<span class="c1"># Использование Image позволяет нам указать позицию по умолчанию</span>
+<span class="c1"># как часть изображения.</span>
+<span class="k">image</span> <span class="n">logo</span> <span class="n">right</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;logo.png&quot;</span><span class="p">,</span> <span class="na">xalign</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Мы рекомендуем использовать четыре формата файлов изображений:</p>
+<ul class="simple">
+<li><p>AVIF</p></li>
+<li><p>WEBP</p></li>
+<li><p>PNG</p></li>
+<li><p>JPG</p></li>
+</ul>
+<p>И один формат векторных изображений:</p>
+<ul class="simple">
+<li><p>SVG</p></li>
+</ul>
+<p>Также поддерживаются неанимированные файлы GIF и BMP, но их не следует
+использовать в современных играх.</p>
+<p>Загрузка Image из файла на диске и его декодирование для отображения
+на экране занимает значительное время. Хотя это время измеряется
+десятыми или сотыми долями секунды, продолжительность процесса загрузки
+достаточно велика, чтобы помешать достижению приемлемой частоты кадров
+и вызвать раздражение у пользователя.</p>
+<p>Поскольку Image имеет фиксированный размер и не изменяется в ответ
+на ввод, состояние игры или размер доступной области, его можно
+загрузить до того, как он понадобится, и поместить в область памяти,
+известную как кеш изображений. Как только Image декодирован и находится
+в кеше, его можно быстро вывести на экран.</p>
+<p>Ren'Py пытается предсказать, какие изображения будут использоваться
+в будущем, и загружает их в кеш изображений до того, как они
+понадобятся. Когда в кеше требуется место для других изображений,
+Ren'Py удаляет изображения, которые больше не используются.</p>
+<p>По умолчанию Ren'Py прогнозируемо кеширует данные изображений
+объёмом до 8 экранов. (Если ваш экран имеет разрешение 800x600, то объём
+данных одного экрана – это одно изображение 800x600, два изображения
+400x600 и так далее). Это значение можно изменить с помощью переменной
+конфигурации <a class="reference internal" href="config.html#var-config.image_cache_size"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.image_cache_size</span></code></a>.</p>
+<p>Хотя точный объём зависит от деталей реализации и существует значительная
+дополнительная нагрузка, как правило, каждый пиксель в кеше изображений
+потребляет 4 байта оперативной памяти и 4 байта видеопамяти.</p>
+</section>
+<section id="svg">
+<h2>SVG-изображения<a class="headerlink" href="#svg" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py поддерживает многие изображения SVG 1.0, используя библиотеку NanoSVG.
+Некоторые неподдерживаемые функции включают:</p>
+<ul class="simple">
+<li><p>Текстовые элементы игнорируются. Если текст преобразован в контур,
+он будет отображён.</p></li>
+<li><p>Встроенные растровые изображения игнорируются.</p></li>
+<li><p>Скрипты игнорируются.</p></li>
+<li><p>Анимации игнорируются.</p></li>
+</ul>
+<p>Список функций, поддерживаемых NanoSVG, можно найти
+<a class="reference external" href="https://core.tcl-lang.org/tips/doc/trunk/tip/507.md">здесь</a>.</p>
+<p>Рекомендуется преобразовывать всё, что в SVG-изображении не будет
+отображаться должным образом, в контуры.</p>
+<p>Ren'Py будет отображать SVG-изображения так, как если бы виртуальный
+экран имел разрешение 96 DPI. Если окно будет увеличено или уменьшено,
+SVG-изображение будет масштабировано соответственно, и будет использован
+<a class="reference internal" href="displaying_images.html#oversampling"><span class="std std-ref">оверсемплинг</span></a>, чтобы гарантировать, что изображение
+будет отображено в правильном виртуальном размере.</p>
+<p>Это гарантирует, что SVG будет отображаться чётко, если его не масштабировать.</p>
+</section>
+<section id="displayable">
+<h2>Изображе-подобные Displayable-объекты<a class="headerlink" href="#displayable" title="Ссылка на этот заголовок"></a></h2>
+<p>Мы называем эти displayable-объекты изображе-подобными, потому что они
+занимают прямоугольную область экрана и не реагируют на ввод. Они
+отличаются от обычных изображений тем, что изменяют свой размер для
+заполнения области (Frame, Tile и Solid) или позволяют пользователю
+указывать их размер (Composite, Crop, Null). Они не являются
+манипуляторами изображений.</p>
+<p>Изображе-подобные displayable-объекты принимают
+<a class="reference internal" href="style_properties.html#position-style-properties"><span class="std std-ref">свойства стиля для позиционирования</span></a>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="AlphaMask">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AlphaMask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AlphaMask" title="Ссылка на это определение"></a></dt>
+<dd><p>Этот отображаемый объект берёт свои цвета из <cite>child</cite>, а его альфа-канал
+– из произведения альфа-каналов <cite>child</cite> и <cite>mask</cite>.
+В результате получается отображаемый объект, имеющий те же цвета, что и <cite>child</cite>,
+прозрачный там, где <cite>child</cite> или <cite>mask</cite> прозрачны, и
+непрозрачный там, где <cite>child</cite> и <cite>mask</cite> непрозрачны.</p>
+<p>Параметры <cite>child</cite> и <cite>mask</cite> могут быть любыми отображаемыми объектами.
+Размер AlphaMask равен размеру <cite>child</cite>. Параметр <cite>invert</cite>
+может использоваться для инвертирования альфа-канала маски.</p>
+<p>Обратите внимание, что этот объект принимает другие аргументы, чем <a class="reference internal" href="im.html#im.AlphaMask" title="im.AlphaMask"><code class="xref py py-func docutils literal notranslate"><span class="pre">im.AlphaMask()</span></code></a>,
+который использует красный канал маски.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Borders">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Borders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad_left</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad_top</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad_right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad_bottom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Borders" title="Ссылка на это определение"></a></dt>
+<dd><p>Этот объект предоставляет информацию о размерах границ и замощении для <a class="reference internal" href="#Frame" title="Frame"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame()</span></code></a>.
+Он также может предоставлять информацию об отступах, которая может быть передана
+свойству стиля <a class="reference internal" href="style_properties.html#style-property-padding"><code class="xref std std-propref docutils literal notranslate"><span class="pre">padding</span></code></a> окна или фрейма.</p>
+<dl class="simple">
+<dt><cite>left</cite>, <cite>top</cite>, <cite>right</cite>, <cite>bottom</cite></dt><dd><p>Эти параметры задают размер отступов, используемых фреймом, и добавляются
+к отступу с каждой стороны. Они должны быть равны нулю или положительному целому числу.</p>
+</dd>
+<dt><cite>pad_left</cite>, <cite>pad_top</cite>, <cite>pad_right</cite>, <cite>pad_bottom</cite></dt><dd><p>Эти значения добавляются к отступу с каждой стороны и могут быть положительными или
+отрицательными. (Например, если <cite>left</cite> равно 5, а <cite>pad_left</cite> равно -3,
+конечный отступ будет 2.)</p>
+</dd>
+</dl>
+<p>Информация об отступах предоставляется через поле:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Borders.padding">
+<span class="sig-name descname"><span class="pre">padding</span></span><a class="headerlink" href="#Borders.padding" title="Ссылка на это определение"></a></dt>
+<dd><p>Это кортеж из четырёх элементов, содержащий отступы для каждой из
+четырёх сторон.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Composite">
+<span class="sig-name descname"><span class="pre">Composite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Composite" title="Ссылка на это определение"></a></dt>
+<dd><p>Создаёт новый отображаемый объект размера <cite>size</cite> путём композиции других
+отображаемых объектов. <cite>size</cite> – это кортеж (ширина, высота).</p>
+<p>Остальные позиционные аргументы используются для размещения изображений внутри
+Composite. Оставшиеся позиционные аргументы должны идти
+группами по два, где первый элемент каждой группы – это
+кортеж (x, y), а второй элемент группы – это отображаемый
+объект, который компонуется в этой позиции.</p>
+<p>Отображаемые объекты компонуются от заднего к переднему.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">eileen</span> <span class="n">composite</span> <span class="o">=</span> <span class="n">Composite</span><span class="p">(</span>
+    <span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">600</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="s2">&quot;body.png&quot;</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="s2">&quot;clothes.png&quot;</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="s2">&quot;expression.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Crop">
+<span class="sig-name descname"><span class="pre">Crop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">child</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Crop" title="Ссылка на это определение"></a></dt>
+<dd><p>Создаёт отображаемый объект путём обрезки <cite>child</cite> до <cite>rect</cite>, где
+<cite>rect</cite> – это кортеж (x, y, ширина, высота).</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">eileen</span> <span class="n">cropped</span> <span class="o">=</span> <span class="n">Crop</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span> <span class="s2">&quot;eileen happy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="DynamicImage">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DynamicImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DynamicImage" title="Ссылка на это определение"></a></dt>
+<dd><p>DynamicImage – это отображаемый объект, к которому применяется текстовая
+интерполяция для получения строки, задающей новый отображаемый объект.
+Такая интерполяция выполняется в начале каждого взаимодействия.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Flatten">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Flatten</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawable_resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Flatten" title="Ссылка на это определение"></a></dt>
+<dd><p>Этот объект &quot;сплющивает&quot; <cite>child</cite>, который может состоять из нескольких текстур,
+в одну текстуру.</p>
+<p>Некоторые операции, такие как свойство alpha transform, применяются к каждой
+текстуре, составляющей отображаемый объект, что может привести к неверным
+результатам, когда текстуры перекрываются на экране. Flatten создаёт
+одну текстуру из нескольких, что может предотвратить эту проблему.</p>
+<p>Flatten – относительно затратная операция, поэтому её следует использовать
+только при крайней необходимости.</p>
+<dl class="simple">
+<dt><cite>drawable_resolution</cite></dt><dd><p>По умолчанию имеет значение true, что обычно является правильным выбором, но может
+привести к тому, что результирующая текстура при масштабировании будет иметь
+артефакты, отличные от тех, что были у составляющих её текстур.
+Установка этого параметра в False изменит артефакты, что в некоторых случаях
+может выглядеть более приятно.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Frame">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">tile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Frame" title="Ссылка на это определение"></a></dt>
+<dd><p>Отображаемый объект, который изменяет размер изображения для заполнения доступной области,
+сохраняя при этом ширину и высоту его границ. Часто используется
+в качестве фона окна или кнопки.</p>
+<figure class="align-default" id="id12">
+<img alt="_images/frame_example.png" src="_images/frame_example.png" />
+<figcaption>
+<p><span class="caption-text">Использование фрейма для изменения размера изображения вдвое.</span><a class="headerlink" href="#id12" title="Ссылка на это изображение"></a></p>
+</figcaption>
+</figure>
+<dl class="simple">
+<dt><cite>image</cite></dt><dd><p>Манипулятор изображений, размер которого будет изменён этим фреймом.</p>
+</dd>
+<dt><cite>left</cite></dt><dd><p>Размер границы с левой стороны. Это также может быть
+объект <a class="reference internal" href="#Borders" title="Borders"><code class="xref py py-func docutils literal notranslate"><span class="pre">Borders()</span></code></a>, и в этом случае он используется вместо
+других параметров.</p>
+</dd>
+<dt><cite>top</cite></dt><dd><p>Размер границы сверху.</p>
+</dd>
+<dt><cite>right</cite></dt><dd><p>Размер границы с правой стороны. Если None, по умолчанию
+принимает значение <cite>left</cite>.</p>
+</dd>
+<dt><cite>bottom</cite></dt><dd><p>Размер границы снизу. Если None, по умолчанию
+принимает значение <cite>top</cite>.</p>
+</dd>
+<dt><cite>tile</cite></dt><dd><p>Если установлено в True, для изменения размера секций изображения используется
+замощение, а не масштабирование. Если установлено в строку &quot;integer&quot;,
+в каждом направлении будет использоваться ближайшее целое число
+плиток. Этот набор целых плиток затем будет увеличен или уменьшен
+для соответствия требуемой области.</p>
+</dd>
+</dl>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Изменяем размер фона текстового окна, если он слишком мал.</span>
+<span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="k">style</span><span class="o">.</span><span class="k">window</span><span class="o">.</span><span class="na">background</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="s2">&quot;frame.png&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Null">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Null</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Null" title="Ссылка на это определение"></a></dt>
+<dd><p>Отображаемый объект, который создаёт на экране пустой бокс. Размер
+бокса контролируется параметрами <cite>width</cite> и <cite>height</cite>. Может использоваться,
+когда отображаемый объект требует потомка, но подходящего потомка нет,
+или в качестве разделителя внутри бокса.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">logo</span> <span class="n">spaced</span> <span class="o">=</span> <span class="n">HBox</span><span class="p">(</span><span class="s2">&quot;logo.png&quot;</span><span class="p">,</span> <span class="n">Null</span><span class="p">(</span><span class="na">width</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span> <span class="s2">&quot;logo.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Solid">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Solid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Solid" title="Ссылка на это определение"></a></dt>
+<dd><p>Отображаемый объект, который заполняет отведённую ему область цветом <cite>color</cite>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">white</span> <span class="o">=</span> <span class="n">Solid</span><span class="p">(</span><span class="s2">&quot;#fff&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Tile">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Tile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tile'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Tile" title="Ссылка на это определение"></a></dt>
+<dd><p>Заполняет <cite>child</cite> плиткой до тех пор, пока он не заполнит область,
+выделенную для этого отображаемого объекта.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">bg</span> <span class="n">tile</span> <span class="o">=</span> <span class="n">Tile</span><span class="p">(</span><span class="s2">&quot;bg.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="id3">
+<h2>Текстовые Displayable-объекты<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>См. <a class="reference internal" href="text.html#text-displayables"><span class="std std-ref">Текстовые отображаемые объекты</span></a>.</p>
+</section>
+<section id="id4">
+<h2>Динамические Displayable-объекты<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<p>Динамические displayable-объекты отображают дочерний displayable
+в зависимости от состояния игры.</p>
+<p>Обратите внимание, что эти динамические displayable-объекты всегда
+отображают свое текущее состояние. Из-за этого динамический
+displayable не будет участвовать в переходе. (Или, точнее, он будет
+отображать одно и то же как в старом, так и в новом состоянии перехода.)</p>
+<p>По замыслу, динамические displayable-объекты предназначены для вещей,
+которые меняются редко и когда определённое таким образом изображение
+находится за пределами экрана (например, система кастомизации персонажа).
+Они не предназначены для вещей, которые меняются часто, например,
+для эмоций персонажа.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ConditionSwitch">
+<span class="sig-name descname"><span class="pre">ConditionSwitch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predict_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ConditionSwitch" title="Ссылка на это определение"></a></dt>
+<dd><p>Это отображаемый объект, который изменяет своё содержимое в зависимости от
+условий Python. Позиционные аргументы должны быть указаны
+группами по два, где каждая группа состоит из:</p>
+<ul class="simple">
+<li><p>Строки, содержащей условие Python.</p></li>
+<li><p>Отображаемого объекта для использования, если условие истинно.</p></li>
+</ul>
+<p>Отображается объект для первого истинного условия; по крайней мере
+одно условие всегда должно быть истинным.</p>
+<p>Используемые здесь условия не должны иметь внешне видимых побочных эффектов.</p>
+<dl class="simple">
+<dt><cite>predict_all</cite></dt><dd><p>Если True, все возможные отображаемые объекты будут предсказаны, когда
+отображаемый объект будет показан. Если False, предсказывается только текущее
+условие. Если None, используется <a class="reference internal" href="config.html#var-config.conditionswitch_predict_all"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.conditionswitch_predict_all</span></code></a>.</p>
+</dd>
+</dl>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">jill</span> <span class="o">=</span> <span class="n">ConditionSwitch</span><span class="p">(</span>
+    <span class="s2">&quot;jill_beers &gt; 4&quot;</span><span class="p">,</span> <span class="s2">&quot;jill_drunk.png&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;True&quot;</span><span class="p">,</span> <span class="s2">&quot;jill_sober.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="DynamicDisplayable">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DynamicDisplayable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DynamicDisplayable" title="Ссылка на это определение"></a></dt>
+<dd><p>Отображаемый объект, который может изменять своего потомка на основе функции
+Python в течение взаимодействия. Он не
+принимает никаких свойств, так как его компоновка контролируется
+свойствами дочернего отображаемого объекта, который он возвращает.</p>
+<dl>
+<dt><cite>function</cite></dt><dd><p>Функция, которая вызывается со следующими аргументами:</p>
+<ul class="simple">
+<li><p>Время, в течение которого отображаемый объект был показан.</p></li>
+<li><p>Время, в течение которого любой отображаемый объект с тем же тегом был показан.</p></li>
+<li><p>Любые позиционные или именованные аргументы, переданные в DynamicDisplayable.</p></li>
+</ul>
+<p>и должна возвращать кортеж (d, redraw), где:</p>
+<ul class="simple">
+<li><p><cite>d</cite> – это отображаемый объект для показа.</p></li>
+<li><p><cite>redraw</cite> – это максимальное время ожидания перед повторным вызовом
+функции, или None, если не требуется повторный вызов функции
+до начала следующего взаимодействия.</p></li>
+</ul>
+<p><cite>function</cite> вызывается в начале каждого взаимодействия.</p>
+</dd>
+</dl>
+<p>В качестве особого случая <cite>function</cite> также может быть строкой Python, которая
+вычисляется в отображаемый объект. В этом случае функция выполняется один раз за взаимодействие.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Показывает обратный отсчёт от 5 до 0, обновляя его каждую десятую</span>
+<span class="c1"># секунды до истечения времени.</span>
+<span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">show_countdown</span><span class="p">(</span><span class="n">st</span><span class="p">,</span> <span class="k">at</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">st</span> <span class="o">&gt;</span> <span class="mf">5.0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;0.0&quot;</span><span class="p">),</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.1f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">5.0</span> <span class="o">-</span> <span class="n">st</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">d</span><span class="p">,</span> <span class="mf">0.1</span>
+
+<span class="k">image</span> <span class="n">countdown</span> <span class="o">=</span> <span class="n">DynamicDisplayable</span><span class="p">(</span><span class="n">show_countdown</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ShowingSwitch">
+<span class="sig-name descname"><span class="pre">ShowingSwitch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predict_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ShowingSwitch" title="Ссылка на это определение"></a></dt>
+<dd><p>Это отображаемый объект, который изменяет своё содержимое в зависимости от
+изображений, показанных на экране. Позиционные аргументы
+должны быть указаны группами по два, где каждая группа состоит из:</p>
+<ul class="simple">
+<li><p>Строки, задающей имя изображения, или None для обозначения значения по умолчанию.</p></li>
+<li><p>Отображаемого объекта для использования, если условие истинно.</p></li>
+</ul>
+<p>Должно быть указано изображение по умолчанию.</p>
+<dl class="simple">
+<dt><cite>predict_all</cite></dt><dd><p>Если True, все возможные отображаемые объекты будут предсказаны, когда
+отображаемый объект будет показан. Если False, предсказывается только текущее
+условие. Если None, используется <a class="reference internal" href="config.html#var-config.conditionswitch_predict_all"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.conditionswitch_predict_all</span></code></a>.</p>
+</dd>
+</dl>
+<p>Одно из применений ShowingSwitch – это изменение изображений в зависимости от
+текущей эмоции персонажа. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">emotion_indicator</span> <span class="o">=</span> <span class="n">ShowingSwitch</span><span class="p">(</span>
+   <span class="s2">&quot;eileen concerned&quot;</span><span class="p">,</span> <span class="s2">&quot;emotion_indicator concerned&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;eileen vhappy&quot;</span><span class="p">,</span> <span class="s2">&quot;emotion_indicator vhappy&quot;</span><span class="p">,</span>
+   <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;emotion_indicator happy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="id5">
+<h2>Слоевые Displayable-объекты<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h2>
+<p>Слоевые displayable-объекты отображают содержимое слоя в зависимости
+от состояния игры. Они предназначены для использования с
+<a class="reference internal" href="config.html#var-config.detached_layers"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.detached_layers</span></code></a>.</p>
+<p>Обратите внимание, что, подобно динамическим displayable-объектам,
+отображаемые слои всегда показывают своё текущее состояние. Из-за этого
+содержимое слоевого displayable-объекта не будет участвовать в переходе,
+если только этот переход не нацелен на отображаемый слой.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Layer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">clipping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Layer" title="Ссылка на это определение"></a></dt>
+<dd><p>Это позволяет отображать слой как отображаемый объект на другом слое.
+Предназначено для использования с отсоединёнными слоями.</p>
+<p>Попытка отобразить слой на самом себе не поддерживается.</p>
+<dl>
+<dt><cite>layer</cite></dt><dd><p>Слой для отображения.</p>
+</dd>
+<dt><cite>clipping</cite></dt><dd><p>Если False, содержимое слоя может выходить за его границы,
+в противном случае всё, что выходит за границы, будет обрезано.</p>
+<p>Запись в config.layer_clipping приведёт к тому, что этот параметр будет
+проигнорирован, и обрезка будет происходить в соответствии с указанным
+в этой конфигурации.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Новый отсоединённый слой для содержимого трансляции.</span>
+<span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">detached_layers</span> <span class="o">+=</span> <span class="p">[</span> <span class="s2">&quot;broadcast&quot;</span> <span class="p">]</span>
+
+<span class="c1"># Слоевой displayable для представления телевизора и просмотра слоя broadcast.</span>
+<span class="k">image</span> <span class="n">tv</span> <span class="o">=</span> <span class="n">Window</span><span class="p">(</span><span class="n">Layer</span><span class="p">(</span><span class="s2">&quot;broadcast&quot;</span><span class="p">),</span> <span class="na">background</span><span class="o">=</span><span class="s1">&#39;#000&#39;</span><span class="p">,</span> <span class="na">padding</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="k">style</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+
+<span class="k">image</span> <span class="n">living_room</span> <span class="o">=</span> <span class="n">Placeholder</span><span class="p">(</span><span class="s1">&#39;bg&#39;</span><span class="p">,</span> <span class="k">text</span><span class="o">=</span><span class="s1">&#39;living_room&#39;</span><span class="p">)</span>
+<span class="k">image</span> <span class="n">studio</span> <span class="o">=</span> <span class="n">Solid</span><span class="p">(</span><span class="s1">&#39;7c7&#39;</span><span class="p">)</span>
+<span class="k">image</span> <span class="n">eileen</span> <span class="o">=</span> <span class="n">Placeholder</span><span class="p">(</span><span class="s1">&#39;girl&#39;</span><span class="p">)</span>
+
+<span class="k">label</span> <span class="n">example</span><span class="p">:</span>
+    <span class="k">pause</span>
+
+    <span class="c1"># Настраиваем сцену трансляции.</span>
+    <span class="k">scene</span> <span class="n">studio</span> <span class="k">onlayer</span> <span class="n">broadcast</span>
+    <span class="k">with</span> <span class="kc">None</span>
+
+    <span class="c1"># Начинаем новую сцену в гостиной.</span>
+    <span class="k">scene</span> <span class="n">living_room</span>
+
+    <span class="c1"># Показываем телевизор в правом нижнем углу экрана.</span>
+    <span class="k">show</span> <span class="n">tv</span><span class="p">:</span>
+      <span class="na">align</span> <span class="p">(</span><span class="mf">.75</span><span class="p">,</span> <span class="mf">.75</span><span class="p">)</span> <span class="na">zoom</span> <span class="mf">.3</span>
+
+    <span class="c1"># Показываем Эйлин в трансляции.</span>
+    <span class="k">show</span> <span class="n">eileen</span> <span class="k">onlayer</span> <span class="n">broadcast</span>
+
+    <span class="c1"># Переход с dissolve в гостиную, пока Эйлин въезжает на экран телевизора справа.</span>
+    <span class="k">with</span> <span class="p">{</span><span class="s1">&#39;master&#39;</span><span class="p">:</span> <span class="n">dissolve</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">:</span> <span class="n">moveinright</span><span class="p">}</span>
+    <span class="k">pause</span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h2>Контейнеры компоновки и сетки<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h2>
+<p>Контейнеры компоновки – это displayable-объекты, которые размещают
+свои дочерние элементы на экране. Они могут располагать дочерние
+элементы по горизонтали или вертикали, либо использовать стандартный
+алгоритм позиционирования.</p>
+<p>Displayable-объекты-контейнеры принимают любое количество позиционных
+и именованных аргументов. Позиционные аргументы должны быть
+displayable-объектами, которые добавляются в контейнер как дочерние
+элементы. Именованные аргументы – это свойства стиля, которые
+применяются к контейнеру.</p>
+<p>Контейнеры принимают
+<a class="reference internal" href="style_properties.html#position-style-properties"><span class="std std-ref">свойства стиля для позиционирования</span></a> и
+<a class="reference internal" href="style_properties.html#box-style-properties"><span class="std std-ref">свойства стиля для контейнеров</span></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="Fixed">
+<span class="sig-name descname"><span class="pre">Fixed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Fixed" title="Ссылка на это определение"></a></dt>
+<dd><p>Бокс, заполняющий весь экран. Его элементы
+располагаются от заднего к переднему, а их
+положение контролируется свойствами позиции.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="HBox">
+<span class="sig-name descname"><span class="pre">HBox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HBox" title="Ссылка на это определение"></a></dt>
+<dd><p>Бокс, располагающий свои элементы слева направо.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="VBox">
+<span class="sig-name descname"><span class="pre">VBox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#VBox" title="Ссылка на это определение"></a></dt>
+<dd><p>Макет, располагающий свои элементы сверху вниз.</p>
+</dd></dl>
+
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Отобразить два логотипа, один слева от другого.</span>
+<span class="k">image</span> <span class="n">logo</span> <span class="k">hbox</span> <span class="o">=</span> <span class="n">HBox</span><span class="p">(</span><span class="s2">&quot;logo.png&quot;</span><span class="p">,</span> <span class="s2">&quot;logo.png&quot;</span><span class="p">)</span>
+
+<span class="c1"># Отобразить два логотипа, один над другим.</span>
+<span class="k">image</span> <span class="n">logo</span> <span class="k">vbox</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">(</span><span class="s2">&quot;logo.png&quot;</span><span class="p">,</span> <span class="s2">&quot;logo.png&quot;</span><span class="p">)</span>
+
+<span class="c1"># Отобразить два логотипа. Поскольку по умолчанию оба они</span>
+<span class="c1"># находятся в верхнем левом углу экрана, нам нужно использовать Image,</span>
+<span class="c1"># чтобы разместить эти логотипы на экране.</span>
+<span class="k">image</span> <span class="n">logo</span> <span class="k">fixed</span> <span class="o">=</span> <span class="n">Fixed</span><span class="p">(</span>
+    <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;logo.png&quot;</span><span class="p">,</span> <span class="na">xalign</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="na">yalign</span><span class="o">=</span><span class="mf">0.0</span><span class="p">),</span>
+    <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;logo.png&quot;</span><span class="p">,</span> <span class="na">xalign</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="na">yalign</span><span class="o">=</span><span class="mf">1.0</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Компоновка Grid отображает свои дочерние элементы в виде сетки
+на экране. Она принимает
+<a class="reference internal" href="style_properties.html#position-style-properties"><span class="std std-ref">свойства стиля для позиционирования</span></a>
+и свойство стиля <a class="reference internal" href="style_properties.html#style-property-spacing"><code class="xref std std-propref docutils literal notranslate"><span class="pre">spacing</span></code></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="Grid">
+<span class="sig-name descname"><span class="pre">Grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rows</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Grid" title="Ссылка на это определение"></a></dt>
+<dd><p>Располагает отображаемые объекты в сетке. Первые два позиционных аргумента
+– это количество столбцов и строк в сетке. За ними должны
+следовать <cite>columns * rows</cite> позиционных аргументов, задающих
+отображаемые объекты, которые заполняют сетку.</p>
+</dd></dl>
+
+</section>
+<section id="id7">
+<h2>Эффекты<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h2>
+<p>Эти displayable-объекты используются для создания определённых
+визуальных эффектов.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="AlphaBlend">
+<span class="sig-name descname"><span class="pre">AlphaBlend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">control</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AlphaBlend" title="Ссылка на это определение"></a></dt>
+<dd><p>Этот переход использует отображаемый объект <cite>control</cite> (почти всегда какой-либо
+анимированный transform) для перехода от одного отображаемого объекта к другому.
+Transform оценивается. Отображаемый объект <cite>new</cite> используется там, где transform
+непрозрачен, а <cite>old</cite> – там, где он прозрачен.</p>
+<dl class="simple">
+<dt><cite>alpha</cite></dt><dd><p>Если true, изображение смешивается с тем, что находится за ним. Если false,
+(по умолчанию) изображение непрозрачно и перезаписывает то, что находится за ним.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="id8">
+<h2>Манипуляторы изображений<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h2>
+<p><a class="reference internal" href="im.html"><span class="doc">Манипуляторы изображений</span></a> – это исторический тип
+displayable-объектов, которые применяют преобразования или операции
+исключительно к другим изображениям или манипуляторам изображений,
+исключая другие типы displayable-объектов.</p>
+<p>Манипулятор изображений может быть использован в любом месте, где может
+быть использован displayable, но не наоборот. <a class="reference internal" href="#Image" title="Image"><code class="xref py py-func docutils literal notranslate"><span class="pre">Image()</span></code></a> является
+разновидностью манипулятора изображений, поэтому Image может
+использоваться везде, где требуется манипулятор изображений.</p>
+<p>Их использование является историческим. Ряд манипуляторов изображений,
+которые были документированы в далёком прошлом, больше не следует
+использовать, так как они страдают от врождённых проблем, и в целом
+(за исключением <a class="reference internal" href="im.html#im.Data" title="im.Data"><code class="xref py py-func docutils literal notranslate"><span class="pre">im.Data()</span></code></a>) displayable <a class="reference internal" href="transforms.html#Transform" title="Transform"><code class="xref py py-func docutils literal notranslate"><span class="pre">Transform()</span></code></a>
+предоставляет аналогичную функциональность, исправляя при этом проблемы.</p>
+<p>Список манипуляторов изображений см. в документации по
+<a class="reference internal" href="im.html"><span class="doc">манипуляторам изображений</span></a>.</p>
+</section>
+<section id="id9">
+<h2>Заполнители<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h2>
+<p>Displayable Placeholder используется для отображения фоновых или
+персонажных изображений по необходимости. Заполнители используются
+автоматически, когда в режиме разработчика используется неопределённое
+изображение. Displayable-объекты Placeholder также можно использовать
+вручную, когда стандартные варианты не подходят.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># По умолчанию будет использоваться заполнитель для девушки.</span>
+<span class="k">image</span> <span class="n">sue</span> <span class="o">=</span> <span class="n">Placeholder</span><span class="p">(</span><span class="s2">&quot;boy&quot;</span><span class="p">)</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="k">show</span> <span class="n">sue</span> <span class="n">angry</span>
+    <span class="s2">&quot;Sue&quot;</span> <span class="s2">&quot;How do you do? Now you gonna die!&quot;</span>
+</pre></div>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="Placeholder">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Placeholder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Placeholder" title="Ссылка на это определение"></a></dt>
+<dd><p>Этот displayable может быть использован для отображения временного персонажа (плейсхолдера)
+или фона.</p>
+<dl>
+<dt><cite>base</cite></dt><dd><p>Тип отображаемого изображения. Должен быть одним из следующих:</p>
+<dl>
+<dt>'bg'</dt><dd><p>Для отображения фона-плейсхолдера. В настоящее время
+это заливает экран светло-серым цветом и отображает
+имя изображения в верхней части экрана.</p>
+</dd>
+<dt>'boy'</dt><dd><p>Отображает плейсхолдер мужского типа с именем
+изображения на груди.</p>
+</dd>
+<dt>'girl'</dt><dd><p>Отображает плейсхолдер женского типа с именем
+изображения на груди.</p>
+</dd>
+<dt>None</dt><dd><p>Пытается автоматически определить тип используемого
+изображения. Если имя изображения начинается с &quot;bg&quot;, &quot;cg&quot; или
+&quot;event&quot;, используется 'bg'.</p>
+<p>В противном случае используется плейсхолдер 'girl'.</p>
+</dd>
+</dl>
+</dd>
+<dt><cite>full</cite></dt><dd><p>Если true, используется спрайт в полный рост. В противном случае,
+используется спрайт 3/4.</p>
+</dd>
+<dt><cite>flip</cite></dt><dd><p>Если true, спрайт отражается по горизонтали.</p>
+</dd>
+<dt><cite>text</cite></dt><dd><p>Если задан, на плейсхолдере не будет отображаться никакой другой
+текст, кроме этого. Если не задан, текст будет отражать
+инструкцию <cite>show</cite>, которая использовалась для его отображения.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="displayable-prefix">
+<span id="id10"></span><h2>Префиксы displayable-объектов<a class="headerlink" href="#displayable-prefix" title="Ссылка на этот заголовок"></a></h2>
+<p>Префиксы displayable-объектов позволяют создателю определять свои
+собственные displayable-объекты и ссылаться на них в любом месте, где в
+Ren'Py можно использовать displayable. Префиксный displayable – это строка
+с двоеточием. Префикс находится слева от двоеточия, а аргумент – всё,
+что справа от него. Переменная <a class="reference internal" href="config.html#var-config.displayable_prefix"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.displayable_prefix</span></code></a> сопоставляет
+префикс с функцией. Функция принимает аргумент и возвращает либо
+displayable, либо None.</p>
+<p>Например, этот код делает так, что префикс big возвращает изображение,
+которое в два раза больше оригинала.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="o">-</span><span class="mi">10</span> <span class="k">python</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">embiggen</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Transform</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="na">zoom</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">config</span><span class="o">.</span><span class="n">displayable_prefix</span><span class="p">[</span><span class="s2">&quot;big&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">embiggen</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">init</span> <span class="pre">-10</span></code> гарантирует, что префикс будет определён до любых изображений,
+которые его используют. Затем префикс можно использовать для определения
+изображений:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">eileen</span> <span class="n">big</span> <span class="o">=</span> <span class="s2">&quot;big:eileen happy&quot;</span>
+</pre></div>
+</div>
+<p>или в любом другом месте, где требуется displayable.</p>
+</section>
+<section id="id11">
+<h2>См. также<a class="headerlink" href="#id11" title="Ссылка на этот заголовок"></a></h2>
+<p><a class="reference internal" href="displaying_images.html"><span class="doc">Отображение изображений</span></a>: основы того, как заставить все эти
+displayable-объекты появиться на экране.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="translation.html" class="btn btn-neutral float-left" title="Перевод" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="transforms.html" class="btn btn-neutral float-right" title="Трансформации" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

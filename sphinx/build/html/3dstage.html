@@ -1,0 +1,653 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D-сцена &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/3dstage.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Live2D Cubism" href="live2d.html" />
+    <link rel="prev" title="Слоёные изображения" href="layeredimage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3D-сцена</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Координаты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Камера</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Использование 3D-сцены</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Глубина</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Матричные трансформации</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Структурное сходство</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#transformmatrix">TransformMatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">Встроенные подклассы TransformMatrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#OffsetMatrix"><code class="docutils literal notranslate"><span class="pre">OffsetMatrix</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#RotateMatrix"><code class="docutils literal notranslate"><span class="pre">RotateMatrix</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ScaleMatrix"><code class="docutils literal notranslate"><span class="pre">ScaleMatrix</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">Свойства трансформации</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Camera"><code class="docutils literal notranslate"><span class="pre">Camera</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">3D-сцена</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/3dstage.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="d">
+<span id="dstage"></span><h1>3D-сцена<a class="headerlink" href="#d" title="Ссылка на этот заголовок"></a></h1>
+<p>3D-сцена, названная в честь театральных подмостков, на которых разыгрываются спектакли, – это концепция, позволяющая размещать отображаемые объекты в трёх измерениях. Ren'Py отрисовывает их с правильной перспективой, а также делает доступным измерение Z, что позволяет реализовать такие вещи, как освещение и рендеринг глубины.</p>
+<section id="id1">
+<h2>Координаты<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
+<p>Вероятно, самое важное, что нужно понять о 3D-сцене, — это система координат, которую Ren'Py использует для 3D-состояния. Вот система координат, которая используется для размещения отображаемых объектов в 2D:</p>
+<img alt="_images/axes_3d_1.png" src="_images/axes_3d_1.png" />
+<p>В 2D прямоугольник соответствует размеру экрана, а ширина и высота видимой области задаются с помощью <a class="reference internal" href="gui_advanced.html#gui.init" title="gui.init"><code class="xref py py-func docutils literal notranslate"><span class="pre">gui.init()</span></code></a> (обычно при создании новой игры).</p>
+<img alt="_images/axes_3d_2.png" src="_images/axes_3d_2.png" />
+<p>3D-сцена расширяет эту систему координат новой осью, направленной к зрителю. Таким образом, значения больше 0 приближают изображение (и делают его больше), а значения меньше 0 отдаляют его от зрителя (и делают его меньше).</p>
+<img alt="_images/axes_3d_3.png" src="_images/axes_3d_3.png" />
+<p>Наконец, когда происходит вращение в 3D, оно происходит в указанных здесь направлениях:</p>
+<ul class="simple">
+<li><p>При вращении вокруг Z, X движется к Y.</p></li>
+<li><p>При вращении вокруг X, Y движется к Z.</p></li>
+<li><p>При вращении вокруг Y, Z движется к X.</p></li>
+</ul>
+<p>Эти системы координат основаны на тех, что используются в Ren'Py, что упрощает переход от 2D к 3D-сцене. При импорте 3D-моделей могут применяться преобразования координат, чтобы обеспечить их корректность.</p>
+</section>
+<section id="id2">
+<h2>Камера<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Начальное положение камеры контролируется параметрами <a class="reference internal" href="gui_advanced.html#gui.init" title="gui.init"><code class="xref py py-func docutils literal notranslate"><span class="pre">gui.init()</span></code></a>. Сначала Ren'Py использует <cite>width</cite> и <cite>fov</cite> для вычисления расстояния <cite>z</cite> по умолчанию. Для <cite>fov</cite> по умолчанию, равного 75:</p>
+<ul class="simple">
+<li><p>Когда width = 1280, z составляет примерно 834</p></li>
+<li><p>Когда width = 1920, z составляет примерно 1251</p></li>
+<li><p>Когда width = 3840, z составляет примерно 2502</p></li>
+</ul>
+<p>При этом фактическое значение z менее чем на 1 превышает приведённые здесь значения. Положение z по умолчанию можно переопределить с помощью стилевого свойства <a class="reference internal" href="#transform-property-perspective"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">perspective</span></code></a> или переменной <a class="reference internal" href="#var-config.perspective"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.perspective</span></code></a>.</p>
+<p>Ren'Py автоматически применяет к камере смещение (<cite>width</cite> / 2, <cite>height</cite> / 2, <cite>z</cite>), и она смотрит вдоль оси -Z.</p>
+<p>Расстояние <cite>z</cite> – это также расстояние от камеры до плоскости, на которой пиксели на экране имеют тот же размер, что и в исходных изображениях (без учёта масштабирования окна). Увеличение z-позиции камеры сделает всё меньше, а уменьшение — больше.</p>
+<p>Наконец, <a class="reference internal" href="#transform-property-perspective"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">perspective</span></code></a> и <a class="reference internal" href="#var-config.perspective"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.perspective</span></code></a> описывают ближнюю и дальнюю плоскости отсечения, которые по умолчанию равны 100 и 100000 соответственно. Это означает, что если изображение находится ближе 100 z-единиц к камере, оно исчезает, а также исчезает, если оно находится на расстоянии более 100 000 z-единиц.</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config.perspective">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">config.perspective</span></span> <span class="pre">=</span> <span class="pre">(100,</span> <span class="pre">z,</span> <span class="pre">100000)</span><a class="headerlink" href="#var-config.perspective" title="Ссылка на это определение"></a></dt>
+<dd><p>Значение по умолчанию, используемое, когда <a class="reference internal" href="#transform-property-perspective"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">perspective</span></code></a> не задано в виде кортежа из трёх элементов. <code class="docutils literal notranslate"><span class="pre">z</span></code> зависит от размера игры, как описано выше.</p>
+</dd></dl>
+
+</section>
+<section id="id3">
+<h2>Использование 3D-сцены<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Первое, что нужно сделать для использования 3D-сцены, — это включить её для слоя с помощью оператора <code class="docutils literal notranslate"><span class="pre">camera</span></code>. Если имя слоя не указано, по умолчанию используется <code class="docutils literal notranslate"><span class="pre">master</span></code>. Обычно это делается так:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Включение 3D-сцены для слоя master.</span>
+<span class="k">camera</span><span class="p">:</span>
+    <span class="na">perspective</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>хотя, возможно, вы захотите включить позицию камеры по умолчанию, как описано ниже.</p>
+<p>Как вариант, можно указать конкретное имя слоя, чтобы включить 3D-сцену только для него.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Включение 3D-сцены для слоя background.</span>
+<span class="k">camera</span> <span class="na">background</span><span class="p">:</span>
+    <span class="na">perspective</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Отображение изображений (фонов и спрайтов) работает так же, как и при использовании 2D-координат.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">scene</span> <span class="n">bg</span> <span class="n">washington</span>
+
+<span class="k">show</span> <span class="n">lucy</span> <span class="n">mad</span> <span class="k">at</span> <span class="n">right</span>
+
+<span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span>
+</pre></div>
+</div>
+<p>Однако можно использовать трансформации для перемещения этих отображаемых объектов в трёхмерном пространстве:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">scene</span> <span class="n">bg</span> <span class="n">washington</span><span class="p">:</span>
+    <span class="na">xalign</span> <span class="mf">0.5</span> <span class="na">yalign</span> <span class="mf">1.0</span> <span class="na">zpos</span> <span class="o">-</span><span class="mi">1000</span>
+
+<span class="k">show</span> <span class="n">lucy</span> <span class="n">mad</span><span class="p">:</span>
+    <span class="na">xalign</span> <span class="mf">1.0</span> <span class="na">yalign</span> <span class="mf">1.0</span> <span class="na">zpos</span> <span class="mi">100</span>
+
+<span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span><span class="p">:</span>
+    <span class="na">xalign</span> <span class="mf">0.5</span> <span class="na">yalign</span> <span class="mf">1.0</span> <span class="na">zpos</span> <span class="mi">200</span>
+</pre></div>
+</div>
+<p>Поскольку задана ATL-трансформация, трансформация по умолчанию не используется, и необходимо указать <a class="reference internal" href="transform_properties.html#transform-property-xalign"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">xalign</span></code></a> и <a class="reference internal" href="transform_properties.html#transform-property-yalign"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">yalign</span></code></a> для позиционирования отображаемого объекта по осям X и Y. Конечно, можно использовать и именованные трансформации.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">zbg</span><span class="p">:</span>
+    <span class="na">zpos</span> <span class="o">-</span><span class="mi">100</span>
+
+<span class="k">transform</span> <span class="n">z100</span><span class="p">:</span>
+    <span class="na">zpos</span> <span class="mi">100</span>
+
+<span class="k">transform</span> <span class="n">z200</span><span class="p">:</span>
+    <span class="na">zpos</span> <span class="mi">200</span>
+
+<span class="k">scene</span> <span class="n">bg</span> <span class="n">washington</span> <span class="k">at</span> <span class="n">center</span><span class="p">,</span> <span class="n">zbg</span>
+
+<span class="k">show</span> <span class="n">lucy</span> <span class="n">mad</span> <span class="k">at</span> <span class="n">right</span><span class="p">,</span> <span class="n">z100</span>
+
+<span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">center</span><span class="p">,</span> <span class="n">z200</span>
+</pre></div>
+</div>
+<p>Если вы попробуете это, то увидите пустое пространство вокруг фона. Это происходит потому, что при смещении назад фон становится меньше и не заполняет весь экран. В Ren'Py есть простой способ решить эту проблему — <a class="reference internal" href="#transform-property-zzoom"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">zzoom</span></code></a>. Установка свойства <a class="reference internal" href="#transform-property-zzoom"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">zzoom</span></code></a> в <cite>True</cite> масштабирует изображение на величину, на которую оно было уменьшено из-за отрицательного <cite>zpos</cite>. Это полезно для фонов.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">zbg</span><span class="p">:</span>
+    <span class="na">zpos</span> <span class="o">-</span><span class="mi">100</span> <span class="na">zzoom</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Также возможно использовать ATL для изменения <cite>zpos</cite>, так же, как вы бы делали с <cite>xpos</cite> и <cite>ypos</cite>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">center</span><span class="p">:</span>
+    <span class="na">zpos</span> <span class="mi">0</span>
+    <span class="n">linear</span> <span class="mf">4.0</span> <span class="na">zpos</span> <span class="mi">200</span>
+</pre></div>
+</div>
+<p>Обратите внимание, что <cite>zpos</cite> может странно взаимодействовать с такими позициями, как <code class="docutils literal notranslate"><span class="pre">left</span></code> и <code class="docutils literal notranslate"><span class="pre">right</span></code>, а также со свойствами <a class="reference internal" href="style_properties.html#style-property-xalign"><code class="xref std std-propref docutils literal notranslate"><span class="pre">xalign</span></code></a> и <a class="reference internal" href="style_properties.html#style-property-yalign"><code class="xref std std-propref docutils literal notranslate"><span class="pre">yalign</span></code></a>. Это связано с тем, что Ren'Py располагает изображения в трёхмерном прямоугольном объёме (подобно кубу, но не все стороны имеют одинаковую длину), а затем применяет к изображению перспективу, что может привести к смещению частей изображения за пределы экрана.</p>
+<p>Также можно перемещать камеру с помощью <code class="docutils literal notranslate"><span class="pre">camera</span></code>. Например,</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">camera</span><span class="p">:</span>
+    <span class="na">perspective</span> <span class="kc">True</span>
+    <span class="na">xpos</span> <span class="mi">0</span>
+    <span class="n">linear</span> <span class="mf">3.0</span> <span class="na">xpos</span> <span class="mi">500</span>
+</pre></div>
+</div>
+<p>При этом, вероятно, имеет смысл использовать фоновые изображения, размер которых превышает размер окна.</p>
+<p>Если вы применяете <cite>zpos</cite> к спрайту, но это не даёт эффекта, причина, скорее всего, в том, что вы пропустили блок <code class="docutils literal notranslate"><span class="pre">perspective</span></code> в трансформации <code class="docutils literal notranslate"><span class="pre">camera</span></code>.</p>
+<p>Камеру можно вращать с помощью:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">camera</span><span class="p">:</span>
+    <span class="na">perspective</span> <span class="kc">True</span>
+    <span class="na">rotate</span> <span class="mi">45</span>
+</pre></div>
+</div>
+<p>Поскольку вращается именно камера, вращение происходит в направлении, противоположном вращению отображаемого объекта.</p>
+</section>
+<section id="id4">
+<h2>Глубина<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<p>По умолчанию Ren'Py будет отображать изображения в своём обычном порядке: последнее показанное изображение будет находиться поверх остальных. Это может приводить к странным результатам, например, когда изображение, которое находится ближе (с учётом перспективы), отображается за тем, которое находится дальше.</p>
+<p>Если ваша игра отображает изображения в неправильном порядке, вы можете указать GPU сортировать их по глубине с помощью <code class="xref std std-tpref docutils literal notranslate"><span class="pre">gl_depth</span></code>:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">camera</span><span class="p">:</span>
+    <span class="na">perspective</span> <span class="kc">True</span>
+    <span class="na">gl_depth</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Небольшие ошибки округления могут привести к тому, что изображения, номинально находящиеся на одной и той же глубине, будут отображаться одно над другим или одно под другим. Решением этой проблемы может быть сведение этих изображений в одно и их совместное отображение.</p>
+</section>
+<section id="id5">
+<h2>Матричные трансформации<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py использует свойство трансформации <a class="reference internal" href="#transform-property-matrixtransform"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixtransform</span></code></a> для применения матрицы к отображаемым объектам, что позволяет масштабировать, смещать и вращать изображение в трёхмерном пространстве. Это свойство принимает либо <a class="reference internal" href="matrix.html#Matrix" title="Matrix"><code class="xref py py-func docutils literal notranslate"><span class="pre">Matrix()</span></code></a>, либо <cite>TransformMatrix</cite> (определённый ниже) и применяет его к вершинам в углах отображаемых изображений.</p>
+<p>Ren'Py использует свойство трансформации <a class="reference internal" href="#transform-property-matrixanchor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixanchor</span></code></a>, чтобы упростить применение матрицы. По умолчанию оно равно (0.5, 0.5) и преобразуется в пиксельное смещение внутри трансформируемого изображения с использованием обычных правил якорей Ren'Py. (Если это целое число или absolute, оно считается количеством пикселей, в противном случае — долей от размера изображения.)</p>
+<p>Ren'Py применяет трансформацию, сначала смещая изображение так, чтобы якорь находился в точке (0, 0, 0). Затем он применяет трансформацию и смещает изображение обратно на ту же величину. При значениях по умолчанию это означает, что матрица будет применена к центру изображения.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">center</span><span class="p">:</span>
+    <span class="na">matrixtransform</span> <span class="n">RotateMatrix</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Это повернёт изображение вокруг горизонтальной линии, проходящей через его центр. Верхняя часть изображения сместится назад, а нижняя — вперёд.</p>
+<p>Матрицы можно объединять в цепочку с помощью умножения. Проще всего представлять, что они применяются справа налево. В этом примере:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">center</span><span class="p">:</span>
+    <span class="na">matrixtransform</span> <span class="n">RotateMatrix</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">OffsetMatrix</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Изображение будет смещено вверх на 300 пикселей, а затем повёрнуто вокруг оси X.</p>
+<section id="id6">
+<h3>Структурное сходство<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h3>
+<p>В ATL интерполяция свойства <a class="reference internal" href="#transform-property-matrixtransform"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixtransform</span></code></a> требует использования объектов <cite>TransformMatrix</cite>, имеющих структурное сходство. Это означает, что должны использоваться те же типы <cite>TransformMatrix</cite>, перемноженные в том же порядке.</p>
+<p>Например, следующий код повернёт и сместит изображение, а затем вернёт его в исходное состояние:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">center</span><span class="p">:</span>
+    <span class="na">matrixtransform</span> <span class="n">RotateMatrix</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">OffsetMatrix</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">linear</span> <span class="mf">2.0</span> <span class="na">matrixtransform</span> <span class="n">RotateMatrix</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">OffsetMatrix</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">linear</span> <span class="mf">2.0</span> <span class="na">matrixtransform</span> <span class="n">RotateMatrix</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">OffsetMatrix</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Хотя первая установка <cite>matrixtransform</cite> может показаться излишней, она необходима для создания основы для первой линейной интерполяции. Если бы её не было, эта интерполяция была бы пропущена.</p>
+</section>
+</section>
+<section id="transformmatrix">
+<h2>TransformMatrix<a class="headerlink" href="#transformmatrix" title="Ссылка на этот заголовок"></a></h2>
+<p>Хотя объекты <cite>Matrix</cite> подходят для статических трансформаций, они не годятся для анимации изменяющихся трансформаций. Также полезно иметь способ брать стандартные матрицы и инкапсулировать их так, чтобы их можно было параметризовать.</p>
+<p><cite>TransformMatrix</cite> — это базовый класс, который расширяется рядом классов, создающих матрицы. Экземпляры <cite>TransformMatrix</cite> вызываются Ren'Py и возвращают объекты <cite>Matrix</cite>. <cite>TransformMatrix</cite> хорошо интегрирован с ATL, что позволяет анимировать <cite>matrixtransform</cite>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="na">xrotate</span><span class="p">:</span>
+    <span class="na">matrixtransform</span> <span class="n">RotateMatrix</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">linear</span> <span class="mf">4.0</span> <span class="na">matrixtransform</span> <span class="n">RotateMatrix</span><span class="p">(</span><span class="mf">360.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">repeat</span>
+</pre></div>
+</div>
+<p>Ожидается, что подклассы <cite>TransformMatrix</cite> будут реализовывать метод <code class="docutils literal notranslate"><span class="pre">__call__</span></code>. Этот метод принимает:</p>
+<ul class="simple">
+<li><p>Старый объект для интерполяции. Этот объект может быть любого класса и может быть <cite>None</cite>, если старого объекта не существует.</p></li>
+<li><p>Значение от 0.0 до 1.0, представляющее точку интерполяции. 0.0 — это полностью старый объект, а 1.0 — полностью новый объект.</p></li>
+</ul>
+</section>
+<section id="id7">
+<h2>Встроенные подклассы TransformMatrix<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">См. также</p>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">SplineMatrix</span></code>, который работает с подклассами TransformMatrix.</p>
+</div>
+<p>Ниже приведён список подклассов TransformMatrix, встроенных в Ren'Py.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="OffsetMatrix">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OffsetMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OffsetMatrix" title="Ссылка на это определение"></a></dt>
+<dd><p>TransformMatrix, которая возвращает матрицу, смещающую вершину (vertex) на фиксированную величину.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="RotateMatrix">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RotateMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RotateMatrix" title="Ссылка на это определение"></a></dt>
+<dd><p>TransformMatrix, которая возвращает матрицу, вращающую displayable вокруг
+начала координат.</p>
+<dl class="simple">
+<dt><cite>x</cite>, <cite>y</cite>, <cite>z</cite></dt><dd><p>Величина поворота вокруг начала координат, в градусах.</p>
+</dd>
+</dl>
+<p>Повороты применяются в следующем порядке:</p>
+<ul class="simple">
+<li><p>Поворот по часовой стрелке на <cite>x</cite> градусов в плоскости Y/Z.</p></li>
+<li><p>Поворот по часовой стрелке на <cite>y</cite> градусов в плоскости Z/X.</p></li>
+<li><p>Поворот по часовой стрелке на <cite>z</cite> градусов в плоскости X/Y.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ScaleMatrix">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ScaleMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ScaleMatrix" title="Ссылка на это определение"></a></dt>
+<dd><p>TransformMatrix, которая возвращает матрицу, масштабирующую displayable.</p>
+<dl class="simple">
+<dt><cite>x</cite>, <cite>y</cite>, <cite>z</cite></dt><dd><p>Коэффициент масштабирования для каждой оси.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="id8">
+<h2>Свойства трансформации<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h2>
+<p>Следующие свойства трансформации используются 3D-сценой.</p>
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-matrixanchor">
+<span class="sig-name descname"><span class="pre">matrixanchor</span></span><a class="headerlink" href="#transform-property-matrixanchor" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(position, position)</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>(0.5, 0.5)</p>
+</dd>
+</dl>
+<p>Задаёт положение якоря матрицы относительно изображения. Если переменные являются float, то положение задаётся относительно размера дочернего объекта, в противном случае — в абсолютных пикселях.</p>
+<p>Это устанавливает положение точки (0, 0, 0), к которой <cite>point_to</cite>, <cite>orientation</cite>, <cite>xrotate</cite>, <cite>yrotate</cite>, <cite>zrotate</cite> и <cite>matrixtransform</cite> применяют свои трансформации.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-point_to">
+<span class="sig-name descname"><span class="pre">point_to</span></span><a class="headerlink" href="#transform-property-point_to" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(float, float, float), Camera или None</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Задаёт позицию, на которую нужно указывать. Камера или трансформируемый отображаемый объект поворачиваются лицом к этой точке, даже если положение камеры или отображаемого объекта изменяется.</p>
+<p>Если это <cite>None</cite>, вращение к точке интереса не применяется.</p>
+<p>Если не <cite>None</cite>, то это кортеж из 3 элементов или экземпляр <a class="reference internal" href="#Camera" title="Camera"><code class="xref py py-func docutils literal notranslate"><span class="pre">Camera()</span></code></a>. Кортеж формата (x, y, z) представляет позицию точки интереса. Экземпляр <cite>Camera</cite> означает, что нужно указывать на камеру.</p>
+<p>Обратите внимание, что <cite>point_to</cite> не обновляется автоматически. Поэтому, если вы хотите, чтобы он обновлялся, пишите так, как показано ниже:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Эйлин всегда смотрит на камеру.</span>
+<span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">center</span><span class="p">:</span>
+    <span class="na">point_to</span> <span class="n">Camera</span><span class="p">()</span>
+    <span class="mi">0</span>
+    <span class="k">repeat</span>
+</pre></div>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="Camera">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Camera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'master'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Camera" title="Ссылка на это определение"></a></dt>
+<dd><p>Экземпляры этого класса могут использоваться с <cite>point_to</cite>, чтобы указать
+на местоположение камеры для определённого слоя.</p>
+<dl class="simple">
+<dt><cite>layer</cite></dt><dd><p>Имя слоя.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-orientation">
+<span class="sig-name descname"><span class="pre">orientation</span></span><a class="headerlink" href="#transform-property-orientation" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(float, float, float) или None</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Вращает камеру или отображаемый объект. Три значения — это вращения по осям X, Y и Z в градусах. Вращения применяются в порядке x, y, z для отображаемых объектов и в порядке z, y, x для камеры.</p>
+<p>При использовании интерполяции с <cite>orientation</cite>, выбирается кратчайший путь между старой и новой ориентацией.</p>
+<p>Если это <cite>None</cite>, ориентация не применяется.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-xrotate">
+<span class="sig-name descname"><span class="pre">xrotate</span></span><a class="headerlink" href="#transform-property-xrotate" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float или None</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Вращает камеру или отображаемый объект вокруг оси X. Значение — это вращение в градусах. Вращения применяются к отображаемым объектам в порядке x, y, z. Вращения применяются к камере в порядке z, y, x.</p>
+<p>Если это <cite>None</cite>, вращение по оси X не применяется.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-yrotate">
+<span class="sig-name descname"><span class="pre">yrotate</span></span><a class="headerlink" href="#transform-property-yrotate" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float или None</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Вращает камеру или отображаемый объект вокруг оси Y. Значение — это вращение в градусах. Вращения применяются к отображаемым объектам в порядке x, y, z. Вращения применяются к камере в порядке z, y, x.</p>
+<p>Если это <cite>None</cite>, вращение по оси Y не применяется.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-zrotate">
+<span class="sig-name descname"><span class="pre">zrotate</span></span><a class="headerlink" href="#transform-property-zrotate" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float или None</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Вращает камеру или отображаемый объект вокруг оси Z. Значение — это вращение в градусах. Вращения применяются к отображаемым объектам в порядке x, y, z. Вращения применяются к камере в порядке z, y, x.</p>
+<p>Если это <cite>None</cite>, вращение по оси Z не применяется.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-matrixtransform">
+<span class="sig-name descname"><span class="pre">matrixtransform</span></span><a class="headerlink" href="#transform-property-matrixtransform" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None или Matrix или TransformMatrix</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если не <cite>None</cite>, задаёт матрицу, которая используется для трансформации вершин дочернего объекта. Трансформация преобразует координаты, используемые экраном, в координаты, используемые дочерним объектом.</p>
+<p>Интерполяции с этим свойством поддерживаются только при использовании <cite>TransformMatrix</cite> и когда значения <cite>TransformMatrix</cite> структурно подобны, как описано выше.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-perspective">
+<span class="sig-name descname"><span class="pre">perspective</span></span><a class="headerlink" href="#transform-property-perspective" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True или False или Float или (Float, Float, Float)</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>При применении к трансформации включает рендеринг в перспективе. Принимает кортеж из трёх элементов: ближняя плоскость отсечения, z-расстояние до плоскости 1:1 и дальняя плоскость отсечения.</p>
+<p>Если задано одно число (float), расстояния до ближней и дальней плоскостей берутся из <a class="reference internal" href="#var-config.perspective"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.perspective</span></code></a>. Если <cite>True</cite>, все три значения берутся из этой переменной.</p>
+<p>Когда <cite>perspective</cite> не равно <cite>False</cite>, значения <a class="reference internal" href="transform_properties.html#transform-property-xpos"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">xpos</span></code></a>, <a class="reference internal" href="transform_properties.html#transform-property-ypos"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">ypos</span></code></a>, <a class="reference internal" href="#transform-property-zpos"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">zpos</span></code></a> и <a class="reference internal" href="transform_properties.html#transform-property-rotate"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">rotate</span></code></a> инвертируются, создавая эффект позиционирования камеры, а не дочернего объекта.</p>
+<p>Поскольку предполагается, что трансформация перспективы выровнена по окну, не имеет смысла изменять её положение с помощью <a class="reference internal" href="transform_properties.html#transform-property-xanchor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">xanchor</span></code></a> и <a class="reference internal" href="transform_properties.html#transform-property-yanchor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">yanchor</span></code></a> или свойств, которые их устанавливают, таких как <a class="reference internal" href="transform_properties.html#transform-property-anchor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">anchor</span></code></a>, <a class="reference internal" href="transform_properties.html#transform-property-align"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">align</span></code></a>, <code class="xref std std-tpref docutils literal notranslate"><span class="pre">center</span></code> и т.д.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-zpos">
+<span class="sig-name descname"><span class="pre">zpos</span></span><a class="headerlink" href="#transform-property-zpos" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>0</p>
+</dd>
+</dl>
+<p>Смещает дочерний объект вдоль оси Z. Когда <cite>perspective</cite> равно <cite>False</cite>, это значение используется напрямую, в противном случае оно умножается на -1 и используется.</p>
+<p>Если установка этого свойства приводит к исчезновению дочернего объекта, вероятно, для данной трансформации не активен режим перспективы.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-zzoom">
+<span class="sig-name descname"><span class="pre">zzoom</span></span><a class="headerlink" href="#transform-property-zzoom" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>False</p>
+</dd>
+</dl>
+<p>Если <cite>True</cite>, определяется z-расстояние до плоскости 1:1 (<cite>zone</cite>), а также <cite>zpos</cite> данного отображаемого объекта. Затем дочерний объект масштабируется по осям X и Y на величину (<cite>zone</cite> - <cite>zpos</cite>) / <cite>zone</cite>.</p>
+<p>Предполагаемое использование этого свойства — отображение фона с отрицательным <cite>zpos</cite>, что обычно делает фон маленьким. Установка этого свойства в <cite>True</cite> означает, что фон будет отображаться в размере 1:1.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="layeredimage.html" class="btn btn-neutral float-left" title="Слоёные изображения" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="live2d.html" class="btn btn-neutral float-right" title="Live2D Cubism" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

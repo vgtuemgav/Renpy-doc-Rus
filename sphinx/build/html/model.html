@@ -1,0 +1,1106 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Рендеринг на основе моделей &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/model.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Прочие функции и переменные" href="other.html" />
+    <link rel="prev" title="Matrix" href="matrix.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Рендеринг на основе моделей</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#render">Модели, Render'ы и операции отрисовки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Где создаются модели</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Генерация шейдерных программ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-shaders">Создание пользовательского шейдера</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.register_shader"><code class="docutils literal notranslate"><span class="pre">renpy.register_shader()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#shader-local-variables">Локальные переменные части шейдера</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">Трансформы и рендеринг на основе моделей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">Функции смешивания</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uniform-float-sampler-vector">Uniform-переменные типа float, sampler и vector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uniform">Матричные uniform-переменные</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">Атрибуты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gl">GL-свойства</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gltfmodel">Отображаемый объект GLTFModel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#GLTFModel"><code class="docutils literal notranslate"><span class="pre">GLTFModel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Ограничения</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">Отображаемый объект Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Model"><code class="docutils literal notranslate"><span class="pre">Model</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Model.child"><code class="docutils literal notranslate"><span class="pre">Model.child()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Model.grid_mesh"><code class="docutils literal notranslate"><span class="pre">Model.grid_mesh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Model.property"><code class="docutils literal notranslate"><span class="pre">Model.property()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Model.shader"><code class="docutils literal notranslate"><span class="pre">Model.shader()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Model.texture"><code class="docutils literal notranslate"><span class="pre">Model.texture()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Model.uniform"><code class="docutils literal notranslate"><span class="pre">Model.uniform()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Примеры отображаемого объекта Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">Анимированные шейдеры</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">Части шейдеров</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Рендеринг на основе моделей</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/model.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="model">
+<span id="id1"></span><h1>Рендеринг на основе моделей<a class="headerlink" href="#model" title="Ссылка на этот заголовок"></a></h1>
+<p>Хотя Ren'Py в основном используется с двумерными прямоугольными изображениями, что характерно для визуальных новелл, под капотом у него есть модельный рендерер, предназначенный для использования возможностей современных ГП (GPU). Это позволяет реализовать ряд визуальных эффектов, которые были бы невозможны в ином случае.</p>
+<p>Внимание: это одна из самых продвинутых функций, доступных в Ren'Py.
+Во многих случаях нет необходимости понимать, как работает рендеринг на основе моделей — такие функции, как <a class="reference internal" href="transform_properties.html#transform-property-matrixcolor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixcolor</span></code></a> и поддержка Live2D, можно использовать, не вникая в принципы работы модельного рендеринга, и в будущем будет добавлено больше таких функций. Эта документация предназначена для очень продвинутых разработчиков, а также для тех, кто хочет внести свой вклад в сам Ren'Py.</p>
+<p>Рендеринг на основе моделей — одна из самых сложных функций в Ren'Py, и
+эта документация может быть трудна для понимания без предварительного изучения
+руководств по OpenGL, OpenGL ES, GLSL и GLSL ES. Более того, поскольку
+некоторые части моделей передаются напрямую драйверам вашего ГП, которые
+могут принимать ошибочные данные, важно проводить тестирование на различных
+типах оборудования.</p>
+<section id="render">
+<h2>Модели, Render'ы и операции отрисовки<a class="headerlink" href="#render" title="Ссылка на этот заголовок"></a></h2>
+<p>Фундаментальный элемент, который Ren'Py отрисовывает на экране, — это модель. Модель
+состоит из следующих частей:</p>
+<ul class="simple">
+<li><p>Меш (сетка) из одного или нескольких треугольников. Треугольник состоит
+из трёх вершин (углов), каждая из которых содержит позицию в двух- или
+трёхмерном пространстве и может содержать дополнительную информацию, чаще
+всего текстурные координаты.</p></li>
+<li><p>Ноль или более текстур, причём точное количество ограничено ГП, на которых
+может работать ваша игра. Все ГП должны поддерживать как минимум три текстуры
+на модель. Текстура — это прямоугольник с данными изображения, загруженный
+в ГП либо напрямую, либо с помощью операции рендеринга в текстуру.</p></li>
+<li><p>Список имён частей шейдера. Ren'Py использует эти части для создания шейдеров —
+программ, выполняемых на ГП для рендеринга модели. Именам частей шейдера
+можно добавить префикс «-», чтобы предотвратить использование этой части.</p></li>
+<li><p>Uniform-переменные. Uniform — это дополнительные данные, которые остаются
+неизменными для всей модели. Например, когда модель представляет сплошной
+цвет, этот цвет является uniform-переменной.</p></li>
+<li><p>GL-свойства. GL-свойства — это флаги, которые дополнительно управляют
+рендерингом, такие как режимы минификации/магнификации и
+цветовая маска.</p></li>
+</ul>
+<p>Поскольку Ren'Py обычно отрисовывает на экране более одного элемента, он создаёт
+дерево объектов <code class="xref py py-class docutils literal notranslate"><span class="pre">Render</span></code>. Эти объекты Render могут иметь в качестве дочерних
+элементов модели или другие Render'ы. (Объект Render также можно превратить в
+модель, как описано ниже.) Объект Render содержит:</p>
+<ul class="simple">
+<li><p>Список дочерних элементов, включая двумерное смещение, применяемое к
+каждому из них.</p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Матрицу</span></code>, описывающую, как дочерние элементы преобразуются в
+трёхмерном пространстве.</p></li>
+<li><p>Списки имён частей шейдера, uniform-переменных и GL-свойств, которые
+применяются к моделям во время отрисовки.</p></li>
+<li><p>Флаги, определяющие, следует ли обновлять отсекающий полигон
+в пространстве отображения.</p></li>
+</ul>
+<p>Ren'Py отрисовывает экран, выполняя обход дерева объектов Render в глубину, пока
+не встретит модель. Во время этого обхода Ren'Py обновляет матрицу
+трансформации положения модели, отсекающий полигон, а также
+списки частей шейдера, uniform-переменных и GL-свойств. Когда в процессе обхода
+встречается модель, на ГП активируется соответствующая шейдерная программа,
+передаётся вся информация, и происходит операция отрисовки.</p>
+</section>
+<section id="id2">
+<h2>Где создаются модели<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py создаёт модели автоматически в ходе своей обычной работы.
+Основная причина понимать, где создаются модели, заключается в том, что модели
+соответствуют операциям отрисовки и, следовательно, являются теми единицами,
+к которым применяются шейдеры.</p>
+<dl>
+<dt>Изображения и манипуляторы изображений</dt><dd><p>Они создают модель с мешем, содержащим два треугольника, которые
+покрывают прямоугольник изображения. Меш содержит текстурные координаты.
+Модель использует шейдер «renpy.texture».</p>
+</dd>
+<dt><a class="reference internal" href="displayables.html#Solid" title="Solid"><code class="xref py py-func docutils literal notranslate"><span class="pre">Solid()</span></code></a></dt><dd><p>Отображаемый объект Solid создаёт меш, содержащий два треугольника, без
+текстурных координат. Модель использует шейдер «renpy.solid»,
+а цвет передаётся в uniform-переменную <code class="docutils literal notranslate"><span class="pre">u_renpy_solid_color</span></code>.</p>
+</dd>
+<dt><a class="reference internal" href="transitions.html#Dissolve" title="Dissolve"><code class="xref py py-func docutils literal notranslate"><span class="pre">Dissolve()</span></code></a>, <a class="reference internal" href="transitions.html#ImageDissolve" title="ImageDissolve"><code class="xref py py-func docutils literal notranslate"><span class="pre">ImageDissolve()</span></code></a>, <a class="reference internal" href="transitions.html#AlphaDissolve" title="AlphaDissolve"><code class="xref py py-func docutils literal notranslate"><span class="pre">AlphaDissolve()</span></code></a>, <a class="reference internal" href="transitions.html#Pixellate" title="Pixellate"><code class="xref py py-func docutils literal notranslate"><span class="pre">Pixellate()</span></code></a>, <a class="reference internal" href="displayables.html#AlphaMask" title="AlphaMask"><code class="xref py py-func docutils literal notranslate"><span class="pre">AlphaMask()</span></code></a>, <a class="reference internal" href="displayables.html#Flatten" title="Flatten"><code class="xref py py-func docutils literal notranslate"><span class="pre">Flatten()</span></code></a></dt><dd><p>Каждый из этих трансформов и отображаемых объектов создаёт модель с мешем,
+шейдерами и uniform-переменными, необходимыми для его работы.</p>
+</dd>
+<dt>Live2D</dt><dd><p>Отображаемые объекты Live2D могут создавать несколько моделей при рендеринге,
+обычно по одной модели на каждый слой.</p>
+</dd>
+<dt><a class="reference internal" href="transforms.html#Transform" title="Transform"><code class="xref py py-func docutils literal notranslate"><span class="pre">Transform()</span></code></a> и ATL</dt><dd><p>Transform создаёт модель, если <a class="reference internal" href="#transform-property-mesh"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">mesh</span></code></a> равно True, или если
+используется <a class="reference internal" href="transform_properties.html#transform-property-blur"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">blur</span></code></a>. В этом случае дочерние элементы Transform'а
+рендеринются в текстуры, причём меш первой текстуры используется
+для меша, связанного с моделью.</p>
+<p>Не каждый трансформ создаёт модель. Некоторые трансформы просто добавляют
+шейдеры и uniform-переменные к Render'у (например, трансформы, использующие
+<a class="reference internal" href="transform_properties.html#transform-property-blur"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">blur</span></code></a> или <a class="reference internal" href="transform_properties.html#transform-property-alpha"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">alpha</span></code></a>). Другие трансформы просто влияют
+на геометрию.</p>
+</dd>
+<dt><code class="xref py py-class docutils literal notranslate"><span class="pre">Render</span></code></dt><dd><p>Render создаёт модель, если его атрибут <code class="docutils literal notranslate"><span class="pre">mesh</span></code> равен True.
+В этом случае дочерние элементы Render'а рендерятся в
+текстуры, причём меш первой текстуры используется
+для меша, связанного с моделью.</p>
+</dd>
+</dl>
+<p>Ожидается, что в будущем Ren'Py добавит больше способов создания моделей.</p>
+</section>
+<section id="id3">
+<h2>Генерация шейдерных программ<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py генерирует шейдерную программу, сначала собирая список имён частей шейдера.
+Этот список состоит из «renpy.geometry», списка частей шейдера, взятых
+из Render'ов, и списка частей шейдера, найденных в отрисовываемой модели.</p>
+<p>Затем из списка частей шейдера удаляются дубликаты. Если часть шейдера начинается
+с «-», она удаляется из списка вместе с той же частью без ведущего
+«-». (Так, «-renpy.geometry» приведёт к удалению и себя, и «renpy.geometry».)</p>
+<p>Затем Ren'Py берёт список частей шейдера и извлекает списки переменных,
+функций, частей вершинного шейдера и частей фрагментного шейдера. Они, в свою
+очередь, используются для генерации исходного кода шейдеров, причём части
+вершинного и фрагментного шейдеров включаются в порядке от меньшего к большему
+приоритету.</p>
+<p>Это означает, что любая переменная, созданная одним из шейдеров, будет доступна
+каждому другому фрагменту из любого другого шейдера в списке частей шейдера.
+Здесь нет области видимости, как в функциях Python, чтобы защитить от
+взаимовлияния шейдеров.</p>
+<p>Ren'Py хранит кэш всех комбинаций частей шейдера, которые когда-либо
+использовались, в game/cache/shaders.txt и загружает его при запуске. Если
+произошли серьёзные изменения в использовании шейдеров, этот файл следует
+отредактировать или удалить, чтобы он был создан заново с корректными
+данными.</p>
+</section>
+<section id="custom-shaders">
+<span id="id4"></span><h2>Создание пользовательского шейдера<a class="headerlink" href="#custom-shaders" title="Ссылка на этот заголовок"></a></h2>
+<p>Новые части шейдера можно создать, вызвав функцию renpy.register_shader
+и предоставив части шейдеров на языке GLSL.</p>
+<p>Как правило, имена частей шейдера должны иметь формат «пространство_имён.часть», например,
+«mygame.recolor» или «mylibrary.warp». Имена, начинающиеся с «renpy.» или
+«live2d.», зарезервированы для Ren'Py, как и имена, начинающиеся с _.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.register_shader">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">register_shader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.register_shader" title="Ссылка на это определение"></a></dt>
+<dd><p>Регистрирует часть шейдера. Принимает <cite>name</cite>, а затем
+именованные аргументы.</p>
+<dl>
+<dt><cite>name</cite></dt><dd><p>Строка, задающая имя части шейдера. Имена, начинающиеся с
+подчёркивания или &quot;renpy.&quot;, зарезервированы для Ren'Py.</p>
+</dd>
+<dt><cite>variables</cite></dt><dd><p>Переменные, используемые частью шейдера. Они должны быть перечислены по одной на
+строку: спецификатор хранения (uniform, attribute или varying), за которым следуют тип,
+имя и точка с запятой. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">variables</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">uniform sampler2D tex0;</span>
+<span class="s1">attribute vec2 a_tex_coord;</span>
+<span class="s1">varying vec2 v_tex_coord;</span>
+<span class="s1">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</dd>
+<dt><cite>vertex_functions</cite></dt><dd><p>Если задано, строка, содержащая функции, которые будут включены в
+вершинный шейдер.</p>
+</dd>
+<dt><cite>fragment_functions</cite></dt><dd><p>Если задано, строка, содержащая функции, которые будут включены во
+фрагментный шейдер.</p>
+</dd>
+</dl>
+<p>Другие именованные аргументы должны начинаться с <code class="docutils literal notranslate"><span class="pre">vertex_</span></code> или <code class="docutils literal notranslate"><span class="pre">fragment_</span></code>
+и заканчиваться целочисленным приоритетом. Например, &quot;fragment_200&quot; или &quot;vertex_300&quot;. Они
+предоставляют текст, который помещается в соответствующий шейдер с указанным приоритетом,
+причём числа с меньшим приоритетом вставляются перед числами с большим приоритетом.</p>
+</dd></dl>
+
+<p>Ren'Py поддерживает только следующие типы переменных:</p>
+<ul class="simple">
+<li><p>float (число с плавающей точкой в Python)</p></li>
+<li><p>vec2 (кортеж из 2-х чисел с плавающей точкой)</p></li>
+<li><p>vec3 (кортеж из 3-х чисел с плавающей точкой)</p></li>
+<li><p>vec4 (кортеж из 4-х чисел с плавающей точкой)</p></li>
+<li><p>int (целое число в Python)</p></li>
+<li><p>ivec2 (кортеж из 2-х целых чисел)</p></li>
+<li><p>ivec3 (кортеж из 3-х целых чисел)</p></li>
+<li><p>ivec4 (кортеж из 4-х целых чисел)</p></li>
+<li><p>bool (логическое значение в Python)</p></li>
+<li><p>bvec2 (кортеж из 2-х логических значений)</p></li>
+<li><p>bvec3 (кортеж из 3-х логических значений)</p></li>
+<li><p>bvec4 (кортеж из 4-х логических значений)</p></li>
+<li><p>type[n] (массив из [n] элементов типа [type] (любого из вышеперечисленных типов) (например, int[5] будет массивом из 5 целых чисел))</p></li>
+<li><p>mat2 (<code class="xref py py-class docutils literal notranslate"><span class="pre">Матрица</span></code>)</p></li>
+<li><p>mat3 (<code class="xref py py-class docutils literal notranslate"><span class="pre">Матрица</span></code>)</p></li>
+<li><p>mat4 (<code class="xref py py-class docutils literal notranslate"><span class="pre">Матрица</span></code>)</p></li>
+<li><p>sampler2D (Displayable, включая строки, которые дают Displayable, или Render)</p></li>
+</ul>
+<p>Uniform-переменные должны начинаться с u_, атрибуты — с a_, а varying-
+переменные — с v_. Имена, начинающиеся с u_renpy_, a_renpy и v_renpy,
+зарезервированы, как и стандартные переменные, приведённые ниже.</p>
+<p>В качестве общего ориентира по уровням приоритета: приоритет 100 устанавливает
+геометрию, приоритет 200 определяет начальный цвет фрагмента (gl_FragColor),
+а более высокие приоритеты могут применять эффекты для изменения этого цвета.</p>
+<p>Вот пример пользовательской части шейдера, которая применяет градиент к
+каждой модели, для рендеринга которой она используется:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+
+    <span class="n">renpy</span><span class="o">.</span><span class="n">register_shader</span><span class="p">(</span><span class="s2">&quot;example.gradient&quot;</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        uniform vec4 u_gradient_left;</span>
+<span class="s2">        uniform vec4 u_gradient_right;</span>
+<span class="s2">        uniform vec2 u_model_size;</span>
+<span class="s2">        varying float v_gradient_done;</span>
+<span class="s2">        attribute vec4 a_position;</span>
+<span class="s2">    &quot;&quot;&quot;</span><span class="p">,</span> <span class="n">vertex_300</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        v_gradient_done = a_position.x / u_model_size.x;</span>
+<span class="s2">    &quot;&quot;&quot;</span><span class="p">,</span> <span class="n">fragment_300</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        float gradient_done = v_gradient_done;</span>
+<span class="s2">        gl_FragColor *= mix(u_gradient_left, u_gradient_right, gradient_done);</span>
+<span class="s2">    &quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Пользовательский шейдер затем можно применить с помощью трансформа:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">gradient</span><span class="p">:</span>
+    <span class="na">shader</span> <span class="s2">&quot;example.gradient&quot;</span>
+    <span class="n">u_gradient_left</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">u_gradient_right</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+<span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">gradient</span>
+</pre></div>
+</div>
+<p>Как было сказано ранее, переменная <code class="docutils literal notranslate"><span class="pre">gradient_done</span></code> из шейдера example.gradient
+будет доступна любым другим шейдерам, применённым из того же списка. Это
+может быть полезно при создании необязательных частей в шейдерной системе, но также
+может привести к конфликтам имён при использовании двух независимых шейдеров.</p>
+<p><strong>Версия GLSL.</strong>
+Поддерживаемая версия GLSL зависит от платформы, но наиболее
+ограничивающими являются мобильные и веб-платформы, которые используют GLSL ES 1.00. Ren'Py объявляет
+переменные с высокой точностью (highp), что поддерживает числа с плавающей запятой
+в диапазоне от 2<sup>-62</sup> до 2<sup>62</sup>. Ненулевые числа с плавающей запятой
+должны иметь величину от 2<sup>-62</sup> до 2<sup>62</sup>, а целые числа должны
+быть в диапазоне от -2<sup>16</sup> до 2<sup>16</sup>. Реальное оборудование часто
+поддерживает более широкий диапазон, но это не гарантируется.</p>
+<p>Существует переменная, которая может помочь в отладке пользовательских шейдеров:</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config.log_gl_shaders">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">config.log_gl_shaders</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-config.log_gl_shaders" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, исходный код шейдерных программ GLSL будет записываться в
+файл log.txt при запуске.</p>
+</dd></dl>
+
+</section>
+<section id="shader-local-variables">
+<span id="id5"></span><h2>Локальные переменные части шейдера<a class="headerlink" href="#shader-local-variables" title="Ссылка на этот заголовок"></a></h2>
+<p>Переменные можно объявить локальными для шейдера, используя префиксы <code class="docutils literal notranslate"><span class="pre">u__</span></code>,
+<code class="docutils literal notranslate"><span class="pre">a__</span></code>, <code class="docutils literal notranslate"><span class="pre">v__</span></code> или <code class="docutils literal notranslate"><span class="pre">l__</span></code>. В этом случае двойные подчёркивания
+заменяются именем шейдера, в котором все точки заменены на подчёркивания.
+Например, если имя шейдера — <code class="docutils literal notranslate"><span class="pre">example.gradient</span></code>, префикс
+<code class="docutils literal notranslate"><span class="pre">u__</span></code> будет заменён на <code class="docutils literal notranslate"><span class="pre">u_example_gradient_</span></code>.</p>
+<p>Основное применение этого — с <a class="reference internal" href="textshaders.html"><span class="doc">шейдерами текста</span></a>, где
+большинство uniform-переменных являются локальными для шейдера. Также локальные
+переменные внутри шейдера следует объявлять с префиксом <code class="docutils literal notranslate"><span class="pre">l__</span></code>.</p>
+</section>
+<section id="id6">
+<h2>Трансформы и рендеринг на основе моделей<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h2>
+<p>Рендеринг на основе моделей добавляет следующие свойства в ATL и <a class="reference internal" href="transforms.html#Transform" title="Transform"><code class="xref py py-func docutils literal notranslate"><span class="pre">Transform()</span></code></a>:</p>
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-mesh">
+<span class="sig-name descname"><span class="pre">mesh</span></span><a class="headerlink" href="#transform-property-mesh" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None или True или кортеж</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если не None, этот Transform будет рендериться как модель. Это означает:</p>
+<ul class="simple">
+<li><p>Будет создан меш. Если это кортеж из 2-х компонентов, он
+интерпретируется как количество точек в меше по осям x и y. (Каждое
+измерение должно быть не менее 2.) Если True, меш берётся из
+дочернего элемента.</p></li>
+<li><p>Дочерний элемент этого трансформа будет отрендерен в текстуру.</p></li>
+<li><p>Будет добавлен шейдер renpy.texture.</p></li>
+</ul>
+<p>По умолчанию используемая мешем текстура не будет иметь мипмапов. Если
+мипмапы желательны, <code class="xref std std-tpref docutils literal notranslate"><span class="pre">gl_mipmap</span></code> следует установить в True.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-mesh_pad">
+<span class="sig-name descname"><span class="pre">mesh_pad</span></span><a class="headerlink" href="#transform-property-mesh_pad" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None или кортеж</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если не None, это может быть кортеж из 2-х или 4-х компонентов. Если mesh
+равно True и это свойство задано, оно применяет отступы к размеру
+текстур, используемых мешем. Кортеж из 2-х компонентов добавляет
+отступы справа и снизу, а кортеж из 4-х компонентов — слева,
+сверху, справа и снизу.</p>
+<p>Это можно использовать совместно со свойством <code class="docutils literal notranslate"><span class="pre">gl_pixel_perfect</span></code>,
+чтобы рендерить текст в меш. В Ren'Py текст рендерится в
+разрешении экрана, что может привести к выходу за границы текстуры,
+которая будет наложена на меш. Добавление нескольких пикселей отступов
+делает текстуру больше, что позволит отобразить все пиксели. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">adjust_text</span><span class="p">:</span>
+    <span class="na">mesh</span> <span class="kc">True</span>
+    <span class="na">mesh_pad</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="na">gl_pixel_perfect</span> <span class="kc">True</span>
+    <span class="na">shader</span> <span class="s2">&quot;shaders.adjust_text&quot;</span>
+</pre></div>
+</div>
+<p>Этот код гарантирует, что текстура, переданная шейдеру, будет содержать все
+пиксели текста.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-shader">
+<span class="sig-name descname"><span class="pre">shader</span></span><a class="headerlink" href="#transform-property-shader" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None или str или список str</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если не None, это имя части шейдера или список имён частей шейдера,
+которые будут применены к этому Render'у (если создана модель) или к моделям,
+достигаемым через этот Render.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-blend">
+<span class="sig-name descname"><span class="pre">blend</span></span><a class="headerlink" href="#transform-property-blend" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None или str</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если не None, это должна быть строка. Эта строка ищется в
+<a class="reference internal" href="#var-config.gl_blend_func"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.gl_blend_func</span></code></a>, чтобы получить значение для свойства
+gl_blend_func. Используется для применения альтернативных режимов смешивания.</p>
+<p>Режимы смешивания, поддерживаемые по умолчанию: «normal», «add», «multiply»,
+«min» и «max».</p>
+</dd></dl>
+
+<p>Кроме того, uniform-переменные, начинающиеся с u_, но не с u_renpy, становятся
+доступными как свойства Transform. GL-свойства становятся доступными как свойства
+Transform, начинающиеся с gl_. Например, свойство color_mask доступно
+как gl_color_mask.</p>
+</section>
+<section id="id7">
+<h2>Функции смешивания<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h2>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config.gl_blend_func">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">config.gl_blend_func</span></span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span><a class="headerlink" href="#var-config.gl_blend_func" title="Ссылка на это определение"></a></dt>
+<dd><p>Словарь, используемый для сопоставления имени режима смешивания с функцией
+смешивания. Режимы смешивания передаются свойству <a class="reference internal" href="#gl-blend-func"><span class="std std-ref">gl_blend_func</span></a>,
+описанному ниже.</p>
+</dd></dl>
+
+<p>Режимы смешивания по умолчанию:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="na">gl_blend_func</span><span class="p">[</span><span class="s2">&quot;normal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">GL_FUNC_ADD</span><span class="p">,</span> <span class="n">GL_ONE</span><span class="p">,</span> <span class="n">GL_ONE_MINUS_SRC_ALPHA</span><span class="p">,</span> <span class="n">GL_FUNC_ADD</span><span class="p">,</span> <span class="n">GL_ONE</span><span class="p">,</span> <span class="n">GL_ONE_MINUS_SRC_ALPHA</span><span class="p">)</span>
+<span class="na">gl_blend_func</span><span class="p">[</span><span class="s2">&quot;add&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">GL_FUNC_ADD</span><span class="p">,</span> <span class="n">GL_ONE</span><span class="p">,</span> <span class="n">GL_ONE</span><span class="p">,</span> <span class="n">GL_FUNC_ADD</span><span class="p">,</span> <span class="n">GL_ZERO</span><span class="p">,</span> <span class="n">GL_ONE</span><span class="p">)</span>
+<span class="na">gl_blend_func</span><span class="p">[</span><span class="s2">&quot;multiply&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">GL_FUNC_ADD</span><span class="p">,</span> <span class="n">GL_DST_COLOR</span><span class="p">,</span> <span class="n">GL_ONE_MINUS_SRC_ALPHA</span><span class="p">,</span> <span class="n">GL_FUNC_ADD</span><span class="p">,</span> <span class="n">GL_ZERO</span><span class="p">,</span> <span class="n">GL_ONE</span><span class="p">)</span>
+<span class="na">gl_blend_func</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">GL_MIN</span><span class="p">,</span> <span class="n">GL_ONE</span><span class="p">,</span> <span class="n">GL_ONE</span><span class="p">,</span> <span class="n">GL_MIN</span><span class="p">,</span> <span class="n">GL_ONE</span><span class="p">,</span> <span class="n">GL_ONE</span><span class="p">)</span>
+<span class="na">gl_blend_func</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">GL_MAX</span><span class="p">,</span> <span class="n">GL_ONE</span><span class="p">,</span> <span class="n">GL_ONE</span><span class="p">,</span> <span class="n">GL_MAX</span><span class="p">,</span> <span class="n">GL_ONE</span><span class="p">,</span> <span class="n">GL_ONE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Поскольку Ren'Py использует предумноженный альфа-канал, результаты некоторых из этих режимов могут быть неочевидными,
+когда пиксель не является полностью непрозрачным. В ГП цвет (r, g, b, a) представляется как (r * a, g * a, b * a, a),
+и функция смешивания использует эти предумноженные цвета. Результат может отличаться от того, что вы получаете
+в графических редакторах для этих режимов смешивания, когда рисуемый объект не полностью непрозрачен.</p>
+</section>
+<section id="uniform-float-sampler-vector">
+<span id="model-uniforms"></span><h2>Uniform-переменные типа float, sampler и vector<a class="headerlink" href="#uniform-float-sampler-vector" title="Ссылка на этот заголовок"></a></h2>
+<p>Следующие uniform-переменные доступны для всех моделей.</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">vec2</span> <span class="pre">u_model_size</span></code></dt><dd><p>Ширина и высота модели, как они были переданы в Ren'Py.
+Доступно только для 2D-моделей, для которых указан размер, и равно (0, 0)
+для 3D-моделей.</p>
+</dd>
+</dl>
+<dl class="simple" id="u-lod-bias">
+<dt><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">u_lod_bias</span></code></dt><dd><p>Смещение уровня детализации, применяемое к выборкам из текстур. Может
+быть установлено в Transform'е. Значение по умолчанию, взятое из <a class="reference internal" href="config.html#var-config.gl_lod_bias"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.gl_lod_bias</span></code></a>
+и равное -0.5, заставляет Ren'Py всегда выбирать следующий больший
+уровень и масштабировать его вниз.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">u_time</span></code></dt><dd><p>Время текущего кадра. Начальная точка (эпоха) не определена, поэтому
+лучше всего рассматривать это как число, которое увеличивается на единицу
+каждую секунду. Время берётся по модулю 86400, поэтому оно будет
+сбрасываться до 0.0 раз в день.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">vec4</span> <span class="pre">u_random</span></code></dt><dd><p>Четыре случайных числа от 0.0 до 1.0, которые (с очень высокой
+вероятностью) отличаются от кадра к кадру.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">vec4</span> <span class="pre">u_viewport</span></code></dt><dd><p>Задаёт текущий вьюпорт (область просмотра), в который происходит отрисовка.
+u_viewport.xy — это координаты нижнего левого угла вьюпорта
+относительно нижнего левого угла окна. u_viewport.pq — это ширина
+и высота вьюпорта.</p>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">vec2</span> <span class="pre">u_virtual_size</span></code></p>
+<blockquote>
+<div><p>Это виртуальный размер игры (<a class="reference internal" href="config.html#var-config.screen_width"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.screen_width</span></code></a>, <a class="reference internal" href="config.html#var-config.screen_height"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.screen_height</span></code></a>).
+Может использоваться для преобразования из gl_Position в виртуальные координаты с помощью:</p>
+<div class="highlight-glsl notranslate"><div class="highlight"><pre><span></span><span class="n">v_position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u_virtual_size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kt">vec2</span><span class="p">(</span><span class="nb">gl_Position</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">.5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">.5</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="nb">gl_Position</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">.5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">vec2</span> <span class="pre">u_drawable_size</span></code></dt><dd><p>Размер области отрисовки окна в пикселях при том разрешении,
+в котором запущена игра. Например, если игра с разрешением 1280x720
+масштабируется до 1980x1080, это значение будет (1920, 1080).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">sampler2D</span> <span class="pre">tex0</span></code>, <code class="docutils literal notranslate"><span class="pre">sampler2D</span> <span class="pre">tex1</span></code>, <code class="docutils literal notranslate"><span class="pre">sampler2D</span> <span class="pre">tex2</span></code></dt><dd><p>Если текстуры доступны, соответствующие сэмплеры помещаются в
+эти переменные.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">vec2</span> <span class="pre">res0</span></code>, <code class="docutils literal notranslate"><span class="pre">vec2</span> <span class="pre">res1</span></code>, <code class="docutils literal notranslate"><span class="pre">vec2</span> <span class="pre">res2</span></code></dt><dd><p>Если текстуры доступны, их размеры помещаются в эти
+переменные. Когда текстура загружается с диска, это размер файла
+изображения. После рендеринга в текстуру это количество пикселей,
+которое покрывала отрендеренная текстура.</p>
+</dd>
+</dl>
+<p>Если доступна uniform-переменная типа sampler, то добавление суффикса <code class="docutils literal notranslate"><span class="pre">__res</span></code>
+даст vec2, содержащий размер базовой текстуры. Например, <code class="docutils literal notranslate"><span class="pre">u_markup__res</span></code>
+вернёт размер текстуры <code class="docutils literal notranslate"><span class="pre">u_markup</span></code>.</p>
+<p>Если доступна uniform-переменная типа vec4, то добавление суффикса <code class="docutils literal notranslate"><span class="pre">__premul</span></code>
+даст vec4, содержащий предумноженный цвет. Например, <code class="docutils literal notranslate"><span class="pre">u_color__premul</span></code> вернёт
+vec4, где красный, зелёный и синий каналы умножены на альфа-канал.</p>
+</section>
+<section id="uniform">
+<h2>Матричные uniform-переменные<a class="headerlink" href="#uniform" title="Ссылка на этот заголовок"></a></h2>
+<p>Следующие uniform-переменные доступны всем моделям. Предполагается, что для рендеринга
+модели используется только один трансформ со свойством <a class="reference internal" href="3dstage.html#transform-property-perspective"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">perspective</span></code></a>. Если
+используется несколько трансформов со свойством <a class="reference internal" href="3dstage.html#transform-property-perspective"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">perspective</span></code></a>, самый внутренний
+трансформ с установленной перспективой определяет мировое пространство и пространство вида.</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">mat4</span> <span class="pre">u_projection</span></code></dt><dd><p>Это матрица, которая преобразует координаты из пространства вида во вьюпорт
+OpenGL. Она отправляется Ren'Py и обновляется трансформами со свойством
+<a class="reference internal" href="3dstage.html#transform-property-perspective"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">perspective</span></code></a>, чтобы инкапсулировать эффекты этого свойства.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">mat4</span> <span class="pre">u_view</span></code></dt><dd><p>Это матрица, которая преобразует координаты вершин из мирового пространства
+в пространство вида. По умолчанию это единичная матрица, но она может
+быть установлена трансформами со свойством <a class="reference internal" href="3dstage.html#transform-property-perspective"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">perspective</span></code></a>,
+в этом случае эффекты позиционирования, вращения и масштабирования
+инкапсулируются в этой матрице.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">mat4</span> <span class="pre">u_model</span></code></dt><dd><p>Это матрица, которая преобразует координаты вершин из пространства модели
+в мировое пространство.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">mat4</span> <span class="pre">u_projectionview</span></code></dt><dd><p>Эта матрица содержит <code class="docutils literal notranslate"><span class="pre">u_projection</span> <span class="pre">*</span> <span class="pre">u_view</span></code>. Она существует для минимизации
+количества uniform-переменных, которые необходимо отправлять в ГП,
+и объёма работы, который нужно выполнять в шейдере.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">mat4</span> <span class="pre">u_transform</span></code></dt><dd><p>Это то же самое, что и <code class="docutils literal notranslate"><span class="pre">u_projectionview</span> <span class="pre">*</span> <span class="pre">u_model</span></code>. Это матрица, которая
+преобразует координаты вершин непосредственно во вьюпорт OpenGL. Она существует
+для минимизации количества uniform-переменных, которые необходимо отправлять
+в ГП, объёма работы, который нужно выполнять в шейдере, и для совместимости
+со старыми версиями Ren'Py.</p>
+</dd>
+</dl>
+<p>В дополнение к этим методам, Ren'Py может синтезировать матрицы с определёнными
+функциями, применёнными к ним, когда к матрице добавляются суффиксы.</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">__inverse</span></code></dt><dd><p>При добавлении к матрице возвращает обратную матрицу. Например, <code class="docutils literal notranslate"><span class="pre">u_projection__inverse</span></code>
+— это обратная матрица проекции.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">__transpose</span></code></dt><dd><p>При добавлении к матрице возвращает транспонированную матрицу. Например, <code class="docutils literal notranslate"><span class="pre">u_view__transpose</span></code>
+— это транспонированная матрица вида.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">__inverse_transpose</span></code></dt><dd><p>При добавлении к матрице возвращает обратную транспонированной матрице. Например,
+<code class="docutils literal notranslate"><span class="pre">u_model__inverse_transpose</span></code> — это обратная транспонированной матрице модели.
+Это полезно для трансформации нормалей.</p>
+</dd>
+</dl>
+</section>
+<section id="id8">
+<h2>Атрибуты<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h2>
+<p>Следующий атрибут доступен всем моделям:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">vec4</span> <span class="pre">a_position</span></code></dt><dd><p>Позиция рендерящейся вершины. Указывается в виртуальных пикселях относительно
+верхнего левого угла текстуры.</p>
+</dd>
+</dl>
+<p>Если текстуры доступны, то также доступен следующий атрибут:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">vec2</span> <span class="pre">a_tex_coord</span></code></dt><dd><p>Координаты внутри текстур, в которые проецируется эта вершина.</p>
+</dd>
+</dl>
+<p>Если нормали доступны, то также доступен следующий атрибут:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">vec3</span> <span class="pre">a_normal</span></code></dt><dd><p>Нормаль рендерящейся вершины.</p>
+</dd>
+</dl>
+<p>Если касательные (tangents) доступны, то также доступны следующие атрибуты:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">vec3</span> <span class="pre">a_tangent</span></code></dt><dd><p>Касательная рендерящейся вершины.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">vec3</span> <span class="pre">a_bitangent</span></code></dt><dd><p>Бикасательная рендерящейся вершины.</p>
+</dd>
+</dl>
+</section>
+<section id="gl">
+<span id="gl-properties"></span><h2>GL-свойства<a class="headerlink" href="#gl" title="Ссылка на этот заголовок"></a></h2>
+<p>GL-свойства изменяют глобальное состояние OpenGL или модельного рендерера.
+Эти свойства можно использовать с Transform'ом или с функцией
+<code class="xref py py-func docutils literal notranslate"><span class="pre">Render.add_property()</span></code>.</p>
+<dl id="gl-blend-func">
+<dt><code class="docutils literal notranslate"><span class="pre">gl_blend_func</span></code></dt><dd><p>Если присутствует, ожидается кортеж из шести компонентов, который
+используется для установки уравнения смешивания рисуемого пикселя
+с пикселем, на который он накладывается, и параметров этого уравнения.</p>
+<p>В частности, это должен быть (<cite>rgb_equation</cite>, <cite>src_rgb</cite>, <cite>dst_rgb</cite>,
+<cite>alpha_equation</cite>, <cite>src_alpha</cite>, <cite>dst_alpha</cite>). Они будут использованы
+для вызова:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">glBlendEquationSeparate</span><span class="p">(</span><span class="n">rgb_equation</span><span class="p">,</span> <span class="n">alpha_equation</span><span class="p">)</span>
+<span class="n">glBlendFuncSeparate</span><span class="p">(</span><span class="n">src_rgb</span><span class="p">,</span> <span class="n">dst_rgb</span><span class="p">,</span> <span class="n">src_alpha</span><span class="p">,</span> <span class="n">dst_alpha</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Пожалуйста, обратитесь к документации OpenGL за информацией о том,
+что делают эти функции. Константы OpenGL можно импортировать из renpy.uguu:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">renpy.uguu</span><span class="w"> </span><span class="kn">import</span> <span class="n">GL_ONE</span><span class="p">,</span> <span class="n">GL_ONE_MINUS_SRC_ALPHA</span>
+</pre></div>
+</div>
+<p>Свойство трансформа <a class="reference internal" href="#transform-property-blend"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">blend</span></code></a> — это, как правило, более простой способ
+использования этой функциональности.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">gl_color_mask</span></code></dt><dd><p>Ожидается кортеж из 4-х логических значений, соответствующих четырём
+каналам пикселя (красный, зелёный, синий и альфа). Если для данного
+канала установлено значение True, операция отрисовки будет записывать
+данные в этот канал пикселя. В противном случае — нет.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">gl_cull_face</span></code></dt><dd><p>Если не None, это включает отсечение граней — процесс удаления
+треугольников, которые обращены от камеры. Для этого нам нужно
+знать, какая грань является передней, а какая — задней. Передняя грань
+определяется по порядку обхода вершин, который может быть «cw» (по часовой стрелке) или «ccw» (против часовой стрелки).
+Значения указаны в системе координат Ren'Py (с осью +Y, направленной вниз), которая противоположна системе координат OpenGL.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">gl_depth</span></code></dt><dd><p>Если True, это очистит буфер глубины, а затем включит
+рендеринг с учётом глубины для этого отображаемого объекта и его
+дочерних элементов.</p>
+<p>Обратите внимание, что отрисовка любого пикселя, даже прозрачного,
+обновит буфер глубины. В результате использование этого свойства
+с изображениями, имеющими прозрачность, может привести к
+неожиданным проблемам. (В качестве альтернативы рассмотрите
+параметры <code class="docutils literal notranslate"><span class="pre">zorder</span></code> и <code class="docutils literal notranslate"><span class="pre">behind</span></code> оператора <code class="docutils literal notranslate"><span class="pre">show</span></code>.)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">gl_pixel_perfect</span></code></dt><dd><p>Если True, Ren'Py переместит меш так, чтобы первая вершина
+была выровнена по пикселю на экране. В основном это используется
+в сочетании с текстом, чтобы он оставался чётким.</p>
+</dd>
+</dl>
+<p>Следующие свойства вступают в силу только при создании текстуры
+трансформом с установленным <a class="reference internal" href="#transform-property-mesh"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">mesh</span></code></a> или <a class="reference internal" href="#Model" title="Model"><code class="xref py py-func docutils literal notranslate"><span class="pre">Model()</span></code></a>, где они
+могут быть переданы через метод property.</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">gl_drawable_resolution</span></code></dt><dd><p>Если True или не установлено, текстура рендерится в том же разрешении,
+что и окно, в котором отображается игра. Если False, она рендерится
+в виртуальном разрешении отображаемого объекта.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">gl_anisotropic</span></code></dt><dd><p>Если задано, определяет, создаются ли текстуры, применяемые к мешу,
+с анизотропией. Анизотропия — это функция, которая заставляет
+выбирать несколько текселей (пикселей текстуры) при разном
+масштабировании текстуры по осям X и Y.</p>
+<p>По умолчанию установлено в True. Ren'Py устанавливает это в False для
+определённых эффектов, таких как переход Pixellate.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">gl_mipmap</span></code></dt><dd><p>Если задано, определяет, создаются ли текстуры, подаваемые на меш,
+с мипмапами. По умолчанию установлено в True.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">gl_texture_wrap</span></code></dt><dd><p>Если задано, определяет, как текстуры, применяемые к мешу,
+будут «заворачиваться» (обрабатываться на краях). Ожидается кортеж из 2-х
+компонентов, где первый компонент используется для установки
+GL_TEXTURE_WRAP_S, а второй — для GL_TEXTURE_WRAP_T, что
+условно соответствует осям X и Y создаваемой текстуры.</p>
+<p>Значения должны быть константами OpenGL, импортированными из renpy.uguu:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">renpy.uguu</span><span class="w"> </span><span class="kn">import</span> <span class="n">GL_CLAMP_TO_EDGE</span><span class="p">,</span> <span class="n">GL_MIRRORED_REPEAT</span><span class="p">,</span> <span class="n">GL_REPEAT</span>
+</pre></div>
+</div>
+<p>Это также можно настроить для конкретных текстур. <cite>gl_texture_wrap_tex0</cite> управляет
+первой текстурой, <cite>gl_texture_wrap_tex1</cite> — второй, <cite>gl_texture_wrap_tex2</cite> — третьей,
+и <cite>gl_texture_wrap_tex3</cite> — четвёртой. Хотя через Transform'ы доступны только эти четыре,
+возможно передать «texture_wrap_tex4» или «texture_wrap_myuniform» в Render.add_property.</p>
+</dd>
+</dl>
+</section>
+<section id="gltfmodel">
+<h2>Отображаемый объект GLTFModel<a class="headerlink" href="#gltfmodel" title="Ссылка на этот заголовок"></a></h2>
+<p>Отображаемый объект GLTFModel позволяет загружать 3D-модели в формате файлов GLTF. Его следует
+использовать, если у вас есть 3D-модель, созданная в другой программе, и вы хотите отобразить
+её в Ren'Py.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="GLTFModel">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GLTFModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'str'</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shader</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'str</span> <span class="pre">|</span> <span class="pre">tuple[str]'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tangents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'bool'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'float'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'bool'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GLTFModel" title="Ссылка на это определение"></a></dt>
+<dd><p>Displayable, который загружает 3D-модель в формате GLTF. Этот формат поддерживается многими 3D-инструментами. Ren'Py использует библиотеку <a class="reference external" href="https://github.com/assimp/assimp">Open Asset Importer (assimp)</a> для загрузки моделей GLTF.</p>
+<p>Для целей 2D-системы компоновки Ren'Py <cite>GLTFModel</cite> имеет нулевую ширину и высоту. По умолчанию модель загружается с размером, указанным в файле, который ее содержит. При необходимости для масштабирования можно использовать <cite>zoom</cite>.</p>
+<p>При использовании нескольких моделей свойство <code class="docutils literal notranslate"><span class="pre">gl_depth</span> <span class="pre">True</span></code> должно быть предоставлено камере, чтобы была включена проверка глубины (depth testing). В настоящее время Ren'Py не выполняет отсечение (culling) модели, поэтому важно использовать модели, достаточно простые для полного рендеринга.</p>
+<dl class="simple">
+<dt><cite>filename</cite></dt><dd><p>Имя файла модели для отображения.</p>
+</dd>
+<dt><cite>shader</cite></dt><dd><p>Строка или кортеж строк, содержащие имя используемого шейдера.</p>
+</dd>
+<dt><cite>tangents</cite></dt><dd><p>Если True, касательные (tangents) будут включены в меш.</p>
+</dd>
+<dt><cite>zoom</cite></dt><dd><p>Коэффициент масштабирования, который будет применен к модели. Многие модели естественным образом используют диапазон от -1 до 1, поэтому может потребоваться достаточно большое значение, чтобы сделать модель видимой.</p>
+</dd>
+<dt><cite>report</cite></dt><dd><p>Если true, отчет о модели будет выведен в лог. Он включает в себя uniform-переменные, используемые моделью.</p>
+</dd>
+</dl>
+<p>Displayable, который загружает 3D-модель в формате GLTF. Этот формат поддерживается многими 3D-инструментами. Ren'Py использует библиотеку <a class="reference external" href="https://github.com/assimp/assimp">Open Asset Importer (assimp)</a> для загрузки моделей GLTF.</p>
+<p>Для целей 2D-системы компоновки Ren'Py <cite>GLTFModel</cite> имеет нулевую ширину и высоту. По умолчанию модель загружается с размером, указанным в файле, который ее содержит. При необходимости для масштабирования можно использовать <cite>zoom</cite>.</p>
+<p>При использовании нескольких моделей свойство <code class="docutils literal notranslate"><span class="pre">gl_depth</span> <span class="pre">True</span></code> должно быть предоставлено камере, чтобы была включена проверка глубины (depth testing). В настоящее время Ren'Py не выполняет отсечение (culling) модели, поэтому важно использовать модели, достаточно простые для полного рендеринга.</p>
+<dl class="simple">
+<dt><cite>filename</cite></dt><dd><p>Имя файла модели для отображения.</p>
+</dd>
+<dt><cite>shader</cite></dt><dd><p>Строка или кортеж строк, содержащие имя используемого шейдера.</p>
+</dd>
+<dt><cite>tangents</cite></dt><dd><p>Если True, касательные (tangents) будут включены в меш.</p>
+</dd>
+<dt><cite>zoom</cite></dt><dd><p>Коэффициент масштабирования, который будет применен к модели. Многие модели естественным образом используют диапазон от -1 до 1, поэтому может потребоваться достаточно большое значение, чтобы сделать модель видимой.</p>
+</dd>
+<dt><cite>report</cite></dt><dd><p>Если true, отчет о модели будет выведен в лог. Он включает в себя uniform-переменные, используемые моделью.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Некоторые моменты, которые мы заметили:</p>
+<ul class="simple">
+<li><p>Некоторые модели очень маленькие, и их нужно увеличивать в 100 или 1000 раз, чтобы они были полезны.</p></li>
+<li><p>Uniform-переменные, генерируемые каждой моделью, могут отличаться.</p></li>
+</ul>
+<p>Мы рекомендуем создавать модели GLTF с параметром report=True, а затем просматривать
+файл log.txt, чтобы узнать размер и доступные переменные. После этого можно будет
+масштабировать модель и создать подходящий шейдер.</p>
+<section id="id10">
+<h3>Ограничения<a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h3>
+<p>GLTFModel в настоящее время не включает шейдер по умолчанию, поэтому вы должны
+определить и подключить свой собственный. Вот один из возможных шейдеров,
+который можно использовать с GLTFModel:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+
+    <span class="n">renpy</span><span class="o">.</span><span class="n">register_shader</span><span class="p">(</span><span class="s2">&quot;example.lighting&quot;</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        uniform mat4 u_model__inverse_transpose;</span>
+<span class="s2">        uniform vec4 u_color_diffuse;</span>
+<span class="s2">        uniform vec4 u_color_specular;</span>
+<span class="s2">        uniform sampler2D u_tex_diffuse;</span>
+
+<span class="s2">        varying vec3 v_normal;</span>
+<span class="s2">        varying vec2 v_tex_coord;</span>
+
+<span class="s2">        attribute vec3 a_normal;</span>
+<span class="s2">        attribute vec2 a_tex_coord;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">vertex_201</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        v_normal = (u_model__inverse_transpose * vec4(a_normal, 1.0)).xyz;</span>
+<span class="s2">        v_tex_coord = a_tex_coord;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">fragment_201</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+
+<span class="s2">        // The direction of the light.</span>
+<span class="s2">        vec3 lightDir = normalize(vec3(0.0, -1000.0, 1000.0));</span>
+
+<span class="s2">        vec3 normal = normalize(v_normal);</span>
+
+<span class="s2">        float lambertian = max(dot(normal, lightDir), 0.0);</span>
+<span class="s2">        vec4 diffuse_color = texture2D(u_tex_diffuse, v_tex_coord.xy);</span>
+<span class="s2">        diffuse_color *= vec4(lambertian * u_color_diffuse.rgb * u_color_diffuse.a, u_color_diffuse.a);</span>
+
+<span class="s2">        vec3 viewDir = normalize(vec3(0.0, 0.0, -1.0));</span>
+<span class="s2">        vec3 halfDir = normalize(lightDir + viewDir);</span>
+<span class="s2">        float specular = pow(max(dot(normal, halfDir), 0.0), 4.0);</span>
+
+<span class="s2">        vec4 specular_color = vec4(u_color_specular.rgb * u_color_specular.a * specular, u_color_specular.a * specular);</span>
+
+<span class="s2">        gl_FragColor = diffuse_color + specular_color;</span>
+
+<span class="s2">        if (gl_FragColor.a &lt; 0.9) {</span>
+<span class="s2">            discard;</span>
+<span class="s2">        }</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Это очень простой шейдер, который применяет диффузное и зеркальное освещение
+к модели от одного источника света, предназначенный для экспериментов до тех пор,
+пока не будут созданы лучшие шейдеры.</p>
+<p>GLTFModel плохо поддерживает прозрачные поверхности. Хотя команда <cite>discard</cite> выше
+эмулирует прозрачность, порядок отрисовки может быть неверным и приводить
+к артефактам.</p>
+</section>
+</section>
+<section id="id11">
+<h2>Отображаемый объект Model<a class="headerlink" href="#id11" title="Ссылка на этот заголовок"></a></h2>
+<p>Отображаемый объект Model действует как фабрика для создания моделей для
+использования с модельным рендерером. Это старый API, который вы можете
+использовать, если хотите создавать модели в Python.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Model">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Model" title="Ссылка на это определение"></a></dt>
+<dd><p>Это displayable, который заставляет Ren'Py создать 2D- или 3D-модель
+для использования с рендерером на основе моделей. Модель будет отрисована за одну
+операцию с помощью шейдеров, указанных здесь или выбранных
+охватывающим Transform или Displayable.</p>
+<dl class="simple">
+<dt><cite>size</cite></dt><dd><p>Если не None, это должен быть кортеж (ширина, высота),
+который задает размер Модели. Если не задано, модель принимает размер
+предоставленной ей области. Параметр fit текстуры имеет
+приоритет.</p>
+</dd>
+</dl>
+<p>Если не вызывается ни один метод меша, создается меш, который устанавливает <cite>a_position</cite>
+и <cite>a_tex_coord</cite> в соответствии с тем, как Ren'Py загружает текстуры,
+при условии, что предоставлена хотя бы одна текстура. В противном случае используется меш,
+который устанавливает только <cite>a_position</cite>.</p>
+<p>Все методы этого класса возвращают displayable, на котором они были вызваны,
+что позволяет создавать цепочки вызовов.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Model.child">
+<span class="sig-name descname"><span class="pre">child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">displayable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Model.child" title="Ссылка на это определение"></a></dt>
+<dd><p>Это то же самое, что и метод texture, за исключением того, что параметры <cite>focus</cite>
+и <cite>main</cite> установлены в true.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Model.grid_mesh">
+<span class="sig-name descname"><span class="pre">grid_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Model.grid_mesh" title="Ссылка на это определение"></a></dt>
+<dd><p>Создает меш, состоящий из сетки <cite>width</cite> x <cite>height</cite> равномерно
+расположенных точек, соединяя каждую точку с ближайшими
+по вертикали и горизонтали и разделяя каждый созданный таким
+образом прямоугольник в сетке на треугольники.</p>
+<dl class="simple">
+<dt><cite>width</cite>, <cite>height</cite></dt><dd><p>Количество точек в горизонтальном и вертикальном направлениях,
+целое число не менее 2.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Model.property">
+<span class="sig-name descname"><span class="pre">property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Model.property" title="Ссылка на это определение"></a></dt>
+<dd><p>Устанавливает значение gl-свойства.</p>
+<dl class="simple">
+<dt><cite>name</cite></dt><dd><p>Строка, задающая имя GL-свойства, включая
+префикс &quot;gl_&quot;.</p>
+</dd>
+<dt><cite>value</cite></dt><dd><p>Значение gl-свойства.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Model.shader">
+<span class="sig-name descname"><span class="pre">shader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shader</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Model.shader" title="Ссылка на это определение"></a></dt>
+<dd><p>Добавляет шейдер к этой модели.</p>
+<dl class="simple">
+<dt><cite>shader</cite></dt><dd><p>Строка, задающая имя шейдера для использования с этой моделью.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Model.texture">
+<span class="sig-name descname"><span class="pre">texture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">displayable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">focus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">texture_wrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Model.texture" title="Ссылка на это определение"></a></dt>
+<dd><p>Добавляет текстуру к этой модели путем рендеринга заданного displayable.
+Первая добавленная текстура будет <code class="docutils literal notranslate"><span class="pre">tex0</span></code>, вторая <code class="docutils literal notranslate"><span class="pre">tex1</span></code> и
+так далее.</p>
+<dl class="simple">
+<dt><cite>focus</cite></dt><dd><p>Если true, события фокуса передаются displayable. Предполагается,
+что координаты относительно модели соотносятся 1:1 с
+координатами относительно displayable.</p>
+</dd>
+<dt><cite>main</cite></dt><dd><p>Если true, это отмечается как основной дочерний элемент этого displayable,
+что позволяет инспектировать его с помощью инспектора
+displayable.</p>
+</dd>
+<dt><cite>fit</cite></dt><dd><p>Если true, Модель получает размер displayable.
+Это может быть истинно только для одной текстуры.</p>
+</dd>
+<dt><cite>texture_wrap</cite></dt><dd><p>Если не None, это <a class="reference internal" href="#gl-properties"><span class="std std-ref">gl_texture wrap GL property</span></a>,
+которое будет применено к этой текстуре.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Model.uniform">
+<span class="sig-name descname"><span class="pre">uniform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Model.uniform" title="Ссылка на это определение"></a></dt>
+<dd><p>Устанавливает значение uniform-переменной, которая передается в шейдеры.</p>
+<dl class="simple">
+<dt><cite>name</cite></dt><dd><p>Строка, задающая имя uniform-переменной для установки, включая
+префикс &quot;u_&quot;.</p>
+</dd>
+<dt><cite>value</cite></dt><dd><p>Значение uniform-переменной. Либо float, либо кортеж из 2, 3 или 4
+элементов типа float, либо Matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="id12">
+<h3>Примеры отображаемого объекта Model<a class="headerlink" href="#id12" title="Ссылка на этот заголовок"></a></h3>
+<p>Отображаемый объект Model можно использовать в сочетании с ATL-трансформом
+и встроенным шейдером для создания перехода Dissolve:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">dt</span><span class="p">(</span><span class="na">delay</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">new_widget</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">old_widget</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="na">delay</span> <span class="na">delay</span>
+    <span class="n">Model</span><span class="p">()</span><span class="o">.</span><span class="n">texture</span><span class="p">(</span><span class="n">old_widget</span><span class="p">)</span><span class="o">.</span><span class="na">child</span><span class="p">(</span><span class="n">new_widget</span><span class="p">)</span>
+    <span class="na">shader</span> <span class="p">[</span> <span class="s1">&#39;renpy.dissolve&#39;</span> <span class="p">]</span>
+
+    <span class="n">u_renpy_dissolve</span> <span class="mf">0.0</span>
+    <span class="n">linear</span> <span class="na">delay</span> <span class="n">u_renpy_dissolve</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+<p>Использование отображаемого объекта Model в качестве дочернего элемента
+несовместимо со свойством <a class="reference internal" href="#transform-property-mesh"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">mesh</span></code></a>, так как оба создают модели внутри Ren'Py.</p>
+</section>
+</section>
+<section id="id13">
+<h2>Анимированные шейдеры<a class="headerlink" href="#id13" title="Ссылка на этот заголовок"></a></h2>
+<p>При использовании шейдеров, которые зависят от <code class="docutils literal notranslate"><span class="pre">u_time</span></code> для анимации, следует
+помнить, что, хотя каждый шейдер на экране будет выполняться при отображении
+каждого кадра, Ren'Py не работает с постоянной частотой кадров (FPS) и может
+снижать её до минимальных 5 FPS, если никакие отображаемые объекты не
+требуют перерисовки.</p>
+<p>При использовании анимированного шейдера в ATL-трансформе это может привести
+к тому, что шейдер будет «дёргаться» и анимироваться правильно только тогда,
+когда анимируется какой-либо другой объект на экране, если ваш трансформ
+сам по себе не вызывает перерисовок. В этом случае можно добавить пустой
+ATL-цикл, чтобы принудительно вызывать перерисовку:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">fancy_shader</span><span class="p">:</span>
+    <span class="na">shader</span> <span class="s1">&#39;my_fancy_shader&#39;</span>
+    <span class="k">pause</span> <span class="mi">0</span>
+    <span class="k">repeat</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pause</span> <span class="pre">0</span></code> будет переключать кадры так быстро, как это возможно. Вы также можете
+установить другие значения для <code class="docutils literal notranslate"><span class="pre">pause</span></code>, чтобы задать минимальную частоту
+кадров, например, <code class="docutils literal notranslate"><span class="pre">pause</span> <span class="pre">1.0/30</span></code>.</p>
+</section>
+<section id="id14">
+<h2>Части шейдеров<a class="headerlink" href="#id14" title="Ссылка на этот заголовок"></a></h2>
+<p>Список частей шейдеров, которые использует Ren'Py, можно найти в <a class="reference internal" href="shader_parts.html"><span class="doc">Стандартные части шейдеров</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="matrix.html" class="btn btn-neutral float-left" title="Matrix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="other.html" class="btn btn-neutral float-right" title="Прочие функции и переменные" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

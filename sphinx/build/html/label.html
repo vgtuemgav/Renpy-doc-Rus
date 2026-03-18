@@ -1,0 +1,695 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Метки и управление потоком &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/label.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Диалоги и повествование" href="dialogue.html" />
+    <link rel="prev" title="Основы языка" href="language_basics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Метки и управление потоком</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#label">Инструкция Label</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jump">Инструкция Jump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#call">Инструкция Call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#return">Инструкция Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#special-labels">Специальные метки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Функции меток и управления потоком</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.call_stack_depth"><code class="docutils literal notranslate"><span class="pre">renpy.call_stack_depth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.dynamic"><code class="docutils literal notranslate"><span class="pre">renpy.dynamic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_all_labels"><code class="docutils literal notranslate"><span class="pre">renpy.get_all_labels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_return_stack"><code class="docutils literal notranslate"><span class="pre">renpy.get_return_stack()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.has_label"><code class="docutils literal notranslate"><span class="pre">renpy.has_label()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.mark_label_seen"><code class="docutils literal notranslate"><span class="pre">renpy.mark_label_seen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.mark_label_unseen"><code class="docutils literal notranslate"><span class="pre">renpy.mark_label_unseen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.pop_call"><code class="docutils literal notranslate"><span class="pre">renpy.pop_call()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.seen_label"><code class="docutils literal notranslate"><span class="pre">renpy.seen_label()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.set_return_stack"><code class="docutils literal notranslate"><span class="pre">renpy.set_return_stack()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#context">Контексты</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.call_in_new_context"><code class="docutils literal notranslate"><span class="pre">renpy.call_in_new_context()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.context"><code class="docutils literal notranslate"><span class="pre">renpy.context()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.context_dynamic"><code class="docutils literal notranslate"><span class="pre">renpy.context_dynamic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.context_nesting_level"><code class="docutils literal notranslate"><span class="pre">renpy.context_nesting_level()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.invoke_in_new_context"><code class="docutils literal notranslate"><span class="pre">renpy.invoke_in_new_context()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.jump_out_of_context"><code class="docutils literal notranslate"><span class="pre">renpy.jump_out_of_context()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.reset_all_contexts"><code class="docutils literal notranslate"><span class="pre">renpy.reset_all_contexts()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Метки и управление потоком</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/label.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Метки и управление потоком<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<section id="label">
+<span id="label-statement"></span><h2>Инструкция Label<a class="headerlink" href="#label" title="Ссылка на этот заголовок"></a></h2>
+<p>Инструкции меток (label) позволяют присвоить заданное имя определённой точке в программе.
+Они существуют исключительно для того, чтобы к ним можно было перейти с помощью вызова (call) или перехода (jump) из скрипта Ren'Py, функций Python или экранов.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">sample1</span><span class="p">:</span>
+    <span class="s2">&quot;Здесь метка &#39;sample1&#39;.&quot;</span>
+
+<span class="k">label</span> <span class="n">sample2</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">):</span>
+    <span class="s2">&quot;Здесь метка &#39;sample2&#39;.&quot;</span>
+    <span class="s2">&quot;a = [a]&quot;</span>
+</pre></div>
+</div>
+<p>Инструкция метки может иметь связанный с ней блок кода. В этом случае управление
+переходит в блок при достижении инструкции метки и продолжается с инструкции,
+следующей за меткой, когда достигается конец блока: следующий код при переходе к метке &quot;origin&quot;
+выведет последовательность &quot;a, b, c&quot;.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">origin</span><span class="p">:</span>
+<span class="s2">&quot;a&quot;</span>
+<span class="k">label</span> <span class="n">hasblock</span><span class="p">:</span>
+    <span class="s2">&quot;b&quot;</span>
+<span class="s2">&quot;c&quot;</span>
+<span class="k">return</span>
+</pre></div>
+</div>
+<p>Существует два вида меток: <em>глобальные</em> и <em>локальные</em>. Глобальные метки
+находятся в одном общем глобальном пространстве имён для всех файлов проекта и,
+следовательно, должны иметь уникальные имена в пределах игры. Локальная метка,
+в свою очередь, относится к глобальной метке, поэтому несколько локальных меток
+в игре могут иметь одинаковое имя, при условии, что они относятся к разным
+глобальным меткам. Чтобы объявить локальную метку, добавьте к её имени префикс
+в виде точки <code class="docutils literal notranslate"><span class="pre">.</span></code> и разместите её под глобальной меткой, к которой она будет
+принадлежать.
+Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">global_label</span><span class="p">:</span>
+    <span class="s2">&quot;Под глобальной меткой...&quot;</span>
+<span class="k">label</span> <span class="o">.</span><span class="n">local_label</span><span class="p">:</span>
+    <span class="s2">&quot;...располагается локальная.&quot;</span>
+    <span class="k">jump</span> <span class="o">.</span><span class="n">another_local</span>
+<span class="k">label</span> <span class="o">.</span><span class="n">another_local</span><span class="p">:</span>
+    <span class="s2">&quot;И ещё одна!&quot;</span>
+    <span class="k">jump</span> <span class="o">.</span><span class="n">local_label</span>
+</pre></div>
+</div>
+<p>Локальную метку также можно объявить по её полному имени, состоящему из имени
+глобальной метки и имени локальной метки, разделённых точкой. При этом
+глобальная метка не будет объявлена.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">global_label</span><span class="o">.</span><span class="n">yet_another_local</span><span class="p">:</span>
+    <span class="s2">&quot;И ещё одна!&quot;</span>
+    <span class="k">jump</span> <span class="o">.</span><span class="n">local_label</span>
+</pre></div>
+</div>
+<p>На локальные метки можно ссылаться напрямую внутри той же глобальной метки,
+где они объявлены, или по их полному имени, состоящему из глобальной и локальной
+частей:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">another_global</span><span class="p">:</span>
+    <span class="s2">&quot;Теперь перейдём к локальной метке, расположенной где-то ещё.&quot;</span>
+    <span class="k">jump</span> <span class="n">global_label</span><span class="o">.</span><span class="n">local_name</span>
+</pre></div>
+</div>
+<p>Инструкция метки может принимать необязательный список параметров. Эти параметры
+обрабатываются так, как описано в <span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-0570/"><strong>PEP 570</strong></a>, за двумя исключениями:</p>
+<p>Во-первых, значения параметров по умолчанию вычисляются во время вызова.</p>
+<p>Во-вторых, переменные имеют динамическую, а не лексическую область видимости.
+Это означает, что когда переменная получает свое значение из параметра метки,
+её значение будет возвращено к предыдущему состоянию (к предыдущему значению,
+если оно было, или к отсутствию переменной в противном случае) при достижении
+инструкции return. Это также означает, что в зависимости от того, как была
+достигнута инструкция, использующая определённую переменную, эта переменная может
+получить своё значение из параметра метки, а может и не получить; такое
+поведение невозможно в чистом коде Python.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">default</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="k">menu</span><span class="p">:</span>
+        <span class="s2">&quot;Call&quot;</span><span class="p">:</span>
+            <span class="k">call</span> <span class="n">label_with_params</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        <span class="s2">&quot;Jump&quot;</span><span class="p">:</span>
+            <span class="k">jump</span> <span class="n">label_without_params</span>
+    <span class="k">jump</span> <span class="n">start</span>
+
+<span class="k">label</span> <span class="n">label_with_params</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<span class="k">label</span> <span class="n">label_without_params</span><span class="p">:</span>
+    <span class="n">e</span> <span class="s2">&quot;a = [a]&quot;</span> <span class="c1"># отображает 5 или 3 в зависимости от выбранного пути</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+<p>Обычно не имеет смысла переходить к метке с параметрами с помощью jump или
+предыдущей инструкции. Пример меток с параметрами см. в разделе об
+<a class="reference internal" href="#call-statement"><span class="std std-ref">инструкции call</span></a>.</p>
+</section>
+<section id="jump">
+<span id="jump-statement"></span><h2>Инструкция Jump<a class="headerlink" href="#jump" title="Ссылка на этот заголовок"></a></h2>
+<p>Инструкция jump используется для передачи управления указанной метке.</p>
+<p>Если присутствует ключевое слово <code class="docutils literal notranslate"><span class="pre">expression</span></code>, следующее за ним выражение
+вычисляется, и полученная в результате строка используется как имя метки для
+перехода. Если ключевое слово <code class="docutils literal notranslate"><span class="pre">expression</span></code> отсутствует, имя метки для перехода
+должно быть указано явно.</p>
+<p>Можно передать имя локальной метки, как с <code class="docutils literal notranslate"><span class="pre">expression</span></code>, так и без, либо
+с префиксом в виде имени глобальной метки (&quot;global_label.local_label&quot;), либо
+с точкой в начале (&quot;.local_label&quot;).</p>
+<p>В отличие от call, jump не помещает следующую инструкцию в стек вызовов.
+В результате нет способа вернуться в то место, откуда был совершён переход.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">loop_start</span><span class="p">:</span>
+
+    <span class="n">e</span> <span class="s2">&quot;О нет! Кажется, мы попали в бесконечный цикл.&quot;</span>
+
+    <span class="k">jump</span> <span class="n">loop_start</span>
+</pre></div>
+</div>
+</section>
+<section id="call">
+<span id="call-statement"></span><h2>Инструкция Call<a class="headerlink" href="#call" title="Ссылка на этот заголовок"></a></h2>
+<p>Инструкция call используется для передачи управления указанной метке. Она
+также помещает следующую инструкцию в стек вызовов, позволяя инструкции return
+вернуть управление инструкции, следующей за call.</p>
+<p>Если присутствует ключевое слово <code class="docutils literal notranslate"><span class="pre">expression</span></code>, следующее за ним выражение
+вычисляется, и полученная в результате строка используется как имя метки для
+вызова. Если ключевое слово <code class="docutils literal notranslate"><span class="pre">expression</span></code> отсутствует, имя метки для вызова
+должно быть указано явно.</p>
+<p>Можно передать имя локальной метки, как с <code class="docutils literal notranslate"><span class="pre">expression</span></code>, так и без, либо
+с префиксом в виде имени глобальной метки (&quot;global_label.local_label&quot;), либо
+с точкой в начале (&quot;.local_label&quot;).</p>
+<p>Если присутствует необязательное выражение <code class="docutils literal notranslate"><span class="pre">from</span></code>, оно фактически добавляет
+инструкцию метки с заданным именем сразу после инструкции call. Явная метка
+помогает гарантировать, что сохранённые игры со стеками возврата смогут
+вернуться в нужное место при загрузке с изменённым скриптом.</p>
+<p>Инструкция call может принимать аргументы, которые обрабатываются так, как
+описано в <span class="target" id="index-1"></span><a class="pep reference external" href="https://peps.python.org/pep-0448/"><strong>PEP 448</strong></a>.</p>
+<p>При использовании выражения call со списком аргументов необходимо вставить
+ключевое слово <code class="docutils literal notranslate"><span class="pre">pass</span></code> между выражением и списком аргументов. В противном
+случае список аргументов будет разобран как часть выражения, а не как часть
+вызова.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+
+    <span class="n">e</span> <span class="s2">&quot;Сначала мы вызовем подпрограмму.&quot;</span>
+
+    <span class="k">call</span> <span class="n">subroutine</span>
+
+    <span class="k">call</span> <span class="n">subroutine</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">call</span> <span class="k">expression</span> <span class="s2">&quot;sub&quot;</span> <span class="o">+</span> <span class="s2">&quot;routine&quot;</span> <span class="k">pass</span> <span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="k">return</span>
+
+<span class="c1"># ...</span>
+
+<span class="k">label</span> <span class="n">subroutine</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+
+    <span class="n">e</span> <span class="s2">&quot;Я пришёл сюда [count] раз(а).&quot;</span>
+    <span class="n">e</span> <span class="s2">&quot;Далее мы вернёмся из подпрограммы.&quot;</span>
+
+    <span class="k">return</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Выпускать игру без выражений <code class="docutils literal notranslate"><span class="pre">from</span></code> для каждой инструкции <code class="docutils literal notranslate"><span class="pre">call</span></code>
+опасно, если вы планируете выпускать обновления для игры в будущем.
+Если такие выражения не добавлены и вы редактируете файл, содержащий
+инструкцию <code class="docutils literal notranslate"><span class="pre">call</span></code>, существует потенциальный риск того, что сохранения,
+сделанные внутри вызванной метки, могут повредиться.</p>
+<p>Использование опции &quot;Add from clauses to calls&quot; при сборке дистрибутива
+игры может решить эту проблему.</p>
+</div>
+</section>
+<section id="return">
+<span id="return-statement"></span><h2>Инструкция Return<a class="headerlink" href="#return" title="Ссылка на этот заголовок"></a></h2>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">return</span></code> извлекает верхнюю инструкцию из стека вызовов и передаёт
+ей управление. Если стек вызовов пуст, инструкция return перезапускает Ren'Py,
+возвращая управление в главное меню.</p>
+<p>Если инструкции return передаётся необязательное выражение, оно вычисляется, и
+его результат сохраняется в переменной <code class="docutils literal notranslate"><span class="pre">_return</span></code>. Эта переменная имеет
+динамическую область видимости для каждого контекста.</p>
+</section>
+<section id="special-labels">
+<span id="id2"></span><h2>Специальные метки<a class="headerlink" href="#special-labels" title="Ссылка на этот заголовок"></a></h2>
+<p>Следующие метки используются Ren'Py:</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">start</span></code></dt><dd><p>По умолчанию Ren'Py переходит к этой метке при запуске игры.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">quit</span></code></dt><dd><p>Если эта метка существует, она вызывается в новом контексте, когда пользователь
+выходит из игры.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">after_load</span></code></dt><dd><p>Если эта метка существует, она вызывается при загрузке игры. Её можно
+использовать для исправления данных при обновлении игры. Если данные
+изменяются этой меткой, следует вызвать <a class="reference internal" href="save_load_rollback.html#renpy.block_rollback" title="renpy.block_rollback"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.block_rollback()</span></code></a>,
+чтобы предотвратить отмену этих изменений, если игрок откатится за точку
+загрузки.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">before_load</span></code></dt><dd><p>Если эта метка существует, она вызывается в новом контексте непосредственно
+перед загрузкой игры. Её можно использовать для подготовки к загрузке,
+например, для смены музыки или отображения анимации.</p>
+<p>Как только эта метка вернёт управление, Ren'Py продолжит загрузку. Экран
+не будет обновляться до завершения загрузки, поэтому анимации не будут
+воспроизводиться. Когда загрузка завершится, состояние игры будет заменено
+загруженным состоянием, и поэтому изменения, сделанные в этой метке,
+будут утеряны.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">splashscreen</span></code></dt><dd><p>Если эта метка существует, она вызывается при первом запуске игры, перед
+показом главного меню. Пожалуйста, обратитесь к разделу
+<a class="reference internal" href="splashscreen_presplash.html#adding-a-splashscreen"><span class="std std-ref">Добавление заставки</span></a>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">before_main_menu</span></code></dt><dd><p>Если эта метка существует, она вызывается перед главным меню. Она используется
+в редких случаях для настройки главного меню, например, для запуска видео
+на заднем плане.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">main_menu</span></code></dt><dd><p>Если эта метка существует, она вызывается вместо главного меню. Если она
+возвращает управление, Ren'Py начнёт игру с метки <code class="docutils literal notranslate"><span class="pre">start</span></code>. Например,
+следующий код немедленно начнёт игру, не показывая главное меню.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">main_menu</span><span class="p">:</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">after_warp</span></code></dt><dd><p>Если эта метка существует, она вызывается после warp, но до выполнения
+инструкции, к которой был совершён переход. Пожалуйста, обратитесь к разделу
+<a class="reference internal" href="developer_tools.html#warping-to-a-line"><span class="std std-ref">Переход к строке</span></a>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hide_windows</span></code></dt><dd><p>Если эта метка существует, она вызывается, когда игрок скрывает окна
+правой кнопкой мыши или клавишей H. Если она возвращает true, скрытие
+отменяется (предполагается, что скрытие уже произошло). В противном случае
+скрытие продолжается.</p>
+</dd>
+</dl>
+<p>Ren'Py также использует следующие метки для отображения некоторых из <a class="reference internal" href="screen_special.html"><span class="doc">специальных экранов</span></a>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">main_menu_screen</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_screen</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">save_screen</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">preferences_screen</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">joystick_preferences_screen</span></code></p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>Функции меток и управления потоком<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.call_stack_depth">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">call_stack_depth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.call_stack_depth" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает глубину стека вызовов текущего контекста — количество
+вызовов, которые были выполнены, но из которых ещё не произошёл возврат или которые не были удалены из стека вызовов.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.dynamic">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">dynamic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">variables</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.dynamic" title="Ссылка на это определение"></a></dt>
+<dd><p>Этой функции можно передать одно или несколько имён переменных в качестве аргументов. Это делает
+переменные динамически привязанными к текущему вызову. Когда вызов
+завершится, переменные будут сброшены к значениям, которые у них были
+на момент вызова этой функции.</p>
+<p>Поддерживаются переменные в <a class="reference internal" href="python.html#named-stores"><span class="std std-ref">именованных хранилищах</span></a>.</p>
+<p>Если переменные переданы как именованные аргументы, значение аргумента
+присваивается переменной с соответствующим именем.</p>
+<p>Примеры вызовов:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">$</span> <span class="n">renpy</span><span class="o">.</span><span class="n">dynamic</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">)</span>
+<span class="k">$</span> <span class="n">renpy</span><span class="o">.</span><span class="n">dynamic</span><span class="p">(</span><span class="s2">&quot;mystore.serial_number&quot;</span><span class="p">)</span>
+<span class="k">$</span> <span class="n">renpy</span><span class="o">.</span><span class="n">dynamic</span><span class="p">(</span><span class="n">players</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">score</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_all_labels">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_all_labels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_all_labels" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает множество всех меток, определённых в программе, включая метки,
+определённые для внутреннего использования в библиотеках.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_return_stack">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_return_stack</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_return_stack" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает список, представляющий текущий стек возврата. Стек возврата — это
+список имён инструкций.</p>
+<p>Имена инструкций будут строками (для меток) или непрозрачными кортежами (для
+инструкций, не являющихся метками).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.has_label">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">has_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.has_label" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает true, если <cite>name</cite> является допустимой меткой в программе, или false
+в противном случае.</p>
+<dl class="simple">
+<dt><cite>name</cite></dt><dd><p>Должна быть строкой для проверки существования метки. Также может
+быть непрозрачным кортежем, задающим имя инструкции, не являющейся меткой.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.mark_label_seen">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">mark_label_seen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.mark_label_seen" title="Ссылка на это определение"></a></dt>
+<dd><p>Отмечает указанную метку как уже выполненную в системе текущего пользователя.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.mark_label_unseen">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">mark_label_unseen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.mark_label_unseen" title="Ссылка на это определение"></a></dt>
+<dd><p>Отмечает указанную метку как ещё не выполненную в системе текущего пользователя.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.pop_call">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">pop_call</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.pop_call" title="Ссылка на это определение"></a></dt>
+<dd><p>Удаляет текущий вызов из стека вызовов без возврата в место вызова.
+Также отменяет изменения значений <a class="reference internal" href="#renpy.dynamic" title="renpy.dynamic"><code class="xref py py-func docutils literal notranslate"><span class="pre">dynamic</span></code></a>
+переменных так же, как это сделала бы инструкция <cite>return</cite> в Ren'Py.</p>
+<p>Это можно использовать, если вызванная метка решает не возвращаться
+к своему вызывающему коду.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.seen_label">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">seen_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.seen_label" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает true, если указанная метка была выполнена хотя бы один раз в системе
+текущего пользователя, и false в противном случае. Это можно использовать, например,
+для разблокировки галерей сцен.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.set_return_stack">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">set_return_stack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.set_return_stack" title="Ссылка на это определение"></a></dt>
+<dd><p>Устанавливает текущий стек возврата. Стек возврата — это список имён
+инструкций.</p>
+<p>Имена инструкций могут быть строками (для меток) или непрозрачными кортежами (для
+инструкций, не являющихся метками).</p>
+<p>Наиболее распространённое применение этой функции — использование:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">renpy</span><span class="o">.</span><span class="n">set_return_stack</span><span class="p">([])</span>
+</pre></div>
+</div>
+<p>для очистки стека возврата.</p>
+</dd></dl>
+
+</section>
+<section id="context">
+<span id="id4"></span><h2>Контексты<a class="headerlink" href="#context" title="Ссылка на этот заголовок"></a></h2>
+<p>Контексты используются внутри Ren'Py для управления изменяемым и сохраняемым
+состоянием игры. Контексты включают:</p>
+<ul class="simple">
+<li><p>текущую выполняемую инструкцию Ren'Py,</p></li>
+<li><p>стек вызовов, как описано выше, а также имена и предыдущие значения
+динамических переменных, созданных <a class="reference internal" href="#renpy.dynamic" title="renpy.dynamic"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.dynamic()</span></code></a>,</p></li>
+<li><p>изображения, отображаемые в данный момент (и информация о них, такая как их
+атрибуты, применённые к ним трансформации и т. д.),</p></li>
+<li><p>отображаемые экраны и переменные внутри них,</p></li>
+<li><p>аудио, которое воспроизводится или находится в очереди.</p></li>
+</ul>
+<p>Большую часть времени используется только один контекст, и существует только один
+экземпляр каждого из этих элементов. Ситуация меняется при входе в главное или
+игровое меню; всё перечисленное выше может быть изменено и будет восстановлено
+при выходе из контекста меню. Некоторые из этих изменений происходят
+автоматически, например, слой экранов очищается при входе в контекст.</p>
+<p>Ren'Py также создаёт новые контексты в рамках <a class="reference internal" href="rooms.html#replay"><span class="std std-ref">повтора (replay)</span></a>
+и при <a class="reference internal" href="screen_actions.html#HideInterface" title="HideInterface"><code class="xref py py-func docutils literal notranslate"><span class="pre">скрытии</span> <span class="pre">интерфейса</span></code></a>.</p>
+<p>Создание <a class="reference internal" href="screens.html#screens"><span class="std std-ref">языка экранов</span></a> значительно уменьшило потребность
+в создании контекстов.</p>
+<p>Откат (Rollback) включён только в базовом контексте (то есть, когда существует
+только один контекст), и только базовый контекст сохраняется, поэтому игровое
+меню использует контекст.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.call_in_new_context">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">call_in_new_context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.call_in_new_context" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта функция создаёт новый контекст и начинает выполнение Ren'Py-скрипта с указанной метки в этом контексте. Откат в новом контексте отключён, а сохранение/загрузка будут происходить в контексте верхнего уровня.</p>
+<p>Используйте эту функцию, чтобы начать второе взаимодействие с пользователем, находясь внутри другого взаимодействия.</p>
+<p>Принимает необязательный именованный аргумент:</p>
+<dl class="simple">
+<dt><cite>_clear_layers</cite></dt><dd><p>Если True (по умолчанию), слои очищаются перед началом нового взаимодействия. Если False, слои не очищаются. Если передан список, очищаются только слои из этого списка.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.context">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">context</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.context" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает объект, уникальный для текущего контекста. Объект копируется при входе в новый контекст, но изменения в копии не влияют на оригинал.</p>
+<p>Объект сохраняется и участвует в откате.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.context_dynamic">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">context_dynamic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">variables</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.context_dynamic" title="Ссылка на это определение"></a></dt>
+<dd><p>В качестве аргументов можно передать одно или несколько имён переменных. Это делает переменные динамически привязанными к текущему контексту. При возврате в предыдущий контекст переменные будут сброшены до значений, которые они имели на момент вызова этой функции.</p>
+<p>Поддерживаются переменные в <a class="reference internal" href="python.html#named-stores"><span class="std std-ref">именованных хранилищах</span></a>.</p>
+<p>Примеры вызовов:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">$</span> <span class="n">renpy</span><span class="o">.</span><span class="n">context_dynamic</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">)</span>
+<span class="k">$</span> <span class="n">renpy</span><span class="o">.</span><span class="n">context_dynamic</span><span class="p">(</span><span class="s2">&quot;mystore.serial_number&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.context_nesting_level">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">context_nesting_level</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.context_nesting_level" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает уровень вложенности текущего контекста. Он равен 0 для самого внешнего контекста (который сохраняется, загружается и откатывается) и не равен нулю в других контекстах, таких как контексты меню и повтора.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.invoke_in_new_context">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">invoke_in_new_context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.invoke_in_new_context" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта функция создаёт новый контекст и вызывает в нём указанный Python-объект (функцию). Когда функция возвращает значение или вызывает исключение, управление возвращается в исходный контекст. Обычно используется для вызова Python-функции, которой нужно отобразить информацию игроку (например, запрос подтверждения) из обработчика событий.</p>
+<p>Дополнительные позиционные и именованные аргументы передаются в вызываемый объект.</p>
+<p>Контекст, созданный этой функцией, не может выполнять Ren'Py-скрипт. Функции, изменяющие поток выполнения Ren'Py-скрипта, такие как <a class="reference internal" href="statement_equivalents.html#renpy.jump" title="renpy.jump"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.jump()</span></code></a>, обрабатываются внешним контекстом. Если вы хотите вызвать Ren'Py-скрипт, а не Python-функцию, используйте вместо этого <a class="reference internal" href="#renpy.call_in_new_context" title="renpy.call_in_new_context"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.call_in_new_context()</span></code></a>.</p>
+<p>Принимает необязательный именованный аргумент:</p>
+<dl class="simple">
+<dt><cite>_clear_layers</cite></dt><dd><p>Если True (по умолчанию), слои очищаются перед началом нового взаимодействия. Если False, слои не очищаются. Если передан список, очищаются только слои из этого списка.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.jump_out_of_context">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">jump_out_of_context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.jump_out_of_context" title="Ссылка на это определение"></a></dt>
+<dd><p>Вызывает выход из текущего контекста и передачу управления в родительский контекст на указанную метку.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.reset_all_contexts">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">reset_all_contexts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.reset_all_contexts" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта функция удаляет все контексты из стека контекстов, сбрасывая при этом динамические переменные. После этого создаётся новый контекст, текущая инструкция завершается, и игра продолжается со следующей инструкции. Это приведёт Ren'Py в то же состояние, в котором он был при запуске, за исключением данных и начальной точки.</p>
+<p>Это можно использовать для сброса всего в игре — показанных изображений, играющей музыки и т.д., — как если бы игра началась с самого начала.</p>
+<p>Из-за того, насколько полно эта функция сбрасывает Ren'Py, она немедленно завершает текущую инструкцию.</p>
+<p>В основном предназначено для использования в метке after_load, где она может вернуть игру в то состояние, в котором она была при запуске. Затем игра должна будет восстановить сцену, музыку и т.д., и после этого сможет перейти к метке, с которой хочет продолжить.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="language_basics.html" class="btn btn-neutral float-left" title="Основы языка" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="dialogue.html" class="btn btn-neutral float-right" title="Диалоги и повествование" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

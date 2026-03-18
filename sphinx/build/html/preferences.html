@@ -1,0 +1,567 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Переменные настроек &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/preferences.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Переменные хранилища" href="store_variables.html" />
+    <link rel="prev" title="Configuration Variables" href="config.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Переменные настроек</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mixer-defaults">Настройки микшеров по умолчанию</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Функции микшеров</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preferences.set_mixer"><code class="docutils literal notranslate"><span class="pre">preferences.set_mixer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#preferences.get_mixer"><code class="docutils literal notranslate"><span class="pre">preferences.get_mixer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#preferences.set_mute"><code class="docutils literal notranslate"><span class="pre">preferences.set_mute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#preferences.get_mute"><code class="docutils literal notranslate"><span class="pre">preferences.get_mute()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Переменные настроек</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/preferences.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Переменные настроек<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Переменные настроек хранят значения настроек Ren'Py. В то время как значение
+настройки должно устанавливаться во время выполнения с помощью действия <a class="reference internal" href="screen_actions.html#Preference" title="Preference"><code class="xref py py-func docutils literal notranslate"><span class="pre">Preference()</span></code></a>,
+переменные настроек следует использовать вместе с оператором default
+для установки значения настройки по умолчанию.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">default</span> <span class="n">preferences</span><span class="o">.</span><span class="n">text_cps</span> <span class="o">=</span> <span class="mi">40</span>
+</pre></div>
+</div>
+<p>устанавливает скорость текста по умолчанию на 40 символов в секунду. Оператор default
+устанавливает значение настройки, только если значение по умолчанию изменилось с момента
+последней установки настройки. Например, если игрок изменяет скорость на 50,
+она останется на 50 при последующих запусках игры. Если в обновлении
+значение по умолчанию будет установлено на 42, настройка игрока изменится на 42. (Затем игрок
+может изменить ее снова.)</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.afm_after_click">
+<span class="sig-name descname"><span class="pre">preferences.afm_after_click</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-preferences.afm_after_click" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, режим автопрокрутки продолжится после клика. Если False,
+клик завершит режим автопрокрутки. Эквивалент настройки «автопрокрутка
+после клика».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.afm_enable">
+<span class="sig-name descname"><span class="pre">preferences.afm_enable</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-preferences.afm_enable" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, автопрокрутка включена, иначе False. Эквивалент
+настройки «время автопрокрутки».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.afm_time">
+<span class="sig-name descname"><span class="pre">preferences.afm_time</span></span> <span class="pre">=</span> <span class="pre">15</span><a class="headerlink" href="#var-preferences.afm_time" title="Ссылка на это определение"></a></dt>
+<dd><p>Время ожидания для режима автопрокрутки. Большие числа означают
+меньшую скорость, хотя преобразование в реальное время сложно, так как
+скорость учитывает длину строки. Эквивалент
+настройки «автопрокрутка».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.desktop_rollback_side">
+<span class="sig-name descname"><span class="pre">preferences.desktop_rollback_side</span></span> <span class="pre">=</span> <span class="pre">&quot;disable&quot;</span><a class="headerlink" href="#var-preferences.desktop_rollback_side" title="Ссылка на это определение"></a></dt>
+<dd><p>На настольной платформе прикосновения или клики по этой стороне окна
+вызывают откат (rollback). Одно из: &quot;left&quot;, &quot;right&quot; или &quot;disable&quot;. Это
+эквивалент настройки «сторона отката» на настольной платформе.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.mobile_rollback_side">
+<span class="sig-name descname"><span class="pre">preferences.mobile_rollback_side</span></span> <span class="pre">=</span> <span class="pre">&quot;disable&quot;</span><a class="headerlink" href="#var-preferences.mobile_rollback_side" title="Ссылка на это определение"></a></dt>
+<dd><p>На мобильной платформе прикосновения или клики по этой стороне окна
+вызывают откат (rollback). Одно из: &quot;left&quot;, &quot;right&quot; или &quot;disable&quot;. Это
+эквивалент настройки «сторона отката» на мобильной платформе.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.language">
+<span class="sig-name descname"><span class="pre">preferences.language</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-preferences.language" title="Ссылка на это определение"></a></dt>
+<dd><p>Язык, который игрок выбрал для использования при запуске игры.
+Это None для языка по умолчанию или строка, содержащая язык,
+на который переведена игра.</p>
+<p>Это можно использовать для установки языка по умолчанию и считывать для определения
+текущего языка. Действие <a class="reference internal" href="translation.html#Language" title="Language"><code class="xref py py-func docutils literal notranslate"><span class="pre">Language()</span></code></a> можно использовать для изменения
+языка.</p>
+<p>См. <a class="reference internal" href="translation.html"><span class="doc">Перевод</span></a> для получения дополнительной информации.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.emphasize_audio">
+<span class="sig-name descname"><span class="pre">preferences.emphasize_audio</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-preferences.emphasize_audio" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, Ren'Py будет выделять аудиоканалы, указанные в <a class="reference internal" href="config.html#var-config.emphasize_audio_channels"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.emphasize_audio_channels</span></code></a>,
+уменьшая громкость других каналов. (Например, уменьшая громкость музыки, когда звучит голос.)
+Если False, этого не происходит.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.fullscreen">
+<span class="sig-name descname"><span class="pre">preferences.fullscreen</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-preferences.fullscreen" title="Ссылка на это определение"></a></dt>
+<dd><p>Это True, когда Ren'Py работает в полноэкранном режиме, и False, когда
+он работает в окне. Эквивалент настройки «отображение».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.gl_framerate">
+<span class="sig-name descname"><span class="pre">preferences.gl_framerate</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-preferences.gl_framerate" title="Ссылка на это определение"></a></dt>
+<dd><p>Это либо целое число, либо None. Если не None, это целевая частота кадров,
+которой Ren'Py будет пытаться достичь. Если это значение установлено низко (например, 30),
+на мониторе с высокой частотой обновления (скажем, 60 кадров в секунду),
+Ren'Py будет рисовать только каждый второй кадр.</p>
+<p>Если None, Ren'Py будет пытаться рисовать с полной частотой кадров монитора.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.gl_powersave">
+<span class="sig-name descname"><span class="pre">preferences.gl_powersave</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-preferences.gl_powersave" title="Ссылка на это определение"></a></dt>
+<dd><p>Определяет, как часто Ren'Py будет перерисовывать неизменный экран. Если True,
+Ren'Py будет рисовать экран только 5 раз в секунду. Если False, он всегда
+будет рисовать с максимально возможной частотой кадров.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.gl_tearing">
+<span class="sig-name descname"><span class="pre">preferences.gl_tearing</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-preferences.gl_tearing" title="Ссылка на это определение"></a></dt>
+<dd><p>Определяет, является ли разрыв изображения (True) или пропуск кадров (False) предпочтительным
+поведением, когда игра не успевает за предполагаемой частотой кадров.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.mouse_move">
+<span class="sig-name descname"><span class="pre">preferences.mouse_move</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-preferences.mouse_move" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, мышь будет автоматически перемещаться к выбранной кнопке. Если False,
+этого не произойдет. Эквивалент настройки «автоматическое перемещение».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.show_empty_window">
+<span class="sig-name descname"><span class="pre">preferences.show_empty_window</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-preferences.show_empty_window" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, операторы window show и window auto будут функционировать. Если
+False, эти операторы отключены. Эквивалент настройки «показывать пустое окно».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.skip_after_choices">
+<span class="sig-name descname"><span class="pre">preferences.skip_after_choices</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-preferences.skip_after_choices" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, пропуск возобновится после выбора. Если False, выбор
+помешает Ren'Py пропускать. Эквивалент настройки «после выбора».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.skip_unseen">
+<span class="sig-name descname"><span class="pre">preferences.skip_unseen</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-preferences.skip_unseen" title="Ссылка на это определение"></a></dt>
+<dd><p>Когда True, Ren'Py будет пропускать весь текст. Когда False, Ren'Py будет
+пропускать только текст, который был прочитан игроком в любой сессии.
+Эквивалент настройки «пропуск».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.text_cps">
+<span class="sig-name descname"><span class="pre">preferences.text_cps</span></span> <span class="pre">=</span> <span class="pre">0</span><a class="headerlink" href="#var-preferences.text_cps" title="Ссылка на это определение"></a></dt>
+<dd><p>Скорость отображения текста. 0 — бесконечная, в противном случае это количество
+символов в секунду для отображения. Эквивалент настройки «скорость текста».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.transitions">
+<span class="sig-name descname"><span class="pre">preferences.transitions</span></span> <span class="pre">=</span> <span class="pre">2</span><a class="headerlink" href="#var-preferences.transitions" title="Ссылка на это определение"></a></dt>
+<dd><p>Определяет, какие переходы должны отображаться. 2 показывает все переходы,
+0 не показывает переходов. (1 зарезервировано.) Эквивалент
+настройки «переходы».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.video_image_fallback">
+<span class="sig-name descname"><span class="pre">preferences.video_image_fallback</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-preferences.video_image_fallback" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, вместо видеоспрайтов отображаются изображения. Если False,
+видеоспрайты отображаются как обычно. Эквивалент (инвертированный)
+настройки «видео спрайты».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.voice_sustain">
+<span class="sig-name descname"><span class="pre">preferences.voice_sustain</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-preferences.voice_sustain" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, голос продолжает играть до завершения или до тех пор, пока его не заменит
+другая реплика. Если False, голосовая реплика заканчивается, когда
+диалоговая строка переходит к следующей. Эквивалент настройки «продолжительность голоса».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.wait_voice">
+<span class="sig-name descname"><span class="pre">preferences.wait_voice</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-preferences.wait_voice" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, режим автопрокрутки будет ждать завершения голосовых файлов и самоозвучивания
+перед переходом. Если False, этого не произойдет. Эквивалент
+настройки «ждать голоса».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.system_cursor">
+<span class="sig-name descname"><span class="pre">preferences.system_cursor</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-preferences.system_cursor" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, системный курсор будет использоваться принудительно, игнорируя значения
+<a class="reference internal" href="config.html#var-config.mouse"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.mouse</span></code></a> и <a class="reference internal" href="config.html#var-config.mouse_displayable"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.mouse_displayable</span></code></a>. Если False,
+этого не произойдет. Эквивалент настройки «системный курсор».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.audio_when_minimized">
+<span class="sig-name descname"><span class="pre">preferences.audio_when_minimized</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-preferences.audio_when_minimized" title="Ссылка на это определение"></a></dt>
+<dd><p>Если False, аудиоканалы останавливаются, когда окно сворачивается,
+и возобновляются, когда окно восстанавливается. Если True, состояние окна
+не будет влиять на звук.
+Эквивалент настройки «звук при сворачивании».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.audio_when_unfocused">
+<span class="sig-name descname"><span class="pre">preferences.audio_when_unfocused</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-preferences.audio_when_unfocused" title="Ссылка на это определение"></a></dt>
+<dd><p>Если False, аудиоканалы останавливаются, когда окно теряет фокус клавиатуры,
+и возобновляются, когда окно восстанавливает фокус. Если True, фокус клавиатуры
+не будет влиять на звук.
+Эквивалент настройки «звук при потере фокуса».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.web_cache_preload">
+<span class="sig-name descname"><span class="pre">preferences.web_cache_preload</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-preferences.web_cache_preload" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, файлы игры будут загружены в кеш веб-браузера,
+что позволит играть в игру оффлайн. Если False, файлы игры
+не будут загружены в кеш веб-браузера, и для игры потребуется
+доступ в Интернет.
+Эквивалент настройки «предзагрузка веб-кеша».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.voice_after_game_menu">
+<span class="sig-name descname"><span class="pre">preferences.voice_after_game_menu</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-preferences.voice_after_game_menu" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, голос будет продолжать воспроизводиться после отображения игрового меню. Если False,
+голос будет остановлен при отображении игрового меню. Эквивалент
+настройки «голос после меню».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.restore_window_position">
+<span class="sig-name descname"><span class="pre">preferences.restore_window_position</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-preferences.restore_window_position" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, Ren'Py попытается восстановить положение окна при перезапуске
+игры. Если False, Ren'Py не будет пытаться восстановить
+положение окна. Эквивалент настройки «восстанавливать положение окна».</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.force_mono">
+<span class="sig-name descname"><span class="pre">preferences.force_mono</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-preferences.force_mono" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, Ren'Py смешает стереозвук в моно перед воспроизведением. Если False,
+стереозвук будет воспроизводиться как обычно.</p>
+</dd></dl>
+
+<section id="mixer-defaults">
+<span id="id2"></span><h2>Настройки микшеров по умолчанию<a class="headerlink" href="#mixer-defaults" title="Ссылка на этот заголовок"></a></h2>
+<p>Эти переменные можно устанавливать только с помощью оператора <code class="docutils literal notranslate"><span class="pre">default</span></code>.</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.volume.main">
+<span class="sig-name descname"><span class="pre">preferences.volume.main</span></span> <span class="pre">=</span> <span class="pre">1.0</span><a class="headerlink" href="#var-preferences.volume.main" title="Ссылка на это определение"></a></dt>
+<dd><p>Громкость по умолчанию для главного микшера, которая применяется ко всем каналам
+в дополнение к индивидуальному микшеру канала. Это должно быть число от 0.0 до 1.0, где 1.0 — полная громкость.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.volume.music">
+<span class="sig-name descname"><span class="pre">preferences.volume.music</span></span> <span class="pre">=</span> <span class="pre">1.0</span><a class="headerlink" href="#var-preferences.volume.music" title="Ссылка на это определение"></a></dt>
+<dd><p>Громкость по умолчанию для музыкального микшера, который используется для каналов музыки и
+видео. Это должно быть число от 0.0 до 1.0,
+где 1.0 — полная громкость.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.volume.sfx">
+<span class="sig-name descname"><span class="pre">preferences.volume.sfx</span></span> <span class="pre">=</span> <span class="pre">1.0</span><a class="headerlink" href="#var-preferences.volume.sfx" title="Ссылка на это определение"></a></dt>
+<dd><p>Громкость по умолчанию для микшера sfx, который используется для каналов звуков и
+аудио. Это должно быть число от 0.0 до 1.0,
+где 1.0 — полная громкость.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.volume.voice">
+<span class="sig-name descname"><span class="pre">preferences.volume.voice</span></span> <span class="pre">=</span> <span class="pre">1.0</span><a class="headerlink" href="#var-preferences.volume.voice" title="Ссылка на это определение"></a></dt>
+<dd><p>Громкость по умолчанию для голосового микшера, который используется для голосового
+канала (и, следовательно, для оператора voice, auto-voice и т.д.).
+Это должно быть число от 0.0 до 1.0, где 1.0 — полная громкость.</p>
+</dd></dl>
+
+<p>Если используются каналы, определённые с помощью <a class="reference internal" href="audio.html#renpy.music.register_channel" title="renpy.music.register_channel"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.music.register_channel()</span></code></a>,
+громкость по умолчанию этих каналов можно установить с помощью синтаксиса preferences.volume.`mixer`,
+где <cite>mixer</cite> — имя микшера.</p>
+<p>Например, это установит громкость музыкального микшера на 75%, а микшера sfx — на 50%:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">default</span> <span class="n">preferences</span><span class="o">.</span><span class="n">volume</span><span class="o">.</span><span class="k">music</span> <span class="o">=</span> <span class="mf">0.75</span>
+<span class="k">default</span> <span class="n">preferences</span><span class="o">.</span><span class="n">volume</span><span class="o">.</span><span class="n">sfx</span> <span class="o">=</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>Функции микшеров<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>См. <a class="reference internal" href="audio.html#volume"><span class="std std-ref">Громкость</span></a> для получения более подробной информации о микшерах.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="preferences.set_mixer">
+<span class="sig-prename descclassname"><span class="pre">preferences.</span></span><span class="sig-name descname"><span class="pre">set_mixer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mixer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#preferences.set_mixer" title="Ссылка на это определение"></a></dt>
+<dd><p>Устанавливает <cite>mixer</cite> на <cite>volume</cite>.</p>
+<dl class="simple">
+<dt><cite>mixer</cite></dt><dd><p>Строка, задающая имя микшера. По умолчанию микшеры
+это &quot;main&quot;, &quot;music&quot;, &quot;sfx&quot; и &quot;voice&quot; (&quot;main&quot; является специальным микшером).</p>
+</dd>
+<dt><cite>volume</cite></dt><dd><p>Число от 0.0 до 1.0, где 0.0 — -40 дБ (по мощности), а 1.0 — 0 дБ
+(по мощности).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="preferences.get_mixer">
+<span class="sig-prename descclassname"><span class="pre">preferences.</span></span><span class="sig-name descname"><span class="pre">get_mixer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mixer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#preferences.get_mixer" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает громкость для <cite>mixer</cite>. Если микшер выключен, возвращает
+0.0. Возвращает число от 0.0 до 1.0, где 0.0 — -40 дБ
+(по мощности), а 1.0 — 0 дБ (по мощности).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="preferences.set_mute">
+<span class="sig-prename descclassname"><span class="pre">preferences.</span></span><span class="sig-name descname"><span class="pre">set_mute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mixer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mute</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#preferences.set_mute" title="Ссылка на это определение"></a></dt>
+<dd><p>Устанавливает состояние выключения звука для <cite>mixer</cite>. Если <cite>mute</cite> равно true, микшер выключается.
+Если <cite>mute</cite> равно false, громкость микшера возвращается к значению, которое было
+до выключения.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="preferences.get_mute">
+<span class="sig-prename descclassname"><span class="pre">preferences.</span></span><span class="sig-name descname"><span class="pre">get_mute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mixer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#preferences.get_mute" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает состояние выключения звука для <cite>mixer</cite>.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="config.html" class="btn btn-neutral float-left" title="Configuration Variables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="store_variables.html" class="btn btn-neutral float-right" title="Переменные хранилища" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

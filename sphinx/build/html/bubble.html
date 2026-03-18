@@ -1,0 +1,603 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Речевые пузыри &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/bubble.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Ввод текста" href="input.html" />
+    <link rel="prev" title="Руководство по NVL-режиму" href="nvl_mode.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Речевые пузыри</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#retained-bubbles">Сохраняемые пузыри</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Советы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Переменные конфигурации</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bubble">Экран bubble</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Добавление поддержки речевых пузырей в игру</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Речевые пузыри</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/bubble.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Речевые пузыри<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Ren'Py поддерживает диалоги, отображаемые в речевых пузырях, которые можно интерактивно располагать на экране. Это является альтернативой текстовым окнам, используемым в играх в стиле ADV, и полноэкранным диалогам, используемым в режиме NVL.</p>
+<p>Чтобы использовать речевые пузыри в своей игре, вам нужно будет определить персонажей (Characters) с тегом изображения и типом (<code class="docutils literal notranslate"><span class="pre">kind</span></code>) <code class="docutils literal notranslate"><span class="pre">bubble</span></code>. Например,</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">e</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="k">image</span><span class="o">=</span><span class="s2">&quot;eileen&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">bubble</span><span class="p">)</span> <span class="c1"># Eileen</span>
+<span class="k">define</span> <span class="n">l</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="k">image</span><span class="o">=</span><span class="s2">&quot;lucy&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">bubble</span><span class="p">)</span>   <span class="c1"># Lucy</span>
+</pre></div>
+</div>
+<p>Хотя имя поддерживается, в целом говорящий персонаж будет подразумеваться по хвостику пузыря, поэтому имя можно опустить.</p>
+<p>Затем вы можете использовать этих персонажей для написания диалогов как обычно.</p>
+<p>Чтобы расположить пузыри, нажмите shift+B, чтобы отобразить редактор речевых пузырей. Для каждого персонажа, у которого есть речевой пузырь, в этом редакторе будут две кнопки.</p>
+<p>Нажатие на кнопку области запустит редактор речевых пузырей. Этот редактор позволяет вам перетаскиванием выбрать область на сетке, где будет размещен речевой пузырь. Когда вы завершите перетаскивание, речевой пузырь изменит свое положение.</p>
+<p>Нажатие на кнопку свойств будет переключать между наборами свойств, связанных с речевым пузырем. Для стандартного речевого пузыря разные свойства контролируют положение хвостика пузыря.</p>
+<p>После того как вы изменили область или свойства для персонажа (или группы персонажей с одинаковыми тегами изображений), эти свойства остаются установленными до тех пор, пока не будут изменены снова или до следующего оператора <cite>scene</cite>.</p>
+<p>Когда область или свойства устанавливаются для текущей строки диалога, соответствующая кнопка становится ярче. Если значения наследуются от предыдущей строки диалога или по умолчанию, кнопка затемнена. Щелчок правой кнопкой мыши по кнопке предотвратит установку значения для текущей строки.</p>
+<section id="retained-bubbles">
+<span id="id2"></span><h2>Сохраняемые пузыри<a class="headerlink" href="#retained-bubbles" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py поддерживает режим, в котором пузыри сохраняются между строками диалога, так что они появляются один за другим, пока предыдущие пузыри не будут убраны с экрана. Чтобы включить этот режим, установите свойство <cite>retain</cite> персонажа с пузырем в True:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">e</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="k">image</span><span class="o">=</span><span class="s2">&quot;eileen&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">bubble</span><span class="p">,</span> <span class="n">retain</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>После этого пузыри будут продолжать появляться. Каждый пузырь нужно будет размещать индивидуально, чтобы пузыри не перекрывались. В редакторе пузырей нажатие на кнопку «(clear retained bubbles)» удалит с экрана все сохраненные пузыри, кроме самого последнего.</p>
+</section>
+<section id="id3">
+<h2>Советы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Речевые пузыри используют те же идентификаторы, что и система перевода. См. <a class="reference internal" href="translation.html#translation-tips"><span class="std std-ref">Советы по переводу</span></a> для получения дополнительной информации о них. Эти идентификаторы могут измениться, если:</p>
+<ul class="simple">
+<li><p>Изменится текст строки.</p></li>
+<li><p>Будет добавлена или удалена другая строка с тем же текстом в той же метке.</p></li>
+<li><p>Будет добавлена или удалена метка перед строкой (однако, добавление или удаление метки с оговоркой <code class="docutils literal notranslate"><span class="pre">hide</span></code> не изменит идентификатор перевода).</p></li>
+</ul>
+<p>Если вы редактируете сцену, рекомендуется проиграть её, чтобы убедиться, что изменения не повлияли на расположение речевых пузырей.</p>
+<p>Можно применять трансформации к речевому пузырю, редактируя экран <a class="reference internal" href="#bubble-screen"><span class="std std-ref">Экран bubble</span></a>.</p>
+<p id="bubble-ctc">Если вы хотите, чтобы индикатор CTC был частью экрана пузыря, рассмотрите возможность передать аргументу <cite>ctc_position</cite> в Character значение «screen-variable». Вам также может потребоваться добавить:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">showif</span> <span class="n">ctc</span><span class="p">:</span>
+    <span class="k">add</span> <span class="n">ctc</span>
+</pre></div>
+</div>
+<p>в конец экрана пузыря, если этого там нет. Тогда вам нужно будет определить персонажа так:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>define e = Character(</dt><dd><p>None,
+image=&quot;eileen&quot;,
+kind=bubble,
+ctc_position=&quot;screen-variable&quot;,
+ctc=Transform(&quot;ctc_image.png&quot;, align=(0.5, 1.0))</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="id4">
+<h2>Переменные конфигурации<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<p>Система речевых пузырей управляется переменными в пространстве имён <code class="docutils literal notranslate"><span class="pre">bubble</span></code>, а также экраном <code class="docutils literal notranslate"><span class="pre">bubble</span></code> и связанными с ним стилями.</p>
+<p>Пространство имён <code class="docutils literal notranslate"><span class="pre">bubble</span></code> содержит следующие переменные:</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-bubble.area_property">
+<span class="sig-name descname"><span class="pre">bubble.area_property</span></span> <span class="pre">=</span> <span class="pre">&quot;window_area&quot;</span><a class="headerlink" href="#var-bubble.area_property" title="Ссылка на это определение"></a></dt>
+<dd><p>Имя свойства, которое содержит область речевого пузыря. Это задаётся так, как если бы
+оно было передано в <a class="reference internal" href="dialogue.html#Character" title="Character"><code class="xref py py-func docutils literal notranslate"><span class="pre">Character()</span></code></a>, с той же системой префиксов. По умолчанию это
+<code class="docutils literal notranslate"><span class="pre">&quot;window_area&quot;</span></code>, что означает, что область передается как свойство отображаемому
+элементу window. Другой полезный выбор — <code class="docutils literal notranslate"><span class="pre">&quot;show_area&quot;</span></code>, что приведет к тому,
+что область будет передана как аргумент <cite>area</cite> экрану пузыря.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-bubble.clear_retain_statements">
+<span class="sig-name descname"><span class="pre">bubble.clear_retain_statements</span></span> <span class="pre">=</span> <span class="pre">[</span> <span class="pre">&quot;call</span> <span class="pre">screen&quot;,</span> <span class="pre">&quot;menu&quot;,</span>&#160; <span class="pre">&quot;say&quot;,</span> <span class="pre">&quot;say-centered&quot;,</span> <span class="pre">&quot;say-nvl&quot;,</span> <span class="pre">&quot;scene&quot;,</span> <span class="pre">]</span><a class="headerlink" href="#var-bubble.clear_retain_statements" title="Ссылка на это определение"></a></dt>
+<dd><p>Это список операторов, которые будут автоматически вызывать очистку сохраняемых пузырей.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-bubble.cols">
+<span class="sig-name descname"><span class="pre">bubble.cols</span></span> <span class="pre">=</span> <span class="pre">24</span><a class="headerlink" href="#var-bubble.cols" title="Ссылка на это определение"></a></dt>
+<dd><p>Детализация сетки, которая используется для позиционирования и изменения размера
+речевых пузырей, в горизонтальном направлении.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-bubble.db_filename">
+<span class="sig-name descname"><span class="pre">bubble.db_filename</span></span> <span class="pre">=</span> <span class="pre">&quot;bubble.json&quot;</span><a class="headerlink" href="#var-bubble.db_filename" title="Ссылка на это определение"></a></dt>
+<dd><p>Файл базы данных, хранящийся в директории игры, который содержит
+информацию о речевых пузырях.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-bubble.default_area">
+<span class="sig-name descname"><span class="pre">bubble.default_area</span></span> <span class="pre">=</span> <span class="pre">(15,</span> <span class="pre">1,</span> <span class="pre">8,</span> <span class="pre">5)</span><a class="headerlink" href="#var-bubble.default_area" title="Ссылка на это определение"></a></dt>
+<dd><p>Это область по умолчанию, в которой размещаются речевые пузыри, если
+не указана другая область. Это кортеж вида (x, y, w, h),
+где каждое значение — это количество ячеек сетки.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-bubble.expand_area">
+<span class="sig-name descname"><span class="pre">bubble.expand_area</span></span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span><a class="headerlink" href="#var-bubble.expand_area" title="Ссылка на это определение"></a></dt>
+<dd><p>Это словарь, сопоставляющий имя набора свойств с кортежем
+(left, top, right, bottom). Если найдено в этом наборе, область речевого
+пузыря расширяется на указанное количество пикселей.</p>
+<p>Это делает речевой пузырь больше, чем область, которую выделил создатель.
+Предполагается, что это можно использовать для выделения тела речевого пузыря,
+не беспокоясь о хвостике, а также для того, чтобы сам текст оставался на месте,
+когда меняется набор свойств и хвостик перемещается.</p>
+<p>По умолчанию это:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">bubble</span><span class="o">.</span><span class="n">expand_area</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;bottom_left&quot;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">22</span><span class="p">),</span>
+    <span class="s2">&quot;bottom_right&quot;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">22</span><span class="p">),</span>
+    <span class="s2">&quot;top_left&quot;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="s2">&quot;top_right&quot;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-bubble.layer">
+<span class="sig-name descname"><span class="pre">bubble.layer</span></span> <span class="pre">=</span> <span class="pre">&quot;screens&quot;</span><a class="headerlink" href="#var-bubble.layer" title="Ссылка на это определение"></a></dt>
+<dd><p>Слой, на который помещаются несохраняемые пузыри.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-bubble.properties">
+<span class="sig-name descname"><span class="pre">bubble.properties</span></span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span><a class="headerlink" href="#var-bubble.properties" title="Ссылка на это определение"></a></dt>
+<dd><p>Это свойства, помимо области, которые можно использовать для настройки
+речевого пузыря. Это словарь, сопоставляющий имя набора свойств
+со словарём свойств и значений. Эти свойства заменяют те, что
+переданы персонажу, а затем передаются на экран <code class="docutils literal notranslate"><span class="pre">bubble</span></code>.</p>
+<p>Здесь используется та же система префиксов, что и в <a class="reference internal" href="dialogue.html#Character" title="Character"><code class="xref py py-func docutils literal notranslate"><span class="pre">Character()</span></code></a>.
+Свойства, начинающиеся с <code class="docutils literal notranslate"><span class="pre">window_</span></code>, получают удалённый префикс и передаются
+отображаемому элементу с id «window» на экране пузыря, который является самим
+пузырем. Свойства с <code class="docutils literal notranslate"><span class="pre">what_</span></code> получают удалённый префикс и передаются
+отображаемому элементу с id «what» на экране пузыря, который является текстом
+пузыря. Свойства с <code class="docutils literal notranslate"><span class="pre">who_</span></code> обрабатываются аналогично и передаются
+имени персонажа. Свойства с <code class="docutils literal notranslate"><span class="pre">show_</span></code> передаются в качестве аргументов
+самому экрану пузыря.</p>
+<p>В новой игре файл screens.rpy включает:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">bubble</span><span class="o">.</span><span class="k">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="s2">&quot;gui/bubble.png&quot;</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">95</span><span class="p">)</span>
+
+<span class="k">define</span> <span class="n">bubble</span><span class="o">.</span><span class="na">properties</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;bottom_left&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;window_background&quot;</span> <span class="p">:</span> <span class="n">Transform</span><span class="p">(</span><span class="n">bubble</span><span class="o">.</span><span class="k">frame</span><span class="p">,</span> <span class="na">xzoom</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="na">yzoom</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+        <span class="s2">&quot;window_bottom_padding&quot;</span> <span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;bottom_right&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;window_background&quot;</span> <span class="p">:</span> <span class="n">Transform</span><span class="p">(</span><span class="n">bubble</span><span class="o">.</span><span class="k">frame</span><span class="p">,</span> <span class="na">xzoom</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="na">yzoom</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+        <span class="s2">&quot;window_bottom_padding&quot;</span> <span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;top_left&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;window_background&quot;</span> <span class="p">:</span> <span class="n">Transform</span><span class="p">(</span><span class="n">bubble</span><span class="o">.</span><span class="k">frame</span><span class="p">,</span> <span class="na">xzoom</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="na">yzoom</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span>
+        <span class="s2">&quot;window_top_padding&quot;</span> <span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;top_right&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;window_background&quot;</span> <span class="p">:</span> <span class="n">Transform</span><span class="p">(</span><span class="n">bubble</span><span class="o">.</span><span class="k">frame</span><span class="p">,</span> <span class="na">xzoom</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="na">yzoom</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span>
+        <span class="s2">&quot;window_top_padding&quot;</span> <span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Переменная bubble.frame используется только для упрощения определения bubble.properties.
+Затем для каждого из четырех стилей пузыря, пузырь переворачивается так,
+чтобы хвостик был в нужном месте, и отступ корректируется, чтобы оставить
+место для хвостика.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-bubble.properties_order">
+<span class="sig-name descname"><span class="pre">bubble.properties_order</span></span> <span class="pre">=</span> <span class="pre">[</span> <span class="pre">]</span><a class="headerlink" href="#var-bubble.properties_order" title="Ссылка на это определение"></a></dt>
+<dd><p>Это список имен наборов свойств в том порядке, в котором они должны
+переключаться в редакторе речевых пузырей. Если имена наборов свойств
+не указаны, свойства переключаются в алфавитном порядке.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-bubble.properties_callback">
+<span class="sig-name descname"><span class="pre">bubble.properties_callback</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-bubble.properties_callback" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это должна быть функция, которая принимает тег изображения
+и возвращает список или кортеж имен свойств, которые должны использоваться
+для этого тега изображения, в том порядке, в котором эти имена должны
+переключаться. Это имеет приоритет над bubble.properties_order и может
+использоваться для настройки списка свойств пузыря для каждого персонажа.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-bubble.retain_layer">
+<span class="sig-name descname"><span class="pre">bubble.retain_layer</span></span> <span class="pre">=</span> <span class="pre">&quot;screens&quot;</span><a class="headerlink" href="#var-bubble.retain_layer" title="Ссылка на это определение"></a></dt>
+<dd><p>Слой, на который помещаются сохраняемые пузыри.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-bubble.rows">
+<span class="sig-name descname"><span class="pre">bubble.rows</span></span> <span class="pre">=</span> <span class="pre">24</span><a class="headerlink" href="#var-bubble.rows" title="Ссылка на это определение"></a></dt>
+<dd><p>Детализация сетки, которая используется для позиционирования и изменения размера
+речевых пузырей, в вертикальном направлении.</p>
+</dd></dl>
+
+</section>
+<section id="bubble">
+<span id="bubble-screen"></span><h2>Экран bubble<a class="headerlink" href="#bubble" title="Ссылка на этот заголовок"></a></h2>
+<p>Стандартный экран <code class="docutils literal notranslate"><span class="pre">bubble</span></code> можно найти в <code class="docutils literal notranslate"><span class="pre">screens.rpy</span></code>, и он похож
+на стандартный экран <code class="docutils literal notranslate"><span class="pre">say</span></code>:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">screen</span> <span class="n">bubble</span><span class="p">(</span><span class="n">who</span><span class="p">,</span> <span class="n">what</span><span class="p">):</span>
+    <span class="na">style_prefix</span> <span class="s2">&quot;bubble&quot;</span>
+
+    <span class="k">window</span><span class="p">:</span>
+        <span class="na">id</span> <span class="s2">&quot;window&quot;</span>
+
+        <span class="k">if</span> <span class="n">who</span> <span class="k">is</span> <span class="k">not</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="k">window</span><span class="p">:</span>
+                <span class="na">id</span> <span class="s2">&quot;namebox&quot;</span>
+                <span class="k">style</span> <span class="s2">&quot;bubble_namebox&quot;</span>
+
+                <span class="k">text</span> <span class="n">who</span><span class="p">:</span>
+                    <span class="na">id</span> <span class="s2">&quot;who&quot;</span>
+
+        <span class="k">text</span> <span class="n">what</span><span class="p">:</span>
+            <span class="na">id</span> <span class="s2">&quot;what&quot;</span>
+</pre></div>
+</div>
+<p>Он отделен от экрана <cite>say</cite>, так как использует собственный набор стилей, включая
+<code class="docutils literal notranslate"><span class="pre">bubble_window</span></code>, <code class="docutils literal notranslate"><span class="pre">bubble_what</span></code>, <code class="docutils literal notranslate"><span class="pre">bubble_namebox</span></code> и <code class="docutils literal notranslate"><span class="pre">bubble_who</span></code>.
+Эти стили можно настраивать напрямую, чтобы избежать необходимости устанавливать
+свойство во всех наборах свойств в <a class="reference internal" href="#var-bubble.properties"><code class="xref std std-var docutils literal notranslate"><span class="pre">bubble.properties</span></code></a>.</p>
+<p>Если вы хотите применять эффекты к речевому пузырю, вы можете сделать это,
+добавив трансформацию на экран пузыря, которая принимает события
+трансформации <cite>show</cite> и <cite>hide</cite>, например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">screen</span> <span class="n">bubble</span><span class="p">(</span><span class="n">who</span><span class="p">,</span> <span class="n">what</span><span class="p">):</span>
+    <span class="na">style_prefix</span> <span class="s2">&quot;bubble&quot;</span>
+
+    <span class="k">window</span><span class="p">:</span>
+        <span class="na">id</span> <span class="s2">&quot;window&quot;</span>
+
+        <span class="k">at</span> <span class="k">transform</span><span class="p">:</span>
+            <span class="k">on</span> <span class="k">show</span><span class="p">:</span>
+                <span class="na">alpha</span> <span class="mf">0.0</span>
+                <span class="n">linear</span> <span class="mf">.5</span> <span class="na">alpha</span> <span class="mf">1.0</span>
+
+            <span class="k">on</span> <span class="k">hide</span><span class="p">:</span>
+                <span class="n">linear</span> <span class="mf">.5</span> <span class="na">alpha</span> <span class="mf">0.0</span>
+
+        <span class="k">if</span> <span class="n">who</span> <span class="k">is</span> <span class="k">not</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="k">window</span><span class="p">:</span>
+                <span class="na">id</span> <span class="s2">&quot;namebox&quot;</span>
+                <span class="k">style</span> <span class="s2">&quot;bubble_namebox&quot;</span>
+
+                <span class="k">text</span> <span class="n">who</span><span class="p">:</span>
+                    <span class="na">id</span> <span class="s2">&quot;who&quot;</span>
+
+        <span class="k">text</span> <span class="n">what</span><span class="p">:</span>
+            <span class="na">id</span> <span class="s2">&quot;what&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h2>Добавление поддержки речевых пузырей в игру<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h2>
+<p>Игры, созданные до выхода Ren'Py 8.1, не будут включать стандартные экраны
+и настройки, необходимые для системы речевых пузырей. Есть две вещи,
+которые нужно сделать, чтобы это исправить. Во-первых, скачайте:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://raw.githubusercontent.com/renpy/renpy/master/gui/game/gui/bubble.png">https://raw.githubusercontent.com/renpy/renpy/master/gui/game/gui/bubble.png</a></p></li>
+<li><p><a class="reference external" href="https://raw.githubusercontent.com/renpy/renpy/master/gui/game/gui/thoughtbubble.png">https://raw.githubusercontent.com/renpy/renpy/master/gui/game/gui/thoughtbubble.png</a></p></li>
+</ul>
+<p>И поместите файлы в директорию <code class="docutils literal notranslate"><span class="pre">game/gui</span></code> вашей игры. Затем добавьте
+это в конец файла screens.rpy:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1">## Bubble screen ###############################################################</span>
+<span class="c1">##</span>
+<span class="c1">## The bubble screen is used to display dialogue to the player when using</span>
+<span class="c1">## speech bubbles. The bubble screen takes the same parameters as the say</span>
+<span class="c1">## screen, must create a displayable with the id of &quot;what&quot;, and can create</span>
+<span class="c1">## displayables with the &quot;namebox&quot;, &quot;who&quot;, and &quot;window&quot; ids.</span>
+<span class="c1">##</span>
+<span class="c1">## https://www.renpy.org/doc/html/bubble.html#bubble-screen</span>
+
+<span class="k">screen</span> <span class="n">bubble</span><span class="p">(</span><span class="n">who</span><span class="p">,</span> <span class="n">what</span><span class="p">):</span>
+    <span class="na">style_prefix</span> <span class="s2">&quot;bubble&quot;</span>
+
+    <span class="k">window</span><span class="p">:</span>
+        <span class="na">id</span> <span class="s2">&quot;window&quot;</span>
+
+        <span class="k">if</span> <span class="n">who</span> <span class="k">is</span> <span class="k">not</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="k">window</span><span class="p">:</span>
+                <span class="na">id</span> <span class="s2">&quot;namebox&quot;</span>
+                <span class="k">style</span> <span class="s2">&quot;bubble_namebox&quot;</span>
+
+                <span class="k">text</span> <span class="n">who</span><span class="p">:</span>
+                    <span class="na">id</span> <span class="s2">&quot;who&quot;</span>
+
+        <span class="k">text</span> <span class="n">what</span><span class="p">:</span>
+            <span class="na">id</span> <span class="s2">&quot;what&quot;</span>
+
+<span class="k">style</span> <span class="n">bubble_window</span> <span class="k">is</span> <span class="n">empty</span>
+<span class="k">style</span> <span class="n">bubble_namebox</span> <span class="k">is</span> <span class="n">empty</span>
+<span class="k">style</span> <span class="n">bubble_who</span> <span class="k">is</span> <span class="k">default</span>
+<span class="k">style</span> <span class="n">bubble_what</span> <span class="k">is</span> <span class="k">default</span>
+
+<span class="k">style</span> <span class="n">bubble_window</span><span class="p">:</span>
+    <span class="na">xpadding</span> <span class="mi">30</span>
+    <span class="na">top_padding</span> <span class="mi">5</span>
+    <span class="na">bottom_padding</span> <span class="mi">5</span>
+
+<span class="k">style</span> <span class="n">bubble_namebox</span><span class="p">:</span>
+    <span class="na">xalign</span> <span class="mf">0.5</span>
+
+<span class="k">style</span> <span class="n">bubble_who</span><span class="p">:</span>
+    <span class="na">xalign</span> <span class="mf">0.5</span>
+    <span class="na">textalign</span> <span class="mf">0.5</span>
+    <span class="na">color</span> <span class="s2">&quot;#000&quot;</span>
+
+<span class="k">style</span> <span class="n">bubble_what</span><span class="p">:</span>
+    <span class="na">align</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="na">text_align</span> <span class="mf">0.5</span>
+    <span class="na">layout</span> <span class="s2">&quot;subtitle&quot;</span>
+    <span class="na">color</span> <span class="s2">&quot;#000&quot;</span>
+
+<span class="k">define</span> <span class="n">bubble</span><span class="o">.</span><span class="k">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="s2">&quot;gui/bubble.png&quot;</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">95</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">bubble</span><span class="o">.</span><span class="n">thoughtframe</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="s2">&quot;gui/thoughtbubble.png&quot;</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">55</span><span class="p">)</span>
+
+<span class="k">define</span> <span class="n">bubble</span><span class="o">.</span><span class="na">properties</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;bottom_left&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;window_background&quot;</span> <span class="p">:</span> <span class="n">Transform</span><span class="p">(</span><span class="n">bubble</span><span class="o">.</span><span class="k">frame</span><span class="p">,</span> <span class="na">xzoom</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="na">yzoom</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+        <span class="s2">&quot;window_bottom_padding&quot;</span> <span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;bottom_right&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;window_background&quot;</span> <span class="p">:</span> <span class="n">Transform</span><span class="p">(</span><span class="n">bubble</span><span class="o">.</span><span class="k">frame</span><span class="p">,</span> <span class="na">xzoom</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="na">yzoom</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+        <span class="s2">&quot;window_bottom_padding&quot;</span> <span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;top_left&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;window_background&quot;</span> <span class="p">:</span> <span class="n">Transform</span><span class="p">(</span><span class="n">bubble</span><span class="o">.</span><span class="k">frame</span><span class="p">,</span> <span class="na">xzoom</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="na">yzoom</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span>
+        <span class="s2">&quot;window_top_padding&quot;</span> <span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;top_right&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;window_background&quot;</span> <span class="p">:</span> <span class="n">Transform</span><span class="p">(</span><span class="n">bubble</span><span class="o">.</span><span class="k">frame</span><span class="p">,</span> <span class="na">xzoom</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="na">yzoom</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span>
+        <span class="s2">&quot;window_top_padding&quot;</span> <span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;thought&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;window_background&quot;</span> <span class="p">:</span> <span class="n">bubble</span><span class="o">.</span><span class="n">thoughtframe</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">define</span> <span class="n">bubble</span><span class="o">.</span><span class="n">expand_area</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;bottom_left&quot;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">22</span><span class="p">),</span>
+    <span class="s2">&quot;bottom_right&quot;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">22</span><span class="p">),</span>
+    <span class="s2">&quot;top_left&quot;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="s2">&quot;top_right&quot;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="s2">&quot;thought&quot;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="nvl_mode.html" class="btn btn-neutral float-left" title="Руководство по NVL-режиму" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="input.html" class="btn btn-neutral float-right" title="Ввод текста" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

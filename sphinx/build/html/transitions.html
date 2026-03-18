@@ -1,0 +1,974 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Переходы &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/transitions.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Matrixcolor" href="matrixcolor.html" />
+    <link rel="prev" title="Свойства трансформации" href="transform_properties.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Переходы</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Предопределённые переходы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Классы переходов</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#AlphaDissolve"><code class="docutils literal notranslate"><span class="pre">AlphaDissolve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ComposeTransition"><code class="docutils literal notranslate"><span class="pre">ComposeTransition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#CropMove"><code class="docutils literal notranslate"><span class="pre">CropMove()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Dissolve"><code class="docutils literal notranslate"><span class="pre">Dissolve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Fade"><code class="docutils literal notranslate"><span class="pre">Fade()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ImageDissolve"><code class="docutils literal notranslate"><span class="pre">ImageDissolve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#MoveTransition"><code class="docutils literal notranslate"><span class="pre">MoveTransition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#MultipleTransition"><code class="docutils literal notranslate"><span class="pre">MultipleTransition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Pause"><code class="docutils literal notranslate"><span class="pre">Pause()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Pixellate"><code class="docutils literal notranslate"><span class="pre">Pixellate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PushMove"><code class="docutils literal notranslate"><span class="pre">PushMove()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Swing"><code class="docutils literal notranslate"><span class="pre">Swing()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Семейства переходов</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#define.move_transitions"><code class="docutils literal notranslate"><span class="pre">define.move_transitions()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dict-transitions">Словарные переходы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#atl">ATL-переходы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python">Python-переходы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scene-show-hide">Автоматические переходы после Scene, Show и Hide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Переходы</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/transitions.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="transitions">
+<span id="id1"></span><h1>Переходы<a class="headerlink" href="#transitions" title="Ссылка на этот заголовок"></a></h1>
+<p>Переходы могут использоваться как часть <a class="reference internal" href="displaying_images.html#with-statement"><span class="std std-ref">оператора with</span></a>,
+а также в других частях Ren'Py для применения эффектов к изменениям в сцене
+(или иногда для превращения одного отображаемого объекта в другой). В Ren'Py есть небольшой
+набор предопределённых переходов, которые можно передавать непосредственно в оператор with.
+Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">bg</span> <span class="n">washington</span>
+<span class="k">with</span> <span class="n">dissolve</span>
+</pre></div>
+</div>
+<section id="id2">
+<h2>Предопределённые переходы<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-dissolve">
+<span class="sig-name descname"><span class="pre">dissolve</span></span><a class="headerlink" href="#var-dissolve" title="Ссылка на это определение"></a></dt>
+<dd><p>Растворение старого экрана в новом в течение 0.5 секунд. Экземпляр
+класса перехода <a class="reference internal" href="#Dissolve" title="Dissolve"><code class="xref py py-func docutils literal notranslate"><span class="pre">Dissolve()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-fade">
+<span class="sig-name descname"><span class="pre">fade</span></span><a class="headerlink" href="#var-fade" title="Ссылка на это определение"></a></dt>
+<dd><p>Затемнение до чёрного в течение 0.5 секунд, а затем проявление нового
+экрана в течение 0.5 секунд. Экземпляр класса перехода <a class="reference internal" href="#Fade" title="Fade"><code class="xref py py-func docutils literal notranslate"><span class="pre">Fade()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-pixellate">
+<span class="sig-name descname"><span class="pre">pixellate</span></span><a class="headerlink" href="#var-pixellate" title="Ссылка на это определение"></a></dt>
+<dd><p>Пикселизация старой сцены в течение 0.5 секунд и новой сцены в течение
+ещё 0.5 секунд. Экземпляр класса перехода <a class="reference internal" href="#Pixellate" title="Pixellate"><code class="xref py py-func docutils literal notranslate"><span class="pre">Pixellate()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-move">
+<span class="sig-name descname"><span class="pre">move</span></span><a class="headerlink" href="#var-move" title="Ссылка на это определение"></a></dt>
+<dd><p>Перемещение изображений, изменивших своё местоположение, в их новые
+позиции в течение 0.5 секунд. Экземпляр класса перехода <a class="reference internal" href="#MoveTransition" title="MoveTransition"><code class="xref py py-func docutils literal notranslate"><span class="pre">MoveTransition()</span></code></a>.</p>
+<p>Переходы типа move и подобные, например ease, могут применяться только к
+одному слою или ко всем слоям одновременно с помощью
+<a class="reference internal" href="displaying_images.html#with-statement"><span class="std std-ref">оператора with</span></a>. Они не будут работать в других контекстах,
+таких как <a class="reference internal" href="transforms.html#displayable-atl-statement"><span class="std std-ref">ATL</span></a>, <a class="reference internal" href="#ComposeTransition" title="ComposeTransition"><code class="xref py py-func docutils literal notranslate"><span class="pre">ComposeTransition()</span></code></a>,
+или при других способах применения переходов.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-moveinright">
+<span class="sig-name descname"><span class="pre">moveinright</span></span><a class="headerlink" href="#var-moveinright" title="Ссылка на это определение"></a></dt>
+<dd><p>Также: <strong>moveinleft, moveintop, moveinbottom</strong></p>
+<p>Эти переходы перемещают появляющиеся изображения на экран с соответствующей стороны,
+занимая 0.5 секунд.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-moveoutright">
+<span class="sig-name descname"><span class="pre">moveoutright</span></span><a class="headerlink" href="#var-moveoutright" title="Ссылка на это определение"></a></dt>
+<dd><p>Также: <strong>moveoutleft, moveouttop, moveoutbottom</strong></p>
+<p>Эти переходы перемещают исчезающие изображения за пределы экрана через соответствующую
+сторону, занимая 0.5 секунд.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-ease">
+<span class="sig-name descname"><span class="pre">ease</span></span><a class="headerlink" href="#var-ease" title="Ссылка на это определение"></a></dt>
+<dd><p>Также: <strong>easeinright, easeinleft, easeintop, easeinbottom, easeoutright, easeoutleft, easeouttop, easeoutbottom</strong></p>
+<p>Они похожи на семейство переходов move-, за исключением того, что используют
+кривую на основе косинуса для замедления в начале и в конце перехода.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-zoomin">
+<span class="sig-name descname"><span class="pre">zoomin</span></span><a class="headerlink" href="#var-zoomin" title="Ссылка на это определение"></a></dt>
+<dd><p>Увеличивает появляющиеся изображения, занимая 0.5 секунд.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-zoomout">
+<span class="sig-name descname"><span class="pre">zoomout</span></span><a class="headerlink" href="#var-zoomout" title="Ссылка на это определение"></a></dt>
+<dd><p>Уменьшает исчезающие изображения, занимая 0.5 секунд.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-zoominout">
+<span class="sig-name descname"><span class="pre">zoominout</span></span><a class="headerlink" href="#var-zoominout" title="Ссылка на это определение"></a></dt>
+<dd><p>Увеличивает появляющиеся изображения и уменьшает исчезающие изображения, занимая 0.5
+секунд.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-vpunch">
+<span class="sig-name descname"><span class="pre">vpunch</span></span><a class="headerlink" href="#var-vpunch" title="Ссылка на это определение"></a></dt>
+<dd><p>При вызове этот переход встряхивает экран по вертикали в течение четверти
+секунды. Имитировать и настраивать этот переход и <a class="reference internal" href="#var-hpunch"><code class="xref std std-var docutils literal notranslate"><span class="pre">hpunch</span></code></a> лучше всего
+с помощью <a class="reference internal" href="#atl-transitions"><span class="std std-ref">ATL-переходов</span></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-hpunch">
+<span class="sig-name descname"><span class="pre">hpunch</span></span><a class="headerlink" href="#var-hpunch" title="Ссылка на это определение"></a></dt>
+<dd><p>При вызове этот переход встряхивает экран по горизонтали в течение четверти
+секунды.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-blinds">
+<span class="sig-name descname"><span class="pre">blinds</span></span><a class="headerlink" href="#var-blinds" title="Ссылка на это определение"></a></dt>
+<dd><p>Переход экрана с эффектом вертикальных жалюзи, длящийся 1 секунду. Экземпляр
+класса перехода <a class="reference internal" href="#ImageDissolve" title="ImageDissolve"><code class="xref py py-func docutils literal notranslate"><span class="pre">ImageDissolve()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-squares">
+<span class="sig-name descname"><span class="pre">squares</span></span><a class="headerlink" href="#var-squares" title="Ссылка на это определение"></a></dt>
+<dd><p>Переход экрана с эффектом квадратов, длящийся 1 секунду.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-wipeleft">
+<span class="sig-name descname"><span class="pre">wipeleft</span></span><a class="headerlink" href="#var-wipeleft" title="Ссылка на это определение"></a></dt>
+<dd><p>Также: <strong>wiperight, wipeup, wipedown</strong></p>
+<p>Стирает сцену в указанном направлении. Экземпляры класса перехода
+<a class="reference internal" href="#CropMove" title="CropMove"><code class="xref py py-func docutils literal notranslate"><span class="pre">CropMove()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-slideleft">
+<span class="sig-name descname"><span class="pre">slideleft</span></span><a class="headerlink" href="#var-slideleft" title="Ссылка на это определение"></a></dt>
+<dd><p>Также: <strong>slideright, slideup, slidedown</strong></p>
+<p>Сдвигает новую сцену в указанном направлении. Экземпляры класса перехода
+<a class="reference internal" href="#CropMove" title="CropMove"><code class="xref py py-func docutils literal notranslate"><span class="pre">CropMove()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-slideawayleft">
+<span class="sig-name descname"><span class="pre">slideawayleft</span></span><a class="headerlink" href="#var-slideawayleft" title="Ссылка на это определение"></a></dt>
+<dd><p>Также: <strong>slideawayright, slideawayup, slideawaydown</strong></p>
+<p>Сдвигает старую сцену в указанном направлении. Экземпляры класса перехода
+<a class="reference internal" href="#CropMove" title="CropMove"><code class="xref py py-func docutils literal notranslate"><span class="pre">CropMove()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-pushright">
+<span class="sig-name descname"><span class="pre">pushright</span></span><a class="headerlink" href="#var-pushright" title="Ссылка на это определение"></a></dt>
+<dd><p>Также: <strong>pushleft, pushup, pushdown</strong></p>
+<p>Эти переходы используют новую сцену, чтобы выдвинуть старую сцену за указанную
+сторону. Экземпляры класса перехода <a class="reference internal" href="#PushMove" title="PushMove"><code class="xref py py-func docutils literal notranslate"><span class="pre">PushMove()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-irisin">
+<span class="sig-name descname"><span class="pre">irisin</span></span><a class="headerlink" href="#var-irisin" title="Ссылка на это определение"></a></dt>
+<dd><p>Также: <strong>irisout</strong></p>
+<p>Использует прямоугольную диафрагму (iris) для отображения нового экрана или скрытия
+старого. Экземпляры класса перехода <a class="reference internal" href="#CropMove" title="CropMove"><code class="xref py py-func docutils literal notranslate"><span class="pre">CropMove()</span></code></a>.</p>
+</dd></dl>
+
+</section>
+<section id="id3">
+<h2>Классы переходов<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Классы переходов — это функции, которые можно вызывать для создания новых переходов.
+Эти функции параметризованы, что позволяет создавать целые семейства переходов.
+В отличие от того, что может подразумевать этот термин, они обычно не являются
+классами в смысле Python, и их не следует рассматривать как таковые.</p>
+<p>Вызов классов переходов можно выполнять как часть оператора with.
+Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Очень долгое растворение.</span>
+<span class="k">with</span> <span class="n">Dissolve</span><span class="p">(</span><span class="mf">10.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Если один и тот же класс перехода используется многократно, можно использовать
+<a class="reference internal" href="python.html#define-statement"><span class="std std-ref">оператор define</span></a>, чтобы присвоить переход переменной:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">dissolve1</span> <span class="o">=</span> <span class="n">Dissolve</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="k">show</span> <span class="n">bg</span> <span class="n">washington</span>
+    <span class="k">with</span> <span class="n">dissolve1</span>
+</pre></div>
+</div>
+<p>Аргументу <cite>time_warp</cite>, принимаемому многими классами переходов, можно передать
+встроенные варперы из модуля <code class="docutils literal notranslate"><span class="pre">_warper</span></code>, см. <a class="reference internal" href="transforms.html#warpers"><span class="std std-ref">warpers</span></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="AlphaDissolve">
+<span class="sig-name descname"><span class="pre">AlphaDissolve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">control</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mipmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AlphaDissolve" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает переход, который использует управляющий displayable (почти всегда
+какой-либо анимированный transform) для перехода от одного экрана к другому.
+Transform вычисляется. Новый экран используется там, где transform непрозрачен,
+а старое изображение — где он прозрачен.</p>
+<dl class="simple">
+<dt><cite>control</cite></dt><dd><p>Управляющий transform.</p>
+</dd>
+<dt><cite>delay</cite></dt><dd><p>Время, которое занимает переход, до его завершения.</p>
+</dd>
+<dt><cite>reverse</cite></dt><dd><p>Если true, альфа-канал инвертируется. Непрозрачные области берутся
+со старого изображения, а прозрачные — с нового.</p>
+</dd>
+<dt><cite>mipmap</cite></dt><dd><p>Когда dissolve будет масштабирован до размера менее половины от его естественного размера,
+это свойство можно установить в True. Это приведет к генерации mipmap-уровней,
+что увеличит потребление ресурсов GPU, но уменьшит артефакты.
+См. <a class="reference internal" href="style_properties.html#style-property-mipmap"><code class="xref std std-propref docutils literal notranslate"><span class="pre">mipmap</span></code></a> для дополнительной информации.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ComposeTransition">
+<span class="sig-name descname"><span class="pre">ComposeTransition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">before</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">after</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ComposeTransition" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает переход, который компонует до трех переходов. Если не None,
+переходы <cite>before</cite> и <cite>after</cite> применяются к старой и новой
+сценам соответственно. Эти обновленные старая и новая сцены затем передаются
+в переход <cite>trans</cite>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Move the images in and out while dissolving. (This is a fairly expensive transition.)</span>
+<span class="k">define</span> <span class="n">moveinoutdissolve</span> <span class="o">=</span> <span class="n">ComposeTransition</span><span class="p">(</span><span class="n">dissolve</span><span class="p">,</span> <span class="n">before</span><span class="o">=</span><span class="n">moveoutleft</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="n">moveinright</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="CropMove">
+<span class="sig-name descname"><span class="pre">CropMove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'slideright'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startcrop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0,</span> <span class="pre">1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startpos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endcrop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">1.0,</span> <span class="pre">1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endpos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topnew</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CropMove" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает переход, который работает путем обрезки сцены и ее позиционирования на
+экране. Это можно использовать для реализации различных эффектов, все из которых
+включают изменение прямоугольных фрагментов сцен.</p>
+<dl>
+<dt><cite>time</cite></dt><dd><p>Время, которое занимает переход.</p>
+</dd>
+<dt><cite>mode</cite></dt><dd><p>Название режима перехода. Существует три группы
+режимов: шторки (wipes), сдвиги (slides) и другие. Также может быть &quot;custom&quot;,
+чтобы позволить определить пользовательский режим.</p>
+<p>При шторке (wipe), изображение остается на месте, и по мере
+перехода открывается все большая его часть. Например, при &quot;wiperight&quot;, шторке слева направо,
+сначала левый край изображения появляется на левом краю экрана,
+затем центр изображения, и, наконец, правая сторона изображения на правом краю экрана.
+Другие поддерживаемые шторки: &quot;wipeleft&quot;, &quot;wipedown&quot;, и &quot;wipeup&quot;.</p>
+<p>При сдвиге (slide) изображение движется. Так, при &quot;slideright&quot; правый край
+изображения начинается у левого края экрана и движется вправо
+по мере перехода. Другие сдвиги: &quot;slideleft&quot;, &quot;slidedown&quot;,
+и &quot;slideup&quot;.</p>
+<p>Также есть &quot;slideaways&quot;, при которых старое изображение движется поверх
+нового. &quot;Slideaways&quot; включают &quot;slideawayright&quot;, &quot;slideawayleft&quot;,
+&quot;slideawayup&quot; и &quot;slideawaydown&quot;.</p>
+<p>Мы также поддерживаем прямоугольную диафрагму внутрь с &quot;irisin&quot; и
+прямоугольную диафрагму наружу с &quot;irisout&quot;.</p>
+</dd>
+</dl>
+<p>Следующие параметры учитываются, только если режим &quot;custom&quot;. Позиции
+указываются относительно размера экрана, а обрезка — относительно
+размера изображения. Таким образом, обрезка (0.25, 0.0, 0.5, 1.0) берет
+среднюю половину изображения.</p>
+<dl class="simple">
+<dt><cite>startcrop</cite></dt><dd><p>Начальный прямоугольник, который вырезается из
+верхнего изображения. Кортеж из 4 элементов, содержащий x, y, ширину и высоту.</p>
+</dd>
+<dt><cite>startpos</cite></dt><dd><p>Начальная позиция, в которой верхнее изображение рисуется
+на экране. Кортеж из 2 элементов, содержащий x и y.</p>
+</dd>
+<dt><cite>endcrop</cite></dt><dd><p>Конечный прямоугольник, который вырезается из
+верхнего изображения. Кортеж из 4 элементов, содержащий x, y, ширину и высоту.</p>
+</dd>
+<dt><cite>endpos</cite></dt><dd><p>Конечная позиция, в которой верхнее изображение рисуется
+на экране. Кортеж из 2 элементов, содержащий x и y.</p>
+</dd>
+<dt><cite>topnew</cite></dt><dd><p>Если true, сцена, которая обрезается и перемещается (и находится поверх
+другой сцены), является новой сценой. Если false, это старая сцена.</p>
+</dd>
+</dl>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">wiperight</span> <span class="o">=</span> <span class="n">CropMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;wiperight&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">wipeleft</span> <span class="o">=</span> <span class="n">CropMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;wipeleft&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">wipeup</span> <span class="o">=</span> <span class="n">CropMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;wipeup&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">wipedown</span> <span class="o">=</span> <span class="n">CropMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;wipedown&quot;</span><span class="p">)</span>
+
+<span class="k">define</span> <span class="n">slideright</span> <span class="o">=</span> <span class="n">CropMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;slideright&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">slideleft</span> <span class="o">=</span> <span class="n">CropMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;slideleft&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">slideup</span> <span class="o">=</span> <span class="n">CropMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;slideup&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">slidedown</span> <span class="o">=</span> <span class="n">CropMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;slidedown&quot;</span><span class="p">)</span>
+
+<span class="k">define</span> <span class="n">slideawayright</span> <span class="o">=</span> <span class="n">CropMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;slideawayright&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">slideawayleft</span> <span class="o">=</span> <span class="n">CropMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;slideawayleft&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">slideawayup</span> <span class="o">=</span> <span class="n">CropMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;slideawayup&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">slideawaydown</span> <span class="o">=</span> <span class="n">CropMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;slideawaydown&quot;</span><span class="p">)</span>
+
+<span class="k">define</span> <span class="n">irisout</span> <span class="o">=</span> <span class="n">CropMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;irisout&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">irisin</span> <span class="o">=</span> <span class="n">CropMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;irisin&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Dissolve">
+<span class="sig-name descname"><span class="pre">Dissolve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_warp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mipmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Dissolve" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает переход, который плавно переходит (dissolve) от старой сцены к новой.</p>
+<dl class="simple">
+<dt><cite>time</cite></dt><dd><p>Время, которое займет переход.</p>
+</dd>
+<dt><cite>time_warp</cite></dt><dd><p><a class="reference internal" href="transforms.html#warpers"><span class="std std-ref">Функция, которая изменяет временную шкалу</span></a>. Если не None, это
+должна быть функция, принимающая дробное время от 0.0 до 1.0,
+и возвращающая число в том же диапазоне.</p>
+</dd>
+<dt><cite>mipmap</cite></dt><dd><p>Когда dissolve будет масштабирован до размера менее половины от его естественного размера,
+это свойство можно установить в True. Это приведет к генерации mipmap-уровней,
+что увеличит потребление ресурсов GPU, но уменьшит артефакты.
+См. <a class="reference internal" href="style_properties.html#style-property-mipmap"><code class="xref std std-propref docutils literal notranslate"><span class="pre">mipmap</span></code></a> для дополнительной информации.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Fade">
+<span class="sig-name descname"><span class="pre">Fade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hold_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_time</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#000'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Fade" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает переход, который за <cite>out_time</cite> секунд плавно затемняется до
+экрана, заполненного цветом <cite>color</cite>, остается на этом экране <cite>hold_time</cite>
+секунд, а затем за <cite>in_time</cite> секунд плавно проявляется новая сцена.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fade to black and back.</span>
+<span class="k">define</span> <span class="n">fade</span> <span class="o">=</span> <span class="n">Fade</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Hold at black for a bit.</span>
+<span class="k">define</span> <span class="n">fadehold</span> <span class="o">=</span> <span class="n">Fade</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Camera flash - quickly fades to white, then back to the scene.</span>
+<span class="k">define</span> <span class="n">flash</span> <span class="o">=</span> <span class="n">Fade</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="na">color</span><span class="o">=</span><span class="s2">&quot;#fff&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ImageDissolve">
+<span class="sig-name descname"><span class="pre">ImageDissolve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ramplen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_warp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mipmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ImageDissolve" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает переход, который плавно проявляет новую сцену поверх старой, используя
+изображение для управления процессом перехода. Это означает, что белые пиксели
+проявятся первыми, а черные — последними.</p>
+<dl class="simple">
+<dt><cite>image</cite></dt><dd><p>Управляющее изображение. Может быть любым displayable. Оно
+должно быть того же размера, что и переходящие сцены, и если <cite>reverse=True</cite>,
+оно должно быть полностью непрозрачным.</p>
+</dd>
+<dt><cite>time</cite></dt><dd><p>Время, которое займет переход.</p>
+</dd>
+<dt><cite>ramplen</cite></dt><dd><p>Длина используемого градиента (ramp). Должно быть целой степенью
+2. При значении по умолчанию 8, когда белый пиксель
+полностью проявился, пиксель на 8 оттенков серого темнее
+завершит один шаг проявления.</p>
+</dd>
+<dt><cite>reverse</cite></dt><dd><p>Если True, черные пиксели проявятся раньше белых.</p>
+</dd>
+<dt><cite>time_warp</cite></dt><dd><p><a class="reference internal" href="transforms.html#warpers"><span class="std std-ref">Функция, которая изменяет временную шкалу</span></a>. Если не None, это
+должна быть функция, принимающая дробное время от 0.0 до 1.0,
+и возвращающая число в том же диапазоне.</p>
+</dd>
+<dt><cite>mipmap</cite></dt><dd><p>Когда dissolve будет масштабирован до размера менее половины от его естественного размера,
+это свойство можно установить в True. Это приведет к генерации mipmap-уровней,
+что увеличит потребление ресурсов GPU, но уменьшит артефакты.
+См. <a class="reference internal" href="style_properties.html#style-property-mipmap"><code class="xref std std-propref docutils literal notranslate"><span class="pre">mipmap</span></code></a> для дополнительной информации.</p>
+</dd>
+</dl>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">circirisout</span> <span class="o">=</span> <span class="n">ImageDissolve</span><span class="p">(</span><span class="s2">&quot;circiris.png&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">time_warp</span><span class="o">=</span><span class="n">_warper</span><span class="o">.</span><span class="n">easeout</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">circirisin</span> <span class="o">=</span> <span class="n">ImageDissolve</span><span class="p">(</span><span class="s2">&quot;circiris.png&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">time_warp</span><span class="o">=</span><span class="n">_warper</span><span class="o">.</span><span class="n">easein</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">circiristbigramp</span> <span class="o">=</span> <span class="n">ImageDissolve</span><span class="p">(</span><span class="s2">&quot;circiris.png&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">ramplen</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MoveTransition">
+<span class="sig-name descname"><span class="pre">MoveTransition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">enter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['master']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_warp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">_warper.linear</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enter_time_warp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">_warper.linear</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leave_time_warp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">_warper.linear</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MoveTransition" title="Ссылка на это определение"></a></dt>
+<dd><p>С помощью этих переходов изображения, меняющие положение между старой и новой
+сценами, будут интерполироваться, что означает, что их движение будет плавным
+вместо мгновенного.</p>
+<p>Поскольку только у слоев есть теги, MoveTransitions можно применять только к одному
+слою или ко всем слоям сразу, используя <a class="reference internal" href="displaying_images.html#with-statement"><span class="std std-ref">инструкцию with</span></a>.
+Это не сработает в других контекстах, таких как <a class="reference internal" href="transforms.html#displayable-atl-statement"><span class="std std-ref">ATL</span></a>,
+<a class="reference internal" href="#ComposeTransition" title="ComposeTransition"><code class="xref py py-func docutils literal notranslate"><span class="pre">ComposeTransition()</span></code></a> или других способах применения переходов.</p>
+<dl class="simple">
+<dt><cite>delay</cite></dt><dd><p>Время, которое требуется для завершения интерполяции.</p>
+</dd>
+<dt><cite>old</cite></dt><dd><p>Если true, то когда у тега меняется изображение во время перехода,
+будет использоваться старое изображение вместо нового. В противном случае,
+будут использоваться новые изображения.</p>
+</dd>
+<dt><cite>layers</cite></dt><dd><p>Список слоев, к которым применяются перемещения.</p>
+</dd>
+</dl>
+<p>Два следующих параметра принимают transform'ы, которые не должны быть анимированы
+во времени.</p>
+<dl class="simple">
+<dt><cite>enter</cite></dt><dd><p>Если не None, изображения, появляющиеся на сцене, также будут перемещаться. Transform
+будет применен к изображению для получения его начальной позиции.</p>
+</dd>
+<dt><cite>leave</cite></dt><dd><p>Если не None, изображения, покидающие сцену, также будут перемещаться. Transform
+будет применен к изображению для получения его конечной позиции.</p>
+</dd>
+</dl>
+<p>Три следующих параметра принимают <a class="reference internal" href="transforms.html#warpers"><span class="std std-ref">функции искажения времени</span></a>,
+которые принимают число от 0.0 до 1.0 и должны возвращать число в том
+же диапазоне.</p>
+<dl class="simple">
+<dt><cite>time_warp</cite></dt><dd><p>Функция искажения времени, применяемая к изображениям, меняющим положение
+между старой и новой сценами.</p>
+</dd>
+<dt><cite>enter_time_warp</cite></dt><dd><p>Функция искажения времени, применяемая к изображениям, появляющимся на сцене.</p>
+</dd>
+<dt><cite>leave_time_warp</cite></dt><dd><p>Функция искажения времени, применяемая к изображениям, покидающим сцену.</p>
+</dd>
+</dl>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">longer_easein</span> <span class="o">=</span> <span class="n">MoveTransition</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">enter</span><span class="o">=</span><span class="n">offscreenright</span><span class="p">,</span> <span class="n">enter_time_warp</span><span class="o">=</span><span class="n">_warper</span><span class="o">.</span><span class="n">easein</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>В следующем коде, &quot;a&quot; будет покидать сцену (используя <cite>leave</cite> и
+<cite>leave_time_warp</cite>), &quot;b&quot; будет менять положение (используя <cite>time_warp</cite>), а
+&quot;c&quot; будет появляться (используя <cite>enter</cite> и <cite>enter_time_warp</cite>). Поскольку тот же
+тег применяется до и после, &quot;d&quot; не будет считаться появляющимся или
+покидающим, а будет считаться меняющим положение.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">some_move_trans</span> <span class="o">=</span> <span class="n">MoveTransition</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="k">show</span> <span class="n">a</span>
+    <span class="k">show</span> <span class="n">b</span> <span class="k">at</span> <span class="n">left</span>
+    <span class="k">show</span> <span class="n">ugly_eileen</span> <span class="k">as</span> <span class="n">d</span> <span class="k">at</span> <span class="n">right</span>
+    <span class="n">e</span> <span class="s2">&quot;This is a dialogue !&quot;</span>
+
+    <span class="k">hide</span> <span class="n">a</span>
+    <span class="k">show</span> <span class="n">b</span> <span class="k">at</span> <span class="n">right</span>
+    <span class="k">show</span> <span class="n">c</span>
+    <span class="k">show</span> <span class="n">pretty_eileen</span> <span class="k">as</span> <span class="n">d</span> <span class="k">at</span> <span class="n">left</span>
+    <span class="k">with</span> <span class="n">some_move_trans</span>
+</pre></div>
+</div>
+<p>Во время изменения положения &quot;d&quot;, будет ли показана ugly или pretty eileen,
+зависит от значения <cite>old</cite>: если <cite>old</cite> равно False,
+по умолчанию, ugly_eileen мгновенно превратится в pretty_eileen, а затем начнет движение;
+а если <cite>old</cite> равно True, ugly_eileen сначала переместится, а затем мгновенно превратится в
+pretty_eileen.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MultipleTransition">
+<span class="sig-name descname"><span class="pre">MultipleTransition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MultipleTransition" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает переход, который позволяет отображать несколько переходов друг
+за другом.</p>
+<dl>
+<dt><cite>args</cite></dt><dd><p><strong>Список</strong>, содержащий нечетное количество элементов. Первый, третий и
+другие нечетные элементы должны быть сценами, а четные
+элементы должны быть переходами. Сцена может быть одним из:</p>
+<ul class="simple">
+<li><p>Displayable.</p></li>
+<li><p>False, чтобы использовать старую сцену.</p></li>
+<li><p>True, чтобы использовать новую сцену.</p></li>
+</ul>
+<p>Почти всегда первый аргумент будет False, а последний True.</p>
+<p>Обратите внимание, что это один параметр, принимающий список, а не <code class="docutils literal notranslate"><span class="pre">*args</span></code>.</p>
+</dd>
+</dl>
+<p>Переходы в <cite>args</cite> применяются по порядку. Для каждого перехода
+старой сценой является экран перед ним, а новой —
+сцена после него. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">logodissolve</span> <span class="o">=</span> <span class="n">MultipleTransition</span><span class="p">([</span>
+    <span class="kc">False</span><span class="p">,</span> <span class="n">Dissolve</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="s2">&quot;logo.jpg&quot;</span><span class="p">,</span> <span class="n">Pause</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span>
+    <span class="s2">&quot;logo.jpg&quot;</span><span class="p">,</span> <span class="n">dissolve</span><span class="p">,</span>
+    <span class="kc">True</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Этот пример выполнит переход к logo.jpg, подождет 1 секунду, а затем
+выполнит переход к новой сцене.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Pause">
+<span class="sig-name descname"><span class="pre">Pause</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pause" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает переход, который просто отображает новый экран в течение <cite>delay</cite> секунд.
+Может быть полезен как часть MultipleTransition.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Pixellate">
+<span class="sig-name descname"><span class="pre">Pixellate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixellate" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает переход, который пикселизирует старый экран, а затем
+проявляет через пикселизацию новый экран.</p>
+<dl class="simple">
+<dt><cite>time</cite></dt><dd><p>Общее время, которое займет переход, в секундах.</p>
+</dd>
+<dt><cite>steps</cite></dt><dd><p>Количество шагов, которое произойдет в каждом направлении. Каждый шаг
+создает пиксели примерно в два раза больше, чем на предыдущем шаге,
+так что 5-шаговая пикселизация создаст пиксели размером 32x32.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PushMove">
+<span class="sig-name descname"><span class="pre">PushMove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pushright'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PushMove" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает переход, который работает, беря новую сцену и используя ее,
+чтобы &quot;вытолкнуть&quot; старую сцену с экрана.</p>
+<dl class="simple">
+<dt><cite>time</cite></dt><dd><p>Время, которое занимает переход.</p>
+</dd>
+<dt><cite>mode</cite></dt><dd><p>Существует четыре возможных режима: &quot;pushright&quot;, &quot;pushleft&quot;, &quot;pushup&quot;
+и &quot;pushdown&quot;, которые выталкивают старую сцену с экрана в
+указанном направлении.</p>
+</dd>
+</dl>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">pushright</span> <span class="o">=</span> <span class="n">PushMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;pushright&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">pushleft</span> <span class="o">=</span> <span class="n">PushMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;pushleft&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">pushup</span> <span class="o">=</span> <span class="n">PushMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;pushup&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">pushdown</span> <span class="o">=</span> <span class="n">PushMove</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;pushdown&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Swing">
+<span class="sig-name descname"><span class="pre">Swing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#000'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flatten</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Swing" title="Ссылка на это определение"></a></dt>
+<dd><p>Переход, который поворачивает старую сцену на 90 градусов вокруг оси,
+так что она оказывается ребром к зрителю, переключается на новую сцену,
+а затем поворачивает эту сцену еще на 90 градусов, чтобы показать
+новую сцену зрителю.</p>
+<dl class="simple">
+<dt><cite>delay</cite></dt><dd><p>Сколько времени должен занимать переход.</p>
+</dd>
+<dt><cite>vertical</cite></dt><dd><p>Если true, сцена вращается вокруг оси X (пиксели движутся
+вертикально). Если false, сцена вращается вокруг оси Y,
+пиксели движутся горизонтально.</p>
+</dd>
+<dt><cite>reverse</cite></dt><dd><p>Если true, вращение происходит в обратном направлении.</p>
+</dd>
+<dt><cite>background</cite></dt><dd><p>Displayable, который размещается за сценой во время ее вращения.</p>
+</dd>
+<dt><cite>flatten</cite></dt><dd><p>Если true, сцены &quot;сплющиваются&quot; в изображения размером с
+экран перед вращением. Используйте это, если изображения,
+не полностью находящиеся на экране, вызывают нежелательные эффекты.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="id4">
+<h2>Семейства переходов<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<p>Семейства переходов — это функции, которые определяют большое семейство связанных
+переходов.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="define.move_transitions">
+<span class="sig-prename descclassname"><span class="pre">define.</span></span><span class="sig-name descname"><span class="pre">move_transitions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_warp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_time_warp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_time_warp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['master']</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#define.move_transitions" title="Ссылка на это определение"></a></dt>
+<dd><p>Определяет семейство <a class="reference internal" href="#MoveTransition" title="MoveTransition"><code class="xref py py-class docutils literal notranslate"><span class="pre">переходов</span> <span class="pre">движения</span></code></a>,
+аналогичных переходам <a class="reference internal" href="#var-move"><code class="xref std std-var docutils literal notranslate"><span class="pre">move</span></code></a> и <a class="reference internal" href="#var-ease"><code class="xref std std-var docutils literal notranslate"><span class="pre">ease</span></code></a>. Для заданного
+<cite>prefix</cite> это определяет следующие переходы:</p>
+<ul class="simple">
+<li><p><em>prefix</em> - Переход, который занимает <cite>delay</cite> секунд, чтобы переместить изображения,
+изменившие свои позиции, на новые места.</p></li>
+<li><p><em>prefix</em>inleft, <em>prefix</em>inright, <em>prefix</em>intop, <em>prefix</em>inbottom - Переходы,
+которые занимают <cite>delay</cite> секунд для перемещения изображений, изменивших свои позиции,
+на новые места, при этом новые изображения появляются с соответствующей
+стороны.</p></li>
+<li><p><em>prefix</em>outleft, <em>prefix</em>outright, <em>prefix</em>outtop, <em>prefix</em>outbottom -
+Переходы, которые занимают <cite>delay</cite> секунд для перемещения изображений, изменивших
+свои позиции, на новые места, при этом скрытые изображения уходят с
+соответствующей стороны.</p></li>
+</ul>
+<p>Другие параметры такие же, как у <a class="reference internal" href="#MoveTransition" title="MoveTransition"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoveTransition</span></code></a>:</p>
+<dl>
+<dt><cite>time_warp</cite>, <cite>in_time_warp</cite>, <cite>out_time_warp</cite></dt><dd><p><a class="reference internal" href="transforms.html#warpers"><span class="std std-ref">Функции деформации времени</span></a>, которые получают время от 0.0
+до 1.0, представляющее долю завершённого перемещения, и
+возвращают значение в том же диапазоне, указывающее долю завершённого
+линейного перемещения.</p>
+<p>Это можно использовать для определения функций, которые плавно перемещают
+изображения, а не двигают их с постоянной скоростью.</p>
+<p>Три аргумента используются для изображений, остающихся на экране,
+новых изображений и скрытых изображений соответственно.</p>
+</dd>
+<dt><cite>old</cite></dt><dd><p>Если true, когда изображение тега изменяется во время перехода,
+будет использоваться старое изображение вместо нового. В противном случае,
+будут использоваться новые изображения.</p>
+</dd>
+<dt><cite>layers</cite></dt><dd><p>Слои, к которым будет применён переход.</p>
+</dd>
+</dl>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Это определяет все предопределённые переходы, начинающиеся</span>
+<span class="c1"># с &quot;move&quot;.</span>
+<span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="k">define</span><span class="o">.</span><span class="n">move_transitions</span><span class="p">(</span><span class="s2">&quot;move&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="dict-transitions">
+<span id="id5"></span><h2>Словарные переходы<a class="headerlink" href="#dict-transitions" title="Ссылка на этот заголовок"></a></h2>
+<p>Во многих местах, где Ren'Py принимает переход, можно вместо этого указать
+словарь, который сопоставляет имена слоёв с этим переходом. В этом случае
+Ren'Py применяет каждый переход к соответствующему слою.</p>
+<p>Когда используется словарь, пауза, которая обычно происходит во время перехода,
+не возникает. Вместо этого оператор, принимающий словарь, возвращает управление
+немедленно, а переходы планируются к выполнению в начале следующего
+взаимодействия.</p>
+<p>Это можно использовать со слоем master, чтобы переходы происходили во время
+отображения диалога на экране. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">dis</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;master&quot;</span> <span class="p">:</span> <span class="n">Dissolve</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span> <span class="p">}</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span>
+    <span class="k">with</span> <span class="n">dis</span>
+
+    <span class="n">e</span> <span class="s2">&quot;Hello, world.&quot;</span>
+</pre></div>
+</div>
+<p>Растворение будет происходить во время отображения текста на экране.</p>
+<p>Словарные переходы по слоям не могут использоваться везде, где может использоваться
+переход, а только там, где возможно применение переходов к слою. Их можно
+использовать с <a class="reference internal" href="displaying_images.html#with-statement"><span class="std std-ref">оператором with</span></a> и <cite>with</cite> частью
+операторов <a class="reference internal" href="displaying_images.html#scene-statement"><span class="std std-ref">scene</span></a>, <a class="reference internal" href="displaying_images.html#show-statement"><span class="std std-ref">show</span></a> и
+<a class="reference internal" href="displaying_images.html#hide-statement"><span class="std std-ref">hide</span></a>. Их также можно использовать с
+<a class="reference internal" href="statement_equivalents.html#renpy.with_statement" title="renpy.with_statement"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.with_statement()</span></code></a> и <a class="reference internal" href="other.html#renpy.transition" title="renpy.transition"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.transition()</span></code></a>, действиями <a class="reference internal" href="screen_actions.html#Show" title="Show"><code class="xref py py-func docutils literal notranslate"><span class="pre">Show()</span></code></a> и
+<a class="reference internal" href="screen_actions.html#Hide" title="Hide"><code class="xref py py-func docutils literal notranslate"><span class="pre">Hide()</span></code></a> и различными переменными конфигурации, принимающими переходы.
+Словарные переходы по слоям <em>не будут</em> работать внутри конструкций, которые не
+работают со слоями, таких как <a class="reference internal" href="transforms.html#atl"><span class="std std-ref">ATL - Язык анимации и трансформации</span></a>, <a class="reference internal" href="#ComposeTransition" title="ComposeTransition"><code class="xref py py-func docutils literal notranslate"><span class="pre">ComposeTransition()</span></code></a> и
+<a class="reference internal" href="#MultipleTransition" title="MultipleTransition"><code class="xref py py-func docutils literal notranslate"><span class="pre">MultipleTransition()</span></code></a>.</p>
+<p>Это может плохо взаимодействовать с операторами, которые сами вызывают переход,
+например, с переходами, вызванными <code class="docutils literal notranslate"><span class="pre">window</span> <span class="pre">auto</span></code>. Эту проблему часто можно решить
+с помощью второго словарного перехода, который применяется к другому слою.
+Например, если вы видите странное мигание при появлении и скрытии окна диалога,
+подумайте об изменении файла <code class="file docutils literal notranslate"><span class="pre">options.rpy</span></code>, добавив:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">window_show_transition</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;screens&quot;</span> <span class="p">:</span> <span class="n">Dissolve</span><span class="p">(</span><span class="mf">.25</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">window_hide_transition</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;screens&quot;</span> <span class="p">:</span> <span class="n">Dissolve</span><span class="p">(</span><span class="mf">.25</span><span class="p">)</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Это работает, потому что окно диалога полностью находится на слое screens.</p>
+</section>
+<section id="atl">
+<span id="atl-transitions"></span><h2>ATL-переходы<a class="headerlink" href="#atl" title="Ссылка на этот заголовок"></a></h2>
+<p><em>См. также:</em> <a class="reference internal" href="transforms.html#atl"><span class="std std-ref">ATL - Язык анимации и трансформации</span></a></p>
+<p>Можно использовать ATL-преобразование для определения перехода. Эти переходы
+должны принимать аргументы <cite>old_widget</cite> и <cite>new_widget</cite>, которые получат
+отображаемые объекты, представляющие экраны, между которыми происходит переход.</p>
+<p>ATL-переход должен установить для себя свойство <a class="reference internal" href="transform_properties.html#transform-property-delay"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">delay</span></code></a>, равное количеству
+секунд, в течение которых длится переход. Он может использовать свойство
+<a class="reference internal" href="transform_properties.html#transform-property-events"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">events</span></code></a>, чтобы старый отображаемый объект не получал события.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">spin</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">new_widget</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">old_widget</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+    <span class="c1"># Устанавливаем, сколько времени займёт это преобразование.</span>
+    <span class="na">delay</span> <span class="n">duration</span>
+
+    <span class="c1"># Центрируем его.</span>
+    <span class="na">xcenter</span> <span class="mf">.5</span>
+    <span class="na">ycenter</span> <span class="mf">.5</span>
+
+    <span class="c1"># Вращаем старый отображаемый объект.</span>
+    <span class="n">old_widget</span>
+    <span class="na">events</span> <span class="kc">False</span>
+    <span class="na">rotate</span> <span class="mf">0.</span>
+    <span class="n">easeout</span> <span class="p">(</span><span class="n">duration</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="na">rotate</span> <span class="mf">360.0</span>
+
+    <span class="c1"># Вращаем новый отображаемый объект.</span>
+    <span class="n">new_widget</span>
+    <span class="na">events</span> <span class="kc">True</span>
+    <span class="n">easein</span> <span class="p">(</span><span class="n">duration</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="na">rotate</span> <span class="mf">720.0</span>
+</pre></div>
+</div>
+</section>
+<section id="python">
+<span id="transitions-python"></span><h2>Python-переходы<a class="headerlink" href="#python" title="Ссылка на этот заголовок"></a></h2>
+<p>В качестве перехода может использоваться вызываемый объект Python. Для этого
+он должен принимать два именованных аргумента, описанных ниже, и возвращать
+отображаемый объект, который выполняет эффект перехода — обычно делегируя
+это другому переходу. Два именованных аргумента — это <cite>old_widget</cite>, который
+представляет старый экран, и <cite>new_widget</cite>, который представляет новый экран.</p>
+<p>Отображаемый объект, возвращаемый вызываемым объектом, должен иметь атрибут
+<code class="docutils literal notranslate"><span class="pre">delay</span></code>, установленный в количество секунд, в течение которых должен
+длиться переход.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dissolve_or_pixellate</span><span class="p">(</span><span class="n">old_widget</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">new_widget</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">persistent</span><span class="o">.</span><span class="n">want_pixellate</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pixellate</span><span class="p">(</span><span class="n">old_widget</span><span class="o">=</span><span class="n">old_widget</span><span class="p">,</span> <span class="n">new_widget</span><span class="o">=</span><span class="n">new_widget</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">dissolve</span><span class="p">(</span><span class="n">old_widget</span><span class="o">=</span><span class="n">old_widget</span><span class="p">,</span> <span class="n">new_widget</span><span class="o">=</span><span class="n">new_widget</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Соответственно, все виды переходов могут быть вызваны с передачей этих двух
+именованных аргументов, в результате чего будет получен отображаемый объект,
+анимирующий переход между двумя переданными отображаемыми объектами.</p>
+</section>
+<section id="scene-show-hide">
+<span id="scene-show-hide-transition"></span><h2>Автоматические переходы после Scene, Show и Hide<a class="headerlink" href="#scene-show-hide" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py может автоматически показывать переход после серии операторов scene, show
+и hide. Этот переход можно включить, установив для переменной
+<a class="reference internal" href="store_variables.html#var-_scene_show_hide_transition"><code class="xref std std-var docutils literal notranslate"><span class="pre">_scene_show_hide_transition</span></code></a> значение перехода, который будет использоваться.</p>
+<p>Переход произойдёт после одного или нескольких операторов <a class="reference internal" href="displaying_images.html#scene-statement"><span class="std std-ref">scene</span></a>,
+<a class="reference internal" href="displaying_images.html#show-statement"><span class="std std-ref">show</span></a> и <a class="reference internal" href="displaying_images.html#hide-statement"><span class="std std-ref">hide</span></a>, при условии, что за
+оператором не следует оператор <a class="reference internal" href="displaying_images.html#with-statement"><span class="std std-ref">with</span></a> или переход, вызванный
+<a class="reference internal" href="dialogue.html#dialogue-window-management"><span class="std std-ref">управлением окном диалога</span></a>, как, например,
+различные операторы <code class="docutils literal notranslate"><span class="pre">window</span></code>. Он также отключается в контексте меню.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">_scene_show_hide_transition</span> <span class="o">=</span> <span class="n">Dissolve</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="k">scene</span> <span class="n">bg</span> <span class="n">washington</span>
+    <span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span>
+
+    <span class="s2">&quot;Здесь переход не произойдёт, потому что появилось окно диалога.&quot;</span>
+
+    <span class="k">show</span> <span class="n">lucy</span> <span class="n">mad</span> <span class="k">at</span> <span class="n">right</span>
+
+    <span class="s2">&quot;Здесь переход произойдёт.&quot;</span>
+
+    <span class="k">hide</span> <span class="n">lucy</span> <span class="n">mad</span>
+    <span class="k">show</span> <span class="n">eileen</span> <span class="n">vhappy</span>
+
+    <span class="s2">&quot;И здесь он тоже произойдёт.&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="transform_properties.html" class="btn btn-neutral float-left" title="Свойства трансформации" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="matrixcolor.html" class="btn btn-neutral float-right" title="Matrixcolor" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

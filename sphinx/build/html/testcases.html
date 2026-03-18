@@ -1,0 +1,1568 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Автоматизированное тестирование &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/testcases.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Руководство по NVL-режиму" href="nvl_mode.html" />
+    <link rel="prev" title="Интерактивный Режиссёр" href="director.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Автоматизированное тестирование</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#running-testcases">Запуск тест-кейсов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testcase">Инструкция Testcase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testsuite">Инструкция Testsuite</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Хуки</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lifecycle-of-a-test-run">Жизненный цикл тестового запуска</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#skipping-testcases">Пропуск тест-кейсов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameterized-tests">Параметризованные тесты</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Сгруппированные параметры</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Комбинации параметров</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Использование параметров в выражениях</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Наборы тестов</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Исключения и ошибки</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">Отчётность о тестировании</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Результаты тестов</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">Настройки тестирования</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-statements">Тестовые инструкции</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id16">Основные команды</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advance">Advance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exit">Exit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pass">Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pause">Pause</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run">Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#skip">Skip</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Команды мыши</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#click">Click</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#drag">Drag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#move">Move</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scroll">Scroll</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Команды клавиатуры</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keysym">Keysym</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#type">Type</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#test-conditions">Инструкции-условия</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id20">Логические значения</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">Логические операции</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#eval">Eval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#label">Label</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">Инструкции-селекторы</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id23">Селектор отображаемых элементов</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-text-selector">Текстовый селектор</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">Управляющие инструкции</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#assert">Assert</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#if">If</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repeat">Repeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#screenshot">Screenshot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#until">Until</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#python-dollar-line">Блоки Python и dollar-line</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Автоматизированное тестирование</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/testcases.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Автоматизированное тестирование<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Ren'Py позволяет создателям встраивать автоматизированные тесты в свои игры, чтобы убедиться,
+что изменения в игре не нарушают существующую функциональность. Это особенно
+полезно для больших игр или игр, которые часто обновляются.</p>
+<p>Двумя основными компонентами системы тестирования являются инструкции <code class="docutils literal notranslate"><span class="pre">testcase</span></code> и
+<code class="docutils literal notranslate"><span class="pre">testsuite</span></code>.</p>
+<p>Функция <a class="reference internal" href="other.html#renpy.is_in_test" title="renpy.is_in_test"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.is_in_test()</span></code></a> помогает определить, выполняется ли в данный момент
+тест или нет.</p>
+<section id="running-testcases">
+<span id="id2"></span><h2>Запуск тест-кейсов<a class="headerlink" href="#running-testcases" title="Ссылка на этот заголовок"></a></h2>
+<p>Тест-кейсы можно запустить двумя способами. Первый — из лаунчера, нажав кнопку
+«Run Testcases». Второй — из командной строки, используя
+<a class="reference internal" href="cli.html#cli-test"><span class="std std-ref">команду test</span></a>. В обоих случаях по умолчанию запускается тест-кейс или набор тестов
+с именем <code class="docutils literal notranslate"><span class="pre">global</span></code>.</p>
+<p>Кнопка «Run Testcases» присутствует в лаунчере только в том случае, если в глобальном наборе тестов
+существует хотя бы один тест-кейс. Тест-кейсы и наборы тестов, найденные на верхнем уровне файла
+скрипта Ren'Py, автоматически добавляются в глобальный набор тестов. При добавлении первого тест-кейса
+в проект запустите игру как обычно, а затем нажмите «refresh» в лаунчере,
+чтобы появилась кнопка «Run Testcases».</p>
+</section>
+<section id="testcase">
+<span id="testcase-statement"></span><h2>Инструкция Testcase<a class="headerlink" href="#testcase" title="Ссылка на этот заголовок"></a></h2>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">testcase</span></code> создаёт именованный тест-кейс. Каждый кейс содержит
+блок тестовых инструкций (см. ниже). Тест-кейсы похожи на
+<a class="reference internal" href="label.html#label-statement"><span class="std std-ref">метки</span></a> Ren'Py, но с несколькими отличиями:</p>
+<ul class="simple">
+<li><p>Инструкция label в Ren'Py принимает код Ren'Py, в то время как инструкция testcase
+принимает тестовые инструкции (перечисленные на этой странице). Они взаимоисключающие.</p></li>
+<li><p>В testcase нет эквивалента инструкции return.</p></li>
+<li><p>Не может быть тестовых инструкций вне тестового блока, в то время как код
+Ren'Py может находиться вне меток.</p></li>
+</ul>
+<p>Принимает следующие свойства:</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#var-description" title="Ссылка на это определение"></a></dt>
+<dd><p>Строка, описывающая тест-кейс. Используется в отчёте о тестировании.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-enabled">
+<span class="sig-name descname"><span class="pre">enabled</span></span><a class="headerlink" href="#var-enabled" title="Ссылка на это определение"></a></dt>
+<dd><p>Если это выражение вычисляется как <code class="docutils literal notranslate"><span class="pre">False</span></code>, тест пропускается.
+По умолчанию <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>Это позволяет условно отключать тесты, например, на платформах,
+где они не поддерживаются.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">testcase</span> <span class="n">windows</span><span class="p">:</span>
+    <span class="n">enabled</span> <span class="n">renpy</span><span class="o">.</span><span class="n">windows</span>
+    <span class="o">...</span>
+
+<span class="k">testcase</span> <span class="n">not_on_mobile</span><span class="p">:</span>
+    <span class="n">enabled</span> <span class="k">not</span> <span class="n">renpy</span><span class="o">.</span><span class="n">mobile</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Подробнее см. <a class="reference internal" href="#skipping-testcases"><span class="std std-ref">Пропуск тест-кейсов</span></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-only">
+<span class="sig-name descname"><span class="pre">only</span></span><a class="headerlink" href="#var-only" title="Ссылка на это определение"></a></dt>
+<dd><p>Если это выражение вычисляется как <code class="docutils literal notranslate"><span class="pre">True</span></code>, будет запущен только этот тест-кейс
+(и другие тесты с <code class="docutils literal notranslate"><span class="pre">only</span> <span class="pre">True</span></code>). По умолчанию <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Подробнее см. <a class="reference internal" href="#skipping-testcases"><span class="std std-ref">Пропуск тест-кейсов</span></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-xfail">
+<span class="sig-name descname"><span class="pre">xfail</span></span><a class="headerlink" href="#var-xfail" title="Ссылка на это определение"></a></dt>
+<dd><p>Если это выражение вычисляется как <code class="docutils literal notranslate"><span class="pre">True</span></code>, ожидается, что тест завершится неудачно.
+Если тест действительно завершится неудачно, он будет помечен как xfailed, а не failed.
+По умолчанию <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-parameter">
+<span class="sig-name descname"><span class="pre">parameter</span></span><a class="headerlink" href="#var-parameter" title="Ссылка на это определение"></a></dt>
+<dd><p>Имя переменной (или кортеж имён переменных) и список значений (или
+список кортежей значений). Тест будет запускаться один раз для каждого значения (или
+кортежа значений) в списке.</p>
+<p>Тест может иметь несколько свойств <code class="docutils literal notranslate"><span class="pre">parameter</span></code>, и в этом случае
+тест будет запускаться для каждой возможной комбинации значений.</p>
+<p>Подробнее см. <a class="reference internal" href="#parameterized-tests"><span class="std std-ref">Параметризованные тесты</span></a>.</p>
+</dd></dl>
+
+</section>
+<section id="testsuite">
+<h2>Инструкция Testsuite<a class="headerlink" href="#testsuite" title="Ссылка на этот заголовок"></a></h2>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">testsuite</span></code> используется для группировки тест-кейсов. Наборы тестов
+могут содержать тест-кейсы, другие наборы тестов и хуки (см. ниже).</p>
+<p>Набор тестов по умолчанию называется <code class="docutils literal notranslate"><span class="pre">global</span></code> и создаётся Ren'Py
+автоматически, если не указан пользователем. Он содержит все остальные наборы тестов
+и тест-кейсы верхнего уровня в игре.</p>
+<p>Принимает те же свойства, что и <a class="reference internal" href="#testcase-statement"><span class="std std-ref">инструкция testcase</span></a>.</p>
+<section id="id3">
+<h3>Хуки<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h3>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">testsuite</span></code> может содержать следующие хуки:</p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">setup</span></span></dt>
+<dd><p>Блок тестовых инструкций, который выполняется один раз перед запуском любых тестов,
+содержащихся в текущем наборе.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">before</span> <span class="pre">testsuite</span></span></dt>
+<dd><p>Блок тестовых инструкций, который выполняется многократно, перед каждым набором тестов
+в текущем наборе.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">before</span> <span class="pre">testcase</span></span></dt>
+<dd><p>Блок тестовых инструкций, который выполняется многократно, перед каждым тест-кейсом
+в текущем наборе.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">after</span> <span class="pre">testcase</span></span></dt>
+<dd><p>Блок тестовых инструкций, который выполняется многократно, после каждого тест-кейса
+в текущем наборе. Выполняется даже если тест-кейс завершился с ошибкой или вызвал
+исключение.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">after</span> <span class="pre">testsuite</span></span></dt>
+<dd><p>Блок тестовых инструкций, который выполняется многократно, после каждого набора тестов
+в текущем наборе. Выполняется даже если набор тестов завершился с ошибкой или вызвал
+исключение.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">teardown</span></span></dt>
+<dd><p>Блок тестовых инструкций, который выполняется один раз после запуска всех тестов,
+содержащихся в текущем наборе. Выполняется даже если тест
+завершился с ошибкой или вызвал исключение.</p>
+</dd></dl>
+
+<p>Хуки <code class="docutils literal notranslate"><span class="pre">before</span> <span class="pre">*</span></code> и <code class="docutils literal notranslate"><span class="pre">after</span> <span class="pre">*</span></code> принимают следующие свойства:</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-depth">
+<span class="sig-name descname"><span class="pre">depth</span></span><a class="headerlink" href="#var-depth" title="Ссылка на это определение"></a></dt>
+<dd><p>Целое число, указывающее, на какую глубину должен применяться хук.</p>
+<p>Для тест-кейсов по умолчанию <code class="docutils literal notranslate"><span class="pre">-1</span></code>, что означает применение ко всем вложенным наборам тестов и тест-кейсам.</p>
+<p>Для наборов тестов по умолчанию <code class="docutils literal notranslate"><span class="pre">0</span></code>, что означает применение только к наборам тестов, непосредственно
+содержащимся в текущем наборе.</p>
+<p>Подробнее см. <a class="reference internal" href="#lifecycle-of-a-test-run"><span class="std std-ref">Жизненный цикл тестового запуска</span></a>.</p>
+</dd></dl>
+
+</section>
+</section>
+<section id="lifecycle-of-a-test-run">
+<span id="id4"></span><h2>Жизненный цикл тестового запуска<a class="headerlink" href="#lifecycle-of-a-test-run" title="Ссылка на этот заголовок"></a></h2>
+<p>В этом разделе описывается порядок выполнения тест-кейсов и наборов тестов,
+а также вызова хуков. Следующий пример иллюстрирует это:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Код</p></th>
+<th class="head"><p>Порядок выполнения</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">testsuite</span> <span class="k">global</span><span class="p">:</span>
+    <span class="c1"># Hooks</span>
+    <span class="n">setup</span><span class="p">:</span>
+        <span class="n">skip</span> <span class="n">until</span> <span class="n">main_menu</span>
+
+    <span class="n">before</span> <span class="k">testsuite</span><span class="p">:</span>
+        <span class="k">if</span> <span class="k">not</span> <span class="k">screen</span> <span class="s2">&quot;main_menu&quot;</span><span class="p">:</span>
+            <span class="n">run</span> <span class="n">MainMenu</span><span class="p">(</span><span class="n">confirm</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">click</span> <span class="s2">&quot;Start&quot;</span>
+
+    <span class="n">before</span> <span class="k">testcase</span><span class="p">:</span>
+        <span class="k">$</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting a testcase.&quot;</span><span class="p">)</span>
+
+    <span class="n">after</span> <span class="k">testcase</span><span class="p">:</span>
+        <span class="k">$</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finished a testcase.&quot;</span><span class="p">)</span>
+
+    <span class="n">after</span> <span class="k">testsuite</span><span class="p">:</span>
+        <span class="k">$</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finished a testsuite.&quot;</span><span class="p">)</span>
+
+    <span class="n">teardown</span><span class="p">:</span>
+        <span class="n">exit</span>
+
+    <span class="c1"># Subtests</span>
+    <span class="k">testsuite</span> <span class="n">basic</span><span class="p">:</span>
+        <span class="k">testcase</span> <span class="n">first_testcase</span><span class="p">:</span>
+            <span class="n">advance</span>
+
+    <span class="k">testsuite</span> <span class="n">test_choices</span><span class="p">:</span>
+        <span class="c1"># Hooks</span>
+        <span class="n">setup</span><span class="p">:</span>
+            <span class="n">run</span> <span class="n">Jump</span><span class="p">(</span><span class="s2">&quot;chapter1&quot;</span><span class="p">)</span>
+
+        <span class="n">before</span> <span class="k">testcase</span><span class="p">:</span>
+            <span class="n">advance</span> <span class="n">until</span> <span class="k">menu</span> <span class="k">choice</span>
+
+        <span class="n">after</span> <span class="k">testcase</span><span class="p">:</span>
+            <span class="k">$</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finished a choice test.&quot;</span><span class="p">)</span>
+
+        <span class="n">teardown</span><span class="p">:</span>
+            <span class="k">$</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finished all choice tests.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Subtests</span>
+        <span class="k">testcase</span> <span class="n">choice1</span><span class="p">:</span>
+            <span class="n">click</span> <span class="s2">&quot;First Choice&quot;</span>
+
+        <span class="k">testcase</span> <span class="n">choice2</span><span class="p">(</span><span class="n">enabled</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+            <span class="n">click</span> <span class="s2">&quot;Second Choice&quot;</span>
+
+        <span class="k">testcase</span> <span class="n">choice3</span><span class="p">:</span>
+            <span class="n">click</span> <span class="s2">&quot;Third Choice&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="execution-block docutils container">
+<div class="execution-entry docutils container">
+<p><strong>global</strong> :: setup</p>
+</div>
+<div class="execution-block2 docutils container">
+<div class="execution-entry docutils container">
+<p><strong>global</strong> :: before testsuite</p>
+</div>
+<div class="execution-block2 docutils container">
+<div class="execution-entry2 docutils container">
+<p><strong>global</strong> :: before testcase</p>
+</div>
+<div class="execution-entry3 docutils container">
+<p><strong>simple</strong> :: first_testcase</p>
+</div>
+<div class="execution-entry2 docutils container">
+<p><strong>global</strong> :: after testcase</p>
+</div>
+</div>
+<div class="execution-entry docutils container">
+<p><strong>global</strong> :: after testsuite</p>
+</div>
+</div>
+<div class="execution-block2 docutils container">
+<div class="execution-entry docutils container">
+<p><strong>global</strong> :: before testsuite</p>
+</div>
+<div class="execution-entry2 docutils container">
+<p><strong>test_choices</strong> :: setup</p>
+</div>
+<div class="execution-block2 docutils container">
+<div class="execution-entry2 docutils container">
+<p><strong>global</strong> :: before testcase</p>
+</div>
+<div class="execution-entry2 docutils container">
+<p><strong>test_choices</strong> :: before testcase</p>
+</div>
+<div class="execution-entry3 docutils container">
+<p><strong>test_choices</strong> :: choice1</p>
+</div>
+<div class="execution-entry2 docutils container">
+<p><strong>test_choices</strong> :: after testcase</p>
+</div>
+<div class="execution-entry2 docutils container">
+<p><strong>global</strong> :: after testcase</p>
+</div>
+</div>
+<div class="execution-block2 docutils container">
+<div class="execution-entry2 docutils container">
+<p><strong>global</strong> :: before testcase</p>
+</div>
+<div class="execution-entry2 docutils container">
+<p><strong>test_choices</strong> :: before testcase</p>
+</div>
+<div class="execution-entry3 docutils container">
+<p><strong>test_choices</strong> :: choice3</p>
+</div>
+<div class="execution-entry2 docutils container">
+<p><strong>test_choices</strong> :: after testcase</p>
+</div>
+<div class="execution-entry2 docutils container">
+<p><strong>global</strong> :: after testcase</p>
+</div>
+</div>
+<div class="execution-entry2 docutils container">
+<p><strong>test_choices</strong> :: teardown</p>
+</div>
+<div class="execution-entry docutils container">
+<p><strong>global</strong> :: after testsuite</p>
+</div>
+</div>
+<div class="execution-entry docutils container">
+<p><strong>global</strong> :: teardown</p>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Обратите внимание, что <code class="docutils literal notranslate"><span class="pre">global</span> <span class="pre">::</span> <span class="pre">before</span> <span class="pre">testcase</span></code> и <code class="docutils literal notranslate"><span class="pre">global</span> <span class="pre">::</span> <span class="pre">after</span> <span class="pre">testcase</span></code>
+выполняются до и после каждого тест-кейса, даже если тест-кейс находится
+внутри вложенного набора тестов.</p>
+<p>Чтобы ограничить область действия хука, установите его свойство <code class="docutils literal notranslate"><span class="pre">depth</span></code>.
+Установка значения <code class="docutils literal notranslate"><span class="pre">0</span></code> приведёт к тому, что хук будет выполняться только для тестов,
+находящихся непосредственно в наборе тестов, содержащем хук.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">testsuite</span> <span class="k">global</span><span class="p">:</span>
+    <span class="n">before</span> <span class="k">testcase</span><span class="p">:</span>
+        <span class="n">depth</span> <span class="mi">0</span>
+        <span class="k">$</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting a testcase.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>С другой стороны, хуки <code class="docutils literal notranslate"><span class="pre">before</span> <span class="pre">testsuite</span></code> и <code class="docutils literal notranslate"><span class="pre">after</span> <span class="pre">testsuite</span></code>
+имеют <code class="docutils literal notranslate"><span class="pre">depth</span></code> по умолчанию равное <code class="docutils literal notranslate"><span class="pre">0</span></code>, что означает, что они будут выполняться только для наборов тестов,
+находящихся непосредственно в наборе тестов, содержащем хук.</p>
+<p>Чтобы расширить область действия хука на вложенные наборы тестов и тест-кейсы,
+установите его свойство <code class="docutils literal notranslate"><span class="pre">depth</span></code> в <code class="docutils literal notranslate"><span class="pre">-1</span></code> (для бесконечной глубины) или положительное
+целое число (для определённой глубины).</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Когда набор тестов завершает выполнение, игра не закрывается сама.
+Вместо этого она возвращает управление игрой игроку,
+ожидая пользовательского ввода.</p>
+<p>Чтобы закрыть игру после выполнения набора тестов, можно использовать тестовую
+инструкцию <code class="docutils literal notranslate"><span class="pre">exit</span></code> в <code class="docutils literal notranslate"><span class="pre">after</span></code> хуке набора тестов. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">testsuite</span> <span class="k">global</span><span class="p">:</span>
+    <span class="n">teardown</span><span class="p">:</span>
+        <span class="n">exit</span>
+</pre></div>
+</div>
+</div>
+<section id="skipping-testcases">
+<span id="id5"></span><h3>Пропуск тест-кейсов<a class="headerlink" href="#skipping-testcases" title="Ссылка на этот заголовок"></a></h3>
+<p>Если тест-кейс пропущен, он не будет выполнен. Кроме того,
+хуки <code class="docutils literal notranslate"><span class="pre">before</span> <span class="pre">testcase</span></code> и <code class="docutils literal notranslate"><span class="pre">after</span> <span class="pre">testcase</span></code> набора тестов не будут выполнены
+для этого тест-кейса.</p>
+<p>Если в наборе тестов пропущены <em>все</em> тесты, то хуки <code class="docutils literal notranslate"><span class="pre">setup</span></code> и
+<code class="docutils literal notranslate"><span class="pre">teardown</span></code> также не будут выполнены. Кроме того, хуки
+<code class="docutils literal notranslate"><span class="pre">before</span> <span class="pre">testsuite</span></code> и <code class="docutils literal notranslate"><span class="pre">after</span> <span class="pre">testsuite</span></code> не будут выполнены из
+родительского(-их) набора(-ов) тестов.</p>
+</section>
+<section id="parameterized-tests">
+<span id="id6"></span><h3>Параметризованные тесты<a class="headerlink" href="#parameterized-tests" title="Ссылка на этот заголовок"></a></h3>
+<p>Тест-кейс можно запустить несколько раз с разными значениями, используя свойство <code class="docutils literal notranslate"><span class="pre">parameter</span></code>.</p>
+<p>Для этого укажите имя переменной и список значений. Тест будет запущен один раз
+для каждого значения в списке. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">testcase</span> <span class="n">example</span><span class="p">:</span>
+    <span class="n">parameter</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="nb">eval</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">testcase</span> <span class="n">clicks</span><span class="p">:</span>
+    <span class="n">parameter</span> <span class="k">button</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">]</span>
+    <span class="n">click</span> <span class="k">expression</span> <span class="k">button</span>
+</pre></div>
+</div>
+<p>Это запустит тест три раза: один раз с <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span></code>, один раз с <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">2</span></code>
+и один раз с <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">3</span></code>. Затем он нажимает на кнопки с именами &quot;A&quot; и &quot;B&quot;.</p>
+<p>При каждом запуске будут выполняться хуки <code class="docutils literal notranslate"><span class="pre">before</span> <span class="pre">testcase</span></code> и <code class="docutils literal notranslate"><span class="pre">after</span> <span class="pre">testcase</span></code>,
+и каждый тест будет отображён отдельно в отчёте о тестировании.</p>
+<section id="id7">
+<h4>Сгруппированные параметры<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h4>
+<p>Можно указать несколько переменных одновременно, сгруппировав их
+в скобки и предоставив список групп значений. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">testcase</span> <span class="n">addition</span><span class="p">:</span>
+    <span class="n">parameter</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="p">]</span>
+
+    <span class="k">assert</span> <span class="nb">eval</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">==</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Это будет запущено трижды, каждый раз с использованием одного набора значений:
+<code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">3)</span></code>, <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">3,</span> <span class="pre">5)</span></code> и <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">5,</span> <span class="pre">8)</span></code>.</p>
+</section>
+<section id="id8">
+<h4>Комбинации параметров<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h4>
+<p>Если предоставлено несколько свойств <code class="docutils literal notranslate"><span class="pre">parameter</span></code>, тест-кейс будет запущен
+для каждой возможной комбинации значений. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">testcase</span> <span class="n">combinations</span><span class="p">:</span>
+    <span class="n">parameter</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="n">parameter</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+    <span class="n">parameter</span> <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+    <span class="k">assert</span> <span class="nb">eval</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="k">in</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Это будет запущено восемь раз, по одному разу для каждой комбинации <code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">b,</span> <span class="pre">c)</span></code>:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">3,</span> <span class="pre">5)</span></code>, <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">3,</span> <span class="pre">6)</span></code>, <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">4,</span> <span class="pre">5)</span></code>, <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">4,</span> <span class="pre">6)</span></code>, <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">3,</span> <span class="pre">5)</span></code>, <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">3,</span> <span class="pre">6)</span></code>, <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">4,</span> <span class="pre">5)</span></code>, <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">4,</span> <span class="pre">6)</span></code></p>
+</div></blockquote>
+<p>Можно смешивать сгруппированные параметры с несгруппированными. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">testcase</span> <span class="n">mixed</span><span class="p">:</span>
+    <span class="n">parameter</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="n">parameter</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="p">]</span>
+
+    <span class="k">assert</span> <span class="nb">eval</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="k">in</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Это будет запущено четыре раза с использованием следующих комбинаций для <code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">(b,</span> <span class="pre">c))</span></code>:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">(3,</span> <span class="pre">5))</span></code>, <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">(4,</span> <span class="pre">6))</span></code>, <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">(3,</span> <span class="pre">5))</span></code>, <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">(4,</span> <span class="pre">6))</span></code></p>
+</div></blockquote>
+</section>
+<section id="id9">
+<h4>Использование параметров в выражениях<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h4>
+<p>Вы можете использовать параметры в любом свойстве теста, которое принимает выражение.</p>
+<p>Например, вот тест, который запускается трижды, по одному разу для каждого значения <code class="docutils literal notranslate"><span class="pre">x</span></code>.
+Тест пройдёт успешно, когда <code class="docutils literal notranslate"><span class="pre">x</span></code> равен 0 или 1, и ожидается, что он завершится неудачно (<code class="docutils literal notranslate"><span class="pre">xfail</span></code>), когда <code class="docutils literal notranslate"><span class="pre">x</span></code> равен 2:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">testcase</span> <span class="n">choice_test</span><span class="p">:</span>
+    <span class="n">parameter</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="n">xfail</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span>
+
+    <span class="k">assert</span> <span class="nb">eval</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Вы также можете использовать параметры для выбора экранов или кнопок по имени.
+Например, этот тест нажмёт либо на &quot;first&quot;, либо на &quot;second&quot; вариант,
+в зависимости от значения <code class="docutils literal notranslate"><span class="pre">choice_text</span></code>:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">testcase</span> <span class="n">show_menu</span><span class="p">:</span>
+    <span class="n">parameter</span> <span class="n">screen_name</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;preferences&quot;</span><span class="p">,</span> <span class="s2">&quot;load&quot;</span><span class="p">]</span>
+
+    <span class="k">$</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Showing screen &#39;</span><span class="si">{</span><span class="n">screen_name</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+    <span class="n">run</span> <span class="n">ShowMenu</span><span class="p">(</span><span class="n">screen_name</span><span class="p">)</span>
+    <span class="k">pause</span> <span class="n">until</span> <span class="k">screen</span> <span class="n">screen_name</span>
+    <span class="n">run</span> <span class="n">Return</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Параметры можно использовать, предварив их словом <code class="docutils literal notranslate"><span class="pre">expression</span></code>, для выбора кнопки по
+имени параметра.</p>
+<blockquote>
+<div><dl>
+<dt>testcase click_buttons:</dt><dd><p>parameter button_name = [&quot;Load&quot;, &quot;Save&quot;]</p>
+<p>click expression button_name</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Параметры также можно использовать внутри блоков кода Python.
+Например, этот тест выводит текущие значения <code class="docutils literal notranslate"><span class="pre">x</span></code> и <code class="docutils literal notranslate"><span class="pre">y</span></code>,
+а затем производит щелчок в этой позиции:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">testcase</span> <span class="n">param_test</span><span class="p">:</span>
+    <span class="n">parameter</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)]</span>
+
+    <span class="k">$</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Clicking at position (</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="n">click</span> <span class="na">pos</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id10">
+<h4>Наборы тестов<a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h4>
+<p>Параметры также могут быть предоставлены всему набору тестов. В этом случае все хуки и тест-кейсы
+внутри набора будут запущены один раз для каждого набора параметров.</p>
+<p>Каждый параметризованный запуск выполнит хуки <code class="docutils literal notranslate"><span class="pre">setup</span></code>, <code class="docutils literal notranslate"><span class="pre">before/after</span> <span class="pre">testsuite</span></code>,
+и <code class="docutils literal notranslate"><span class="pre">teardown</span></code>.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">testsuite</span> <span class="n">math_tests</span><span class="p">:</span>
+    <span class="n">parameter</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="p">[</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="p">]</span>
+
+    <span class="n">setup</span><span class="p">:</span>
+        <span class="k">$</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Running math tests with x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">, z=</span><span class="si">{</span><span class="n">z</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">testcase</span> <span class="n">addition</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="nb">eval</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">==</span> <span class="n">z</span><span class="p">)</span>
+
+    <span class="k">testcase</span> <span class="n">multiplication</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="nb">eval</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">==</span> <span class="n">z</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Параметры могут быть вложенными, и все комбинации будут протестированы. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">testsuite</span> <span class="n">parameter_field</span><span class="p">:</span>
+    <span class="n">parameter</span> <span class="n">choice_text</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">,</span> <span class="s2">&quot;second&quot;</span><span class="p">]</span>
+
+    <span class="k">testcase</span> <span class="n">param_test2</span><span class="p">:</span>
+        <span class="n">parameter</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)]</span>
+
+        <span class="n">advance</span> <span class="n">until</span> <span class="k">screen</span> <span class="s2">&quot;choice&quot;</span>
+        <span class="n">click</span> <span class="n">choice_text</span>
+        <span class="n">click</span> <span class="na">pos</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Это будет запущено четыре раза, по одному разу для каждой комбинации <code class="docutils literal notranslate"><span class="pre">(choice_text,</span> <span class="pre">(x,</span> <span class="pre">y))</span></code>:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">(&quot;first&quot;,</span> <span class="pre">(0.0,</span> <span class="pre">0.0))</span></code>, <code class="docutils literal notranslate"><span class="pre">(&quot;first&quot;,</span> <span class="pre">(0.5,</span> <span class="pre">0.5))</span></code>,
+<code class="docutils literal notranslate"><span class="pre">(&quot;second&quot;,</span> <span class="pre">(0.0,</span> <span class="pre">0.0))</span></code>, <code class="docutils literal notranslate"><span class="pre">(&quot;second&quot;,</span> <span class="pre">(0.5,</span> <span class="pre">0.5))</span></code></p>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Параметры теста передаются в тесты напрямую, без копирования. Если вы изменяете
+изменяемый параметр (например, список или словарь) внутри теста, это изменение
+повлияет на другие тесты, использующие тот же объект.</p>
+</div>
+</section>
+</section>
+<section id="id11">
+<h3>Исключения и ошибки<a class="headerlink" href="#id11" title="Ссылка на этот заголовок"></a></h3>
+<p>Если во время выполнения тест-кейса возникает ошибка:</p>
+<ol class="arabic simple">
+<li><p>Выполнение тест-кейса немедленно прекратится</p></li>
+<li><p>Будет запущен хук <code class="docutils literal notranslate"><span class="pre">after</span> <span class="pre">testcase</span></code> набора тестов, содержащего тест-кейс</p></li>
+<li><p>Если есть другие тест-кейсы, они продолжат выполняться (включая
+хук <code class="docutils literal notranslate"><span class="pre">before</span> <span class="pre">testcase</span></code>)</p></li>
+<li><p>Если тест-кейсов больше нет, будет запущен <code class="docutils literal notranslate"><span class="pre">after</span></code> хук набора тестов</p></li>
+</ol>
+<p>Если ошибка возникает во время выполнения хука (например, <code class="docutils literal notranslate"><span class="pre">before</span> <span class="pre">testcase</span></code>):</p>
+<ol class="arabic simple">
+<li><p>Выполнение набора тестов немедленно прекратится</p></li>
+<li><p>Если набор тестов был вызван другим набором, родительский набор продолжит
+выполнение.</p></li>
+<li><p>Если родительского набора нет, игра завершит тестовый запуск.</p></li>
+</ol>
+</section>
+</section>
+<section id="id12">
+<h2>Отчётность о тестировании<a class="headerlink" href="#id12" title="Ссылка на этот заголовок"></a></h2>
+<p>После тестового запуска в консоль выводится отчёт, содержащий все тест-кейсы
+и их результаты. Если указана опция <code class="docutils literal notranslate"><span class="pre">--print_details</span></code>, отчёт
+будет включать дополнительную информацию о каждом тесте.</p>
+<p>Ниже приведён пример отчёта о тестировании после успешного тестирования &quot;The Question&quot;:</p>
+<img alt="Пример отчёта о тестировании" class="screenshot" src="_images/testcases_the_question.png" />
+<section id="id13">
+<h3>Результаты тестов<a class="headerlink" href="#id13" title="Ссылка на этот заголовок"></a></h3>
+<p>Тест может иметь один из следующих результатов:</p>
+<ul class="simple">
+<li><p><strong>Passed</strong>: Тест выполнен успешно, без ошибок.</p></li>
+<li><p><strong>Failed</strong>: Тест выполнен, но одна из инструкций завершилась неудачно.</p></li>
+<li><p><strong>XFailed</strong>: Ожидалось, что тест завершится неудачно (потому что его свойство <code class="docutils literal notranslate"><span class="pre">xfail</span></code>
+было вычислено как <code class="docutils literal notranslate"><span class="pre">True</span></code>), и он действительно завершился неудачно.</p></li>
+<li><p><strong>XPassed</strong>: Ожидалось, что тест завершится неудачно (потому что его свойство <code class="docutils literal notranslate"><span class="pre">xfail</span></code>
+было вычислено как <code class="docutils literal notranslate"><span class="pre">True</span></code>), но вместо этого он прошёл успешно.</p></li>
+<li><p><strong>Skipped</strong>: Тест был пропущен либо потому, что его свойство <code class="docutils literal notranslate"><span class="pre">enabled</span></code>
+было вычислено как <code class="docutils literal notranslate"><span class="pre">False</span></code>, либо потому, что существует другой тест с <code class="docutils literal notranslate"><span class="pre">only</span> <span class="pre">True</span></code>.</p></li>
+</ul>
+<p>В целом, тест считается успешным, если его результат passed или xfailed,
+и неуспешным, если failed или xpassed.</p>
+</section>
+</section>
+<section id="id14">
+<h2>Настройки тестирования<a class="headerlink" href="#id14" title="Ссылка на этот заголовок"></a></h2>
+<p>Следующие переменные можно установить для изменения поведения тестов:</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_test.maximum_framerate">
+<span class="sig-name descname"><span class="pre">_test.maximum_framerate</span></span><a class="headerlink" href="#var-_test.maximum_framerate" title="Ссылка на это определение"></a></dt>
+<dd><p>Логическое значение, указывающее, следует ли использовать режим максимальной частоты кадров во время тестов.
+Это, по возможности, разблокирует частоту кадров выше частоты обновления вашего экрана.
+По умолчанию <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_test.timeout">
+<span class="sig-name descname"><span class="pre">_test.timeout</span></span><a class="headerlink" href="#var-_test.timeout" title="Ссылка на это определение"></a></dt>
+<dd><p>Число с плавающей точкой, указывающее максимальное количество секунд, которое тестовая инструкция
+должна ждать выполнения условия. По умолчанию <code class="docutils literal notranslate"><span class="pre">10.0</span></code>.</p>
+<p>Это значение можно переопределить для отдельной инструкции, предоставив свойство <code class="docutils literal notranslate"><span class="pre">timeout</span></code>
+инструкциям, которые его поддерживают (например, <code class="docutils literal notranslate"><span class="pre">assert</span></code> и <code class="docutils literal notranslate"><span class="pre">until</span></code>).</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_test.force">
+<span class="sig-name descname"><span class="pre">_test.force</span></span><a class="headerlink" href="#var-_test.force" title="Ссылка на это определение"></a></dt>
+<dd><p>Логическое значение, указывающее, следует ли принудительно продолжать тест, даже если
+<code class="docutils literal notranslate"><span class="pre">renpy.config.suppress_underlay</span></code> имеет значение <code class="docutils literal notranslate"><span class="pre">True</span></code>. По умолчанию <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_test.transition_timeout">
+<span class="sig-name descname"><span class="pre">_test.transition_timeout</span></span><a class="headerlink" href="#var-_test.transition_timeout" title="Ссылка на это определение"></a></dt>
+<dd><p>Число с плавающей точкой, указывающее максимальное количество секунд ожидания завершения перехода,
+прежде чем пропустить его и продолжить тест.
+По умолчанию <code class="docutils literal notranslate"><span class="pre">5.0</span></code>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_test.focus_trials">
+<span class="sig-name descname"><span class="pre">_test.focus_trials</span></span><a class="headerlink" href="#var-_test.focus_trials" title="Ссылка на это определение"></a></dt>
+<dd><p>Целое число, указывающее, сколько раз система тестирования должна пытаться найти
+допустимое место для <a class="reference internal" href="#test-move-statement"><span class="std std-ref">перемещения мыши</span></a> при использовании
+селектора без позиции. По умолчанию <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_test.screenshot_directory">
+<span class="sig-name descname"><span class="pre">_test.screenshot_directory</span></span><a class="headerlink" href="#var-_test.screenshot_directory" title="Ссылка на это определение"></a></dt>
+<dd><p>Строка, указывающая каталог для хранения скриншотов.
+По умолчанию <code class="docutils literal notranslate"><span class="pre">tests/screenshots</span></code>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_test.vc_revision">
+<span class="sig-name descname"><span class="pre">_test.vc_revision</span></span><a class="headerlink" href="#var-_test.vc_revision" title="Ссылка на это определение"></a></dt>
+<dd><p>Ревизия системы контроля версий (часто git) текущего исходного кода, если доступна.
+По умолчанию используется <a class="reference internal" href="environment_variables.html"><span class="doc">переменная окружения</span></a> RENPY_TEST_VC_REVISION,
+или пустая строка, если она не установлена.</p>
+</dd></dl>
+
+</section>
+<section id="test-statements">
+<span id="id15"></span><h2>Тестовые инструкции<a class="headerlink" href="#test-statements" title="Ссылка на этот заголовок"></a></h2>
+<p>Тестовые инструкции — это строительные блоки тест-кейсов. Их можно условно разделить
+на три категории: инструкции-команды, инструкции-условия/селекторы и
+управляющие инструкции.</p>
+<section id="id16">
+<h3>Основные команды<a class="headerlink" href="#id16" title="Ссылка на этот заголовок"></a></h3>
+<section id="advance">
+<span id="test-advance-statement"></span><h4>Advance<a class="headerlink" href="#advance" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Команда</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">advance</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Продвигает игру на одну строку диалога.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">advance</span>
+<span class="n">advance</span> <span class="n">until</span> <span class="k">screen</span> <span class="s2">&quot;choice&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="exit">
+<h4>Exit<a class="headerlink" href="#exit" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Команда</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">exit</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Выходит из игры, не вызывая экран подтверждения.
+Не сохраняет игру при выходе.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">eval</span> <span class="n">need_to_confirm</span><span class="p">:</span>
+    <span class="c1"># Запрашивает подтверждение и выполняет автосохранение, если config.autosave_on_quit равно True</span>
+    <span class="n">run</span> <span class="n">Quit</span><span class="p">(</span><span class="n">confirm</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">eval</span> <span class="n">persistent</span><span class="o">.</span><span class="n">quit_test_using_action</span><span class="p">:</span>
+    <span class="c1"># Не запрашивает, но всё равно выполняет автосохранение, если config.autosave_on_quit равно True</span>
+    <span class="n">run</span> <span class="n">Quit</span><span class="p">(</span><span class="n">confirm</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">exit</span> <span class="c1"># не запрашивает и не сохраняет</span>
+</pre></div>
+</div>
+</section>
+<section id="pass">
+<h4>Pass<a class="headerlink" href="#pass" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Команда</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">pass</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Ничего не делает. Это пустая операция (no-op), позволяющая создавать пустые тест-кейсы.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">testcase</span> <span class="n">not_yet_implemented</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</section>
+<section id="pause">
+<h4>Pause<a class="headerlink" href="#pause" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Команда</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">pause</span> <span class="pre">[time</span> <span class="pre">(float)]</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Приостанавливает выполнение теста на заданное количество секунд. Аналогично
+<a class="reference internal" href="quickstart.html#pause-statement"><span class="std std-ref">инструкции pause</span></a>, но требует указания значения, или может быть указана без
+времени, если за ней следует предложение <cite>until</cite>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">pause</span> <span class="mf">5.0</span>
+<span class="k">pause</span> <span class="n">until</span> <span class="k">screen</span> <span class="s2">&quot;inventory&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="run">
+<h4>Run<a class="headerlink" href="#run" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Команда</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">run</span> <span class="pre">&lt;action&gt;</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Выполняет предоставленное <a class="reference internal" href="screen_actions.html"><span class="doc">действие языка экранов</span></a> (или список
+действий).</p>
+<p>Готово, если и когда кнопка, содержащая предоставленное действие (или список), станет
+активной.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">testcase</span> <span class="n">chapter_3</span><span class="p">:</span>
+    <span class="n">run</span> <span class="n">Jump</span><span class="p">(</span><span class="s2">&quot;chapter_3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="skip">
+<span id="test-skip-statement"></span><h4>Skip<a class="headerlink" href="#skip" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Команда</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">skip</span> <span class="pre">[fast]</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Заставляет игру начать пропуск. Если игра находится в контексте меню,
+то это возвращает в игру. В противном случае просто включает пропуск.</p>
+<p>Если указано <code class="docutils literal notranslate"><span class="pre">fast</span></code>, игра пропустит всё до следующего меню выбора.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">skip</span>
+<span class="n">skip</span> <span class="n">fast</span>
+<span class="n">skip</span> <span class="n">until</span> <span class="k">screen</span> <span class="s2">&quot;choice&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id17">
+<h3>Команды мыши<a class="headerlink" href="#id17" title="Ссылка на этот заголовок"></a></h3>
+<section id="click">
+<h4>Click<a class="headerlink" href="#click" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Команда</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">click</span> <span class="pre">[button</span> <span class="pre">(int)]</span> <span class="pre">[selector]</span> <span class="pre">[pos</span> <span class="pre">(x,</span> <span class="pre">y)]</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Выполняет симуляцию щелчка на экране. Принимает следующие необязательные
+свойства:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">button</span></code> указывает, какой кнопкой симулируемой мыши следует щелкнуть.
+Принимает целое число и по умолчанию равно 1. 1 — щелчок левой кнопкой, 2 —
+правой, 3 — средней, 4 и 5 — дополнительные кнопки на
+некоторых мышах. Обычно только 1 и 2 вызывают какую-либо реакцию в Ren'Py.</p></li>
+</ul>
+<p>Если заданы <code class="docutils literal notranslate"><span class="pre">selector</span></code> и/или <code class="docutils literal notranslate"><span class="pre">pos</span></code>, виртуальная тестовая мышь перемещается в соответствии
+с правилами <a class="reference internal" href="#test-move-statement"><span class="std std-ref">инструкции move</span></a> перед отправкой щелчка.</p>
+<p>Click ведёт себя как предложение, принимающее <a class="reference internal" href="#test-text-selector"><span class="std std-ref">паттерн</span></a>, которому
+паттерн не был предоставлен: если <code class="docutils literal notranslate"><span class="pre">pos</span></code> не указан, он будет искать нейтральное
+место, где щелчок не произойдёт по фокусируемому элементу.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Используйте инструкции <a class="reference internal" href="#test-advance-statement"><span class="std std-ref">advance</span></a> или <a class="reference internal" href="#test-skip-statement"><span class="std std-ref">skip</span></a>,
+если хотите продвинуть диалог в игре.
+Щелчок может привести к непредсказуемым результатам, в зависимости от того, где
+расположена мышь и что в данный момент находится на экране.</p>
+</div>
+</section>
+<section id="drag">
+<h4>Drag<a class="headerlink" href="#drag" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Команда</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">drag</span> <span class="pre">&lt;[selector]</span> <span class="pre">[pos</span> <span class="pre">(x,</span> <span class="pre">y)]&gt;</span> <span class="pre">to</span> <span class="pre">&lt;[selector]</span> <span class="pre">[pos</span> <span class="pre">(x,</span> <span class="pre">y)]&gt;</span> <span class="pre">[button</span> <span class="pre">(int)]</span> <span class="pre">[steps</span> <span class="pre">(int)]</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Симулирует действие перетаскивания на экране. Принимает следующие свойства:</p>
+<ul class="simple">
+<li><p>Первая часть (до <code class="docutils literal notranslate"><span class="pre">to</span></code>) указывает начальную точку перетаскивания.
+Она принимает необязательное свойство <code class="docutils literal notranslate"><span class="pre">selector</span></code> и/или <code class="docutils literal notranslate"><span class="pre">pos</span></code>, которые
+интерпретируются в соответствии с правилами <a class="reference internal" href="#test-move-statement"><span class="std std-ref">инструкции move</span></a>.</p></li>
+<li><p>Вторая часть (после <code class="docutils literal notranslate"><span class="pre">to</span></code>) указывает конечную точку перетаскивания.
+Она также принимает необязательное свойство <code class="docutils literal notranslate"><span class="pre">selector</span></code> и/или <code class="docutils literal notranslate"><span class="pre">pos</span></code>, которые
+интерпретируются в соответствии с правилами <a class="reference internal" href="#test-move-statement"><span class="std std-ref">инструкции move</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">button</span></code> указывает, какую кнопку симулируемой мыши следует использовать
+для перетаскивания. Принимает целое число и по умолчанию равно 1. 1 — левая кнопка, 2 —
+правая, 3 — средняя, 4 и 5 — дополнительные кнопки на
+некоторых мышах. Обычно только 1 и 2 вызывают какую-либо реакцию в Ren'Py.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">steps</span></code> указывает, сколько промежуточных шагов должно быть при перетаскивании.
+Принимает целое число и по умолчанию равно <cite>10</cite>. Большее количество шагов приводит к более
+плавному перетаскиванию, но также занимает больше времени.</p></li>
+</ul>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">drag</span> <span class="na">id</span> <span class="s2">&quot;item_icon&quot;</span> <span class="n">to</span> <span class="na">id</span> <span class="s2">&quot;inventory_slot_3&quot;</span> <span class="k">button</span> <span class="mi">1</span> <span class="n">steps</span> <span class="mi">20</span>
+<span class="k">drag</span> <span class="na">pos</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span> <span class="n">to</span> <span class="na">pos</span> <span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span> <span class="k">button</span> <span class="mi">1</span>
+<span class="k">drag</span> <span class="na">id</span> <span class="s2">&quot;item_icon&quot;</span> <span class="na">pos</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="n">to</span> <span class="na">pos</span> <span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span> <span class="n">steps</span> <span class="mi">5</span>
+<span class="k">drag</span> <span class="na">pos</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="n">to</span> <span class="na">id</span> <span class="s2">&quot;inventory_slot_1&quot;</span>
+<span class="k">drag</span> <span class="na">pos</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="n">to</span> <span class="na">pos</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="move">
+<span id="test-move-statement"></span><h4>Move<a class="headerlink" href="#move" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Команда</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">move</span> <span class="pre">[selector]</span> <span class="pre">[pos</span> <span class="pre">(x,</span> <span class="pre">y)]</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Перемещает виртуальную тестовую мышь в заданную позицию на экране.</p>
+<p>Если задан <code class="docutils literal notranslate"><span class="pre">selector</span></code>, и:</p>
+<ul class="simple">
+<li><p>Если указан <code class="docutils literal notranslate"><span class="pre">pos</span></code>, мышь перемещается в эту позицию относительно селектора.</p></li>
+<li><p>Если <code class="docutils literal notranslate"><span class="pre">pos</span></code> не указан, мышь пытается найти пиксель, который сфокусирует
+селектор при щелчке. Это учитывает такие вещи, как <a class="reference internal" href="style_properties.html#style-property-focus_mask"><code class="xref std std-propref docutils literal notranslate"><span class="pre">focus_mask</span></code></a>.</p></li>
+</ul>
+<p>Если <code class="docutils literal notranslate"><span class="pre">selector</span></code> не задан, и:</p>
+<ul class="simple">
+<li><p>Если указан <code class="docutils literal notranslate"><span class="pre">pos</span></code>, мышь перемещается в эту позицию относительно экрана.</p></li>
+<li><p>Если <code class="docutils literal notranslate"><span class="pre">pos</span></code> не указан, выбрасывается ошибка.</p></li>
+</ul>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Переместить в случайную кликабельную точку внутри `back_btn`</span>
+<span class="n">move</span> <span class="na">id</span> <span class="s2">&quot;back_btn&quot;</span>
+
+<span class="c1"># Переместить в центр `back_btn`</span>
+<span class="n">move</span> <span class="na">id</span> <span class="s2">&quot;back_btn&quot;</span> <span class="na">pos</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Переместить в точку на 20 пикселей вправо и 10 пикселей вниз от левого верхнего угла `back_btn`</span>
+<span class="n">move</span> <span class="na">id</span> <span class="s2">&quot;back_btn&quot;</span> <span class="na">pos</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Переместить в правый верхний угол экрана</span>
+<span class="n">move</span> <span class="na">pos</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+
+<span class="c1"># Переместить в точку на 20 пикселей вправо и 10 пикселей вниз от левого верхнего угла экрана</span>
+<span class="n">move</span> <span class="na">pos</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="scroll">
+<h4>Scroll<a class="headerlink" href="#scroll" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Команда</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">scroll</span> <span class="pre">[amount</span> <span class="pre">(int)]</span> <span class="pre">[selector]</span> <span class="pre">[pos</span> <span class="pre">(x,</span> <span class="pre">y)]</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Симулирует событие прокрутки. Принимает следующие необязательные свойства:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">amount</span></code> указывает, на сколько «делений» нужно прокрутить. Принимает целое
+число и по умолчанию равно <code class="docutils literal notranslate"><span class="pre">1</span></code>. Положительные значения прокручивают вниз, отрицательные — вверх.</p></li>
+<li><p>Если заданы <code class="docutils literal notranslate"><span class="pre">selector</span></code> и/или <code class="docutils literal notranslate"><span class="pre">pos</span></code>, виртуальная тестовая мышь перемещается в соответствии с
+правилами <a class="reference internal" href="#test-move-statement"><span class="std std-ref">инструкции move</span></a> перед отправкой события прокрутки.</p></li>
+</ul>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">scroll</span> <span class="s2">&quot;bar&quot;</span>
+<span class="n">scroll</span> <span class="na">id</span> <span class="s2">&quot;inventory_scroll&quot;</span>
+<span class="n">scroll</span> <span class="n">amount</span> <span class="mi">10</span> <span class="na">id</span> <span class="s2">&quot;inventory_scroll&quot;</span> <span class="na">pos</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">scroll</span> <span class="c1"># прокручивает вниз в текущем положении мыши</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Это только симулирует событие колеса мыши. Вы можете рассмотреть использование
+действия Scroll из <a class="reference internal" href="screen_actions.html"><span class="doc">Экранные действия, значения и функции</span></a>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">Scroll</span><span class="p">(</span><span class="s2">&quot;inventory_scroll&quot;</span><span class="p">,</span> <span class="s2">&quot;increase&quot;</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="na">delay</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="id18">
+<h3>Команды клавиатуры<a class="headerlink" href="#id18" title="Ссылка на этот заголовок"></a></h3>
+<section id="keysym">
+<h4>Keysym<a class="headerlink" href="#keysym" title="Ссылка на этот заголовок"></a></h4>
+<blockquote id="test-keysym-statement">
+<div><p>Тип: <em class="dfn">Команда</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">keysym</span> <span class="pre">&lt;keysym&gt;</span> <span class="pre">[selector]</span> <span class="pre">[pos</span> <span class="pre">(x,</span> <span class="pre">y)]</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Симулирует событие keysym. Это включает в себя клавиши из <a class="reference internal" href="keymap.html"><span class="doc">config.keymap</span></a>.</p>
+<p>Если указаны <code class="docutils literal notranslate"><span class="pre">selector</span></code> и/или <code class="docutils literal notranslate"><span class="pre">pos</span></code>, виртуальная мышь перемещается в соответствии с
+правилами инструкции <a class="reference internal" href="#test-move-statement"><span class="std std-ref">move</span></a> перед отправкой keysym.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="na">keysym</span> <span class="s2">&quot;skip&quot;</span>
+<span class="na">keysym</span> <span class="s2">&quot;help&quot;</span>
+<span class="na">keysym</span> <span class="s2">&quot;ctrl_K_a&quot;</span>
+<span class="na">keysym</span> <span class="s2">&quot;K_BACKSPACE&quot;</span> <span class="k">repeat</span> <span class="mi">30</span>
+<span class="na">keysym</span> <span class="s2">&quot;pad_a_press&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="type">
+<span id="test-type-statement"></span><h4>Type<a class="headerlink" href="#type" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Команда</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">type</span> <span class="pre">&lt;string&gt;</span> <span class="pre">[selector]</span> <span class="pre">[pos</span> <span class="pre">(x,</span> <span class="pre">y)]</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Печатает указанную строку, как если бы она была введена с клавиатуры.</p>
+<p>Если указаны <code class="docutils literal notranslate"><span class="pre">selector</span></code> и/или <code class="docutils literal notranslate"><span class="pre">pos</span></code>, виртуальная мышь перемещается в соответствии с
+правилами инструкции <a class="reference internal" href="#test-move-statement"><span class="std std-ref">move</span></a> перед отправкой текста.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span> <span class="s2">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="test-conditions">
+<span id="id19"></span><h3>Инструкции-условия<a class="headerlink" href="#test-conditions" title="Ссылка на этот заголовок"></a></h3>
+<p>Условия используются для проверки истинности определённого состояния.
+Они применяются в тестовых инструкциях, принимающих условия,
+таких как <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">assert</span></code> или <code class="docutils literal notranslate"><span class="pre">until</span></code>.</p>
+<section id="id20">
+<h4>Логические значения<a class="headerlink" href="#id20" title="Ссылка на этот заголовок"></a></h4>
+<p>Тесты могут использовать логические литералы <code class="docutils literal notranslate"><span class="pre">True</span></code> и <code class="docutils literal notranslate"><span class="pre">False</span></code>.
+Они всегда доступны.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">click</span> <span class="s2">&quot;Start&quot;</span>
+
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="n">click</span> <span class="s2">&quot;Settings&quot;</span> <span class="c1"># не выполняется, так как условие всегда ложно</span>
+</pre></div>
+</div>
+</section>
+<section id="id21">
+<h4>Логические операции<a class="headerlink" href="#id21" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Условия поддерживают операторы <code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code> и <code class="docutils literal notranslate"><span class="pre">or</span></code>.
+Выражение может быть заключено в скобки, но это не обязательно.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">eval</span> <span class="p">(</span><span class="n">renpy</span><span class="o">.</span><span class="n">is_in_test</span><span class="p">()</span> <span class="k">and</span> <span class="k">screen</span> <span class="s2">&quot;main_menu&quot;</span><span class="p">)</span>
+<span class="n">advance</span> <span class="n">until</span> <span class="s2">&quot;ask her right&quot;</span> <span class="k">or</span> <span class="k">label</span> <span class="s2">&quot;chapter_five&quot;</span>
+<span class="n">click</span> <span class="s2">&quot;Next&quot;</span> <span class="n">until</span> <span class="k">not</span> <span class="k">screen</span> <span class="s2">&quot;choice&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="eval">
+<span id="test-eval-statement"></span><h4>Eval<a class="headerlink" href="#eval" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Условие</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">eval</span> <span class="pre">&lt;expression&gt;</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Вычисляет предоставленное Python-выражение. Эта инструкция существует только для использования внутри тестовых инструкций,
+принимающих условия, таких как <code class="docutils literal notranslate"><span class="pre">assert</span></code>, <code class="docutils literal notranslate"><span class="pre">if</span></code> или <code class="docutils literal notranslate"><span class="pre">until</span></code>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">eval</span> <span class="p">(</span><span class="n">renpy</span><span class="o">.</span><span class="n">is_in_test</span><span class="p">()</span> <span class="k">and</span> <span class="p">(</span><span class="s2">&quot;Ren&#39;Py&quot;</span> <span class="k">in</span> <span class="n">renpy</span><span class="o">.</span><span class="n">version_string</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Различия между dollar-строкой и выражением eval:</p>
+<ul class="simple">
+<li><p><cite>Eval</cite> не может использоваться на отдельной строке; он должен быть частью
+инструкции, такой как <code class="docutils literal notranslate"><span class="pre">if</span></code> или <code class="docutils literal notranslate"><span class="pre">until</span></code>, в то время как dollar-строки должны находиться на
+собственной строке.</p></li>
+<li><p>Dollar-строка выполняет любую инструкцию Python, которая не обязательно
+имеет значение (например, <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">import</span> <span class="pre">math</span></code>), в то время как выражение <cite>eval</cite>
+требует возвращаемого значения.</p></li>
+</ul>
+</div>
+</section>
+<section id="label">
+<h4>Label<a class="headerlink" href="#label" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Условие</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">label</span> <span class="pre">&lt;labelname&gt;</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Проверяет, была ли достигнута указанная метка (label) Ren'Py с момента последнего
+выполнения тестовой инструкции.</p>
+<p>Рассмотрим следующий пример:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">Jump</span><span class="p">(</span><span class="s2">&quot;chapter_1&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="k">label</span> <span class="n">chapter_1</span> <span class="c1"># срабатывает</span>
+<span class="k">assert</span> <span class="k">label</span> <span class="n">chapter_1</span> <span class="c1"># не срабатывает</span>
+</pre></div>
+</div>
+<p>Первая инструкция <code class="docutils literal notranslate"><span class="pre">assert</span></code> срабатывает, потому что метка <code class="docutils literal notranslate"><span class="pre">chapter_1</span></code> была
+достигнута инструкцией <code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">Jump(&quot;chapter_1&quot;)</span></code>. Вторая инструкция <code class="docutils literal notranslate"><span class="pre">assert</span></code>
+не срабатывает, потому что метка <code class="docutils literal notranslate"><span class="pre">chapter_1</span></code> не была достигнута снова
+после первой инструкции <code class="docutils literal notranslate"><span class="pre">assert</span></code>.</p>
+<p>Это также означает, что следующий пример не будет работать:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">Jump</span><span class="p">(</span><span class="s2">&quot;chapter_1&quot;</span><span class="p">)</span>
+<span class="n">advance</span> <span class="k">repeat</span> <span class="mi">3</span>
+<span class="k">assert</span> <span class="k">label</span> <span class="n">chapter_1</span> <span class="c1"># не срабатывает</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Эту тестовую инструкцию не следует путать с нативной инструкцией Ren'Py
+<a class="reference internal" href="label.html#label-statement"><span class="std std-ref">label</span></a>, на которую она ссылается, или с несвязанным
+элементом <a class="reference internal" href="screens.html#sl-label"><span class="std std-ref">label</span></a>, используемым в экранах.</p>
+</div>
+</section>
+</section>
+<section id="id22">
+<h3>Инструкции-селекторы<a class="headerlink" href="#id22" title="Ссылка на этот заголовок"></a></h3>
+<p>Инструкции-селекторы используются для проверки наличия определённого элемента на экране
+и для использования этого элемента в дальнейших действиях.</p>
+<p>Селекторы — это особый вид условия.</p>
+<section id="id23">
+<h4>Селектор отображаемых элементов<a class="headerlink" href="#id23" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Условие, Селектор</em></p>
+</div></blockquote>
+<p>Проверяет, отображается ли в данный момент экран или элемент с указанным id.</p>
+<p>Он принимает один параметр — имя экрана. Он принимает следующие свойства:</p>
+<blockquote>
+<div><dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">screen</span> <span class="pre">&lt;name&gt;</span></span></dt>
+<dd><p>Имя экрана для проверки.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">id</span> <span class="pre">&lt;name&gt;</span></span></dt>
+<dd><p>ID элемента для проверки.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">layer</span> <span class="pre">&lt;name&gt;</span></span></dt>
+<dd><p>Слой, на котором отображается экран. Если не указан, слой
+определяется автоматически по имени экрана.</p>
+</dd></dl>
+
+</div></blockquote>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="k">screen</span> <span class="s2">&quot;main_menu&quot;</span><span class="p">:</span>
+    <span class="n">click</span> <span class="s2">&quot;Start&quot;</span>
+
+<span class="n">advance</span> <span class="n">until</span> <span class="na">id</span> <span class="s2">&quot;inventory_viewport&quot;</span> <span class="na">layer</span> <span class="s2">&quot;overlay&quot;</span>
+
+<span class="n">click</span> <span class="s2">&quot;Close&quot;</span> <span class="n">until</span> <span class="k">not</span> <span class="na">id</span> <span class="s2">&quot;close_button&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="test-text-selector">
+<span id="id24"></span><h4>Текстовый селектор<a class="headerlink" href="#test-text-selector" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Условие, Селектор</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">&quot;&lt;text&gt;&quot;</span> <span class="pre">[raw]</span></span></dt>
+<dd></dd></dl>
+
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">expression</span> <span class="pre">&lt;expression&gt;</span> <span class="pre">[raw]</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Селектор <code class="docutils literal notranslate"><span class="pre">text</span></code> принимает строку, которая соответствует цели,
+найденной на экране. Поиск выполняется путем перебора всех фокусируемых
+элементов на экране (обычно это кнопки и основное текстовое поле)
+и просмотра их текста и текста <a class="reference internal" href="style_properties.html#style-property-alt"><code class="xref std std-propref docutils literal notranslate"><span class="pre">alt</span></code></a>.</p>
+<p>Этот поиск нечувствителен к регистру и ищет самое короткое совпадение.
+Например, если задана строка <code class="docutils literal notranslate"><span class="pre">&quot;log&quot;</span></code>, а на экране есть
+тексты <code class="docutils literal notranslate"><span class="pre">&quot;CATALOG&quot;</span></code> и <code class="docutils literal notranslate"><span class="pre">&quot;illogical&quot;</span></code>, целью
+будет текст <code class="docutils literal notranslate"><span class="pre">&quot;CATALOG&quot;</span></code>.</p>
+<p>Если указан <code class="docutils literal notranslate"><span class="pre">raw</span></code>, поиск выполняется по тексту в том виде, в каком он задан в
+сценарии, до перевода и <a class="reference internal" href="text.html#text-interpolation"><span class="std std-ref">интерполяции</span></a>.
+Если не указан, поиск выполняется по тексту в том виде, в каком он отображается на экране,
+после перевода и интерполяции.</p>
+<p>Если указано <code class="docutils literal notranslate"><span class="pre">expression</span></code>, строка для поиска определяется путем вычисления предоставленного выражения.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Это может быть в кнопке</span>
+<span class="n">skip</span> <span class="n">until</span> <span class="s2">&quot;Start Game&quot;</span>
+
+<span class="c1"># Это может быть в основном текстовом поле</span>
+<span class="n">advance</span> <span class="n">until</span> <span class="s2">&quot;Hey, that&#39;s not fair!&quot;</span>
+
+<span class="c1"># Поиск без учёта регистра</span>
+<span class="k">assert</span> <span class="s2">&quot;AsK HeR RighT AwaY&quot;</span>
+
+<span class="c1"># Поиск текста без подстановки</span>
+<span class="k">assert</span> <span class="s2">&quot;Welcome, Eileen!&quot;</span>
+<span class="k">assert</span> <span class="s2">&quot;Welcome, [player_name]!&quot;</span> <span class="n">raw</span>
+
+<span class="c1"># Поиск непереведённого текста после смены языка</span>
+<span class="n">run</span> <span class="n">Language</span><span class="p">(</span><span class="s2">&quot;japanese&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="s2">&quot;スタート&quot;</span>
+<span class="k">assert</span> <span class="s2">&quot;Start&quot;</span> <span class="n">raw</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id25">
+<h3>Управляющие инструкции<a class="headerlink" href="#id25" title="Ссылка на этот заголовок"></a></h3>
+<p>Эти инструкции управляют потоком выполнения теста.</p>
+<section id="assert">
+<h4>Assert<a class="headerlink" href="#assert" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Управление</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">assert</span> <span class="pre">&lt;condition&gt;</span> <span class="pre">[timeout</span> <span class="pre">(float)]</span> <span class="pre">[xfail</span> <span class="pre">(bool)]</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Эта инструкция принимает условие и вызывает
+RenpyTestAssertionError, если условие не выполнено в момент её
+выполнения.</p>
+<p>Если указан <code class="docutils literal notranslate"><span class="pre">timeout</span></code>, инструкция будет ждать выполнения условия до указанного
+количества секунд. Если условие не выполняется за это время,
+проверка (assertion) не проходит.</p>
+<p>Если <code class="docutils literal notranslate"><span class="pre">xfail</span></code> установлено в <code class="docutils literal notranslate"><span class="pre">True</span></code>, ожидается, что инструкция <cite>assert</cite> завершится неудачно.
+Это инвертирует смысл инструкции: если условие выполнено, проверка не
+проходит. Если условие не выполнено, проверка проходит успешно.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="k">screen</span> <span class="s2">&quot;main_menu&quot;</span>
+<span class="k">assert</span> <span class="nb">eval</span> <span class="n">some_function</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<span class="k">assert</span> <span class="na">id</span> <span class="s2">&quot;start_button&quot;</span> <span class="n">timeout</span> <span class="mf">5.0</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">См. также</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/reference/simple_stmts.html#the-assert-statement">Python asserts</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/library/stdtypes.html#truth-value-testing">Вычисление логических выражений</a></p></li>
+</ul>
+</div>
+</section>
+<section id="if">
+<h4>If<a class="headerlink" href="#if" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Управление</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">if</span> <span class="pre">&lt;condition&gt;</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Эта инструкция выполняет блок тестовых инструкций, если и когда предоставленное
+условие выполнено.</p>
+<p>Пример:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="k">label</span> <span class="s2">&quot;chapter_five&quot;</span><span class="p">:</span>
+    <span class="n">exit</span>
+
+<span class="k">if</span> <span class="nb">eval</span> <span class="p">(</span><span class="n">persistent</span><span class="o">.</span><span class="n">should_advance</span> <span class="k">and</span> <span class="n">i_should_advance</span><span class="p">[</span><span class="s2">&quot;now&quot;</span><span class="p">]):</span>
+    <span class="n">advance</span>
+</pre></div>
+</div>
+<p>Инструкции <code class="docutils literal notranslate"><span class="pre">elif</span></code> и <code class="docutils literal notranslate"><span class="pre">else</span></code> можно использовать для добавления
+дополнительных условий к инструкции <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">eval</span> <span class="n">persistent</span><span class="o">.</span><span class="n">should_advance</span><span class="p">:</span>
+    <span class="n">advance</span>
+<span class="k">elif</span> <span class="nb">eval</span> <span class="n">i_should_advance</span><span class="p">[</span><span class="s2">&quot;now&quot;</span><span class="p">]:</span>
+    <span class="n">advance</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">click</span> <span class="s2">&quot;Start&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="repeat">
+<h4>Repeat<a class="headerlink" href="#repeat" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Управление</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">&lt;command&gt;</span> <span class="pre">repeat</span> <span class="pre">&lt;number&gt;</span> <span class="pre">[timeout</span> <span class="pre">(float)]</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Повторяет инструкцию указанное количество раз. Она состоит из
+командной инструкции слева и количества повторений
+справа, разделенных словом <code class="docutils literal notranslate"><span class="pre">repeat</span></code>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">click</span> <span class="s2">&quot;+&quot;</span> <span class="k">repeat</span> <span class="mi">3</span>
+<span class="na">keysym</span> <span class="s2">&quot;K_BACKSPACE&quot;</span> <span class="k">repeat</span> <span class="mi">10</span>
+<span class="n">advance</span> <span class="k">repeat</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</section>
+<section id="screenshot">
+<span id="test-screenshot-statement"></span><h4>Screenshot<a class="headerlink" href="#screenshot" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Команда</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">screenshot</span> <span class="pre">&lt;path&gt;</span> <span class="pre">[max_pixel_difference</span> <span class="pre">(int</span> <span class="pre">or</span> <span class="pre">float)]</span> <span class="pre">[crop</span> <span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">width,</span> <span class="pre">height)]</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Делает снимок текущего экрана и сохраняет его по указанному пути.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">path</span></code> указывает путь (относительно <code class="docutils literal notranslate"><span class="pre">_test.screenshot_directory</span></code>),
+куда будет сохранен снимок экрана. Он может включать расширение файла.
+Поддерживается только <code class="docutils literal notranslate"><span class="pre">.png</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_pixel_difference</span></code> указывает, сколько пикселей может отличаться между
+сделанным снимком и существующим, чтобы тест считался пройденным.
+Целые числа указывают количество пикселей, а числа с плавающей запятой
+— процент от общего числа пикселей. По умолчанию — <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">crop</span></code> указывает прямоугольник для обрезки снимка в формате
+<code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">width,</span> <span class="pre">height)</span></code>. Координаты должны быть целыми числами.</p></li>
+</ul>
+<p>Если проект находится в git-репозитории, хеш текущего коммита
+автоматически добавляется к имени файла в виде <code class="docutils literal notranslate"><span class="pre">&#64;{hash}.png</span></code>. Это позволяет
+разработчику отслеживать изменения снимков экрана с течением времени.</p>
+<p>Если файл уже существует, текущий снимок сравнивается с существующим
+файлом. Если файлы отличаются более чем на <code class="docutils literal notranslate"><span class="pre">max_pixel_difference</span></code> пикселей,
+вызывается исключение RenpyTestScreenshotError.</p>
+<p>Чтобы перезаписать существующий снимок, удалите файл или запустите тест с
+опцией командной строки <code class="docutils literal notranslate"><span class="pre">--overwrite_screenshots</span></code>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">screenshot</span> <span class="s2">&quot;screens/main_menu.png&quot;</span>
+<span class="n">screenshot</span> <span class="s2">&quot;screens/inventory&quot;</span> <span class="n">max_pixel_difference</span> <span class="mf">0.01</span>
+<span class="n">screenshot</span> <span class="s2">&quot;button.png&quot;</span> <span class="na">crop</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Это можно использовать в параметризованном тесте для создания нескольких снимков экрана:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">testcase</span> <span class="n">screen_tester</span><span class="p">:</span>
+    <span class="n">parameter</span> <span class="n">screen_name</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;inventory&quot;</span><span class="p">,</span> <span class="s2">&quot;stats&quot;</span><span class="p">,</span> <span class="s2">&quot;map&quot;</span><span class="p">]</span>
+
+    <span class="n">run</span> <span class="n">Show</span><span class="p">(</span><span class="n">screen_name</span><span class="p">)</span>
+    <span class="n">screenshot</span> <span class="sa">f</span><span class="s2">&quot;screens/</span><span class="si">{</span><span class="n">screen_name</span><span class="si">}</span><span class="s2">.png&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="until">
+<h4>Until<a class="headerlink" href="#until" title="Ссылка на этот заголовок"></a></h4>
+<blockquote>
+<div><p>Тип: <em class="dfn">Управление</em></p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">&lt;command&gt;</span> <span class="pre">until</span> <span class="pre">&lt;condition&gt;</span> <span class="pre">[timeout</span> <span class="pre">(float)]</span></span></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p>Повторяет инструкцию до тех пор, пока не будет выполнено условие. Она состоит из
+командной инструкции слева и условия справа,
+разделенных словом <code class="docutils literal notranslate"><span class="pre">until</span></code>.</p>
+<p>Если и когда условие справа выполняется, управление
+передается следующей инструкции. В противном случае инструкция слева
+выполняется многократно, пока условие не будет выполнено.</p>
+<p>Если указан <code class="docutils literal notranslate"><span class="pre">timeout</span></code>, инструкция будет ждать выполнения условия до указанного
+количества секунд. Если условие не выполняется за это время,
+вызывается исключение RenpyTestTimeoutError.</p>
+<p>Этот таймаут временно переопределяет глобальную настройку <code class="docutils literal notranslate"><span class="pre">_test.timeout</span></code>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">advance</span> <span class="n">until</span> <span class="k">screen</span> <span class="s2">&quot;choice&quot;</span>
+<span class="n">click</span> <span class="s2">&quot;Next&quot;</span>
+<span class="n">advance</span> <span class="n">until</span> <span class="k">label</span> <span class="s2">&quot;chapter_5&quot;</span>
+
+<span class="n">skip</span> <span class="n">until</span> <span class="k">screen</span> <span class="s2">&quot;inventory&quot;</span> <span class="n">timeout</span> <span class="mf">20.0</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-dollar-line">
+<h3>Блоки Python и dollar-line<a class="headerlink" href="#python-dollar-line" title="Ссылка на этот заголовок"></a></h3>
+<p><a class="reference internal" href="python.html#python-statement"><span class="std std-ref">Блок python</span></a> или <a class="reference internal" href="python.html#dollar-line"><span class="std std-ref">Однострочная инструкция Python</span></a> могут быть добавлены
+внутрь <cite>testcase</cite>. В отличие от обычного кода Ren'Py, блоки python не принимают
+параметр <code class="docutils literal notranslate"><span class="pre">in</span> <span class="pre">substore</span></code>, но принимают ключевое слово <code class="docutils literal notranslate"><span class="pre">hide</span></code>. Они
+(оба) позволяют выполнять произвольный код на Python.</p>
+<p><cite>init</cite>-код выполняется до начала теста, поэтому функции и классы, определенные
+в блоках <code class="docutils literal notranslate"><span class="pre">init</span> <span class="pre">python</span></code>, можно вызывать в тестовых блоках python и в тестовых
+dollar-строках. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span> <span class="k">in</span> <span class="n">test</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">afunction</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">renpy</span><span class="o">.</span><span class="n">is_in_test</span><span class="p">():</span>
+            <span class="k">return</span> <span class="s2">&quot;test&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;not test&quot;</span>
+
+<span class="k">testcase</span> <span class="k">default</span><span class="p">:</span>
+    <span class="k">$</span> <span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">afunction</span><span class="p">())</span> <span class="c1"># попадает в консоль</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="director.html" class="btn btn-neutral float-left" title="Интерактивный Режиссёр" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="nvl_mode.html" class="btn btn-neutral float-right" title="Руководство по NVL-режиму" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

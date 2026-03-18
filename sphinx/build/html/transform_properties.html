@@ -1,0 +1,1111 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Свойства трансформации &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/transform_properties.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Переходы" href="transitions.html" />
+    <link rel="prev" title="Трансформации" href="transforms.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Свойства трансформации</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#transform-properties">Список свойств трансформации</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Позиционирование</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Вращение</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Масштабирование и отражение</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Пиксельные эффекты</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Полярное позиционирование</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Полярное позиционирование якоря</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Обрезка и изменение размера</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Панорамирование и замощение</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Переходы</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Прочее</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">Порядок применения свойств</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">Устаревшие свойства трансформации</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Свойства трансформации</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/transform_properties.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Свойства трансформации<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Свойства трансформации используются <a class="reference internal" href="transforms.html"><span class="doc">Трансформации</span></a> для влияния на то, как отображается displayable. Обычно они задаются с помощью <a class="reference internal" href="transforms.html#atl"><span class="std std-ref">ATL</span></a> или класса <a class="reference internal" href="transforms.html#Transform" title="Transform"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transform</span></code></a>.</p>
+<section id="transform-properties">
+<span id="id2"></span><h2>Список свойств трансформации<a class="headerlink" href="#transform-properties" title="Ссылка на этот заголовок"></a></h2>
+<p>Существуют следующие свойства трансформации.</p>
+<p>Когда в качестве типа указана <a class="reference internal" href="style_properties.html#term-position"><span class="xref std std-term">position</span></a>, её относительная компонента интерпретируется как доля от размера содержащей области (для <a class="reference internal" href="#transform-property-pos"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">pos</span></code></a>) или от размера отображаемого объекта (displayable) (для <a class="reference internal" href="#transform-property-anchor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">anchor</span></code></a>).</p>
+<p>Обратите внимание, что не все свойства независимы. Например, <a class="reference internal" href="#transform-property-xalign"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">xalign</span></code></a> и <a class="reference internal" href="#transform-property-xpos"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">xpos</span></code></a> оба обновляют одни и те же внутренние данные. В инструкции <code class="docutils literal notranslate"><span class="pre">parallel</span></code> не более одного блока должно изменять свойства, использующие общие данные. Свойства угла и радиуса устанавливают как горизонтальное, так и вертикальное положение.</p>
+<section id="id3">
+<h3>Позиционирование<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h3>
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-pos">
+<span class="sig-name descname"><span class="pre">pos</span></span><a class="headerlink" href="#transform-property-pos" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(position, position)</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>(0, 0)</p>
+</dd>
+</dl>
+<p>Позиция относительно верхнего левого угла содержащей области.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-xpos">
+<span class="sig-name descname"><span class="pre">xpos</span></span><a class="headerlink" href="#transform-property-xpos" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>position</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>0</p>
+</dd>
+</dl>
+<p>Горизонтальная позиция относительно левого края содержащей области.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-ypos">
+<span class="sig-name descname"><span class="pre">ypos</span></span><a class="headerlink" href="#transform-property-ypos" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>position</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>0</p>
+</dd>
+</dl>
+<p>Вертикальная позиция относительно верхнего края содержащей области.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-anchor">
+<span class="sig-name descname"><span class="pre">anchor</span></span><a class="headerlink" href="#transform-property-anchor" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(position, position)</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>(0, 0)</p>
+</dd>
+</dl>
+<p>Позиция якоря относительно верхнего левого угла отображаемого объекта (displayable).</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-xanchor">
+<span class="sig-name descname"><span class="pre">xanchor</span></span><a class="headerlink" href="#transform-property-xanchor" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>position</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>0</p>
+</dd>
+</dl>
+<p>Горизонтальная позиция якоря относительно левого края отображаемого объекта (displayable).</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-yanchor">
+<span class="sig-name descname"><span class="pre">yanchor</span></span><a class="headerlink" href="#transform-property-yanchor" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>position</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>0</p>
+</dd>
+</dl>
+<p>Вертикальная позиция якоря относительно верхнего края отображаемого объекта (displayable).</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-align">
+<span class="sig-name descname"><span class="pre">align</span></span><a class="headerlink" href="#transform-property-align" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(float, float)</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>(0.0, 0.0)</p>
+</dd>
+</dl>
+<p>Эквивалентно установке одинаковых значений для pos и anchor.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-xalign">
+<span class="sig-name descname"><span class="pre">xalign</span></span><a class="headerlink" href="#transform-property-xalign" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>0.0</p>
+</dd>
+</dl>
+<p>Эквивалентно установке этого значения для xpos и xanchor.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-yalign">
+<span class="sig-name descname"><span class="pre">yalign</span></span><a class="headerlink" href="#transform-property-yalign" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>0.0</p>
+</dd>
+</dl>
+<p>Эквивалентно установке этого значения для ypos и yanchor.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-offset">
+<span class="sig-name descname"><span class="pre">offset</span></span><a class="headerlink" href="#transform-property-offset" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(absolute, absolute)</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>(0, 0)</p>
+</dd>
+</dl>
+<p>Количество пикселей, на которое смещается отображаемый объект (displayable) в каждом направлении. Положительные значения смещают вправо-вниз.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-xoffset">
+<span class="sig-name descname"><span class="pre">xoffset</span></span><a class="headerlink" href="#transform-property-xoffset" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>absolute</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>0</p>
+</dd>
+</dl>
+<p>Количество пикселей, на которое смещается отображаемый объект (displayable) в горизонтальном направлении. Положительные значения смещают вправо.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-yoffset">
+<span class="sig-name descname"><span class="pre">yoffset</span></span><a class="headerlink" href="#transform-property-yoffset" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>absolute</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>0</p>
+</dd>
+</dl>
+<p>Количество пикселей, на которое смещается отображаемый объект (displayable) в вертикальном направлении. Положительные значения смещают вниз.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-xycenter">
+<span class="sig-name descname"><span class="pre">xycenter</span></span><a class="headerlink" href="#transform-property-xycenter" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(position, position)</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>(0.0, 0.0)</p>
+</dd>
+</dl>
+<p>Эквивалентно установке pos в значение этого свойства, а anchor в (0.5, 0.5).</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-xcenter">
+<span class="sig-name descname"><span class="pre">xcenter</span></span><a class="headerlink" href="#transform-property-xcenter" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>position</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>0.0</p>
+</dd>
+</dl>
+<p>Эквивалентно установке xpos в значение этого свойства, а xanchor в 0.5.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-ycenter">
+<span class="sig-name descname"><span class="pre">ycenter</span></span><a class="headerlink" href="#transform-property-ycenter" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>position</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>0.0</p>
+</dd>
+</dl>
+<p>Эквивалентно установке ypos в значение этого свойства, а yanchor в 0.5.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-subpixel">
+<span class="sig-name descname"><span class="pre">subpixel</span></span><a class="headerlink" href="#transform-property-subpixel" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>False</p>
+</dd>
+</dl>
+<p>Если True, дочерний элемент будет размещён с использованием субпиксельного позиционирования.</p>
+<p>Субпиксельное позиционирование влияет на цвета (включая прозрачность), которые отрисовываются в пикселях, но не на то, какие пиксели отрисовываются. Когда субпиксельное позиционирование используется в сочетании с движением (что является обычным случаем), изображение должно иметь прозрачные границы в тех направлениях, в которых оно может двигаться, если эти края видны на экране.</p>
+<p>Например, если спрайт персонажа движется горизонтально, имеет смысл сделать прозрачные границы слева и справа. Они могут не понадобиться при панорамировании фона, выходящего за пределы видимой области, так как края не будут видны.</p>
+</dd></dl>
+
+</section>
+<section id="id4">
+<h3>Вращение<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h3>
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-rotate">
+<span class="sig-name descname"><span class="pre">rotate</span></span><a class="headerlink" href="#transform-property-rotate" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or None</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если None, вращение не происходит. В противном случае, изображение будет повёрнуто на указанное количество градусов по часовой стрелке. Вращение отображаемого объекта (displayable) приводит к изменению его размера в соответствии с настройкой rotate_pad, описанной ниже. Это может вызвать изменение позиционирования, если xanchor и yanchor не равны 0.5.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-rotate_pad">
+<span class="sig-name descname"><span class="pre">rotate_pad</span></span><a class="headerlink" href="#transform-property-rotate_pad" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>True</p>
+</dd>
+</dl>
+<p>Если True, то повёрнутый отображаемый объект (displayable) дополняется отступами так, чтобы его ширина и высота были равны гипотенузе исходных ширины и высоты. Это гарантирует, что трансформация не изменит размер при вращении её содержимого. Если False, трансформация получит минимальный размер, который вмещает преобразованный displayable. Это больше подходит для фиксированных вращений.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-transform_anchor">
+<span class="sig-name descname"><span class="pre">transform_anchor</span></span><a class="headerlink" href="#transform-property-transform_anchor" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>False</p>
+</dd>
+</dl>
+<p>Если true, точка якоря располагается на обрезанном дочернем элементе и масштабируется и вращается вместе с ним. Фактически, это делает якорь точкой, вокруг которой вращается и масштабируется дочерний элемент.</p>
+</dd></dl>
+
+</section>
+<section id="id5">
+<h3>Масштабирование и отражение<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h3>
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-zoom">
+<span class="sig-name descname"><span class="pre">zoom</span></span><a class="headerlink" href="#transform-property-zoom" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>1.0</p>
+</dd>
+</dl>
+<p>Вызывает масштабирование отображаемого объекта (displayable) на указанный коэффициент.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-xzoom">
+<span class="sig-name descname"><span class="pre">xzoom</span></span><a class="headerlink" href="#transform-property-xzoom" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>1.0</p>
+</dd>
+</dl>
+<p>Вызывает горизонтальное масштабирование отображаемого объекта (displayable) на указанный коэффициент. Отрицательное значение вызывает горизонтальное отражение изображения.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-yzoom">
+<span class="sig-name descname"><span class="pre">yzoom</span></span><a class="headerlink" href="#transform-property-yzoom" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>1.0</p>
+</dd>
+</dl>
+<p>Вызывает вертикальное масштабирование отображаемого объекта (displayable) на указанный коэффициент. Отрицательное значение вызывает вертикальное отражение изображения.</p>
+</dd></dl>
+
+</section>
+<section id="id6">
+<h3>Пиксельные эффекты<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h3>
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-nearest">
+<span class="sig-name descname"><span class="pre">nearest</span></span><a class="headerlink" href="#transform-property-nearest" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если True, отображаемый объект (displayable) и его дочерние элементы отрисовываются с использованием фильтрации по ближайшему соседу. Если False, они отрисовываются с использованием билинейной фильтрации. Если None, значение наследуется от родительского элемента или берётся из <a class="reference internal" href="config.html#var-config.nearest_neighbor"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.nearest_neighbor</span></code></a>, которое по умолчанию равно False.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-alpha">
+<span class="sig-name descname"><span class="pre">alpha</span></span><a class="headerlink" href="#transform-property-alpha" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>1.0</p>
+</dd>
+</dl>
+<p>Управляет непрозрачностью отображаемого объекта (displayable).</p>
+<p>Трансформация альфа-канала применяется к каждому изображению, составляющему дочерний элемент трансформации, независимо. Это может привести к неожиданным результатам, когда дочерние элементы перекрываются, например, к просвечиванию персонажа сквозь одежду. Displayable <a class="reference internal" href="displayables.html#Flatten" title="Flatten"><code class="xref py py-func docutils literal notranslate"><span class="pre">Flatten()</span></code></a> может помочь в решении этих проблем.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-additive">
+<span class="sig-name descname"><span class="pre">additive</span></span><a class="headerlink" href="#transform-property-additive" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>0.0</p>
+</dd>
+</dl>
+<p>Управляет степенью аддитивного смешивания, выполняемого Ren'Py. При значении 1.0 Ren'Py рисует с использованием оператора ADD. При 0.0 Ren'Py рисует с использованием оператора OVER.</p>
+<p>Аддитивное смешивание выполняется для каждого дочернего элемента трансформации независимо.</p>
+<p>Полностью аддитивное смешивание не изменяет альфа-канал назначения, и аддитивные изображения могут быть не видны, если они не нарисованы непосредственно на непрозрачной поверхности. (Сложные операции, такие как viewport, <a class="reference internal" href="displayables.html#Flatten" title="Flatten"><code class="xref py py-func docutils literal notranslate"><span class="pre">Flatten()</span></code></a>, <a class="reference internal" href="displayables.html#Frame" title="Frame"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame()</span></code></a> и некоторые переходы, могут вызывать проблемы с аддитивным смешиванием.)</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-matrixcolor">
+<span class="sig-name descname"><span class="pre">matrixcolor</span></span><a class="headerlink" href="#transform-property-matrixcolor" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or Matrix or MatrixColor</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если не None, значение этого свойства используется для перекрашивания всего, что рисуют дочерние элементы этой трансформации. Интерполяция поддерживается только при использовании MatrixColors, и если эти MatrixColors структурно схожи. Смотрите <a class="reference internal" href="matrixcolor.html"><span class="doc">Matrixcolor</span></a> для получения дополнительной информации.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-blur">
+<span class="sig-name descname"><span class="pre">blur</span></span><a class="headerlink" href="#transform-property-blur" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or float</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Размывает дочерний элемент этой трансформации на <cite>blur</cite> пикселей, вплоть до границы displayable. Точные детали размытия могут меняться между версиями Ren'Py, и размытие может проявлять артефакты, особенно когда размываемое изображение меняется.</p>
+<p>Размытие вызывает &quot;сплющивание&quot; (flatten) своего дочернего элемента, при котором он отрисовывается на прозрачном фоне перед применением размытия.</p>
+</dd></dl>
+
+</section>
+<section id="id7">
+<h3>Полярное позиционирование<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h3>
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-around">
+<span class="sig-name descname"><span class="pre">around</span></span><a class="headerlink" href="#transform-property-around" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(position, position)</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>(0.0, 0.0)</p>
+</dd>
+</dl>
+<p>Определяет начальную точку относительно верхнего левого угла содержащей области, из которой будет проведён полярный вектор (вычисленный из <a class="reference internal" href="#transform-property-angle"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">angle</span></code></a> и <a class="reference internal" href="#transform-property-radius"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">radius</span></code></a>). Сумма этих двух значений даёт итоговое свойство <a class="reference internal" href="#transform-property-pos"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">pos</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-angle">
+<span class="sig-name descname"><span class="pre">angle</span></span><a class="headerlink" href="#transform-property-angle" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p>Задаёт угловую компоненту позиции, указанной в полярных координатах.
+Измеряется в градусах, где 0 соответствует верху экрана, а 90 — правому краю.</p>
+<p>Ren'Py ограничивает этот угол в диапазоне от 0 до 360 градусов, включая 0, но не включая 360. Если установлено значение вне этого диапазона, оно будет приведено к эквивалентному углу в этом диапазоне перед использованием. (Установка значения -10 эквивалентна установке 350.)</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-radius">
+<span class="sig-name descname"><span class="pre">radius</span></span><a class="headerlink" href="#transform-property-radius" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>position</p>
+</dd>
+</dl>
+<p>Радиальная компонента позиции, заданной в полярных координатах.</p>
+<p>Если это float, значение будет масштабировано до меньшего из ширины и высоты, доступных трансформации.</p>
+</dd></dl>
+
+</section>
+<section id="id8">
+<h3>Полярное позиционирование якоря<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Хотя использовать полярные координаты для позиционирования якоря возможно, часто удобнее просто установить <a class="reference internal" href="#transform-property-anchor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">anchor</span></code></a> в (0.5, 0.5) и позиционировать центр вашего displayable.</p>
+</div>
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-anchoraround">
+<span class="sig-name descname"><span class="pre">anchoraround</span></span><a class="headerlink" href="#transform-property-anchoraround" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(position, position)</p>
+</dd>
+</dl>
+<p>Определяет начальную точку относительно верхнего левого угла displayable, из которой будет проведён полярный вектор (вычисленный из <a class="reference internal" href="#transform-property-anchorangle"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">anchorangle</span></code></a> и <a class="reference internal" href="#transform-property-anchorradius"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">anchorradius</span></code></a>). Сумма этих двух значений даёт итоговое свойство <a class="reference internal" href="#transform-property-anchor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">anchor</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-anchorangle">
+<span class="sig-name descname"><span class="pre">anchorangle</span></span><a class="headerlink" href="#transform-property-anchorangle" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(float)</p>
+</dd>
+</dl>
+<p>Угловая компонента полярных координат якоря. Указывается в градусах, где 0 — верх, а 90 — право.</p>
+<p>Ren'Py ограничивает этот угол в диапазоне от 0 до 360 градусов, включая 0, но не включая 360. Если установлено значение вне этого диапазона, оно будет приведено к эквивалентному углу в этом диапазоне перед использованием. (Установка значения -10 эквивалентна установке 350.)</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-anchorradius">
+<span class="sig-name descname"><span class="pre">anchorradius</span></span><a class="headerlink" href="#transform-property-anchorradius" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(position)</p>
+</dd>
+</dl>
+<p>Радиальная компонента полярных координат якоря.</p>
+<p>Если это float, значение масштабируется горизонтально и вертикально под размер и форму displayable: если высота не равна ширине, радиус, который не является строго абсолютным, приведёт к эллиптическому движению при изменении anchorangle. По этой причине рекомендуется передавать этому свойству только значения типа <code class="docutils literal notranslate"><span class="pre">int</span></code> или <a class="reference internal" href="style_properties.html#absolute" title="absolute"><code class="xref py py-func docutils literal notranslate"><span class="pre">absolute()</span></code></a>.</p>
+</dd></dl>
+
+</section>
+<section id="id9">
+<h3>Обрезка и изменение размера<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h3>
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-crop">
+<span class="sig-name descname"><span class="pre">crop</span></span><a class="headerlink" href="#transform-property-crop" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or (position, position, position, position)</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если не None, вызывает обрезку displayable до указанного прямоугольника. Прямоугольник задаётся как кортеж (x, y, width, height), где x и y — это координаты верхнего левого угла прямоугольника относительно верхнего левого угла дочернего элемента. Все значения могут выходить за границы исходного изображения, при этом область снаружи становится прозрачной, однако width и height должны быть положительными.</p>
+<p>Если заданы и corners, и crop, crop имеет приоритет.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-corner1">
+<span class="sig-name descname"><span class="pre">corner1</span></span><a class="headerlink" href="#transform-property-corner1" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or (position, position)</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если не None, задаёт верхний левый угол области обрезки. Значения могут выходить за границы исходного изображения. Crop имеет приоритет над corners.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-corner2">
+<span class="sig-name descname"><span class="pre">corner2</span></span><a class="headerlink" href="#transform-property-corner2" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or (position, position)</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если не None, задаёт правый нижний угол области обрезки. Значения могут выходить за границы исходного изображения, но не должны быть меньше <a class="reference internal" href="#transform-property-corner1"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">corner1</span></code></a>. Crop имеет приоритет над corners.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-xysize">
+<span class="sig-name descname"><span class="pre">xysize</span></span><a class="headerlink" href="#transform-property-xysize" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or (position, position)</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если не None, вызывает масштабирование displayable до указанного размера. Это эквивалентно установке свойств <a class="reference internal" href="#transform-property-xsize"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">xsize</span></code></a> и <a class="reference internal" href="#transform-property-ysize"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">ysize</span></code></a> в первую и вторую компоненты соответственно.</p>
+<p>На это влияет свойство <a class="reference internal" href="#transform-property-fit"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">fit</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-xsize">
+<span class="sig-name descname"><span class="pre">xsize</span></span><a class="headerlink" href="#transform-property-xsize" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or position</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если не None, вызывает масштабирование displayable до указанной ширины.</p>
+<p>На это влияет свойство <a class="reference internal" href="#transform-property-fit"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">fit</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-ysize">
+<span class="sig-name descname"><span class="pre">ysize</span></span><a class="headerlink" href="#transform-property-ysize" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or position</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если не None, вызывает масштабирование displayable до указанной высоты.</p>
+<p>На это влияет свойство <a class="reference internal" href="#transform-property-fit"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">fit</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><a class="headerlink" href="#transform-property-fit" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or string</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Приводит к изменению размера displayable в соответствии с таблицей ниже. В контексте этой таблицы &quot;размерами&quot; являются:</p>
+<ul class="simple">
+<li><p>Если и <a class="reference internal" href="#transform-property-xsize"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">xsize</span></code></a>, и <a class="reference internal" href="#transform-property-ysize"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">ysize</span></code></a> не равны None, оба размера используются как размеры.</p></li>
+<li><p>Если только одно из этих свойств не равно None, оно используется как единственный размер.</p></li>
+<li><p>В противном случае, если fit не равно None, в качестве размеров используется область, в которой содержится Transform.</p></li>
+</ul>
+<p>Если fit, xsize и ysize все равны None, это свойство не применяется.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 85.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Значение</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">contain</span></code></p></td>
+<td><p>Максимально большой, не выходя за рамки размеров. Сохраняет соотношение сторон.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cover</span></code></p></td>
+<td><p>Минимально возможный, но соответствующий всем размерам или превосходящий их. Сохраняет соотношение сторон.</p></td>
+</tr>
+<tr class="row-even"><td><p>None или <code class="docutils literal notranslate"><span class="pre">fill</span></code></p></td>
+<td><p>Растягивает/сжимает displayable для точного соответствия размерам.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scale-down</span></code></p></td>
+<td><p>Как <code class="docutils literal notranslate"><span class="pre">contain</span></code>, но никогда не увеличит размер displayable.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scale-up</span></code></p></td>
+<td><p>Как <code class="docutils literal notranslate"><span class="pre">cover</span></code>, но никогда не уменьшит размер displayable.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</section>
+<section id="id10">
+<h3>Панорамирование и замощение<a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h3>
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-xpan">
+<span class="sig-name descname"><span class="pre">xpan</span></span><a class="headerlink" href="#transform-property-xpan" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or float</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если не None, интерпретируется как угол, который используется для горизонтального панорамирования по панорамному изображению с обзором 360 градусов. Центр изображения используется как нулевой угол, а левый и правый края — как -180 и 180 градусов соответственно.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-ypan">
+<span class="sig-name descname"><span class="pre">ypan</span></span><a class="headerlink" href="#transform-property-ypan" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or float</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если не None, интерпретируется как угол, который используется для вертикального панорамирования по панорамному изображению с обзором 360 градусов. Центр изображения используется как нулевой угол, а верхний и нижний края — как -180 и 180 градусов соответственно.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-xtile">
+<span class="sig-name descname"><span class="pre">xtile</span></span><a class="headerlink" href="#transform-property-xtile" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>1</p>
+</dd>
+</dl>
+<p>Количество раз для замощения изображения по горизонтали.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-ytile">
+<span class="sig-name descname"><span class="pre">ytile</span></span><a class="headerlink" href="#transform-property-ytile" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>1</p>
+</dd>
+</dl>
+<p>Количество раз для замощения изображения по вертикали.</p>
+</dd></dl>
+
+</section>
+<section id="id11">
+<h3>Переходы<a class="headerlink" href="#id11" title="Ссылка на этот заголовок"></a></h3>
+<p>Смотрите <a class="reference internal" href="transitions.html#atl-transitions"><span class="std std-ref">ATL-переходы</span></a>.</p>
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-delay">
+<span class="sig-name descname"><span class="pre">delay</span></span><a class="headerlink" href="#transform-property-delay" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>0.0</p>
+</dd>
+</dl>
+<p>Если эта трансформация используется как переход, это его длительность. Смотрите <a class="reference internal" href="transitions.html#atl-transitions"><span class="std std-ref">ATL-переходы</span></a>.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-events">
+<span class="sig-name descname"><span class="pre">events</span></span><a class="headerlink" href="#transform-property-events" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>True</p>
+</dd>
+</dl>
+<p>Если True, события передаются дочернему элементу этой трансформации. Если False, события блокируются. (Это можно использовать в ATL-переходах, чтобы предотвратить попадание событий в old_widget.)</p>
+</dd></dl>
+
+</section>
+<section id="id12">
+<h3>Прочее<a class="headerlink" href="#id12" title="Ссылка на этот заголовок"></a></h3>
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-fps">
+<span class="sig-name descname"><span class="pre">fps</span></span><a class="headerlink" href="#transform-property-fps" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or None</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если не None, это изменяет время внутри трансформации, делая его дискретным.
+Например, если у трансформации fps равен 10, то время внутри трансформации будет округлено в меньшую сторону до ближайшего кратного 0.1. Это можно использовать для симуляции более низкой частоты кадров.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-show_cancels_hide">
+<span class="sig-name descname"><span class="pre">show_cancels_hide</span></span><a class="headerlink" href="#transform-property-show_cancels_hide" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>True</p>
+</dd>
+</dl>
+<p>Обычно, когда отображаемый объект или экран с тем же тегом или именем, что и скрываемый, показывается, скрываемый объект или экран удаляется, отменяя трансформацию hide. Если это свойство установлено в False в трансформации hide, отмена не произойдёт, и трансформация hide завершится полностью.</p>
+</dd></dl>
+
+<p>Есть также несколько наборов свойств трансформации, которые документированы в других местах:</p>
+<dl class="simple">
+<dt>Свойства 3D-сцены:</dt><dd><p><a class="reference internal" href="3dstage.html#transform-property-perspective"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">perspective</span></code></a>, <a class="reference internal" href="3dstage.html#transform-property-point_to"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">point_to</span></code></a>, <a class="reference internal" href="3dstage.html#transform-property-orientation"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">orientation</span></code></a>, <a class="reference internal" href="3dstage.html#transform-property-xrotate"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">xrotate</span></code></a>, <a class="reference internal" href="3dstage.html#transform-property-yrotate"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">yrotate</span></code></a>, <a class="reference internal" href="3dstage.html#transform-property-zrotate"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">zrotate</span></code></a>, <a class="reference internal" href="3dstage.html#transform-property-matrixanchor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixanchor</span></code></a>, <a class="reference internal" href="3dstage.html#transform-property-matrixtransform"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixtransform</span></code></a>, <a class="reference internal" href="3dstage.html#transform-property-zpos"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">zpos</span></code></a>, <a class="reference internal" href="3dstage.html#transform-property-zzoom"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">zzoom</span></code></a></p>
+</dd>
+<dt>Свойства рендеринга на основе моделей:</dt><dd><p><a class="reference internal" href="model.html#transform-property-blend"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">blend</span></code></a>, <a class="reference internal" href="model.html#transform-property-mesh"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">mesh</span></code></a>, <a class="reference internal" href="model.html#transform-property-mesh_pad"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">mesh_pad</span></code></a>, <a class="reference internal" href="model.html#transform-property-shader"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">shader</span></code></a></p>
+</dd>
+<dt>GL-свойства:</dt><dd><p><a class="reference internal" href="model.html#gl-properties"><span class="std std-ref">GL-свойства</span></a>.</p>
+</dd>
+<dt>Uniform-переменные:</dt><dd><p>Свойства, начинающиеся с <code class="docutils literal notranslate"><span class="pre">u_</span></code>, являются uniform-переменными, которые могут использоваться <a class="reference internal" href="model.html#custom-shaders"><span class="std std-ref">пользовательскими шейдерами</span></a>.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="id13">
+<h2>Порядок применения свойств<a class="headerlink" href="#id13" title="Ссылка на этот заголовок"></a></h2>
+<p>Свойства трансформации применяются в следующем порядке:</p>
+<ol class="arabic simple">
+<li><p>fps</p></li>
+<li><p>mesh, blur</p></li>
+<li><p>tile</p></li>
+<li><p>pan</p></li>
+<li><p>crop, corner1, corner2</p></li>
+<li><p>xysize, size, maxsize</p></li>
+<li><p>zoom, xzoom, yzoom</p></li>
+<li><p>point_to</p></li>
+<li><p>orientation</p></li>
+<li><p>xrotate, yrotate, zrotate</p></li>
+<li><p>rotate</p></li>
+<li><p>zpos</p></li>
+<li><p>matrixtransform, matrixanchor</p></li>
+<li><p>zzoom</p></li>
+<li><p>perspective</p></li>
+<li><p>nearest, blend, alpha, additive, shader</p></li>
+<li><p>matrixcolor</p></li>
+<li><p>GL-свойства, Uniform-переменные</p></li>
+<li><p>свойства позиционирования</p></li>
+<li><p>show_cancels_hide</p></li>
+</ol>
+</section>
+<section id="id14">
+<h2>Устаревшие свойства трансформации<a class="headerlink" href="#id14" title="Ссылка на этот заголовок"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Следующие свойства не следует использовать в современных играх, так как они могут конфликтовать с новыми функциями. Они оставлены здесь только для совместимости, вместе с новым способом достижения того же поведения.</p>
+</div>
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-alignaround">
+<span class="sig-name descname"><span class="pre">alignaround</span></span><a class="headerlink" href="#transform-property-alignaround" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(float, float)</p>
+</dd>
+</dl>
+<p>Устанавливает одинаковое значение для <a class="reference internal" href="#transform-property-anchor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">anchor</span></code></a>, <a class="reference internal" href="#transform-property-around"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">around</span></code></a> и <a class="reference internal" href="#transform-property-anchoraround"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">anchoraround</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-crop_relative">
+<span class="sig-name descname"><span class="pre">crop_relative</span></span><a class="headerlink" href="#transform-property-crop_relative" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>True</p>
+</dd>
+</dl>
+<p>Если False, компоненты типа float в <a class="reference internal" href="#transform-property-crop"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">crop</span></code></a>, <a class="reference internal" href="#transform-property-corner1"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">corner1</span></code></a> и
+<a class="reference internal" href="#transform-property-corner2"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">corner2</span></code></a> интерпретируются как абсолютное число пикселей, а не как
+доля от ширины и высоты исходного изображения.</p>
+<p>Для выражения абсолютного числа пикселей следует передавать этим свойствам
+экземпляры <a class="reference internal" href="style_properties.html#absolute" title="absolute"><code class="xref py py-func docutils literal notranslate"><span class="pre">absolute()</span></code></a>, а не использовать свойство crop_relative.
+При необходимости, значения сомнительного типа можно обернуть в вызов <a class="reference internal" href="style_properties.html#absolute" title="absolute"><code class="xref py py-func docutils literal notranslate"><span class="pre">absolute()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-size">
+<span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#transform-property-size" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or (int, int)</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Это старая версия <a class="reference internal" href="#transform-property-xysize"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">xysize</span></code></a>, интерпретирующая значения с плавающей точкой как абсолютное число пикселей.</p>
+</dd></dl>
+
+<dl class="std transform-property">
+<dt class="sig sig-object std" id="transform-property-maxsize">
+<span class="sig-name descname"><span class="pre">maxsize</span></span><a class="headerlink" href="#transform-property-maxsize" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or (int, int)</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p>Если не None, вызывает масштабирование displayable так, чтобы он вписался в рамку этого размера с сохранением соотношения сторон. (Обратите внимание, что это означает, что один из размеров может быть меньше размера этой рамки.)</p>
+<p>Для достижения того же результата передайте значения свойству <a class="reference internal" href="#transform-property-xysize"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">xysize</span></code></a> и
+установите свойство <a class="reference internal" href="#transform-property-fit"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">fit</span></code></a> в значение &quot;contain&quot;.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="transforms.html" class="btn btn-neutral float-left" title="Трансформации" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="transitions.html" class="btn btn-neutral float-right" title="Переходы" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

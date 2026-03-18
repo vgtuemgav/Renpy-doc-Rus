@@ -1,0 +1,1317 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Прочие функции и переменные &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/other.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Файлы _ren.py — Ren&#39;Py в Python" href="ren_py.html" />
+    <link rel="prev" title="Рендеринг на основе моделей" href="model.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Прочие функции и переменные</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ren-py">Версия Ren'Py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.version"><code class="docutils literal notranslate"><span class="pre">renpy.version()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Определение платформы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Профилирование памяти</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.diff_memory"><code class="docutils literal notranslate"><span class="pre">renpy.diff_memory()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.profile_memory"><code class="docutils literal notranslate"><span class="pre">renpy.profile_memory()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.profile_rollback"><code class="docutils literal notranslate"><span class="pre">renpy.profile_rollback()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#renpy-random">renpy.random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sdl">SDL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_sdl_dll"><code class="docutils literal notranslate"><span class="pre">renpy.get_sdl_dll()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_sdl_window_pointer"><code class="docutils literal notranslate"><span class="pre">renpy.get_sdl_window_pointer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Разное</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.add_python_directory"><code class="docutils literal notranslate"><span class="pre">renpy.add_python_directory()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.add_to_all_stores"><code class="docutils literal notranslate"><span class="pre">renpy.add_to_all_stores()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.can_fullscreen"><code class="docutils literal notranslate"><span class="pre">renpy.can_fullscreen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.capture_focus"><code class="docutils literal notranslate"><span class="pre">renpy.capture_focus()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.choice_for_skipping"><code class="docutils literal notranslate"><span class="pre">renpy.choice_for_skipping()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.clear_capture_focus"><code class="docutils literal notranslate"><span class="pre">renpy.clear_capture_focus()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.clear_game_runtime"><code class="docutils literal notranslate"><span class="pre">renpy.clear_game_runtime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.clear_retain"><code class="docutils literal notranslate"><span class="pre">renpy.clear_retain()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.confirm"><code class="docutils literal notranslate"><span class="pre">renpy.confirm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.count_dialogue_blocks"><code class="docutils literal notranslate"><span class="pre">renpy.count_dialogue_blocks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.count_newly_seen_dialogue_blocks"><code class="docutils literal notranslate"><span class="pre">renpy.count_newly_seen_dialogue_blocks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.count_seen_dialogue_blocks"><code class="docutils literal notranslate"><span class="pre">renpy.count_seen_dialogue_blocks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.display_notify"><code class="docutils literal notranslate"><span class="pre">renpy.display_notify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.focus_coordinates"><code class="docutils literal notranslate"><span class="pre">renpy.focus_coordinates()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.force_autosave"><code class="docutils literal notranslate"><span class="pre">renpy.force_autosave()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.free_memory"><code class="docutils literal notranslate"><span class="pre">renpy.free_memory()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.full_restart"><code class="docutils literal notranslate"><span class="pre">renpy.full_restart()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_game_runtime"><code class="docutils literal notranslate"><span class="pre">renpy.get_game_runtime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_image_load_log"><code class="docutils literal notranslate"><span class="pre">renpy.get_image_load_log()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_menu_args"><code class="docutils literal notranslate"><span class="pre">renpy.get_menu_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_mouse_name"><code class="docutils literal notranslate"><span class="pre">renpy.get_mouse_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_mouse_names"><code class="docutils literal notranslate"><span class="pre">renpy.get_mouse_names()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_mouse_pos"><code class="docutils literal notranslate"><span class="pre">renpy.get_mouse_pos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_on_battery"><code class="docutils literal notranslate"><span class="pre">renpy.get_on_battery()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_ongoing_transition"><code class="docutils literal notranslate"><span class="pre">renpy.get_ongoing_transition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_physical_size"><code class="docutils literal notranslate"><span class="pre">renpy.get_physical_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_refresh_rate"><code class="docutils literal notranslate"><span class="pre">renpy.get_refresh_rate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_renderer_info"><code class="docutils literal notranslate"><span class="pre">renpy.get_renderer_info()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_say_attributes"><code class="docutils literal notranslate"><span class="pre">renpy.get_say_attributes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_skipping"><code class="docutils literal notranslate"><span class="pre">renpy.get_skipping()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_statement_name"><code class="docutils literal notranslate"><span class="pre">renpy.get_statement_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_transition"><code class="docutils literal notranslate"><span class="pre">renpy.get_transition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.iconify"><code class="docutils literal notranslate"><span class="pre">renpy.iconify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.include_module"><code class="docutils literal notranslate"><span class="pre">renpy.include_module()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.invoke_in_main_thread"><code class="docutils literal notranslate"><span class="pre">renpy.invoke_in_main_thread()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.invoke_in_thread"><code class="docutils literal notranslate"><span class="pre">renpy.invoke_in_thread()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.is_in_test"><code class="docutils literal notranslate"><span class="pre">renpy.is_in_test()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.is_init_phase"><code class="docutils literal notranslate"><span class="pre">renpy.is_init_phase()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.is_mouse_visible"><code class="docutils literal notranslate"><span class="pre">renpy.is_mouse_visible()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.is_seen"><code class="docutils literal notranslate"><span class="pre">renpy.is_seen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.is_seen_allowed"><code class="docutils literal notranslate"><span class="pre">renpy.is_seen_allowed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.is_skipping"><code class="docutils literal notranslate"><span class="pre">renpy.is_skipping()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.is_start_interact"><code class="docutils literal notranslate"><span class="pre">renpy.is_start_interact()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.language_tailor"><code class="docutils literal notranslate"><span class="pre">renpy.language_tailor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.last_say"><code class="docutils literal notranslate"><span class="pre">renpy.last_say()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.load_module"><code class="docutils literal notranslate"><span class="pre">renpy.load_module()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.load_string"><code class="docutils literal notranslate"><span class="pre">renpy.load_string()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.maximum_framerate"><code class="docutils literal notranslate"><span class="pre">renpy.maximum_framerate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.munge"><code class="docutils literal notranslate"><span class="pre">renpy.munge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.not_infinite_loop"><code class="docutils literal notranslate"><span class="pre">renpy.not_infinite_loop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.notify"><code class="docutils literal notranslate"><span class="pre">renpy.notify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.open_url"><code class="docutils literal notranslate"><span class="pre">renpy.open_url()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.predicting"><code class="docutils literal notranslate"><span class="pre">renpy.predicting()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.queue_event"><code class="docutils literal notranslate"><span class="pre">renpy.queue_event()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.quit"><code class="docutils literal notranslate"><span class="pre">renpy.quit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.quit_event"><code class="docutils literal notranslate"><span class="pre">renpy.quit_event()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.reset_physical_size"><code class="docutils literal notranslate"><span class="pre">renpy.reset_physical_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.restart_interaction"><code class="docutils literal notranslate"><span class="pre">renpy.restart_interaction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.scry"><code class="docutils literal notranslate"><span class="pre">renpy.scry()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.set_mouse_pos"><code class="docutils literal notranslate"><span class="pre">renpy.set_mouse_pos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.set_physical_size"><code class="docutils literal notranslate"><span class="pre">renpy.set_physical_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.shown_window"><code class="docutils literal notranslate"><span class="pre">renpy.shown_window()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.split_properties"><code class="docutils literal notranslate"><span class="pre">renpy.split_properties()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.stop_skipping"><code class="docutils literal notranslate"><span class="pre">renpy.stop_skipping()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.transition"><code class="docutils literal notranslate"><span class="pre">renpy.transition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.vibrate"><code class="docutils literal notranslate"><span class="pre">renpy.vibrate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Прочие функции и переменные</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/other.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Прочие функции и переменные<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>На этой странице перечислены и документированы различные прочие функции и переменные,
+которые не подходят для размещения в других местах.</p>
+<section id="ren-py">
+<h2>Версия Ren'Py<a class="headerlink" href="#ren-py" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.version">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tuple</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.version" title="Ссылка на это определение"></a></dt>
+<dd><p>Если <cite>tuple</cite> равно false, возвращает строку, содержащую &quot;Ren'Py &quot;, за которой следует
+текущая версия Ren'Py.</p>
+<p>Если <cite>tuple</cite> равно true, возвращает кортеж, содержащий каждый компонент
+версии в виде целого числа.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-renpy.version_string">
+<span class="sig-name descname"><span class="pre">renpy.version_string</span></span><a class="headerlink" href="#var-renpy.version_string" title="Ссылка на это определение"></a></dt>
+<dd><p>Номер версии Ren'Py в виде строки формата &quot;Ren'Py 1.2.3.456&quot;.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-renpy.version_only">
+<span class="sig-name descname"><span class="pre">renpy.version_only</span></span><a class="headerlink" href="#var-renpy.version_only" title="Ссылка на это определение"></a></dt>
+<dd><p>Номер версии Ren'Py без префикса &quot;Ren'Py&quot;. Строка формата &quot;1.2.3.456&quot;.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-renpy.version_tuple">
+<span class="sig-name descname"><span class="pre">renpy.version_tuple</span></span><a class="headerlink" href="#var-renpy.version_tuple" title="Ссылка на это определение"></a></dt>
+<dd><p>Номер версии Ren'Py в виде кортежа (tuple) формата (1, 2, 3, 456).</p>
+<p>Это именованный кортеж (namedtuple) с четырьмя полями: <code class="docutils literal notranslate"><span class="pre">major</span></code>, <code class="docutils literal notranslate"><span class="pre">minor</span></code>, <code class="docutils literal notranslate"><span class="pre">patch</span></code>,
+и <code class="docutils literal notranslate"><span class="pre">commit</span></code>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-renpy.version_name">
+<span class="sig-name descname"><span class="pre">renpy.version_name</span></span><a class="headerlink" href="#var-renpy.version_name" title="Ссылка на это определение"></a></dt>
+<dd><p>Читаемое человеком название версии, вида &quot;Example Version.&quot;.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-renpy.license">
+<span class="sig-name descname"><span class="pre">renpy.license</span></span><a class="headerlink" href="#var-renpy.license" title="Ссылка на это определение"></a></dt>
+<dd><p>Строка, содержащая текст лицензии, который должен быть включен
+в экран &quot;О программе&quot; (about screen).</p>
+</dd></dl>
+
+</section>
+<section id="id2">
+<h2>Определение платформы<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py включает в себя ряд переменных, которые устанавливаются в зависимости от того, на какой платформе
+он работает.</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-renpy.windows">
+<span class="sig-name descname"><span class="pre">renpy.windows</span></span><a class="headerlink" href="#var-renpy.windows" title="Ссылка на это определение"></a></dt>
+<dd><p>Имеет истинное значение при запуске в Windows.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-renpy.macintosh">
+<span class="sig-name descname"><span class="pre">renpy.macintosh</span></span><a class="headerlink" href="#var-renpy.macintosh" title="Ссылка на это определение"></a></dt>
+<dd><p>Имеет истинное значение при запуске в macOS.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-renpy.linux">
+<span class="sig-name descname"><span class="pre">renpy.linux</span></span><a class="headerlink" href="#var-renpy.linux" title="Ссылка на это определение"></a></dt>
+<dd><p>Имеет истинное значение при запуске в Linux или других POSIX-подобных операционных системах.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-renpy.android">
+<span class="sig-name descname"><span class="pre">renpy.android</span></span><a class="headerlink" href="#var-renpy.android" title="Ссылка на это определение"></a></dt>
+<dd><p>Имеет истинное значение при запуске на Android.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-renpy.ios">
+<span class="sig-name descname"><span class="pre">renpy.ios</span></span><a class="headerlink" href="#var-renpy.ios" title="Ссылка на это определение"></a></dt>
+<dd><p>Имеет истинное значение при запуске на iOS.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-renpy.emscripten">
+<span class="sig-name descname"><span class="pre">renpy.emscripten</span></span><a class="headerlink" href="#var-renpy.emscripten" title="Ссылка на это определение"></a></dt>
+<dd><p>Имеет истинное значение при запуске в браузере. Это значение, в частности,
+модуль emscripten, который позволяет вам взаимодействовать с браузером, см. <a class="reference internal" href="web.html#renpy.emscripten.run_script" title="renpy.emscripten.run_script"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.emscripten.run_script()</span></code></a>
+и подобные функции.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-renpy.mobile">
+<span class="sig-name descname"><span class="pre">renpy.mobile</span></span><a class="headerlink" href="#var-renpy.mobile" title="Ссылка на это определение"></a></dt>
+<dd><p>Имеет истинное значение при запуске на Android, iOS или в браузере.</p>
+</dd></dl>
+
+<p>Эти переменные устанавливаются только при запуске на реальных устройствах, а не
+в эмуляторах. Они больше предназначены для использования в специфичном для платформы
+коде на Python. Для компоновки отображения используйте <a class="reference internal" href="screens.html#screen-variants"><span class="std std-ref">варианты экранов</span></a>.</p>
+</section>
+<section id="id3">
+<h2>Профилирование памяти<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.diff_memory">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">diff_memory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_constants</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.diff_memory" title="Ссылка на это определение"></a></dt>
+<dd><p>Профилирует использование памяти объектами, surface и текстурами в Ren'Py и игре.
+Записывает (в memory.txt и stdout) разницу в использовании памяти с
+момента последнего вызова этой функции с <cite>update</cite> равным true.</p>
+<p>Учёт ведётся по именам в хранилище (store) и в реализации Ren'Py,
+из которых доступна память. Если объект доступен по более
+чем одному имени, он присваивается тому имени, от которого он наиболее
+прямо доступен.</p>
+<dl class="simple">
+<dt><cite>skip_constants</cite></dt><dd><p>Если True, профилировщик пропустит сканирование больших контейнеров Ren'Py,
+которые должны быть неизменяемыми после запуска.</p>
+</dd>
+</dl>
+<p>Поскольку эта функция должна сканировать всю память, используемую Ren'Py, её
+выполнение может занять много времени.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.profile_memory">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">profile_memory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_constants</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.profile_memory" title="Ссылка на это определение"></a></dt>
+<dd><p>Профилирует использование памяти объектами, surface и текстурами в Ren'Py и
+игре. Записывает отчёт об использовании памяти в файл memory.txt и
+stdout.</p>
+<p>Учёт ведётся по именам в хранилище (store) и в реализации Ren'Py,
+из которых доступна память. Если объект доступен по более
+чем одному имени, он присваивается тому имени, от которого он наиболее
+прямо доступен.</p>
+<dl class="simple">
+<dt><cite>fraction</cite></dt><dd><p>Доля от общего использования памяти для отображения. 1.0 покажет всё
+использование памяти, .9 покажет топ 90%.</p>
+</dd>
+<dt><cite>minimum</cite></dt><dd><p>Если на имя приходится меньше <cite>minimum</cite> байтов памяти, оно
+не будет выведено.</p>
+</dd>
+<dt><cite>skip_constants</cite></dt><dd><p>Если True, профилировщик пропустит сканирование больших контейнеров Ren'Py,
+которые должны быть неизменяемыми после запуска.</p>
+</dd>
+</dl>
+<p>Поскольку эта функция должна сканировать всю память, используемую Ren'Py, её
+выполнение может занять много времени.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.profile_rollback">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">profile_rollback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.profile_rollback" title="Ссылка на это определение"></a></dt>
+<dd><p>Профилирует память, используемую системой отката (rollback). Записывает (в memory.txt и
+stdout) память, используемую системой отката. Эта функция пытается учесть
+память для отката, используемую различными переменными хранилища, а также
+внутренними аспектами системы отката.</p>
+</dd></dl>
+
+</section>
+<section id="renpy-random">
+<h2>renpy.random<a class="headerlink" href="#renpy-random" title="Ссылка на этот заголовок"></a></h2>
+<p>Этот объект является генератором случайных чисел, который реализует
+<a class="reference external" href="https://docs.python.org/library/random.html">интерфейс генерации случайных чисел Python</a>.
+Случайность может быть сгенерирована путем вызова различных методов, которые
+предоставляет этот объект. Полный список см. в документации Python, но наиболее полезными
+являются:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">renpy.random.random()</span></code></p></li>
+</ul>
+<p>Возвращает следующее случайное число с плавающей точкой в диапазоне (0.0, 1.0).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">renpy.random.randint(a,</span> <span class="pre">b)</span></code></p></li>
+</ul>
+<p>Возвращает случайное целое число N такое, что a &lt;= N &lt;= b.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">renpy.random.choice(seq)</span></code></p></li>
+</ul>
+<p>Возвращает случайный элемент из непустой последовательности <cite>seq</cite>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">renpy.random.shuffle(seq)</span></code></p></li>
+</ul>
+<p>Перемешивает элементы последовательности <cite>seq</cite> на месте. Это не возвращает
+список, а изменяет существующий.</p>
+<p>В отличие от стандартного генератора случайных чисел Python, этот объект взаимодействует с
+откатом (rollback), генерируя те же числа независимо от того, сколько раз мы откатываемся.
+Его следует использовать вместо стандартного модуля random Python.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># вернуть случайное число с плавающей точкой от 0 до 1</span>
+<span class="k">$</span> <span class="n">randfloat</span> <span class="o">=</span> <span class="n">renpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+
+<span class="c1"># вернуть случайное целое число от 1 до 20</span>
+<span class="k">$</span> <span class="n">d20roll</span> <span class="o">=</span> <span class="n">renpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># вернуть случайный элемент из списка</span>
+<span class="k">$</span> <span class="n">randfruit</span> <span class="o">=</span> <span class="n">renpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="k">choice</span><span class="p">([</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;plum&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">renpy.random.Random(seed=None)</span></code></p></li>
+</ul>
+<p>Возвращает новый объект генератора случайных чисел, отдельный от основного, инициализированный
+указанным значением, если оно предоставлено.</p>
+</section>
+<section id="sdl">
+<span id="id4"></span><h2>SDL<a class="headerlink" href="#sdl" title="Ссылка на этот заголовок"></a></h2>
+<p>Доступ к DLL SDL2 можно получить с помощью <a class="reference internal" href="#renpy.get_sdl_dll" title="renpy.get_sdl_dll"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.get_sdl_dll()</span></code></a>.
+Это позволяет использовать функции SDL2 напрямую. Однако их использование часто
+требует знания модуля ctypes Python.</p>
+<p>Нет никаких гарантий относительно версии SDL2, включенной
+в Ren'Py, включая то, какие функции будут или не будут скомпилированы. Эти
+функции могут не работать на платформах, которые в остальном могут запускать Ren'Py.
+Важно проверить на значение None перед продолжением.</p>
+<p>В следующем примере позиция окна будет взята из SDL2:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+
+    <span class="kn">import</span><span class="w"> </span><span class="nn">ctypes</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_window_position</span><span class="p">():</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Retrieves the position of the window from SDL2.</span>
+
+<span class="sd">        Returns the (x, y) of the upper left corner of the window, or</span>
+<span class="sd">        (0, 0) if it&#39;s not known.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">sdl</span> <span class="o">=</span> <span class="n">renpy</span><span class="o">.</span><span class="n">get_sdl_dll</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">sdl</span> <span class="k">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">win</span> <span class="o">=</span> <span class="n">renpy</span><span class="o">.</span><span class="n">get_sdl_window_pointer</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">win</span> <span class="k">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">()</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">()</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">sdl</span><span class="o">.</span><span class="n">SDL_GetWindowPosition</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_sdl_dll">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_sdl_dll</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_sdl_dll" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает объект ctypes.cdll, который ссылается на библиотеку, содержащую
+экземпляр SDL2, используемый Ren'Py. Если это не удается, возвращается None.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_sdl_window_pointer">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_sdl_window_pointer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_sdl_window_pointer" title="Ссылка на это определение"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ctypes.c_void_p | None</p>
+</dd>
+</dl>
+<p>Возвращает указатель на главное окно, или None, если главное окно не
+отображается (или возникает какая-то другая проблема).</p>
+</dd></dl>
+
+</section>
+<section id="id5">
+<h2>Разное<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.add_python_directory">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">add_python_directory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.add_python_directory" title="Ссылка на это определение"></a></dt>
+<dd><p>Добавляет <cite>path</cite> в список путей для поиска модулей и пакетов Python.
+Путь должен быть строкой относительно каталога игры. Эта функция должна быть
+вызвана до инструкции import.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.add_to_all_stores">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">add_to_all_stores</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.add_to_all_stores" title="Ссылка на это определение"></a></dt>
+<dd><p>Добавляет <cite>value</cite> под именем <cite>name</cite> во все определенные создателем
+пространства имен. Если имя уже существует в каком-либо пространстве имен,
+для него ничего не делается.</p>
+<p>Эту функцию можно запускать только из блока init. Запуск
+этой функции после начала игры является ошибкой.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.can_fullscreen">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">can_fullscreen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.can_fullscreen" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает True, если текущая платформа поддерживает полноэкранный режим,
+в противном случае — False.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.capture_focus">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">capture_focus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.capture_focus" title="Ссылка на это определение"></a></dt>
+<dd><p>Если displayable в данный момент находится в фокусе, захватывает его
+ограничивающий прямоугольник и сохраняет его под именем <cite>name</cite>.
+В противном случае удаляет любой фокус, сохраненный под именем <cite>name</cite>.</p>
+<p>Захваченные фокусы не сохраняются при сохранении игры.</p>
+<dl class="simple">
+<dt><cite>name</cite></dt><dd><p>Должна быть строкой. Имя &quot;tooltip&quot; является особенным, так как оно
+автоматически захватывается, когда displayable с подсказкой (tooltip) получает фокус.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.choice_for_skipping">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">choice_for_skipping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.choice_for_skipping" title="Ссылка на это определение"></a></dt>
+<dd><p>Сообщает Ren'Py о скором появлении выбора. В настоящее время это имеет
+два эффекта:</p>
+<ul class="simple">
+<li><p>Если Ren'Py находится в режиме пропуска (skipping), и настройка &quot;Пропускать после выбора&quot; установлена
+на остановку, пропуск прекращается.</p></li>
+<li><p>Срабатывает автосохранение.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.clear_capture_focus">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">clear_capture_focus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.clear_capture_focus" title="Ссылка на это определение"></a></dt>
+<dd><p>Очищает захваченный фокус с именем <cite>name</cite>.
+Если <cite>name</cite> равно None, очищаются все захваченные фокусы.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.clear_game_runtime">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">clear_game_runtime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.clear_game_runtime" title="Ссылка на это определение"></a></dt>
+<dd><p>Сбрасывает счетчик времени игры.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.clear_retain">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">clear_retain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'screens'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_retain'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.clear_retain" title="Ссылка на это определение"></a></dt>
+<dd><p>Очищает все сохраненные экраны (retained screens).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.confirm">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">confirm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.confirm" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта функция вызывает отображение экрана с запросом да/нет с заданным
+сообщением, который скрывается, когда игрок нажимает &quot;да&quot; или &quot;нет&quot;.</p>
+<p>Возвращает True, если игрок нажимает &quot;да&quot;, и False, если нажимает &quot;нет&quot;.</p>
+<dl class="simple">
+<dt><cite>message</cite></dt><dd><p>Сообщение, которое будет отображено.</p>
+</dd>
+</dl>
+<p>Дополнительные именованные аргументы, не начинающиеся с _, передаются
+экрану.</p>
+<p>Смотрите <a class="reference internal" href="screen_actions.html#Confirm" title="Confirm"><code class="xref py py-func docutils literal notranslate"><span class="pre">Confirm()</span></code></a> для аналогичного Action.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.count_dialogue_blocks">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">count_dialogue_blocks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.count_dialogue_blocks" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает количество блоков диалога на исходном языке игры.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.count_newly_seen_dialogue_blocks">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">count_newly_seen_dialogue_blocks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.count_newly_seen_dialogue_blocks" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает количество блоков диалога, которые пользователь увидел впервые
+в течение текущей сессии.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.count_seen_dialogue_blocks">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">count_seen_dialogue_blocks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.count_seen_dialogue_blocks" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает количество блоков диалога, которые пользователь видел в любом из
+прохождений текущей игры.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.display_notify">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">display_notify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.display_notify" title="Ссылка на это определение"></a></dt>
+<dd><p>Реализация по умолчанию для <a class="reference internal" href="#renpy.notify" title="renpy.notify"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.notify()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.focus_coordinates">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">focus_coordinates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.focus_coordinates" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта функция пытается найти координаты displayable, находящегося
+в фокусе в данный момент. Если это удается, она вернет их в виде
+кортежа (x, y, w, h). В противном случае она вернет
+кортеж (None, None, None, None).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.force_autosave">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">force_autosave</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">take_screenshot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.force_autosave" title="Ссылка на это определение"></a></dt>
+<dd><p>Принудительно запускает автосохранение в фоновом режиме.</p>
+<dl class="simple">
+<dt><cite>take_screenshot</cite></dt><dd><p>Если True, будет сделан новый скриншот. Если False, будет
+использован существующий.</p>
+</dd>
+<dt><cite>block</cite></dt><dd><p>Если True, блокирует выполнение до завершения автосохранения.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.free_memory">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">free_memory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.free_memory" title="Ссылка на это определение"></a></dt>
+<dd><p>Пытается освободить немного памяти. Полезно перед запуском
+мини-игры на основе renpygame.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.full_restart">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">full_restart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.full_restart" title="Ссылка на это определение"></a></dt>
+<dd><p>Вызывает перезапуск Ren'Py с возвратом пользователя в главное меню.</p>
+<dl class="simple">
+<dt><cite>transition</cite></dt><dd><p>Если задан, это переход, который нужно выполнить, или None, чтобы не
+выполнять переход. False использует <a class="reference internal" href="config.html#var-config.end_game_transition"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.end_game_transition</span></code></a>.</p>
+</dd>
+<dt><cite>save</cite></dt><dd><p>Если true, игра сохраняется в <a class="reference internal" href="store_variables.html#var-_quit_slot"><code class="xref std std-var docutils literal notranslate"><span class="pre">_quit_slot</span></code></a> перед тем, как Ren'Py
+перезапустится и вернет пользователя в главное меню.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_game_runtime">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_game_runtime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_game_runtime" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает счетчик времени игры.</p>
+<p>Счетчик времени игры подсчитывает количество секунд,
+прошедших в ожидании ввода от пользователя в контексте верхнего уровня.
+(Он не учитывает время, проведенное в главном или игровом меню.)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_image_load_log">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_image_load_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_image_load_log" title="Ссылка на это определение"></a></dt>
+<dd><p>Генератор, который выдает лог активности загрузки изображений. За последние
+100 загрузок изображений он возвращает:</p>
+<ul class="simple">
+<li><p>Время загрузки изображения (в секундах с начала эпохи).</p></li>
+<li><p>Имя файла загруженного изображения.</p></li>
+<li><p>Логическое значение, которое равно true, если изображение было предзагружено,
+и false, если игра остановилась для его загрузки.</p></li>
+</ul>
+<p>Записи упорядочены от новых к старым.</p>
+<dl class="simple">
+<dt><cite>age</cite></dt><dd><p>Если не None, включаются только изображения, загруженные за последние <cite>age</cite>
+секунд.</p>
+</dd>
+</dl>
+<p>Лог загрузки изображений ведется только если config.developer = True.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_menu_args">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_menu_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_menu_args" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает кортеж, содержащий аргументы (в виде кортежа) и
+именованные аргументы (в виде словаря), переданные текущей
+инструкции menu.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_mouse_name">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_mouse_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interaction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_mouse_name" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает имя курсора мыши, который должен быть показан.</p>
+<dl class="simple">
+<dt><cite>interaction</cite></dt><dd><p>Если true, возвращает имя курсора, основанное на типе
+происходящего взаимодействия.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_mouse_names">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_mouse_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_mouse_names" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает список имен курсоров мыши, которые могут быть отображены,
+в порядке приоритета.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_mouse_pos">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_mouse_pos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_mouse_pos" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает кортеж (x, y), указывающий положение указателя мыши или
+текущего места касания. Если устройство не поддерживает мышь и
+в данный момент нет касаний, x и y являются числами, но не имеют значения.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_on_battery">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_on_battery</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_on_battery" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает True, если Ren'Py работает на устройстве, питающемся от внутренней
+батареи, или False, если устройство заряжается от какого-либо внешнего
+источника.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_ongoing_transition">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_ongoing_transition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_ongoing_transition" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает переход, который выполняется в данный момент.</p>
+<dl class="simple">
+<dt><cite>layer</cite></dt><dd><p>Если None, возвращается переход верхнего уровня. В противном случае, это
+должна быть строка с именем слоя, и в этом случае возвращается переход
+для этого слоя.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_physical_size">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_physical_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_physical_size" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает размер физического окна.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_refresh_rate">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_refresh_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_refresh_rate" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает частоту обновления текущего экрана в виде числа
+с плавающей запятой, означающего количество кадров в секунду.</p>
+<dl>
+<dt><cite>precision</cite></dt><dd><p>Необработанные данные, которые получает Ren'Py, — это количество кадров
+в секунду, округленное до ближайшего целого числа. Это означает, что
+монитор, работающий с частотой 59.95 кадров в секунду, будет отображаться как 59 fps.
+Аргумент precision дополнительно снижает точность этого значения, так что
+допустимыми являются только значения, кратные precision.</p>
+<p>Поскольку частота кадров мониторов обычно кратна 5 (25, 30, 60,
+75 и 120), это, вероятно, повысит точность. Установка precision
+в 1 отключает эту функцию.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_renderer_info">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_renderer_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">renpy.display.core.RendererInfo</span></span></span><a class="headerlink" href="#renpy.get_renderer_info" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает словарь с информацией о рендерере, который в настоящее
+время использует Ren'Py. Определенные ключи:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;renderer&quot;</span></code></dt><dd><p>Строка, содержащая имя используемого рендерера.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;resizable&quot;</span></code></dt><dd><p>True, если окно можно изменять в размерах, и только в этом случае.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;additive&quot;</span></code></dt><dd><p>True, если рендерер поддерживает аддитивное смешивание (additive blending),
+и только в этом случае.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;model&quot;</span></code></dt><dd><p>Присутствует и имеет значение true, если поддерживается рендеринг на основе
+моделей.</p>
+</dd>
+</dl>
+<p>При использовании рендерера GL2 также определены следующие ключи:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;gpu_vendor&quot;</span></code></dt><dd><p>Строка с названием производителя GPU.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;gpu_name&quot;</span></code></dt><dd><p>Строка с названием GPU.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;gpu_driver_version&quot;</span></code></dt><dd><p>Строка с версией драйвера.</p>
+</dd>
+</dl>
+<p>Могут существовать и другие, специфичные для рендерера, ключи.</p>
+<p>Словарь следует рассматривать как неизменяемый (immutable).</p>
+<p>Эту функцию следует вызывать только после запуска дисплея (то есть,
+не раньше первого взаимодействия).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_say_attributes">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_say_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_say_attributes" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает атрибуты, связанные с текущей инструкцией <cite>say</cite>,
+или None, если с этой инструкцией не связано никаких атрибутов.</p>
+<p>Эта функция действительна только во время выполнения или предсказания
+инструкции <cite>say</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_skipping">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_skipping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_skipping" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает &quot;slow&quot;, если Ren'Py находится в режиме пропуска (skipping),
+&quot;fast&quot;, если Ren'Py в режиме быстрого пропуска, и None,
+если пропуск неактивен.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_statement_name">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_statement_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_statement_name" title="Ссылка на это определение"></a></dt>
+<dd><p>Получает имя текущей инструкции, строку вроде &quot;say&quot;, &quot;say-nvl&quot; или
+&quot;window hide&quot;. Это то же имя инструкции, которое используется с
+<a class="reference internal" href="config.html#var-config.statement_callbacks"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.statement_callbacks</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_transition">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_transition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_transition" title="Ссылка на это определение"></a></dt>
+<dd><p>Получает переход для <cite>layer</cite> или для всей сцены, если
+<cite>layer</cite> равно None. Эта функция возвращает переход, который находится
+в очереди на выполнение во время следующего взаимодействия,
+или None, если такого перехода нет.</p>
+<p>Используйте <a class="reference internal" href="#renpy.get_ongoing_transition" title="renpy.get_ongoing_transition"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.get_ongoing_transition()</span></code></a>, чтобы получить переход,
+который выполняется в данный момент.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.iconify">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">iconify</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.iconify" title="Ссылка на это определение"></a></dt>
+<dd><p>Сворачивает игру в иконку.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.include_module">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">include_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.include_module" title="Ссылка на это определение"></a></dt>
+<dd><p>Аналогично <a class="reference internal" href="#renpy.load_module" title="renpy.load_module"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.load_module()</span></code></a>, но вместо немедленной загрузки модуля,
+вставляет его в очередь <cite>init</cite> где-то после текущего узла AST.</p>
+<p>Модуль не может содержать блоки <cite>init</cite> с приоритетом ниже, чем у блока,
+который его подключает. Например, если ваш модуль содержит блок
+<cite>init 10</cite>, самое позднее, где вы можете его загрузить, это <cite>init 10</cite>.</p>
+<p>Загрузка модуля может происходить только из блока <cite>init</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.invoke_in_main_thread">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">invoke_in_main_thread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.invoke_in_main_thread" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта функция запускает заданную функцию с заданными аргументами в основном
+потоке. Функция выполняется в контексте взаимодействия, аналогичном
+обработчику событий. Предполагается, что она будет вызываться из отдельного
+потока, создание которого обрабатывается <a class="reference internal" href="#renpy.invoke_in_thread" title="renpy.invoke_in_thread"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.invoke_in_thread()</span></code></a>.</p>
+<p>Если один поток планирует вызов нескольких функций, гарантируется,
+что они будут выполнены в том порядке, в котором они были запланированы:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ran_in_a_thread</span><span class="p">():</span>
+    <span class="n">renpy</span><span class="o">.</span><span class="n">invoke_in_main_thread</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">renpy</span><span class="o">.</span><span class="n">invoke_in_main_thread</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>В этом примере гарантируется, что <cite>a</cite> завершится до
+вызова <cite>b</cite>. Порядок вызовов из разных потоков не
+гарантируется.</p>
+<p>Эту функцию нельзя вызывать на этапе <cite>init</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.invoke_in_thread">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">invoke_in_thread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.invoke_in_thread" title="Ссылка на это определение"></a></dt>
+<dd><p>Вызывает функцию <cite>fn</cite> в фоновом потоке, передавая ей
+предоставленные позиционные и именованные аргументы. Перезапускает
+взаимодействие после возврата из потока.</p>
+<p>Эта функция создает фоновый (daemon) поток, который будет автоматически
+остановлен при завершении работы Ren'Py.</p>
+<p>Этот поток очень ограничен в том, что он может делать с API Ren'Py.
+Разрешено изменять переменные хранилища (store), а также вызывать следующие
+функции:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#renpy.restart_interaction" title="renpy.restart_interaction"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.restart_interaction()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#renpy.invoke_in_main_thread" title="renpy.invoke_in_main_thread"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.invoke_in_main_thread()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#renpy.queue_event" title="renpy.queue_event"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.queue_event()</span></code></a></p></li>
+</ul>
+<p>Большинство других частей API Ren'Py должны вызываться из
+основного потока.</p>
+<p>Эта функция не работает на веб-платформе, кроме как
+немедленно возвращается без ошибки.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.is_in_test">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">is_in_test</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.is_in_test" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает True, если Ren'Py в данный момент выполняет тест.
+Во время <cite>init</cite> эта функция всегда возвращает False.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.is_init_phase">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">is_init_phase</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.is_init_phase" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает True, если Ren'Py в настоящее время выполняет <cite>init</cite>-код,
+в противном случае — False.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.is_mouse_visible">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">is_mouse_visible</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.is_mouse_visible" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает True, если курсор мыши виден, в противном случае — False.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.is_seen">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">is_seen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ever</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.is_seen" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает true, если текущая строка была просмотрена игроком.</p>
+<p>Если <cite>ever</cite> равно true, проверяется, была ли строка просмотрена игроком
+когда-либо. Если false, проверяется, была ли строка просмотрена в текущем
+прохождении.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.is_seen_allowed">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">is_seen_allowed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.is_seen_allowed" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает False, только если идет повтор (replay) и события просмотра (seen)
+запрещены установкой <code class="xref std std-var docutils literal notranslate"><span class="pre">config.no_replay_seen</span></code> в True.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.is_skipping">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">is_skipping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.is_skipping" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает True, если Ren'Py в данный момент находится в режиме пропуска (в быстром
+или медленном режиме), в противном случае — False.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.is_start_interact">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">is_start_interact</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.is_start_interact" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает True, если <cite>restart_interaction</cite> не был вызван во время
+текущего взаимодействия. Это можно использовать, чтобы определить, только ли
+началось взаимодействие или оно было перезапущено.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.language_tailor">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">language_tailor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.language_tailor" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта функция может быть использована для переопределения класса переноса строк
+для символа Юникода. Например, класс переноса для символа
+можно установить в ID, чтобы он рассматривался как идеограмма,
+что позволяет делать переносы до и после этого символа.</p>
+<dl class="simple">
+<dt><cite>chars</cite></dt><dd><p>Строка, содержащая каждый из символов для настройки.</p>
+</dd>
+<dt><cite>cls</cite></dt><dd><p>Строка, задающая класс символа. Это должен быть один из классов,
+определенных в Таблице 1
+<a class="reference external" href="http://www.unicode.org/reports/tr14/tr14-30.html">UAX #14: Unicode Line Breaking Algorithm</a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.last_say">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">last_say</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.last_say" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает объект, содержащий информацию о последней инструкции <cite>say</cite>.</p>
+<p>Хотя эту функцию можно вызывать во время выполнения инструкции <cite>say</cite>, если инструкция
+использует обычный <cite>Character</cite>, информация будет о <em>текущей</em> инструкции <cite>say</cite>,
+а не о предыдущей.</p>
+<dl class="simple">
+<dt><cite>who</cite></dt><dd><p>Говорящий. Обычно это объект <a class="reference internal" href="dialogue.html#Character" title="Character"><code class="xref py py-func docutils literal notranslate"><span class="pre">Character()</span></code></a>, но это
+не обязательно.</p>
+</dd>
+<dt><cite>what</cite></dt><dd><p>Строка с произнесенным диалогом. Может быть None, если диалог
+еще не был показан, например, в начале игры.</p>
+</dd>
+<dt><cite>args</cite></dt><dd><p>Кортеж аргументов, переданных последней инструкции <cite>say</cite>.</p>
+</dd>
+<dt><cite>kwargs</cite></dt><dd><p>Словарь именованных аргументов, переданных последней инструкции <cite>say</cite>.</p>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Как и другие подобные функции, возвращаемый объект предназначен для
+краткосрочного использования после вызова функции. Не рекомендуется
+включать его в данные сохранения или заставлять его участвовать в откате.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.load_module">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">load_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.load_module" title="Ссылка на это определение"></a></dt>
+<dd><p>Загружает модуль Ren'Py с именем name. Модуль Ren'Py состоит из скрипта
+Ren'Py, который загружается в обычное пространство имен (store),
+и содержится в файле с именем <cite>name.rpym</cite> или <cite>name.rpymc</cite>. Если файл <cite>.rpym</cite>
+существует и новее соответствующего файла <cite>.rpymc</cite>, он загружается
+и создается новый файл <cite>.rpymc</cite>.</p>
+<p>Все блоки <cite>init</cite> (и другой код <cite>init</cite>-фазы) в модуле выполняются
+до возврата этой функции. Возникает ошибка, если имя модуля
+не найдено или неоднозначно.</p>
+<p>Загрузка модуля может происходить только из блока <cite>init</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.load_string">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">load_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'&lt;string&gt;'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.load_string" title="Ссылка на это определение"></a></dt>
+<dd><p>Загружает <cite>s</cite> как скрипт Ren'Py, который можно вызывать.</p>
+<p>Возвращает имя первой инструкции в <cite>s</cite>.</p>
+<p><cite>filename</cite> - это имя файла, из которого, как будет считаться, происходят
+инструкции в строке.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.maximum_framerate">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">maximum_framerate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.maximum_framerate" title="Ссылка на это определение"></a></dt>
+<dd><p>Заставляет Ren'Py отрисовывать экран с максимальной частотой кадров
+в течение <cite>t</cite> секунд. Если <cite>t</cite> равно None, отменяет запрос на
+максимальную частоту кадров.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.munge">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">munge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.munge" title="Ссылка на это определение"></a></dt>
+<dd><p>Искажает (munges) <cite>name</cite>, которое должно начинаться с __.</p>
+<dl class="simple">
+<dt><cite>filename</cite></dt><dd><p>Имя файла, в которое искажается имя. Если None, имя
+искажается в имя файла, содержащего вызов этой функции.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.not_infinite_loop">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">not_infinite_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.not_infinite_loop" title="Ссылка на это определение"></a></dt>
+<dd><p>Сбрасывает таймер обнаружения бесконечного цикла на <cite>delay</cite> секунд.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.notify">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">notify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.notify" title="Ссылка на это определение"></a></dt>
+<dd><p>Заставляет Ren'Py отобразить <cite>message</cite> с помощью экрана уведомлений. По
+умолчанию это приведет к тому, что сообщение появится с эффектом <cite>dissolve</cite>,
+будет отображаться в течение двух секунд и снова исчезнет с <cite>dissolve</cite>.</p>
+<p>Это полезно для действий, которые в противном случае не давали бы обратной
+связи, таких как скриншоты или быстрые сохранения.</p>
+<p>Одновременно отображается только одно уведомление. Если отображается второе
+уведомление, первое заменяется.</p>
+<p>Эта функция просто вызывает <a class="reference internal" href="config.html#var-config.notify"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.notify</span></code></a>, что позволяет
+заменить ее реализацию, присвоив новую функцию этой переменной.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.open_url">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">open_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.open_url" title="Ссылка на это определение"></a></dt>
+<dd><p>Открывает URL в системном веб-браузере, если это возможно.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.predicting">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">predicting</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.predicting" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает True, если Ren'Py в данный момент находится в фазе
+предсказания (predicting).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.queue_event">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">queue_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">up</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.queue_event" title="Ссылка на это определение"></a></dt>
+<dd><p>Ставит в очередь событие с заданным именем. <cite>Name</cite> должно быть одним из
+имен событий в <a class="reference internal" href="config.html#var-config.keymap"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.keymap</span></code></a>, или списком таких имен.</p>
+<dl class="simple">
+<dt><cite>up</cite></dt><dd><p>Должно быть False, когда событие начинается (например, при нажатии
+кнопки клавиатуры). Должно быть True, когда событие заканчивается
+(когда кнопка отпущена).</p>
+</dd>
+</dl>
+<p>Событие ставится в очередь в момент вызова этой функции. Эта функция не будет
+работать для замены одного события другим - это изменит порядок событий.
+(Используйте <a class="reference internal" href="config.html#var-config.keymap"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.keymap</span></code></a> вместо этого.)</p>
+<p>Этот метод является потокобезопасным (threadsafe).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.quit">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">quit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">relaunch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.quit" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта функция вызывает полный выход из Ren'Py.</p>
+<dl class="simple">
+<dt><cite>relaunch</cite></dt><dd><p>Если True, Ren'Py запустит вторую свою копию перед выходом.</p>
+</dd>
+<dt><cite>status</cite></dt><dd><p>Код состояния, который Ren'Py вернет операционной системе.
+Обычно 0 — это успех, а положительные целые числа — неудача.</p>
+</dd>
+<dt><cite>save</cite></dt><dd><p>Если True, игра сохраняется в <a class="reference internal" href="store_variables.html#var-_quit_slot"><code class="xref std std-var docutils literal notranslate"><span class="pre">_quit_slot</span></code></a> перед завершением
+работы Ren'Py.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.quit_event">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">quit_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.quit_event" title="Ссылка на это определение"></a></dt>
+<dd><p>Вызывает событие выхода, как если бы игрок нажал кнопку выхода
+в рамке окна.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.reset_physical_size">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">reset_physical_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.reset_physical_size" title="Ссылка на это определение"></a></dt>
+<dd><p>Пытается установить размер физического окна в значение, указанное
+с помощью <code class="xref std std-var docutils literal notranslate"><span class="pre">renpy.config.physical_height</span></code> и
+<code class="xref std std-var docutils literal notranslate"><span class="pre">renpy.config.physical_width</span></code>, или, если они не заданы, в размер,
+установленный с помощью <code class="xref std std-var docutils literal notranslate"><span class="pre">renpy.config.screen_width</span></code> и
+<code class="xref std std-var docutils literal notranslate"><span class="pre">renpy.config.screen_height</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.restart_interaction">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">restart_interaction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.restart_interaction" title="Ссылка на это определение"></a></dt>
+<dd><p>Перезапускает текущее взаимодействие. Среди прочего, это отображает
+изображения, добавленные на сцену, переоценивает экраны и запускает
+все переходы в очереди.</p>
+<p>Эта функция действует только при вызове изнутри взаимодействия (например,
+из action). Вне взаимодействия эта функция не имеет эффекта.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.scry">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">scry</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.scry" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает объект scry для текущей инструкции. Возвращает None,
+если инструкции не выполняются.</p>
+<p>Объект scry сообщает Ren'Py о вещах, которые должны быть истинными в
+будущем относительно текущей инструкции. На данный момент у объекта scry
+есть следующие поля:</p>
+<dl class="simple">
+<dt><cite>nvl_clear</cite></dt><dd><p>Истинно, если инструкция <code class="docutils literal notranslate"><span class="pre">nvl</span> <span class="pre">clear</span></code> будет выполнена до
+следующего взаимодействия.</p>
+</dd>
+<dt><cite>say</cite></dt><dd><p>Истинно, если инструкция <code class="docutils literal notranslate"><span class="pre">say</span></code> будет выполнена до
+следующего взаимодействия.</p>
+</dd>
+<dt><cite>menu_with_caption</cite></dt><dd><p>Истинно, если инструкция <code class="docutils literal notranslate"><span class="pre">menu</span></code> с подписью будет выполнена
+до следующего взаимодействия.</p>
+</dd>
+<dt><cite>who</cite></dt><dd><p>Если инструкция <code class="docutils literal notranslate"><span class="pre">say</span></code> или <code class="docutils literal notranslate"><span class="pre">menu-with-caption</span></code> будет выполнена
+до следующего взаимодействия, это объект персонажа, который она будет
+использовать.</p>
+</dd>
+</dl>
+<p>У объекта scry есть метод next(), который возвращает объект scry для
+инструкции после текущей, если только одна инструкция будет выполнена
+после этой. В противном случае он возвращает None.</p>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Как и другие подобные функции, возвращаемый объект предназначен для
+краткосрочного использования после вызова функции. Не рекомендуется
+включать его в данные сохранения или заставлять его участвовать в откате.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.set_mouse_pos">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">set_mouse_pos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.set_mouse_pos" title="Ссылка на это определение"></a></dt>
+<dd><p>Перемещает указатель мыши в место, заданное аргументами x и y.
+Если на устройстве нет указателя мыши или Ren'Py не может его
+переместить, эта функция ничего не делает.</p>
+<p>Маловероятно, что это будет работать на платформах Linux с Wayland, Android, iOS или
+Web.</p>
+<dl class="simple">
+<dt><cite>duration</cite></dt><dd><p>Время в секундах, которое займет перемещение.
+В течение этого времени мышь может не отвечать на запросы.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.set_physical_size">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">set_physical_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.set_physical_size" title="Ссылка на это определение"></a></dt>
+<dd><p>Пытается установить размер физического окна в <cite>size</cite>. Это имеет
+побочный эффект вывода экрана из полноэкранного режима.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.shown_window">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">shown_window</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.shown_window" title="Ссылка на это определение"></a></dt>
+<dd><p>Вызовите эту функцию, чтобы указать, что окно было показано. Это
+взаимодействует с инструкцией &quot;window show&quot;, которая показывает пустое
+окно всякий раз, когда эта функция не была вызвана во время
+взаимодействия.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.split_properties">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">split_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">prefixes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#renpy.split_properties" title="Ссылка на это определение"></a></dt>
+<dd><p>Разделяет <cite>properties</cite> на несколько словарей, по одному на каждый <cite>prefix</cite>.
+Эта функция поочередно проверяет каждый ключ в <cite>properties</cite> на соответствие
+каждому префиксу. Когда префикс совпадает, он удаляется из ключа, и
+полученный ключ сопоставляется со значением в соответствующем словаре.</p>
+<p>Если ни один префикс не совпадает, выбрасывается исключение. (Пустая строка,
+&quot;&quot;, может быть использована как последний префикс для создания
+словаря, &quot;ловящего&quot; все остальное.)</p>
+<p>Например, так можно разделить свойства, начинающиеся с <cite>text_</cite>, от
+тех, которые не начинаются:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">text_properties</span><span class="p">,</span> <span class="n">button_properties</span> <span class="o">=</span> <span class="n">renpy</span><span class="o">.</span><span class="n">split_properties</span><span class="p">(</span><span class="na">properties</span><span class="p">,</span> <span class="s2">&quot;text_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.stop_skipping">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">stop_skipping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.stop_skipping" title="Ссылка на это определение"></a></dt>
+<dd><p>Останавливает пропуск, если Ren'Py в данный момент находится в режиме пропуска.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.transition">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">transition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">always</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.transition" title="Ссылка на это определение"></a></dt>
+<dd><p>Устанавливает переход, который будет использоваться во время
+следующего взаимодействия.</p>
+<dl class="simple">
+<dt><cite>layer</cite></dt><dd><p>Слой, к которому применяется переход. Если None, переход
+применяется ко всей сцене.</p>
+</dd>
+<dt><cite>always</cite></dt><dd><p>Если false, учитывается настройка предпочтений переходов. Если true,
+переход выполняется всегда.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.vibrate">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">vibrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duration</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.vibrate" title="Ссылка на это определение"></a></dt>
+<dd><p>Вызывает вибрацию устройства в течение <cite>duration</cite> секунд. В настоящее время
+это поддерживается только на Android.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="model.html" class="btn btn-neutral float-left" title="Рендеринг на основе моделей" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="ren_py.html" class="btn btn-neutral float-right" title="Файлы _ren.py — Ren&#39;Py в Python" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

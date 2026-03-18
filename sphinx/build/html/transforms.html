@@ -1,0 +1,2074 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Трансформации &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/transforms.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Свойства трансформации" href="transform_properties.html" />
+    <link rel="prev" title="Displayables" href="displayables.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Трансформации</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Быстрый старт</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Встроенные трансформации</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#atl">ATL - Язык анимации и трансформации</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ren-py">Инструкции скрипта Ren'Py</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#transform">Инструкция Transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#image-atl">Инструкция Image с блоком ATL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scene-show-atl">Инструкции Scene и Show с блоком ATL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Синтаксис и инструкции ATL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#properties">Инструкция Properties (свойства)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Числовая инструкция</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interpolation">Инструкция Interpolation (интерполяция)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pass">Инструкция Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repeat">Инструкция Repeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#block">Инструкция Block</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parallel">Инструкция Parallel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#choice">Инструкция Choice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#animation">Инструкция Animation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on">Инструкция On</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#displayable-atl-statement">Инструкция отображаемого элемента</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transform-expression-atl-statement">Инструкция выражения трансформа</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contains">Встроенная инструкция contains</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Блочная инструкция contains</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function">Инструкция function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time">Инструкция time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#event">Инструкция event</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#external-atl-events">Внешние события</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#atl-partial">Каррирование и частичная передача параметров в ATL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#child">Специальный параметр Child</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#warpers">Варперы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#replacing-transforms">Замена трансформов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#atl-timebases">Временные базы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">Класс Transform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Transform"><code class="docutils literal notranslate"><span class="pre">Transform</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Transform.function"><code class="docutils literal notranslate"><span class="pre">Transform.function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Transform.hide_request"><code class="docutils literal notranslate"><span class="pre">Transform.hide_request</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Transform.hide_response"><code class="docutils literal notranslate"><span class="pre">Transform.hide_response</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Transform.original_child"><code class="docutils literal notranslate"><span class="pre">Transform.original_child</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Transform.set_child"><code class="docutils literal notranslate"><span class="pre">Transform.set_child()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Transform.update"><code class="docutils literal notranslate"><span class="pre">Transform.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python">Применение трансформов к отображаемым элементам в Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#At"><code class="docutils literal notranslate"><span class="pre">At()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#transforms-python">Вызываемые объекты как трансформы</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Трансформации</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/transforms.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="transforms">
+<span id="id1"></span><h1>Трансформации<a class="headerlink" href="#transforms" title="Ссылка на этот заголовок"></a></h1>
+<p>Трансформации используются для превращения одного <a class="reference internal" href="displayables.html"><span class="doc">отображаемого элемента</span></a> (displayable) в другой. Существует несколько видов трансформаций и различные способы их создания. Встроенные трансформации используются для контроля расположения изображения на экране, в то время как пользовательские трансформации могут вызывать более сложные эффекты, такие как движение, масштабирование, вращение, вплоть до сложных цветовых эффектов.</p>
+<section id="id2">
+<h2>Быстрый старт<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Трансформации можно применять к изображениям, передавая их в предложение <code class="docutils literal notranslate"><span class="pre">at</span></code> инструкций <a class="reference internal" href="displaying_images.html#show-statement"><span class="std std-ref">show</span></a> или <cite>scene</cite>. Следующий код применяет трансформацию <code class="docutils literal notranslate"><span class="pre">right</span></code> к изображению <code class="docutils literal notranslate"><span class="pre">eileen</span> <span class="pre">happy</span></code>:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">right</span>
+</pre></div>
+</div>
+<p>Можно применять несколько трансформаций, разделяя их запятыми. Эти трансформации применяются слева направо.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">halfsize</span><span class="p">,</span> <span class="n">right</span>
+</pre></div>
+</div>
+<p>Простая ATL-трансформация:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">slide_right</span><span class="p">:</span>
+    <span class="na">xalign</span> <span class="mf">0.0</span>
+    <span class="n">linear</span> <span class="mf">1.0</span> <span class="na">xalign</span> <span class="mf">1.0</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">slide_right</span>
+    <span class="k">pause</span>
+</pre></div>
+</div>
+<p>Показ трансформаций с помощью Python:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="k">$</span> <span class="n">renpy</span><span class="o">.</span><span class="k">show</span><span class="p">(</span><span class="s2">&quot;eileen happy&quot;</span><span class="p">,</span> <span class="n">at_list</span><span class="o">=</span><span class="n">right</span><span class="p">)</span>
+    <span class="k">pause</span>
+</pre></div>
+</div>
+<p>Простая трансформация на Python с использованием <code class="docutils literal notranslate"><span class="pre">At()</span></code>:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">show_eileen_rotated</span><span class="p">():</span>
+        <span class="n">rotated</span> <span class="o">=</span> <span class="n">Transform</span><span class="p">(</span><span class="na">rotate</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+        <span class="n">show_stmt</span> <span class="o">=</span> <span class="n">At</span><span class="p">(</span><span class="s2">&quot;eileen happy&quot;</span><span class="p">,</span> <span class="n">rotated</span><span class="p">)</span>
+        <span class="n">renpy</span><span class="o">.</span><span class="k">show</span><span class="p">(</span><span class="s2">&quot;eileen&quot;</span><span class="p">,</span> <span class="n">what</span><span class="o">=</span><span class="n">show_stmt</span><span class="p">)</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="k">$</span> <span class="n">show_eileen_rotated</span><span class="p">()</span>
+    <span class="k">pause</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>Встроенные трансформации<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py поставляется с рядом трансформаций, определенных по умолчанию. Эти трансформации позиционируют объекты на экране. Вот изображение того, как каждая встроенная трансформация будет позиционировать изображение.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>              +-----------------------------------------------------------+
+              | topleft, reset               top                 topright |
+              |                                                           |
+              |                                                           |
+              |                                                           |
+              |                                                           |
+              |                          truecenter                       |
+              |                                                           |
+              |                                                           |
+              |                                                           |
+              |                                                           |
+offscreenleft | left                   center, default              right | offscreenright
+              +-----------------------------------------------------------+
+</pre></div>
+</div>
+<p>Трансформации <a class="reference internal" href="#var-offscreenleft"><code class="xref std std-var docutils literal notranslate"><span class="pre">offscreenleft</span></code></a> и <a class="reference internal" href="#var-offscreenright"><code class="xref std std-var docutils literal notranslate"><span class="pre">offscreenright</span></code></a> размещают изображения за краями экрана. Эти трансформации можно использовать для перемещения объектов за пределы экрана (не забудьте скрыть их после этого, чтобы они не потребляли ресурсы).</p>
+<p>Список трансформаций:</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-center">
+<span class="sig-name descname"><span class="pre">center</span></span><a class="headerlink" href="#var-center" title="Ссылка на это определение"></a></dt>
+<dd><p>Центрирует по горизонтали и выравнивает по нижнему краю экрана.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-default">
+<span class="sig-name descname"><span class="pre">default</span></span><a class="headerlink" href="#var-default" title="Ссылка на это определение"></a></dt>
+<dd><p>Центрирует по горизонтали и выравнивает по нижнему краю экрана. Это можно переопределить через <a class="reference internal" href="config.html#var-config.default_transform"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.default_transform</span></code></a>, чтобы изменить стандартное размещение изображений, показываемых с помощью инструкций show или scene.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-left">
+<span class="sig-name descname"><span class="pre">left</span></span><a class="headerlink" href="#var-left" title="Ссылка на это определение"></a></dt>
+<dd><p>Выравнивает по левому нижнему углу экрана.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-offscreenleft">
+<span class="sig-name descname"><span class="pre">offscreenleft</span></span><a class="headerlink" href="#var-offscreenleft" title="Ссылка на это определение"></a></dt>
+<dd><p>Размещает отображаемый элемент за левой стороной экрана, с выравниванием по нижнему краю.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-offscreenright">
+<span class="sig-name descname"><span class="pre">offscreenright</span></span><a class="headerlink" href="#var-offscreenright" title="Ссылка на это определение"></a></dt>
+<dd><p>Размещает отображаемый элемент за правой стороной экрана, с выравниванием по нижнему краю.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><a class="headerlink" href="#var-reset" title="Ссылка на это определение"></a></dt>
+<dd><p>Сбрасывает трансформацию к значениям по умолчанию для каждого свойства, удаляя все свойства, установленные до этого.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-right">
+<span class="sig-name descname"><span class="pre">right</span></span><a class="headerlink" href="#var-right" title="Ссылка на это определение"></a></dt>
+<dd><p>Выравнивает по правому нижнему углу экрана.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-top">
+<span class="sig-name descname"><span class="pre">top</span></span><a class="headerlink" href="#var-top" title="Ссылка на это определение"></a></dt>
+<dd><p>Центрирует по горизонтали и выравнивает по верхнему краю экрана.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-topleft">
+<span class="sig-name descname"><span class="pre">topleft</span></span><a class="headerlink" href="#var-topleft" title="Ссылка на это определение"></a></dt>
+<dd><p>Выравнивает по левому верхнему углу экрана.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-topright">
+<span class="sig-name descname"><span class="pre">topright</span></span><a class="headerlink" href="#var-topright" title="Ссылка на это определение"></a></dt>
+<dd><p>Выравнивает по правому верхнему углу экрана.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-truecenter">
+<span class="sig-name descname"><span class="pre">truecenter</span></span><a class="headerlink" href="#var-truecenter" title="Ссылка на это определение"></a></dt>
+<dd><p>Центрирует как по горизонтали, так и по вертикали.</p>
+</dd></dl>
+
+</section>
+<section id="atl">
+<span id="id4"></span><h2>ATL - Язык анимации и трансформации<a class="headerlink" href="#atl" title="Ссылка на этот заголовок"></a></h2>
+<p>Язык анимации и трансформации (ATL) — это высокоуровневый язык, который может создавать анимации, перемещать отображаемые элементы по экрану, задавать их положение, применять трансформации и многое другое. Эти параметры могут изменяться со временем и в ответ на события.</p>
+<p>Объекты ATL-трансформации, которые создаются с помощью инструкции <a class="reference internal" href="#transform-statement"><span class="std std-ref">Инструкция Transform</span></a> ниже, являются отображаемыми элементами и могут использоваться как таковые (хотя они будут прозрачными, если их дочерний отображаемый элемент не установлен): их можно передать в элемент <a class="reference internal" href="screens.html#sl-add"><span class="std std-ref">Add</span></a> экрана, или в инструкцию <a class="reference internal" href="displaying_images.html#show-expression-statement"><span class="std std-ref">Show с выражением (show expression)</span></a>, или в функцию <a class="reference internal" href="statement_equivalents.html#renpy.show" title="renpy.show"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.show()</span></code></a>.</p>
+<section id="ren-py">
+<h3>Инструкции скрипта Ren'Py<a class="headerlink" href="#ren-py" title="Ссылка на этот заголовок"></a></h3>
+<p>Существуют три инструкции скрипта Ren'Py, которые могут содержать ATL-код.</p>
+<section id="transform">
+<span id="transform-statement"></span><h4>Инструкция Transform<a class="headerlink" href="#transform" title="Ссылка на этот заголовок"></a></h4>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">transform</span></code> создает новую трансформацию, которую вы можете использовать для анимации и позиционирования отображаемых элементов в вашей игре. Трансформация является многоразовой и может применяться к изображениям и другим отображаемым элементам на протяжении всей игры с помощью предложения <code class="docutils literal notranslate"><span class="pre">at</span></code> в инструкциях <a class="reference internal" href="displaying_images.html#show-statement"><span class="std std-ref">show</span></a> и <code class="docutils literal notranslate"><span class="pre">scene</span></code>.</p>
+<p>Трансформации также могут действовать как <a class="reference internal" href="displayables.html"><span class="doc">отображаемые элементы</span></a> и отображаться напрямую. Однако, в отличие от других отображаемых элементов, которые существуют в глобальном пространстве имен изображений (см. <a class="reference internal" href="displaying_images.html#defining-images"><span class="std std-ref">Определение изображений</span></a>), трансформации создаются как переменные в соответствующем <a class="reference internal" href="python.html#named-stores"><span class="std std-ref">именованном хранилище</span></a> (или в хранилище по умолчанию).</p>
+<p>Трансформация создается во время <a class="reference internal" href="lifecycle.html#init-phase"><span class="std std-ref">init-фазы</span></a> (при запуске игры).</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><p>Основная форма:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="o">&lt;</span><span class="n">transform_name</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">atl_block</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>С параметрами:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="o">&lt;</span><span class="n">transform_name</span><span class="o">&gt;</span><span class="p">(</span> <span class="o">&lt;</span><span class="n">parameters</span><span class="o">&gt;</span> <span class="p">):</span>
+    <span class="o">&lt;</span><span class="n">atl_block</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>transform_name</p></td>
+<td><p>word</p></td>
+<td><p>Имя трансформации.</p>
+<p>Должно быть валидным идентификатором Python, разделенным точками</p>
+<p>(например, <code class="docutils literal notranslate"><span class="pre">my_transform</span></code> или <code class="docutils literal notranslate"><span class="pre">sprites.bounce</span></code>)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>parameters</p></td>
+<td><p>--</p></td>
+<td><p>(Необязательно) Параметры трансформации</p></td>
+</tr>
+<tr class="row-even"><td><p>atl_block</p></td>
+<td><p>block</p></td>
+<td><p>Блок ATL-кода, определяющий трансформацию</p></td>
+</tr>
+</tbody>
+</table>
+<p>Вы можете добавлять параметры, чтобы сделать ваши трансформации гибкими и многоразовыми. Параметры работают аналогично параметрам функций в Python.</p>
+<p>В настоящее время не поддерживается:</p>
+<ul class="simple">
+<li><p>Только позиционные параметры (с использованием <code class="docutils literal notranslate"><span class="pre">/</span></code>)</p></li>
+<li><p>Обязательные только именованные параметры (после <code class="docutils literal notranslate"><span class="pre">*</span></code> без значений по умолчанию)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*args</span></code> (произвольное количество позиционных параметров)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> (произвольное количество именованных параметров)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<ul class="simple">
+<li><p>Если у вашей трансформации есть параметры без значений по умолчанию, вы должны предоставить
+значения для всех них, прежде чем сможете использовать её как трансформацию</p></li>
+<li><p>См. также: <a class="reference internal" href="#atl-partial"><span class="std std-ref">Каррирование и частичная передача параметров в ATL</span></a></p></li>
+</ul>
+</div>
+</div></blockquote>
+<p><strong>Пример</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">left_to_right</span><span class="p">:</span>
+    <span class="na">xalign</span> <span class="mf">0.</span>
+    <span class="n">linear</span> <span class="mi">2</span> <span class="na">xalign</span> <span class="mf">1.</span>
+    <span class="k">repeat</span>
+
+<span class="k">transform</span> <span class="n">ariana</span><span class="o">.</span><span class="n">left</span><span class="p">:</span>
+    <span class="na">xalign</span> <span class="mf">.3</span>
+
+<span class="k">transform</span> <span class="n">animated_ariana_disp</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+    <span class="s2">&quot;ariana&quot;</span>
+    <span class="k">pause</span> <span class="n">duration</span>
+    <span class="s2">&quot;ariana_reverse&quot;</span>
+    <span class="k">pause</span> <span class="n">duration</span>
+    <span class="k">repeat</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">left_to_right</span>
+    <span class="k">pause</span>
+    <span class="k">show</span> <span class="n">animated_ariana_disp</span>
+    <span class="k">pause</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="image-atl">
+<span id="atl-image-statement"></span><h4>Инструкция Image с блоком ATL<a class="headerlink" href="#image-atl" title="Ссылка на этот заголовок"></a></h4>
+<p>Второй способ включения ATL-кода в скрипт — это использование его в составе инструкции <a class="reference internal" href="displaying_images.html#image-statement"><span class="std std-ref">image</span></a>. Как и её встроенный аналог, она связывает имя изображения (которое может содержать пробелы) с данной трансформацией. Поскольку нет способа передать параметры, это полезно только в том случае, если трансформация определяет анимацию.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="o">&lt;</span><span class="n">image_name</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">atl_block</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>image_name</p></td>
+<td><p>word(s)</p></td>
+<td><p>Имя изображения</p></td>
+</tr>
+<tr class="row-odd"><td><p>atl_block</p></td>
+<td><p>block</p></td>
+<td><p>Блок ATL-кода, определяющий трансформацию</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>Пример</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">animated_ariana_img</span><span class="p">:</span>
+    <span class="s2">&quot;ariana&quot;</span>
+    <span class="k">pause</span> <span class="mf">1.</span>
+    <span class="s2">&quot;ariana_reverse&quot;</span>
+    <span class="k">pause</span> <span class="mf">1.</span>
+    <span class="k">repeat</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="scene-show-atl">
+<h4>Инструкции Scene и Show с блоком ATL<a class="headerlink" href="#scene-show-atl" title="Ссылка на этот заголовок"></a></h4>
+<p>Последний способ использования ATL — в составе инструкций <a class="reference internal" href="displaying_images.html#show-statement"><span class="std std-ref">show</span></a> или <cite>scene</cite>. Это оборачивает отображаемое изображение в ATL-трансформацию, которая создается на лету и применяется к изображению.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="o">&lt;</span><span class="n">image_name</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">atl_block</span><span class="o">&gt;</span>
+
+<span class="k">scene</span> <span class="o">&lt;</span><span class="n">image_name</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">atl_block</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>image_name</p></td>
+<td><p>word(s)</p></td>
+<td><p>Имя изображения</p></td>
+</tr>
+<tr class="row-odd"><td><p>atl_block</p></td>
+<td><p>block</p></td>
+<td><p>Блок ATL-кода, определяющий трансформацию</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>Пример</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span><span class="p">:</span>
+    <span class="na">xalign</span> <span class="mf">1.</span>
+
+<span class="k">scene</span> <span class="n">bg</span> <span class="n">washington</span><span class="p">:</span>
+    <span class="na">zoom</span> <span class="mf">2.</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+<section id="id5">
+<h3>Синтаксис и инструкции ATL<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h3>
+<p>Инструкции ATL могут быть встроенными или составлять блок внутри ATL-блока, в котором они написаны. За некоторыми исключениями, описанными в соответствующих инструкциях, инструкции в блоке ATL выполняются по порядку, сверху вниз.</p>
+<p>Если инструкция ATL требует вычисления выражения, такое вычисление происходит при первом выполнении трансформации (то есть при использовании инструкции <code class="docutils literal notranslate"><span class="pre">show</span></code> или отображении трансформации как части экрана), а не при выполнении конкретной инструкции ATL.</p>
+<p>Ниже перечислены инструкции ATL.</p>
+<section id="properties">
+<span id="atl-properties-statement"></span><h4>Инструкция Properties (свойства)<a class="headerlink" href="#properties" title="Ссылка на этот заголовок"></a></h4>
+<p>Эта инструкция устанавливает значение свойства трансформации.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">property_name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">property_value</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>property_name</p></td>
+<td><p>word</p></td>
+<td><p>Имя свойства трансформации (например, <a class="reference internal" href="transform_properties.html#transform-property-xalign"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">xalign</span></code></a>, <a class="reference internal" href="transform_properties.html#transform-property-alpha"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">alpha</span></code></a>, ...)</p></td>
+</tr>
+<tr class="row-odd"><td><p>property_value</p></td>
+<td><p>Varies</p></td>
+<td><p>Значение свойства</p></td>
+</tr>
+</tbody>
+</table>
+<p>Инструкция сначала указывает последовательность (не менее одного) имён свойств, каждое из которых сопровождается новым значением. Список свойств трансформации, их значение и принимаемые ими значения см. в <a class="reference internal" href="transform_properties.html#transform-properties"><span class="std std-ref">Список свойств трансформации</span></a>.</p>
+</div></blockquote>
+<p><strong>Пример</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">rightoid</span><span class="p">:</span>
+    <span class="na">xalign</span> <span class="mf">.9</span>
+
+<span class="k">transform</span> <span class="n">ariana</span><span class="o">.</span><span class="n">left</span><span class="p">:</span>
+    <span class="na">xanchor</span> <span class="mf">.3</span> <span class="na">xpos</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="id6">
+<h4>Числовая инструкция<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h4>
+<p>Эта инструкция приостанавливает выполнение ATL-блока на указанную продолжительность. Ключевое слово &quot;pause&quot; является необязательным.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">pause</span> <span class="o">&lt;</span><span class="n">duration</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&quot;pause&quot;</p></td>
+<td><p>keyword</p></td>
+<td><p>(Необязательно) Ключевое слово, указывающее на паузу</p></td>
+</tr>
+<tr class="row-odd"><td><p>duration</p></td>
+<td><p>float, int (expr)</p></td>
+<td><p>Время паузы в секундах</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>Примеры</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">pause_example</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+    <span class="na">xalign</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Пауза на 2.0 секунды.</span>
+    <span class="k">pause</span> <span class="mf">2.0</span>
+    <span class="na">xalign</span> <span class="mf">1.0</span>
+
+    <span class="c1"># Пауза на `duration` секунд.</span>
+    <span class="k">pause</span> <span class="n">duration</span>
+    <span class="na">xalign</span> <span class="mf">0.5</span>
+
+    <span class="c1"># Пауза на 3.0 секунды.</span>
+    <span class="mf">3.0</span>
+
+    <span class="k">repeat</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="interpolation">
+<h4>Инструкция Interpolation (интерполяция)<a class="headerlink" href="#interpolation" title="Ссылка на этот заголовок"></a></h4>
+<p>Инструкция интерполяции — это основной способ получения плавно анимированных трансформаций. Значения изменяются со временем от их начального значения до заданного.</p>
+<p>Для управления ходом интерполяции используется <a class="reference internal" href="#warpers"><span class="std std-ref">функция-варпер</span></a>.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><p>Основная форма:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">warper_name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">duration</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">atl_property</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">atl_property</span><span class="o">&gt;</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>С использованием функции-варпера:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">warp</span> <span class="o">&lt;</span><span class="n">warper_function</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">duration</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">atl_property</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">atl_property</span><span class="o">&gt;</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Форма с блоком:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">warper_name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">duration</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">atl_property</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">atl_property</span><span class="o">&gt;</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>warper_name</p></td>
+<td><p>word</p></td>
+<td><p>Имя <a class="reference internal" href="#warpers"><span class="std std-ref">встроенного варпера</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>warper_function</p></td>
+<td><p>str, function (expr)</p></td>
+<td><p>Функция-варпер с сигнатурой <code class="docutils literal notranslate"><span class="pre">(t:</span> <span class="pre">float)</span> <span class="pre">-&gt;</span> <span class="pre">float</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>duration</p></td>
+<td><p>float, int (expr)</p></td>
+<td><p>Время интерполяции в секундах</p></td>
+</tr>
+<tr class="row-odd"><td><p>atl_property</p></td>
+<td><p><a class="reference internal" href="#atl-properties-statement"><span class="std std-ref">Инструкция Properties (свойства)</span></a></p></td>
+<td><p>Свойство для интерполяции</p></td>
+</tr>
+</tbody>
+</table>
+<p>Интерполяция будет длиться указанное время, и как минимум один кадр.</p>
+<p>Когда заданы <a class="reference internal" href="transform_properties.html"><span class="doc">Свойства трансформации</span></a>, значение, которое им присваивается, — это значение, которое они примут в конце выполнения инструкции интерполяции.</p>
+<p>Также можно интерполировать <a class="reference internal" href="#transform-expression-atl-statement"><span class="std std-ref">Инструкция выражения трансформа</span></a>, который в этом случае должен быть ATL-трансформацией, содержащей только одну инструкцию свойств. Свойства из этой трансформации будут обрабатываться так, как если бы они были написаны непосредственно в этой интерполяции.</p>
+</div></blockquote>
+<p><strong>Примеры</strong></p>
+<blockquote>
+<div><p>Основное использование:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">logo</span> <span class="n">base</span><span class="p">:</span>
+    <span class="na">xalign</span> <span class="mf">0.0</span> <span class="na">yalign</span> <span class="mf">0.0</span>
+
+    <span class="c1"># За 2.0 секунды переместить объект в левый нижний угол.</span>
+    <span class="n">linear</span> <span class="mf">2.0</span> <span class="na">yalign</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+<p>С использованием функции-варпера:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">logo</span> <span class="n">base</span><span class="p">(</span><span class="n">warper_expr</span><span class="o">=</span><span class="s2">&quot;easein&quot;</span><span class="p">):</span>
+    <span class="na">xalign</span> <span class="mf">0.0</span> <span class="na">yalign</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Используем варпер из параметра для перемещения в правую часть экрана.</span>
+    <span class="k">warp</span> <span class="n">warper_expr</span> <span class="mf">1.0</span> <span class="na">xalign</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+<p>Несколько свойств:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">logo</span> <span class="n">base</span><span class="p">:</span>
+    <span class="na">xalign</span> <span class="mf">0.0</span> <span class="na">yalign</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Одновременное изменение xalign и yalign.</span>
+    <span class="n">linear</span> <span class="mf">2.0</span> <span class="na">xalign</span> <span class="mf">0.5</span> <span class="na">yalign</span> <span class="mf">0.5</span>
+
+    <span class="c1"># То же самое, с использованием блока.</span>
+    <span class="n">linear</span> <span class="mf">2.0</span><span class="p">:</span>
+        <span class="na">xalign</span> <span class="mf">0.5</span>
+        <span class="na">yalign</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+<p>Пользовательский варпер:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">my_warper</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">t</span><span class="o">**</span><span class="mf">4.4</span>
+
+    <span class="n">my_warpers</span> <span class="o">=</span> <span class="p">[</span><span class="n">my_warper</span><span class="p">]</span>
+
+<span class="k">transform</span> <span class="n">custom_warper_example</span><span class="p">:</span>
+    <span class="na">xpos</span> <span class="mi">0</span>
+    <span class="k">warp</span> <span class="n">my_warper</span> <span class="mi">3</span> <span class="na">xpos</span> <span class="mi">100</span>
+    <span class="k">warp</span> <span class="n">my_warpers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="mi">5</span> <span class="na">xpos</span> <span class="mi">520</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Интерполяция свойств</strong></p>
+<p>Сплайновое движение (по кривой траектории):</p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">atl_property</span><span class="o">&gt;</span> <span class="k">knot</span> <span class="o">&lt;</span><span class="n">knot_value</span><span class="o">&gt;</span> <span class="p">[</span><span class="k">knot</span> <span class="o">&lt;</span><span class="n">knot_value</span><span class="o">&gt;</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>knot_value</p></td>
+<td><p>Varies (expr)</p></td>
+<td><p>Значение контрольной точки свойства</p></td>
+</tr>
+</tbody>
+</table>
+<p>Начальная точка — это значение свойства в начале интерполяции, конечная точка — это значение, указанное в <code class="docutils literal notranslate"><span class="pre">&lt;atl_property&gt;</span></code>. Узлы (knots) используются для управления сплайном.</p>
+<p>Для одного узла используется квадратичная <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9A%D1%80%D0%B8%D0%B2%D0%B0%D1%8F_%D0%91%D0%B5%D0%B7%D1%8C%D0%B5">кривая Безье</a>,
+для двух — кубическая кривая Безье, а для трех и более — сплайн Катмулла-Рома. В первых двух
+случаях узел или узлы являются просто контрольными точками. Для сплайна Катмулла-Рома
+первый и последний узлы — это контрольные точки (часто находящиеся за пределами видимой траектории), а остальные
+узлы — это точки, через которые проходит траектория.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">spline_motion_single_property</span><span class="p">:</span>
+    <span class="c1"># Начинаем в правом нижнем углу, немного уменьшив масштаб.</span>
+    <span class="na">zoom</span> <span class="mf">0.5</span> <span class="na">xalign</span> <span class="mf">1.0</span> <span class="na">yalign</span> <span class="mf">1.0</span>
+
+    <span class="c1"># Перемещаемся к центру внизу, немного пролетая дальше. Квадратичная кривая Безье.</span>
+    <span class="n">linear</span> <span class="mf">2.0</span> <span class="na">xalign</span> <span class="mf">0.5</span> <span class="k">knot</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Перемещаемся вверх, замедляясь в центре. Кубическая кривая Безье.</span>
+    <span class="n">linear</span> <span class="mf">2.0</span> <span class="na">yalign</span> <span class="mf">0.0</span> <span class="k">knot</span> <span class="mf">0.2</span> <span class="k">knot</span> <span class="mf">0.8</span>
+
+    <span class="c1"># Перемещаемся влево, сначала качнувшись. Сплайн Катмулла-Рома.</span>
+    <span class="n">linear</span> <span class="mf">2.0</span> <span class="na">xalign</span> <span class="mf">0.0</span> <span class="k">knot</span> <span class="mf">1.0</span> <span class="k">knot</span> <span class="mf">0.5</span> <span class="k">knot</span> <span class="mf">0.0</span>
+
+<span class="k">transform</span> <span class="n">spline_motion_multi_property</span><span class="p">:</span>
+    <span class="c1"># Начинаем в правом нижнем углу, немного уменьшив масштаб.</span>
+    <span class="na">zoom</span> <span class="mf">0.5</span> <span class="na">align</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+
+    <span class="c1"># Используем сплайновое движение для одновременного перемещения (x, y) по небольшой S-образной кривой.</span>
+    <span class="n">linear</span> <span class="mf">2.0</span> <span class="na">align</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="k">knot</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">.33</span><span class="p">)</span> <span class="k">knot</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">.66</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>С круговым движением</p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">atl_property</span><span class="o">&gt;</span> <span class="k">clockwise</span>
+<span class="o">&lt;</span><span class="n">atl_property</span><span class="o">&gt;</span> <span class="k">counterclockwise</span>
+<span class="o">&lt;</span><span class="n">atl_property</span><span class="o">&gt;</span> <span class="k">circles</span> <span class="o">&lt;</span><span class="n">number_of_circles</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>number_of_circles</p></td>
+<td><p>int (expr)</p></td>
+<td><p>Количество полных оборотов для кругового движения</p></td>
+</tr>
+</tbody>
+</table>
+<p>Сравниваются начальное и конечное положения (которые устанавливаются с помощью <a class="reference internal" href="transform_properties.html#transform-property-pos"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">pos</span></code></a>, <a class="reference internal" href="transform_properties.html#transform-property-align"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">align</span></code></a>,
+<a class="reference internal" href="transform_properties.html#transform-property-angle"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">angle</span></code></a>, <a class="reference internal" href="transform_properties.html#transform-property-radius"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">radius</span></code></a> и т.д.), и определяется центр полярных координат
+(который задается через <a class="reference internal" href="transform_properties.html#transform-property-around"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">around</span></code></a>). Затем Ren'Py вычислит, на сколько
+градусов нужно повернуться, чтобы перейти от начального угла к конечному в
+указанном направлении вращения. Если указано предложение <code class="docutils literal notranslate"><span class="pre">circles</span></code>, Ren'Py
+гарантирует, что будет сделано соответствующее количество оборотов.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">logo</span> <span class="n">base</span><span class="p">:</span>
+    <span class="na">xalign</span> <span class="mf">1.0</span> <span class="na">yalign</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Устанавливаем точку, вокруг которой будет происходить вращение.</span>
+    <span class="na">anchor</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="c1"># Используем круговое движение, чтобы развернуться по спирали к верхней части</span>
+    <span class="c1"># экрана. На это потребуется 2 секунды.</span>
+    <span class="n">linear</span> <span class="mf">2.0</span> <span class="na">yalign</span> <span class="mf">0.0</span> <span class="k">clockwise</span> <span class="k">circles</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>С выражением трансформации</p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">transform_expression</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>transform_expression</p></td>
+<td><p><a class="reference internal" href="#transform-statement"><span class="std std-ref">Transform</span></a>
+(expr)</p></td>
+<td><p>Трансформация, к которой будет производиться интерполяция</p></td>
+</tr>
+</tbody>
+</table>
+<p>В этом случае должна быть ATL-трансформация, содержащая только одну инструкцию свойств.
+Свойства из этой трансформации будут обрабатываться так, как если бы
+они были написаны непосредственно в этой интерполяции.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">logo</span> <span class="n">base</span><span class="p">:</span>
+    <span class="na">xalign</span> <span class="mf">1.0</span> <span class="na">yalign</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Перемещаемся в позицию, указанную в трансформации truecenter, за 1.0 секунду</span>
+    <span class="n">ease</span> <span class="mf">1.0</span> <span class="n">truecenter</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="pass">
+<h4>Инструкция Pass<a class="headerlink" href="#pass" title="Ссылка на этот заголовок"></a></h4>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">pass</span></code> ничего не делает: это пустая операция.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+<p>Ее можно использовать, когда нужно разделить инструкции, например, когда
+два набора инструкций choice (см. ниже) идут друг за другом. Также это может
+быть полезно, когда синтаксис требует создания блока, но он должен быть пустым,
+например, чтобы один из блоков choice ничего не делал.</p>
+</div></blockquote>
+</section>
+<section id="repeat">
+<h4>Инструкция Repeat<a class="headerlink" href="#repeat" title="Ссылка на этот заголовок"></a></h4>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">repeat</span></code> заставляет блок, содержащий её,
+возобновить выполнение с начала.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><p>Основная форма:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">repeat</span>
+</pre></div>
+</div>
+<p>С параметром count:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">repeat</span> <span class="o">&lt;</span><span class="n">count</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>count</p></td>
+<td><p>int (expr)</p></td>
+<td><p>(Необязательно) Количество выполнений блока</p></td>
+</tr>
+</tbody>
+</table>
+<p>Блок, заканчивающийся на <code class="docutils literal notranslate"><span class="pre">repeat</span> <span class="pre">2</span></code>, будет выполнен
+в общей сложности не более двух раз, а <code class="docutils literal notranslate"><span class="pre">repeat</span> <span class="pre">1</span></code> не вызывает повторений.</p>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">repeat</span></code> должна быть последней в блоке.</p>
+</div></blockquote>
+<p><strong>Пример</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">logo</span> <span class="n">base</span><span class="p">:</span>
+    <span class="na">xalign</span> <span class="mf">0.0</span>
+    <span class="n">linear</span> <span class="mf">1.0</span> <span class="na">xalign</span> <span class="mf">1.0</span>
+    <span class="n">linear</span> <span class="mf">1.0</span> <span class="na">xalign</span> <span class="mf">0.0</span>
+    <span class="k">repeat</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="block">
+<h4>Инструкция Block<a class="headerlink" href="#block" title="Ссылка на этот заголовок"></a></h4>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">block</span></code> просто содержит блок ATL-инструкций.
+Это можно использовать для группировки инструкций, которые будут повторяться.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">block</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">atl_block</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Пример</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">logo</span> <span class="n">base</span><span class="p">:</span>
+    <span class="na">alpha</span> <span class="mf">0.0</span> <span class="na">xalign</span> <span class="mf">0.0</span> <span class="na">yalign</span> <span class="mf">0.0</span>
+    <span class="n">linear</span> <span class="mf">1.0</span> <span class="na">alpha</span> <span class="mf">1.0</span>
+
+    <span class="k">block</span><span class="p">:</span>
+        <span class="n">linear</span> <span class="mf">1.0</span> <span class="na">xalign</span> <span class="mf">1.0</span>
+        <span class="n">linear</span> <span class="mf">1.0</span> <span class="na">xalign</span> <span class="mf">0.0</span>
+        <span class="k">repeat</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="parallel">
+<h4>Инструкция Parallel<a class="headerlink" href="#parallel" title="Ссылка на этот заголовок"></a></h4>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">parallel</span></code> определяет набор ATL-блоков для параллельного выполнения.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">parallel</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">atl_block</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&quot;parallel&quot;</p></td>
+<td><p>keyword</p></td>
+<td><p>Один или несколько параллельных блоков</p></td>
+</tr>
+<tr class="row-odd"><td><p>atl_block</p></td>
+<td><p>block</p></td>
+<td><p>ATL-блок для этой параллельной ветки</p></td>
+</tr>
+</tbody>
+</table>
+<p>Когда вы используете несколько параллельных блоков, они все выполняются одновременно.
+Инструкция <code class="docutils literal notranslate"><span class="pre">parallel</span></code> завершается, когда завершается последний блок.</p>
+<p>Каждый параллельный блок должен быть независимым и изменять разные
+<a class="reference internal" href="transform_properties.html"><span class="doc">свойства трансформации</span></a>. Например, один блок может управлять горизонтальным
+движением (<a class="reference internal" href="transform_properties.html#transform-property-xalign"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">xalign</span></code></a>), а другой — вертикальным (<a class="reference internal" href="transform_properties.html#transform-property-yalign"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">yalign</span></code></a>).
+Если два блока пытаются изменить одно и то же свойство одновременно, поведение
+непредсказуемо и этого следует избегать.</p>
+<p>Параллельные инструкции жадно группируются в параллельный набор, когда более чем
+один параллельный блок появляется последовательно в блоке.</p>
+</div></blockquote>
+<p><strong>Пример</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">logo</span> <span class="n">base</span><span class="p">:</span>
+    <span class="k">parallel</span><span class="p">:</span>
+        <span class="na">xalign</span> <span class="mf">0.0</span>
+        <span class="n">linear</span> <span class="mf">1.3</span> <span class="na">xalign</span> <span class="mf">1.0</span>
+        <span class="n">linear</span> <span class="mf">1.3</span> <span class="na">xalign</span> <span class="mf">0.0</span>
+        <span class="k">repeat</span>
+    <span class="k">parallel</span><span class="p">:</span>
+        <span class="na">yalign</span> <span class="mf">0.0</span>
+        <span class="n">linear</span> <span class="mf">1.6</span> <span class="na">yalign</span> <span class="mf">1.0</span>
+        <span class="n">linear</span> <span class="mf">1.6</span> <span class="na">yalign</span> <span class="mf">0.0</span>
+        <span class="k">repeat</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="choice">
+<h4>Инструкция Choice<a class="headerlink" href="#choice" title="Ссылка на этот заголовок"></a></h4>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">choice</span></code> определяет один из набора
+потенциальных вариантов. Ren'Py выберет один из вариантов в наборе и
+выполнит связанный с ним ATL-блок, а затем продолжит выполнение после
+последнего варианта в наборе.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><p>Основная форма:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">choice</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">atl_block</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>С весом:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">choice</span> <span class="o">&lt;</span><span class="n">weight</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">atl_block</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&quot;choice&quot;</p></td>
+<td><p>keyword</p></td>
+<td><p>Один или несколько вариантов</p></td>
+</tr>
+<tr class="row-odd"><td><p>weight</p></td>
+<td><p>float (expr)</p></td>
+<td><p>(Необязательно) Вес этого варианта, по умолчанию 1.0</p></td>
+</tr>
+<tr class="row-even"><td><p>atl_block</p></td>
+<td><p>block</p></td>
+<td><p>ATL-блок для этого варианта</p></td>
+</tr>
+</tbody>
+</table>
+<p>Инструкции <code class="docutils literal notranslate"><span class="pre">choice</span></code> жадно группируются в набор выбора, когда несколько
+инструкций <code class="docutils literal notranslate"><span class="pre">choice</span></code> появляются последовательно в блоке. Если предоставлено <cite>simple_expression</cite>,
+это вес с плавающей точкой, присваиваемый этому блоку, в противном случае предполагается 1.0.</p>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">pass</span></code> может быть полезна для разделения нескольких наборов блоков <code class="docutils literal notranslate"><span class="pre">choice</span></code>
+на несколько инструкций <code class="docutils literal notranslate"><span class="pre">choice</span></code> или для создания пустого блока <code class="docutils literal notranslate"><span class="pre">choice</span></code>.</p>
+</div></blockquote>
+<p><strong>Пример</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">eileen</span> <span class="n">random</span><span class="p">:</span>
+    <span class="k">choice</span><span class="p">:</span>
+        <span class="s2">&quot;eileen happy&quot;</span>
+    <span class="k">choice</span><span class="p">:</span>
+        <span class="s2">&quot;eileen vhappy&quot;</span>
+    <span class="k">choice</span> <span class="mf">2.0</span><span class="p">:</span>
+        <span class="c1"># Более вероятен для выбора.</span>
+        <span class="s2">&quot;eileen concerned&quot;</span>
+
+    <span class="k">pause</span> <span class="mf">1.0</span>
+    <span class="k">repeat</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="animation">
+<span id="animation-atl-statement"></span><h4>Инструкция Animation<a class="headerlink" href="#animation" title="Ссылка на этот заголовок"></a></h4>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">animation</span></code> должна быть первой инструкцией в ATL-блоке и
+сообщает Ren'Py, что блок использует временную базу анимации (<code class="docutils literal notranslate"><span class="pre">at</span></code>), а
+не обычную временную базу показа (<code class="docutils literal notranslate"><span class="pre">st</span></code>). Для получения дополнительной информации
+см. <a class="reference internal" href="#atl-timebases"><span class="std std-ref">Временные базы</span></a>.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">animation</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><p>Временная база анимации начинается, когда отображается изображение или экран с тем же тегом.
+Обычно это используется для замены одного изображения другим в то же
+самое видимое время.</p>
+</div></blockquote>
+<p><strong>Пример</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="n">moving</span><span class="p">:</span>
+    <span class="k">animation</span>
+    <span class="s2">&quot;eileen happy&quot;</span>
+    <span class="na">xalign</span> <span class="mf">0.0</span>
+    <span class="n">linear</span> <span class="mf">5.0</span> <span class="na">xalign</span> <span class="mf">1.0</span>
+    <span class="k">repeat</span>
+
+<span class="k">image</span> <span class="n">eileen</span> <span class="n">vhappy</span> <span class="n">moving</span><span class="p">:</span>
+    <span class="k">animation</span>
+    <span class="s2">&quot;eileen vhappy&quot;</span>
+    <span class="na">xalign</span> <span class="mf">0.0</span>
+    <span class="n">linear</span> <span class="mf">5.0</span> <span class="na">xalign</span> <span class="mf">1.0</span>
+    <span class="k">repeat</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="n">moving</span>
+    <span class="k">pause</span>
+    <span class="k">show</span> <span class="n">eileen</span> <span class="n">vhappy</span> <span class="n">moving</span>
+    <span class="k">pause</span>
+</pre></div>
+</div>
+<p>Этот пример заставит Эйлин сменить выражение лица после первой паузы,
+но не изменит ее положение, так как обе анимации используют
+одно и то же время анимации и, следовательно, разместят ее спрайт в одном и том же месте.
+Без инструкции <code class="docutils literal notranslate"><span class="pre">animation</span></code> позиция сбрасывалась бы при клике игрока.</p>
+</div></blockquote>
+</section>
+<section id="on">
+<h4>Инструкция On<a class="headerlink" href="#on" title="Ссылка на этот заголовок"></a></h4>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">on</span></code> определяет обработчик событий.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><p>Для одного события:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">on</span> <span class="o">&lt;</span><span class="n">event_name</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">atl_block</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Для нескольких событий:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">on</span> <span class="o">&lt;</span><span class="n">event_name</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">event_name</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">...</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">atl_block</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>event_name</p></td>
+<td><p>word</p></td>
+<td><p>Имя одного или нескольких <a class="reference internal" href="#external-atl-events"><span class="std std-ref">событий</span></a> для обработки</p></td>
+</tr>
+<tr class="row-odd"><td><p>atl_block</p></td>
+<td><p>block</p></td>
+<td><p>ATL-блок для выполнения при наступлении события</p></td>
+</tr>
+</tbody>
+</table>
+<p>Блоки <code class="docutils literal notranslate"><span class="pre">on</span></code> жадно группируются в одну инструкцию. Инструкция <code class="docutils literal notranslate"><span class="pre">on</span></code> может
+обрабатывать одно имя события или список имен событий, разделенных запятыми.</p>
+<p>Эта инструкция используется для обработки событий. Когда событие обрабатывается, обработка
+любого другого события прекращается, и немедленно начинается обработка нового события. Когда
+обработчик события завершается без возникновения другого события, создается событие <code class="docutils literal notranslate"><span class="pre">default</span></code>
+(если событие <code class="docutils literal notranslate"><span class="pre">default</span></code> еще не обрабатывается).</p>
+<p>Выполнение инструкции <code class="docutils literal notranslate"><span class="pre">on</span></code> никогда не завершается естественным образом. (Но оно может быть
+завершено инструкцией <code class="docutils literal notranslate"><span class="pre">time</span></code> или внешним обработчиком событий.)</p>
+</div></blockquote>
+<p><strong>Пример</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">logo</span> <span class="n">base</span><span class="p">:</span>
+    <span class="k">on</span> <span class="k">show</span><span class="p">:</span>
+        <span class="na">alpha</span> <span class="mf">0.0</span>
+        <span class="n">linear</span> <span class="mf">.5</span> <span class="na">alpha</span> <span class="mf">1.0</span>
+    <span class="k">on</span> <span class="k">hide</span><span class="p">:</span>
+        <span class="n">linear</span> <span class="mf">.5</span> <span class="na">alpha</span> <span class="mf">0.0</span>
+
+<span class="k">transform</span> <span class="n">pulse_button</span><span class="p">:</span>
+    <span class="k">on</span> <span class="na">hover</span><span class="p">,</span> <span class="na">idle</span><span class="p">:</span>
+        <span class="n">linear</span> <span class="mf">.25</span> <span class="na">zoom</span> <span class="mf">1.25</span>
+        <span class="n">linear</span> <span class="mf">.25</span> <span class="na">zoom</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="displayable-atl-statement">
+<span id="id8"></span><h4>Инструкция отображаемого элемента<a class="headerlink" href="#displayable-atl-statement" title="Ссылка на этот заголовок"></a></h4>
+<p>Инструкция отображаемого элемента устанавливает или заменяет дочерний <a class="reference internal" href="displayables.html"><span class="doc">отображаемый элемент</span></a>
+трансформа, когда инструкция выполняется.
+Вы также можете дополнительно добавить эффект перехода при смене одного отображаемого элемента на другой.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><p>Основная форма:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">displayable</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>С переходом:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">displayable</span><span class="o">&gt;</span> <span class="k">with</span> <span class="o">&lt;</span><span class="n">transition</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>displayable</p></td>
+<td><p><a class="reference internal" href="displayables.html"><span class="doc">Displayable</span></a> (expr)</p></td>
+<td><p>Новое дочернее изображение или визуальный элемент для отображения</p></td>
+</tr>
+<tr class="row-odd"><td><p>transition</p></td>
+<td><p><a class="reference internal" href="transitions.html"><span class="doc">Transition</span></a> (expr)</p></td>
+<td><p>(Необязательно) Переход при смене отображаемых элементов</p>
+<p>(например, <code class="docutils literal notranslate"><span class="pre">dissolve</span></code>, <code class="docutils literal notranslate"><span class="pre">fade</span></code>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Не все переходы работают в этом контексте. В частности, <a class="reference internal" href="transitions.html#dict-transitions"><span class="std std-ref">Словарные переходы</span></a>,
+и переходы <a class="reference internal" href="transitions.html#var-move"><code class="xref std std-var docutils literal notranslate"><span class="pre">move</span></code></a> и <a class="reference internal" href="transitions.html#var-ease"><code class="xref std std-var docutils literal notranslate"><span class="pre">ease</span></code></a> здесь не будут работать.</p>
+</div>
+<p><strong>Использование трансформов как отображаемых элементов:</strong> Если вы передаёте другой ATL-трансформ, у которого уже
+есть дочерний отображаемый элемент, ваш текущий ATL-блок приостановится и будет ждать завершения анимации этого
+включённого трансформа перед тем, как продолжить.</p>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Если вы передадите трансформ без дочернего элемента, он станет прозрачным и ничего не будет отображать.
+ATL-трансформы без дочернего элемента могут быть интерпретированы как
+<a class="reference internal" href="#transform-expression-atl-statement"><span class="std std-ref">инструкция выражения трансформа</span></a>, что приведёт к другим результатам.</p>
+<p><strong>Для новичков</strong>: Всегда убеждайтесь, что ваш отображаемый элемент является чем-то видимым, например, именем
+файла изображения (<code class="docutils literal notranslate"><span class="pre">&quot;logo.png&quot;</span></code>) или отображаемым элементом с содержимым.</p>
+</div>
+</div></blockquote>
+<p><strong>Пример</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">atl</span> <span class="n">example</span><span class="p">:</span>
+    <span class="s2">&quot;logo_base.png&quot;</span>
+
+    <span class="k">pause</span> <span class="mf">1.0</span>
+
+    <span class="s2">&quot;logo_bw.png&quot;</span> <span class="k">with</span> <span class="n">Dissolve</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="na">alpha</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="transform-expression-atl-statement">
+<span id="id9"></span><h4>Инструкция выражения трансформа<a class="headerlink" href="#transform-expression-atl-statement" title="Ссылка на этот заголовок"></a></h4>
+<p>Эта инструкция включает другой ATL-трансформ как часть текущего ATL-блока.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">transform_expression</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>transform_expression</p></td>
+<td><p><a class="reference internal" href="#transform-statement"><span class="std std-ref">Transform</span></a>
+(expr)</p></td>
+<td><p>Трансформ для интерполяции</p></td>
+</tr>
+</tbody>
+</table>
+<p>Это применимо только в том случае, если ATL-трансформу <strong>не</strong> был предоставлен дочерний элемент (о том,
+как это сделать, см. в начале страницы), в противном случае инструкция будет интерпретирована как
+<a class="reference internal" href="#displayable-atl-statement"><span class="std std-ref">инструкция отображаемого элемента</span></a>.
+Содержимое предоставленного ATL-трансформа включается в месте расположения этой инструкции.</p>
+</div></blockquote>
+<p><strong>Пример</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">move_right</span><span class="p">:</span>
+    <span class="n">linear</span> <span class="mf">1.0</span> <span class="na">xalign</span> <span class="mf">1.0</span>
+
+<span class="k">image</span> <span class="n">atl</span> <span class="n">example</span><span class="p">:</span>
+    <span class="c1"># Display logo_base.png</span>
+    <span class="s2">&quot;logo_base.png&quot;</span>
+
+    <span class="c1"># Run the move_right transform.</span>
+    <span class="n">move_right</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="contains">
+<span id="inline-contains-atl-statement"></span><h4>Встроенная инструкция contains<a class="headerlink" href="#contains" title="Ссылка на этот заголовок"></a></h4>
+<p>Эта инструкция устанавливает (или заменяет) дочерний элемент текущего ATL-трансформа на значение выражения, что делает её полезной для анимации.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">contains</span> <span class="o">&lt;</span><span class="n">displayable</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>displayable</p></td>
+<td><p><a class="reference internal" href="displayables.html"><span class="doc">Displayable</span></a>,
+<a class="reference internal" href="#transform-statement"><span class="std std-ref">Transform</span></a> (expr)</p></td>
+<td><p>Дочерний отображаемый элемент или трансформ</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="#displayable-atl-statement"><span class="std std-ref">Инструкция отображаемого элемента</span></a> менее явная и создаёт неоднозначность с
+инструкцией выражения трансформа, но она позволяет использовать
+<a class="reference internal" href="transitions.html"><span class="doc">переход</span></a> при замене дочернего элемента. Эта
+инструкция может быть особенно полезна, когда ATL-трансформ должен содержать,
+а не включать в себя, второй ATL-трансформ.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Используйте эту инструкцию, когда хотите, чтобы ваш ATL-трансформ содержал другой ATL-трансформ в качестве своего
+дочернего элемента. Это особенно полезно, когда вам нужно, чтобы дочерний элемент был отдельным
+объектом-трансформом, а не просто прямым включением его кода.</p>
+<p>В противном случае, <a class="reference internal" href="#displayable-atl-statement"><span class="std std-ref">инструкция отображаемого элемента</span></a> является более
+простым способом установить дочерний элемент, и у неё есть преимущество указания
+<a class="reference internal" href="transitions.html"><span class="doc">перехода</span></a>, который воспроизводится при замене старого дочернего элемента на новый.</p>
+</div>
+</div></blockquote>
+<p><strong>Пример</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">an_animation</span><span class="p">:</span>
+    <span class="s2">&quot;1.png&quot;</span>
+    <span class="k">pause</span> <span class="mi">2</span>
+    <span class="s2">&quot;2.png&quot;</span>
+    <span class="k">pause</span> <span class="mi">2</span>
+    <span class="k">repeat</span>
+
+<span class="k">image</span> <span class="n">move_an_animation</span><span class="p">:</span>
+    <span class="k">contains</span> <span class="n">an_animation</span>
+
+    <span class="c1"># If we didn&#39;t use contains, we&#39;d still be looping</span>
+    <span class="c1"># and would never reach here.</span>
+    <span class="na">xalign</span> <span class="mf">0.0</span>
+    <span class="n">linear</span> <span class="mf">1.0</span> <span class="na">yalign</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="id10">
+<h4>Блочная инструкция contains<a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h4>
+<p>Блок <cite>contains</cite>, как и его
+<a class="reference internal" href="#inline-contains-atl-statement"><span class="std std-ref">встроенный аналог</span></a>, устанавливает дочерний элемент трансформа, но делает это по-другому.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">contains</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">atl_block</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><p>Один или несколько блоков <cite>contains</cite> будут жадно сгруппированы в одну
+инструкцию <cite>contains</cite>, обёрнуты в <a class="reference internal" href="displayables.html#Fixed" title="Fixed"><code class="xref py py-func docutils literal notranslate"><span class="pre">Fixed()</span></code></a> и установлены в качестве дочернего элемента
+трансформа.</p>
+<p>Каждый блок должен определять отображаемый элемент для использования, иначе произойдёт ошибка.
+Инструкция <cite>contains</cite> выполняется мгновенно, не дожидаясь завершения
+дочерних элементов.</p>
+</div></blockquote>
+<p><strong>Пример</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">test</span> <span class="n">double</span><span class="p">:</span>
+    <span class="k">contains</span><span class="p">:</span>
+        <span class="s2">&quot;logo.png&quot;</span>
+        <span class="na">xalign</span> <span class="mf">0.0</span>
+        <span class="n">linear</span> <span class="mf">1.0</span> <span class="na">xalign</span> <span class="mf">1.0</span>
+        <span class="k">repeat</span>
+
+    <span class="k">contains</span><span class="p">:</span>
+        <span class="s2">&quot;logo.png&quot;</span>
+        <span class="na">xalign</span> <span class="mf">1.0</span>
+        <span class="n">linear</span> <span class="mf">1.0</span> <span class="na">xalign</span> <span class="mf">0.0</span>
+        <span class="k">repeat</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="function">
+<h4>Инструкция function<a class="headerlink" href="#function" title="Ссылка на этот заголовок"></a></h4>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">function</span></code> позволяет использовать код Python внутри ATL.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="o">&lt;</span><span class="n">func</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>func</p></td>
+<td><p>function (expr)</p></td>
+<td><p>Функция для вызова, с сигнатурой <code class="docutils literal notranslate"><span class="pre">(trans:</span> <span class="pre">Transform,</span> <span class="pre">st:</span> <span class="pre">float,</span> <span class="pre">at:</span> <span class="pre">float)</span> <span class="pre">-&gt;</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">None</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Функции имеют ту же сигнатуру, что и те, которые используются с <a class="reference internal" href="#Transform" title="Transform"><code class="xref py py-func docutils literal notranslate"><span class="pre">Transform()</span></code></a>:</p>
+<ul class="simple">
+<li><p>Первый аргумент — это объект-трансформ. <a class="reference internal" href="transform_properties.html"><span class="doc">Свойства трансформа</span></a> можно
+устанавливать как атрибуты этого объекта.</p></li>
+<li><p>Второй аргумент — это временная база показа (<a class="reference internal" href="#atl-timebases"><span class="std std-ref">timebase</span></a>),
+количество секунд с момента начала выполнения функции.</p></li>
+<li><p>Третий аргумент — это временная база анимации, то есть количество
+секунд, в течение которых что-то с тем же тегом находится на экране.</p></li>
+<li><p>Если функция возвращает число, она будет вызвана снова по истечении этого количества
+секунд. (0 секунд означает вызов функции как можно скорее.)
+Если функция возвращает None, управление перейдёт к следующей инструкции ATL.</p></li>
+</ul>
+<p>Эта функция не должна иметь побочных эффектов, кроме изменения объекта-трансформа
+в первом аргументе, и может быть вызвана в любое время с любым значением
+в рамках предсказания.</p>
+<p>Обратите внимание, что <code class="docutils literal notranslate"><span class="pre">function</span></code> не является свойством трансформа, и её поведение не
+полностью совпадает с поведением параметра <cite>function</cite> у <a class="reference internal" href="#Transform" title="Transform"><code class="xref py py-func docutils literal notranslate"><span class="pre">Transform()</span></code></a>.</p>
+</div></blockquote>
+<p><strong>Пример</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">slide_vibrate</span><span class="p">(</span><span class="n">trans</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span> <span class="k">at</span><span class="p">,</span> <span class="o">/</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">st</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">:</span>
+            <span class="n">trans</span><span class="o">.</span><span class="na">xalign</span> <span class="o">=</span> <span class="mf">1.0</span>
+            <span class="n">trans</span><span class="o">.</span><span class="na">yoffset</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">trans</span><span class="o">.</span><span class="na">xalign</span> <span class="o">=</span> <span class="n">st</span>
+            <span class="n">trans</span><span class="o">.</span><span class="na">yoffset</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+            <span class="k">return</span> <span class="mi">0</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="k">show</span> <span class="n">logo</span> <span class="n">base</span><span class="p">:</span>
+        <span class="k">function</span> <span class="n">slide_vibrate</span>
+        <span class="k">pause</span> <span class="mf">1.0</span>
+        <span class="k">repeat</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="time">
+<h4>Инструкция time<a class="headerlink" href="#time" title="Ссылка на этот заголовок"></a></h4>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">time</span></code> является управляющей инструкцией.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">time</span> <span class="o">&lt;</span><span class="na">value</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>value</p></td>
+<td><p>float/int (expr)</p></td>
+<td><p>Время в секундах от начала выполнения блока</p></td>
+</tr>
+</tbody>
+</table>
+<p>Когда достигается значение, указанное в инструкции, начинает выполняться следующая инструкция.
+Эта передача управления происходит, даже если предыдущая инструкция всё ещё выполняется, и
+заставляет любую такую предыдущую инструкцию немедленно завершиться.</p>
+<p>Если инструкция <cite>time</cite> достигается до заданного значения времени, трансформ приостанавливается и
+ждёт, пока инструкция <cite>time</cite> не возьмёт управление.</p>
+<p>Если в блоке несколько инструкций <cite>time</cite>, их значения времени должны строго
+возрастать.</p>
+</div></blockquote>
+<p><strong>Пример</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">backgrounds</span><span class="p">:</span>
+    <span class="s2">&quot;bg band&quot;</span>
+    <span class="na">xoffset</span> <span class="mi">0</span>
+    <span class="k">block</span><span class="p">:</span>
+        <span class="n">linear</span> <span class="mi">1</span> <span class="na">xoffset</span> <span class="mi">10</span>
+        <span class="n">linear</span> <span class="mi">1</span> <span class="na">xoffset</span> <span class="mi">0</span>
+        <span class="k">repeat</span> <span class="c1"># control would never exit this block</span>
+
+    <span class="k">time</span> <span class="mf">2.0</span>
+    <span class="na">xoffset</span> <span class="mi">0</span>
+    <span class="s2">&quot;bg whitehouse&quot;</span>
+
+    <span class="k">time</span> <span class="mf">4.0</span>
+    <span class="s2">&quot;bg washington&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="event">
+<h4>Инструкция event<a class="headerlink" href="#event" title="Ссылка на этот заголовок"></a></h4>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">event</span></code> вызывает генерацию события с указанным именем.</p>
+<p><strong>Синтаксис</strong></p>
+<blockquote>
+<div><div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">event</span> <span class="o">&lt;</span><span class="n">event_name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Использование</strong></p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Имя</p></th>
+<th class="head"><p>Тип</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>event_name</p></td>
+<td><p>word</p></td>
+<td><p>Имя события для генерации</p></td>
+</tr>
+</tbody>
+</table>
+<p>Когда событие генерируется внутри блока, блок проверяется на наличие
+обработчика событий для данного имени. Если он существует, управление передаётся этому
+обработчику. В противном случае событие распространяется на любой содержащий
+его обработчик событий.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="external-atl-events">
+<span id="id11"></span><h3>Внешние события<a class="headerlink" href="#external-atl-events" title="Ссылка на этот заголовок"></a></h3>
+<p>Следующие события срабатывают автоматически внутри ATL-трансформа:</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">start</span></code></dt><dd><p>Псевдо-событие, срабатывает при входе в инструкцию <code class="docutils literal notranslate"><span class="pre">on</span></code>, если не произошло событие
+с более высоким приоритетом.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">show</span></code></dt><dd><p>Срабатывает, когда трансформ отображается с помощью инструкции <cite>show</cite> или <cite>scene</cite>, и
+изображение с указанным тегом не существует.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">replace</span></code></dt><dd><p>Срабатывает, когда трансформ отображается с помощью инструкции <code class="docutils literal notranslate"><span class="pre">show</span></code>, заменяя
+изображение с указанным тегом.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hide</span></code></dt><dd><p>Срабатывает, когда трансформ скрывается с помощью инструкции <code class="docutils literal notranslate"><span class="pre">hide</span></code> или её
+эквивалента в Python.</p>
+<p>Обратите внимание, что это событие не срабатывает, когда трансформ удаляется с помощью
+<a class="reference internal" href="displaying_images.html#scene-statement"><span class="std std-ref">инструкции scene</span></a> или при выходе из <a class="reference internal" href="label.html#context"><span class="std std-ref">контекста</span></a>, в котором
+он существует, например, при выходе из игрового меню.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">replaced</span></code></dt><dd><p>Срабатывает, когда трансформ заменяется другим. Изображение фактически не скроется
+до тех пор, пока ATL-блок не завершит свою работу.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hover</span></code>, <code class="docutils literal notranslate"><span class="pre">idle</span></code>, <code class="docutils literal notranslate"><span class="pre">selected_hover</span></code>, <code class="docutils literal notranslate"><span class="pre">selected_idle</span></code>, <code class="docutils literal notranslate"><span class="pre">insensitive</span></code>, <code class="docutils literal notranslate"><span class="pre">selected_insensitive</span></code></dt><dd><p>Срабатывает, когда кнопка, содержащая этот трансформ, или кнопка, содержащаяся
+в этом трансформе, переходит в указанное состояние.</p>
+</dd>
+</dl>
+</section>
+<section id="atl-partial">
+<span id="id12"></span><h3>Каррирование и частичная передача параметров в ATL<a class="headerlink" href="#atl-partial" title="Ссылка на этот заголовок"></a></h3>
+<p>Параметры ATL-трансформа, определённого с помощью <a class="reference internal" href="#transform-statement"><span class="std std-ref">инструкции transform</span></a>, можно задавать в разное время.
+При вызове ATL-трансформа как функции результирующее значение по-прежнему является трансформом,
+а параметры, которым было передано значение, рассматриваются так, как будто это значение является новым значением по умолчанию
+для параметра.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">screamer</span><span class="p">(</span><span class="na">child</span><span class="p">,</span> <span class="n">screamee</span><span class="p">,</span> <span class="n">wait_time</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">flash_time</span><span class="o">=</span><span class="mf">.1</span><span class="p">):</span>
+    <span class="na">child</span>
+    <span class="k">pause</span> <span class="n">wait_time</span>
+    <span class="n">screamee</span>
+    <span class="k">pause</span> <span class="n">flash_time</span>
+    <span class="na">child</span>
+
+<span class="c1"># doing this doesn&#39;t raise an error (it would if it were a Python function)</span>
+<span class="k">define</span> <span class="n">shorter_screamer</span> <span class="o">=</span> <span class="n">screamer</span><span class="p">(</span><span class="n">wait_time</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">define</span> <span class="n">eileen_excited_screamer</span> <span class="o">=</span> <span class="n">screamer</span><span class="p">(</span><span class="n">screamee</span><span class="o">=</span><span class="s2">&quot;eileen excited&quot;</span><span class="p">,</span> <span class="n">flash_time</span><span class="o">=</span><span class="mf">.2</span><span class="p">)</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="k">show</span> <span class="n">hhannahh</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">screamer</span><span class="p">(</span><span class="n">screamee</span><span class="o">=</span><span class="s2">&quot;hhannahh surprised&quot;</span><span class="p">,</span> <span class="n">wait_time</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="s2">&quot;Here is one way&quot;</span>
+
+    <span class="k">show</span> <span class="n">eileen</span> <span class="n">vhappy</span> <span class="k">at</span> <span class="n">eileen_excited_screamer</span>
+    <span class="s2">&quot;Here is another&quot;</span>
+
+    <span class="k">show</span> <span class="n">patricia</span> <span class="n">sad</span> <span class="k">at</span> <span class="n">eileen_excited_screamer</span><span class="p">(</span><span class="n">screamee</span><span class="o">=</span><span class="s2">&quot;patricia wow&quot;</span><span class="p">)</span>
+    <span class="s2">&quot;And you can also do this&quot;</span>
+</pre></div>
+</div>
+<p>Обратите внимание, что трансформ <code class="docutils literal notranslate"><span class="pre">shorter_screamer</span></code>, так же как и <code class="docutils literal notranslate"><span class="pre">screamer</span></code>,
+не может быть использован напрямую, как <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">eileen</span> <span class="pre">at</span> <span class="pre">screamer</span></code>, поскольку
+их параметрам <code class="docutils literal notranslate"><span class="pre">screamee</span></code> не было присвоено значение.</p>
+<p>Также обратите внимание, что, подобно меткам и экранам, значения по умолчанию для параметров трансформа,
+созданного непосредственно <a class="reference internal" href="#transform-statement"><span class="std std-ref">инструкцией transform</span></a>, будут вычислены в момент, когда
+трансформ <em>вызывается</em>, а не в момент, когда он <em>определяется</em>.</p>
+<p>Однако, у трансформа, полученного в результате вызова другого трансформа (например, <code class="docutils literal notranslate"><span class="pre">shorter_screamer</span></code>
+в примере выше, или также трансформ, применённый к <cite>patricia</cite>), все значения параметров
+по умолчанию уже вычислены. Это относится как к значениям, полученным из вычисления значений по умолчанию в исходном
+трансформе (например, параметр <cite>flash_time</cite> у <code class="docutils literal notranslate"><span class="pre">shorter_screamer</span></code> или
+<cite>wait_time</cite> у трансформа для <cite>patricia</cite>), так и к значениям, переданным ему
+при вызове ранее в строке (например, параметр <cite>wait_time</cite> у
+<code class="docutils literal notranslate"><span class="pre">shorter_screamer</span></code> или параметры <cite>screamee</cite> и <cite>flash_time</cite> у трансформа для <cite>patricia</cite>).</p>
+</section>
+<section id="child">
+<span id="atl-child-param"></span><h3>Специальный параметр Child<a class="headerlink" href="#child" title="Ссылка на этот заголовок"></a></h3>
+<p>Если у ATL-трансформа есть параметр с именем «child» и этот параметр получает значение,
+<strong>независимо от типа параметра или способа, которым он получает значение</strong>
+(позиционный аргумент или по ключевому слову, и даже если параметр является только
+позиционным или только ключевым, и с значением по умолчанию или обязательным),
+то параллельно дочерний элемент трансформа устанавливается равным значению этого параметра.</p>
+<p>Обратите внимание, что значение параметра по умолчанию не учитывается; параметр должен получить
+значение извне.</p>
+<p>И наоборот, когда этот ATL-трансформ используется как трансформ, будет передан
+именованный аргумент <code class="docutils literal notranslate"><span class="pre">child=</span></code>, и поэтому, в дополнение к установке дочернего элемента,
+если есть параметр для его приёма (исключая позиционные параметры, так как он
+передаётся по ключевому слову), он получит значение дочернего элемента
+при выполнении трансформа.</p>
+<p>Например, это позволяет переключаться между предоставленным дочерним элементом и другим
+отображаемым элементом:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">lucy_jump_scare</span><span class="p">(</span><span class="na">child</span><span class="p">):</span>
+    <span class="c1"># the child is implicitly set as the child of the transform</span>
+    <span class="k">pause</span> <span class="mi">5</span>
+
+    <span class="c1"># Jump scare</span>
+    <span class="s2">&quot;lucy mad&quot;</span>
+    <span class="k">pause</span> <span class="mf">.2</span>
+
+    <span class="c1"># Go back to the original child</span>
+    <span class="na">child</span>
+</pre></div>
+</div>
+<p>Это также можно использовать для размещения исходного дочернего элемента внутри блока <code class="docutils literal notranslate"><span class="pre">contains</span></code>:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">marquee</span><span class="p">(</span><span class="na">width</span><span class="p">,</span> <span class="na">height</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="na">child</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="na">xcenter</span> <span class="mf">0.5</span>
+    <span class="na">ycenter</span> <span class="mf">0.5</span>
+
+    <span class="na">crop</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+    <span class="k">contains</span><span class="p">:</span>
+        <span class="na">child</span>
+        <span class="na">xanchor</span> <span class="mf">0.0</span> <span class="na">xpos</span> <span class="mf">1.0</span>
+        <span class="n">linear</span> <span class="n">duration</span> <span class="na">xanchor</span> <span class="mf">1.0</span> <span class="na">xpos</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
+<p>Именованные параметры <cite>old_widget</cite> и <cite>new_widget</cite> (что означает, что они
+не должны быть только позиционными) имеют специальное применение в рамках
+<a class="reference internal" href="transitions.html#atl-transitions"><span class="std std-ref">ATL-переходов</span></a>.</p>
+</section>
+</section>
+<section id="warpers">
+<span id="id13"></span><h2>Варперы<a class="headerlink" href="#warpers" title="Ссылка на этот заголовок"></a></h2>
+<p>Варпер (warper) — это функция, которая может изменять количество времени, которое, по мнению инструкции интерполяции, прошло.
+Они определяются как функции от t до t', где t и t' — числа с плавающей запятой, при этом t
+изменяется от 0.0 до 1.0 в течение заданного промежутка времени. (Если продолжительность инструкции равна 0,
+то при её выполнении t равно 1.0.) t' должен начинаться с 0.0 и заканчиваться на 1.0, но может
+быть больше или меньше. По умолчанию определены следующие варперы.</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">pause</span></code></dt><dd><p>Пауза, затем скачок к новому значению. Если <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">==</span> <span class="pre">1.0</span></code>, то <code class="docutils literal notranslate"><span class="pre">t'</span> <span class="pre">=</span> <span class="pre">1.0</span></code>. В противном случае
+<code class="docutils literal notranslate"><span class="pre">t'</span> <span class="pre">=</span> <span class="pre">0.0</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">linear</span></code></dt><dd><p>Линейная интерполяция. <code class="docutils literal notranslate"><span class="pre">t'</span> <span class="pre">=</span> <span class="pre">t</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ease</span></code></dt><dd><p>Начинается медленно, ускоряется, затем замедляется. <code class="docutils literal notranslate"><span class="pre">t'</span> <span class="pre">=</span> <span class="pre">.5</span> <span class="pre">-</span> <span class="pre">math.cos(math.pi</span> <span class="pre">*</span> <span class="pre">t)</span> <span class="pre">/</span> <span class="pre">2.0</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">easein</span></code></dt><dd><p>Начинается быстро, затем замедляется. <code class="docutils literal notranslate"><span class="pre">t'</span> <span class="pre">=</span> <span class="pre">math.cos((1.0</span> <span class="pre">-</span> <span class="pre">t)</span> <span class="pre">*</span> <span class="pre">math.pi</span> <span class="pre">/</span> <span class="pre">2.0)</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">easeout</span></code></dt><dd><p>Начинается медленно, затем ускоряется. <code class="docutils literal notranslate"><span class="pre">t'</span> <span class="pre">=</span> <span class="pre">1.0</span> <span class="pre">-</span> <span class="pre">math.cos(t</span> <span class="pre">*</span> <span class="pre">math.pi</span> <span class="pre">/</span> <span class="pre">2.0)</span></code></p>
+</dd>
+</dl>
+<p>Кроме того, поддерживается большинство функций сглаживания Роберта Пеннера. Чтобы
+имена соответствовали приведённым выше, функции были немного переименованы.
+Графики этих стандартных функций можно найти на
+<a class="reference external" href="https://easings.net/">https://easings.net/</a>.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ren'Py Name</p></th>
+<th class="head"><p>easings.net Name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ease_back</p></td>
+<td><p>easeInOut_back</p></td>
+</tr>
+<tr class="row-odd"><td><p>ease_bounce</p></td>
+<td><p>easeInOut_bounce</p></td>
+</tr>
+<tr class="row-even"><td><p>ease_circ</p></td>
+<td><p>easeInOut_circ</p></td>
+</tr>
+<tr class="row-odd"><td><p>ease_cubic</p></td>
+<td><p>easeInOut_cubic</p></td>
+</tr>
+<tr class="row-even"><td><p>ease_elastic</p></td>
+<td><p>easeInOut_elastic</p></td>
+</tr>
+<tr class="row-odd"><td><p>ease_expo</p></td>
+<td><p>easeInOut_expo</p></td>
+</tr>
+<tr class="row-even"><td><p>ease_quad</p></td>
+<td><p>easeInOut_quad</p></td>
+</tr>
+<tr class="row-odd"><td><p>ease_quart</p></td>
+<td><p>easeInOut_quart</p></td>
+</tr>
+<tr class="row-even"><td><p>ease_quint</p></td>
+<td><p>easeInOut_quint</p></td>
+</tr>
+<tr class="row-odd"><td><p>easein_back</p></td>
+<td><p>easeOut_back</p></td>
+</tr>
+<tr class="row-even"><td><p>easein_bounce</p></td>
+<td><p>easeOut_bounce</p></td>
+</tr>
+<tr class="row-odd"><td><p>easein_circ</p></td>
+<td><p>easeOut_circ</p></td>
+</tr>
+<tr class="row-even"><td><p>easein_cubic</p></td>
+<td><p>easeOut_cubic</p></td>
+</tr>
+<tr class="row-odd"><td><p>easein_elastic</p></td>
+<td><p>easeOut_elastic</p></td>
+</tr>
+<tr class="row-even"><td><p>easein_expo</p></td>
+<td><p>easeOut_expo</p></td>
+</tr>
+<tr class="row-odd"><td><p>easein_quad</p></td>
+<td><p>easeOut_quad</p></td>
+</tr>
+<tr class="row-even"><td><p>easein_quart</p></td>
+<td><p>easeOut_quart</p></td>
+</tr>
+<tr class="row-odd"><td><p>easein_quint</p></td>
+<td><p>easeOut_quint</p></td>
+</tr>
+<tr class="row-even"><td><p>easeout_back</p></td>
+<td><p>easeIn_back</p></td>
+</tr>
+<tr class="row-odd"><td><p>easeout_bounce</p></td>
+<td><p>easeIn_bounce</p></td>
+</tr>
+<tr class="row-even"><td><p>easeout_circ</p></td>
+<td><p>easeIn_circ</p></td>
+</tr>
+<tr class="row-odd"><td><p>easeout_cubic</p></td>
+<td><p>easeIn_cubic</p></td>
+</tr>
+<tr class="row-even"><td><p>easeout_elastic</p></td>
+<td><p>easeIn_elastic</p></td>
+</tr>
+<tr class="row-odd"><td><p>easeout_expo</p></td>
+<td><p>easeIn_expo</p></td>
+</tr>
+<tr class="row-even"><td><p>easeout_quad</p></td>
+<td><p>easeIn_quad</p></td>
+</tr>
+<tr class="row-odd"><td><p>easeout_quart</p></td>
+<td><p>easeIn_quart</p></td>
+</tr>
+<tr class="row-even"><td><p>easeout_quint</p></td>
+<td><p>easeIn_quint</p></td>
+</tr>
+</tbody>
+</table>
+<p>Доступ к этим варперам можно получить через модуль <code class="docutils literal notranslate"><span class="pre">_warper</span></code>, доступный только для чтения, который
+содержит перечисленные выше функции. Это полезно для элементов Ren'Py, которые
+принимают функцию искажения времени, например, <a class="reference internal" href="transitions.html#Dissolve" title="Dissolve"><code class="xref py py-func docutils literal notranslate"><span class="pre">Dissolve()</span></code></a>, который
+можно использовать так:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">Dissolve</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">time_warp</span><span class="o">=</span><span class="n">_warper</span><span class="o">.</span><span class="n">easein_quad</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Новые варперы можно определить с помощью декоратора <code class="docutils literal notranslate"><span class="pre">renpy.atl_warper</span></code> в блоке <code class="docutils literal notranslate"><span class="pre">python</span>
+<span class="pre">early</span></code>. Он должен быть размещён в файле, который анализируется до любого файла,
+использующего этот варпер. Это выглядит так:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">python</span> <span class="n">early</span> <span class="k">hide</span><span class="p">:</span>
+
+    <span class="nd">@renpy</span><span class="o">.</span><span class="n">atl_warper</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">linear</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">t</span>
+</pre></div>
+</div>
+</section>
+<section id="replacing-transforms">
+<span id="id14"></span><h2>Замена трансформов<a class="headerlink" href="#replacing-transforms" title="Ссылка на этот заголовок"></a></h2>
+<p>Когда ATL-трансформ, встроенный трансформ или трансформ, определённый с помощью класса
+<a class="reference internal" href="#Transform" title="Transform"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transform</span></code></a>, заменяется другим трансформом из этих же категорий, свойства
+уходящего трансформа наследуются входящим трансформом.
+Это наследование не применяется для других видов трансформов.</p>
+<p>Когда <a class="reference internal" href="displaying_images.html#show-statement"><span class="std std-ref">инструкция show</span></a> имеет несколько трансформов в списке
+<code class="docutils literal notranslate"><span class="pre">at</span></code>, трансформы сопоставляются с конца к началу, пока один из списков не
+закончится. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span>
+<span class="s2">&quot;Dialogue !&quot;</span>
+<span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span>
+</pre></div>
+</div>
+<p>Трансформ <code class="docutils literal notranslate"><span class="pre">c</span></code> будет заменён на <code class="docutils literal notranslate"><span class="pre">e</span></code>, трансформ <code class="docutils literal notranslate"><span class="pre">b</span></code> будет заменён на
+<code class="docutils literal notranslate"><span class="pre">d</span></code>, а трансформ <code class="docutils literal notranslate"><span class="pre">a</span></code> ничто не заменит.</p>
+<p>В момент замены, если оба трансформа относятся к подходящим видам, значения
+свойств старого трансформа копируются в новый трансформ.
+Если старый трансформ был анимированным, наследуется его текущее промежуточное значение.
+Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">bounce</span><span class="p">:</span>
+    <span class="n">linear</span> <span class="mf">3.0</span> <span class="na">xalign</span> <span class="mf">1.0</span>
+    <span class="n">linear</span> <span class="mf">3.0</span> <span class="na">xalign</span> <span class="mf">0.0</span>
+    <span class="k">repeat</span>
+
+<span class="k">transform</span> <span class="n">headright</span><span class="p">:</span>
+    <span class="n">linear</span> <span class="mi">15</span> <span class="na">xalign</span> <span class="mf">1.0</span>
+
+<span class="k">label</span> <span class="n">example</span><span class="p">:</span>
+    <span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">bounce</span>
+    <span class="k">pause</span>
+    <span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">headright</span>
+    <span class="k">pause</span>
+</pre></div>
+</div>
+<p>В этом примере изображение будет отскакивать слева направо и обратно, пока
+игрок не кликнет. Когда это произойдёт, свойство <code class="docutils literal notranslate"><span class="pre">xalign</span></code> трансформа
+<code class="docutils literal notranslate"><span class="pre">bounce</span></code> будет использовано для инициализации свойства <code class="docutils literal notranslate"><span class="pre">xalign</span></code> трансформа
+<code class="docutils literal notranslate"><span class="pre">headright</span></code>, и таким образом изображение начнёт двигаться с того места, где оно находилось
+в момент клика.</p>
+<p>Свойства положения (<a class="reference internal" href="transform_properties.html#transform-property-xpos"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">xpos</span></code></a>, <a class="reference internal" href="transform_properties.html#transform-property-ypos"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">ypos</span></code></a>, <a class="reference internal" href="transform_properties.html#transform-property-xanchor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">xanchor</span></code></a>,
+<a class="reference internal" href="transform_properties.html#transform-property-yanchor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">yanchor</span></code></a> и свойства, их устанавливающие, такие как <a class="reference internal" href="transform_properties.html#transform-property-xalign"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">xalign</span></code></a> или
+<a class="reference internal" href="transform_properties.html#transform-property-radius"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">radius</span></code></a>/ <a class="reference internal" href="transform_properties.html#transform-property-angle"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">angle</span></code></a>) имеют особое правило наследования: значение, установленное
+в дочернем элементе, переопределит значение, установленное в родительском.
+Это связано с тем, что отображаемый элемент может иметь только одно положение, и
+активно установленное положение имеет приоритет.</p>
+<p>Наконец, когда инструкция <code class="docutils literal notranslate"><span class="pre">show</span></code> не включает в себя предложение <code class="docutils literal notranslate"><span class="pre">at</span></code>, используются
+те же трансформы, поэтому наследование не требуется. Чтобы сбросить все свойства
+трансформа, скройте, а затем снова покажите отображаемый элемент. Чтобы прервать анимации,
+применённые к отображаемому элементу (но сохранить положение), можно использовать:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">some_animation</span>
+<span class="s2">&quot;Wow, so this is what antigravity feels like !&quot;</span>
+
+<span class="k">show</span> <span class="n">eileen</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="s2">&quot;But I&#39;m happy when it settles down.&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="atl-timebases">
+<span id="id15"></span><h2>Временные базы<a class="headerlink" href="#atl-timebases" title="Ссылка на этот заголовок"></a></h2>
+<p>Существуют две временные базы, которые часто путают:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">st</span></code> (shown timebase, временная база показа): начинается, когда этот отображаемый элемент впервые появляется на экране.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">at</span></code> (animation timebase, временная база анимации): начинается, когда было показано изображение с тем же тегом, и с тех пор оно не скрывалось.</p></li>
+</ul>
+<p>Когда отображаемый элемент показывается без тега, <code class="docutils literal notranslate"><span class="pre">st</span></code> и <code class="docutils literal notranslate"><span class="pre">at</span></code> совпадают.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>По умолчанию трансформы используют <code class="docutils literal notranslate"><span class="pre">st</span></code>.
+Используйте <a class="reference internal" href="#animation-atl-statement"><span class="std std-ref">animation</span></a>, чтобы переключиться на <code class="docutils literal notranslate"><span class="pre">at</span></code>.</p>
+</div>
+</section>
+<section id="id16">
+<h2>Класс Transform<a class="headerlink" href="#id16" title="Ссылка на этот заголовок"></a></h2>
+<p>Одним из эквивалентов простейших ATL-трансформов является класс Transform.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Transform">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Transform" title="Ссылка на это определение"></a></dt>
+<dd><p>Создаёт трансформ, который применяет к своему дочернему элементу такие операции, как обрезка, вращение,
+масштабирование или альфа-смешение. Объект-трансформ имеет поля,
+соответствующие <a class="reference internal" href="transform_properties.html"><span class="doc">свойствам трансформа</span></a>,
+которые он применяет к своему дочернему элементу.</p>
+<dl class="simple">
+<dt><cite>child</cite></dt><dd><p>Дочерний элемент, к которому применяется трансформ.</p>
+</dd>
+<dt><cite>reset</cite></dt><dd><p>Если True, трансформ сбросит свойства до их значений по умолчанию при
+показе, вместо того чтобы наследовать эти свойства от заменяемых
+им трансформов.</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="Transform.function">
+<span class="sig-name descname"><span class="pre">function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trans</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#Transform" title="Transform"><span class="pre">Transform</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">st</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">at</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#Transform.function" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, эта функция будет вызываться при рендеринге трансформа с тремя
+позиционными аргументами:</p>
+<ul class="simple">
+<li><p>Объект-трансформ.</p></li>
+<li><p>Временная база показа, в секундах.</p></li>
+<li><p>Временная база анимации, в секундах.</p></li>
+</ul>
+<p>Функция должна возвращать задержку в секундах, по истечении которой она будет
+вызвана снова, или None, чтобы быть вызванной снова в начале следующей
+интеракции.</p>
+<p>Эта функция не должна иметь побочных эффектов, кроме изменения объекта Transform
+в первом аргументе, и может быть вызвана в любое время с любым значением
+в рамках предсказания.</p>
+</dd></dl>
+
+<p>Дополнительные именованные аргументы — это значения, которым присваиваются свойства
+трансформа. Эти конкретные свойства трансформа будут устанавливаться каждый раз
+при отрисовке трансформа, и поэтому их нельзя будет изменить после создания объекта Transform.
+Однако поля, соответствующие другим свойствам трансформа, можно устанавливать
+и изменять позже, либо внутри функции, переданной как параметр <cite>function</cite>,
+либо непосредственно перед вызовом метода <a class="reference internal" href="#Transform.update" title="Transform.update"><code class="xref py py-meth docutils literal notranslate"><span class="pre">update()</span></code></a>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Transform.hide_request">
+<span class="sig-name descname"><span class="pre">hide_request</span></span><a class="headerlink" href="#Transform.hide_request" title="Ссылка на это определение"></a></dt>
+<dd><p>Этот атрибут устанавливается в true, когда вызывается функция, чтобы указать,
+что трансформ скрывается.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Transform.hide_response">
+<span class="sig-name descname"><span class="pre">hide_response</span></span><a class="headerlink" href="#Transform.hide_response" title="Ссылка на это определение"></a></dt>
+<dd><p>Если <code class="docutils literal notranslate"><span class="pre">hide_request</span></code> равен true, этот атрибут можно установить в false,
+чтобы предотвратить скрытие трансформа.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Transform.original_child">
+<span class="sig-name descname"><span class="pre">original_child</span></span><a class="headerlink" href="#Transform.original_child" title="Ссылка на это определение"></a></dt>
+<dd><p>Это дочерний Displayable, который был установлен при создании трансформа, до любых вызовов set_child.
+Может быть None, если дочерний элемент не был установлен при создании.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Transform.set_child">
+<span class="sig-name descname"><span class="pre">set_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Transform.set_child" title="Ссылка на это определение"></a></dt>
+<dd><p>Вызовите этот метод с новым <cite>child</cite>, чтобы изменить дочерний элемент этого
+трансформа.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Transform.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Transform.update" title="Ссылка на это определение"></a></dt>
+<dd><p>Этот метод следует вызывать, когда поле свойства трансформа обновляется
+вне функции, переданной в качестве аргумента <cite>function</cite>, чтобы
+убедиться, что изменение вступило в силу.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">unique():</span></span></dt>
+<dd><p>Этот метод следует вызывать для только что созданного трансформа, чтобы пометить его как уникальный. Обычно
+трансформы копируются при добавлении к отображаемому элементу, сбрасывая состояние трансформа.
+Вызов этого метода предотвращает такое поведение и полезен, когда вы хотите создать
+трансформ, который сохраняет состояние между несколькими использованиями, или к которому необходимо
+обращаться извне его аргумента <cite>function</cite>.</p>
+<p>Эта функция возвращает Transform.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="python">
+<h2>Применение трансформов к отображаемым элементам в Python<a class="headerlink" href="#python" title="Ссылка на этот заголовок"></a></h2>
+<p>Существует несколько способов применить трансформ <code class="docutils literal notranslate"><span class="pre">t</span></code> к отображаемому элементу <code class="docutils literal notranslate"><span class="pre">d</span></code> в Python:</p>
+<ol class="arabic simple">
+<li><p>Самый универсальный и рекомендуемый способ — это <code class="docutils literal notranslate"><span class="pre">At(d,</span> <span class="pre">t)</span></code> (см. ниже). Он
+работает со всеми трансформами.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">d(child=t)</span></code> работает со всеми <a class="reference internal" href="#atl"><span class="std std-ref">ATL-трансформами</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t(d)</span></code> работает со всеми <a class="reference internal" href="#transforms-python"><span class="std std-ref">трансформами на Python</span></a>, а также
+с ATL-трансформами, у которых нет позиционных параметров.</p></li>
+</ol>
+<dl class="py function">
+<dt class="sig sig-object py" id="At">
+<span class="sig-name descname"><span class="pre">At</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#At" title="Ссылка на это определение"></a></dt>
+<dd><p>Для заданного displayable <cite>d</cite> применяет к нему каждую из трансформаций в <cite>args</cite>. Трансформации применяются в порядке слева направо, так что самая внешняя трансформация — это самый правый аргумент.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">birds_transform</span><span class="p">:</span>
+    <span class="na">xpos</span> <span class="o">-</span><span class="mi">200</span>
+    <span class="n">linear</span> <span class="mi">10</span> <span class="na">xpos</span> <span class="mi">800</span>
+    <span class="k">pause</span> <span class="mi">20</span>
+    <span class="k">repeat</span>
+
+<span class="k">image</span> <span class="n">birds</span> <span class="o">=</span> <span class="n">At</span><span class="p">(</span><span class="s2">&quot;birds.png&quot;</span><span class="p">,</span> <span class="n">birds_transform</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Результирующее значение может не отображаться, если у трансформа остались
+параметры, которым не было присвоено значение, как это может быть в случае с
+трансформами, определёнными с помощью <a class="reference internal" href="#transform-statement"><span class="std std-ref">инструкции transform</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Результирующее значение всё ещё может быть трансформом, который можно применить к
+другому отображаемому элементу (переопределяя его предыдущий дочерний элемент); так обстоит дело
+с ATL-трансформами, которые по-прежнему можно использовать как трансформы даже после
+установки их дочернего элемента.</p>
+</div>
+</section>
+<section id="transforms-python">
+<span id="id17"></span><h2>Вызываемые объекты как трансформы<a class="headerlink" href="#transforms-python" title="Ссылка на этот заголовок"></a></h2>
+<p>Наконец, простые вызываемые объекты Python можно использовать в качестве трансформов.
+Эти вызываемые объекты должны принимать один <a class="reference internal" href="displayables.html"><span class="doc">отображаемый элемент</span></a>
+в качестве аргумента и возвращать новый Displayable. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+
+    <span class="c1"># this transform uses the right and left transforms</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">right_or_left</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">switch</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">At</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">At</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">left</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Это означает, что некоторые встроенные функции, которые принимают отображаемый элемент и возвращают отображаемый элемент,
+такие как <a class="reference internal" href="displayables.html#Flatten" title="Flatten"><code class="xref py py-func docutils literal notranslate"><span class="pre">Flatten()</span></code></a>, также являются трансформами и могут использоваться в этом качестве.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="displayables.html" class="btn btn-neutral float-left" title="Displayables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="transform_properties.html" class="btn btn-neutral float-right" title="Свойства трансформации" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Самоозвучивание &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/self_voicing.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Шаблонные проекты" href="template_projects.html" />
+    <link rel="prev" title="Переменные окружения" href="environment_variables.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Самоозвучивание</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Синтез речи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Другие режимы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Задачи для создателя</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python">Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.alt"><code class="docutils literal notranslate"><span class="pre">renpy.alt()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Самоозвучивание</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/self_voicing.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="self-voicing">
+<span id="id1"></span><h1>Самоозвучивание<a class="headerlink" href="#self-voicing" title="Ссылка на этот заголовок"></a></h1>
+<p>Ren'Py поддерживает режим самоозвучивания, в котором используется синтезатор речи
+для чтения текста и других элементов интерфейса. Это предназначено для того, чтобы сделать
+игры на Ren'Py доступными для людей с нарушениями зрения.</p>
+<p>Режим самоозвучивания можно переключить нажатием клавиши <code class="docutils literal notranslate"><span class="pre">v</span></code>. Режимы самоозвучивания
+можно выбрать в меню специальных возможностей, которое открывается нажатием <code class="docutils literal notranslate"><span class="pre">Shift+A</span></code>.</p>
+<p>В режиме самоозвучивания навигация с клавиатуры изменяется таким образом, что
+клавиши со стрелками вверх и вниз перебирают все фокусируемые displayable-объекты
+на экране.</p>
+<p>Когда displayable-объект находится в фокусе, Ren'Py озвучивает текст, связанный с этим
+объектом. Если ни один displayable-объект не в фокусе, Ren'Py будет читать экранный
+текст, который не может быть сфокусирован. Обычно это включает диалоги и другой
+текст, составляющий игру.</p>
+<section id="id2">
+<h2>Синтез речи<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py полагается на операционную систему для предоставления услуг по
+синтезу речи. Чтобы настроить скорость синтеза речи и используемый голос,
+измените настройки речи вашей платформы.</p>
+<dl class="simple">
+<dt>Windows</dt><dd><p>В Windows Ren'Py использует Microsoft Speech API. Настройки синтеза речи
+можно изменить на вкладке &quot;Text to Speech&quot; панели управления &quot;Speech
+Recognition&quot;.</p>
+</dd>
+<dt>Mac OS X</dt><dd><p>В Mac OS X Ren'Py использует команду <code class="docutils literal notranslate"><span class="pre">say</span></code>. Настройки синтеза речи
+можно изменить на вкладке &quot;Text to Speech&quot; панели управления &quot;Dictation &amp; Speech&quot;.</p>
+</dd>
+<dt>Linux</dt><dd><p>В Linux Ren'Py использует команду <code class="docutils literal notranslate"><span class="pre">espeak</span></code>. Возможно, потребуется установить Espeak
+с помощью вашего пакетного менеджера, прежде чем режим самоозвучивания заработает.</p>
+</dd>
+<dt>Android, iOS, Chrome OS</dt><dd><p>Эти платформы используют встроенные службы преобразования текста в речь.</p>
+</dd>
+<dt>Web</dt><dd><p>Здесь используется Web Speech API, который поддерживается современными браузерами.</p>
+</dd>
+</dl>
+<p>Голос по умолчанию можно выбрать для каждой платформы, используя
+переменную <a class="reference internal" href="config.html#var-config.tts_voice"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.tts_voice</span></code></a>. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+
+    <span class="k">if</span> <span class="n">renpy</span><span class="o">.</span><span class="n">windows</span><span class="p">:</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">tts_voice</span> <span class="o">=</span> <span class="s2">&quot;Mark&quot;</span>
+    <span class="k">elif</span> <span class="n">renpy</span><span class="o">.</span><span class="n">macintosh</span><span class="p">:</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">tts_voice</span> <span class="o">=</span> <span class="s2">&quot;Alex&quot;</span>
+    <span class="k">elif</span> <span class="n">renpy</span><span class="o">.</span><span class="n">linux</span><span class="p">:</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">tts_voice</span> <span class="o">=</span> <span class="s2">&quot;english_rp&quot;</span>
+</pre></div>
+</div>
+<p>Доступные голоса зависят от платформы.</p>
+</section>
+<section id="id3">
+<h2>Другие режимы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Существуют два других режима, связанных с самоозвучиванием.</p>
+<dl>
+<dt>Clipboard (Буфер обмена)</dt><dd><p>Режим буфера обмена можно переключить нажатием Shift+C. В этом
+режиме текст копируется в буфер обмена вместо воспроизведения
+через TTS. Это можно использовать со скринридерами или другими вспомогательными
+технологиями, которые представят содержимое буфера обмена пользователю.</p>
+<p>Это также может быть полезно для программ-переводчиков, которые могут считывать из
+буфера обмена.</p>
+</dd>
+<dt>Debug (Отладка)</dt><dd><p>Режим отладки можно переключить нажатием Shift+Alt+V. В режиме отладки
+текст, который должен быть озвучен, отображается на экране, чтобы помочь
+в разработке.</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h2>Задачи для создателя<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<p>Самоозвучивание в Ren'Py работает путем извлечения текста из displayable-объектов и
+зачитывания его игроку. Ren'Py извлекает этот текст из нескольких мест.</p>
+<dl>
+<dt>Текстовые displayable-объекты</dt><dd><p>Ren'Py извлечет текст из displayable-объекта Text и сделает его
+доступным для чтения игроку.</p>
+</dd>
+<dt>Альтернативный текст</dt><dd><p>Альтернативный текст предоставляется через стилевое свойство displayable-объекта <a class="reference internal" href="style_properties.html#style-property-alt"><code class="xref std std-propref docutils literal notranslate"><span class="pre">alt</span></code></a>.
+Он также может быть предоставлен экземплярами классов <a class="reference internal" href="screen_python.html#Action" title="Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a>
+и <a class="reference internal" href="screen_python.html#BarValue" title="BarValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">BarValue</span></code></a>.
+Явно предоставленный альтернативный текст имеет приоритет над текстом,
+предоставляемым Action или BarValues, и оба имеют приоритет над
+текстом, извлеченным из текстовых displayable-объектов.</p>
+<p>Альтернативный текст переводится с помощью механизма строкового перевода
+Ren'Py. Альтернативный текст имеет приоритет над текстом, извлеченным
+из displayable-объекта и его дочерних элементов, но такой дочерний текст доступен
+через строковую подстановку &quot;[text]&quot;. Другие строковые подстановки
+не допускаются.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">screen</span> <span class="n">information</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">planet</span><span class="p">,</span> <span class="n">badness</span><span class="p">):</span>
+    <span class="k">text</span> <span class="n">message</span><span class="p">:</span>
+        <span class="na">color</span> <span class="n">color_from_badness</span><span class="p">(</span><span class="n">badness</span><span class="p">)</span>
+        <span class="na">alt</span> <span class="s2">&quot;Information for you : [text]. Badness is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">badness</span><span class="p">)</span>
+
+    <span class="k">text</span> <span class="s2">&quot;ORIGIN_OF_MESSAGE_{color=#f00}[planet!u]{/color}&quot;</span><span class="p">:</span>
+        <span class="na">alt</span> <span class="s2">&quot;Origin of message is &quot;</span> <span class="o">+</span> <span class="n">planet</span>
+</pre></div>
+</div>
+<p>В приведенном выше примере переменные <code class="docutils literal notranslate"><span class="pre">badness</span></code> и <code class="docutils literal notranslate"><span class="pre">planet</span></code>
+не могут быть подставлены напрямую с помощью &quot;[badness]&quot;. Конкатенация
+вручную является решением.</p>
+<p>Указание параметров <cite>who_alt</cite> и <cite>what_alt</cite> для Character
+устанавливает стилевое свойство alt для имени персонажа и основного текста
+соответственно. В качестве примера мы определяем Character, который использует курсив
+для обозначения мыслей в обычном режиме, но явно указывает на мысли
+через самоозвучивание:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">thought</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">what_italic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">what_alt</span><span class="o">=</span><span class="s2">&quot;I think, [text]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>В экранах displayable-объектам может быть присвоено свойство <a class="reference internal" href="screens.html#screen-property-group_alt"><code class="xref std std-scpref docutils literal notranslate"><span class="pre">group_alt</span></code></a>,
+которое используется для задания группового префикса, озвучиваемого при первом фокусе на
+displayable-объекте с таким же префиксом группы, но не будет озвучиваться снова, пока не будет
+сфокусирован displayable-объект с другим префиксом группы.</p>
+<p>Displayable-объектам также может быть присвоено свойство <a class="reference internal" href="screens.html#screen-property-extra_alt"><code class="xref std std-scpref docutils literal notranslate"><span class="pre">extra_alt</span></code></a>, которое озвучивается
+при нажатии клавиши '?' во время фокуса на displayable-объекте. Это предназначено
+для более подробной информации о том, как работает группа элементов управления.</p>
+</dd>
+<dt>Описательный текст</dt><dd><p>Описательный текст — это текст, который отображается (и озвучивается) рассказчиком, если
+включено самоозвучивание. Текст не отображается, если самоозвучивание отключено.
+Текст для самоозвучивания использует переменную <a class="reference internal" href="#var-alt"><code class="xref std std-var docutils literal notranslate"><span class="pre">alt</span></code></a>, которая определена
+по аналогии с персонажем.</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-alt">
+<span class="sig-name descname"><span class="pre">alt</span></span> <span class="pre">=</span> <span class="pre">...</span><a class="headerlink" href="#var-alt" title="Ссылка на это определение"></a></dt>
+<dd><p>Объект, подобный персонажу, который использует рассказчика для озвучивания текста, если
+включено самоозвучивание.</p>
+</dd></dl>
+
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="s2">&quot;Hang on, this is gonna be a bumpy ride!&quot;</span>
+
+<span class="na">alt</span> <span class="s2">&quot;And then the sun exploded...&quot;</span>
+
+<span class="c1"># A complex and exciting cut scene.</span>
+<span class="k">show</span> <span class="k">event</span> <span class="n">sun_exploding</span>
+<span class="k">pause</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>Существует переменная, управляющая описательным текстом:</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config.descriptive_text_character">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">config.descriptive_text_character</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-config.descriptive_text_character" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это должен быть объект персонажа, который используется для
+отображения описательного текста вместо рассказчика.</p>
+</dd></dl>
+
+</dd>
+</dl>
+<p>Переменная <a class="reference internal" href="config.html#var-config.tts_substitutions"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.tts_substitutions</span></code></a> может быть использована для замены
+слов в озвучиваемом тексте для лучшего контроля произношения. Переменная
+<a class="reference internal" href="config.html#var-config.tts_voice"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.tts_voice</span></code></a> может быть использована для выбора голоса для
+озвучивания текста из голосов, доступных на платформе.</p>
+<p>Режим отладки самоозвучивания можно включить, набрав Shift+Alt+V. Это
+отобразит на экране текст, который был бы озвучен, для целей разработки.</p>
+</section>
+<section id="python">
+<h2>Python<a class="headerlink" href="#python" title="Ссылка на этот заголовок"></a></h2>
+<p>Следующие функции предоставляются системой самоозвучивания:</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.alt">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">alt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.alt" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта функция ставит строку <cite>s</cite> в очередь для произнесения. Если <cite>translate</cite> равно true, строка
+будет переведена перед произнесением. Если <cite>force</cite> равно true, строка
+будет произнесена, даже если самоозвучивание отключено.</p>
+<p>Это предназначено для целей доступности и не должно использоваться
+для игровых целей.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="environment_variables.html" class="btn btn-neutral float-left" title="Переменные окружения" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="template_projects.html" class="btn btn-neutral float-right" title="Шаблонные проекты" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

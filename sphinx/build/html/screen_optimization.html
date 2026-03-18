@@ -1,0 +1,886 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Оптимизация языка экранов &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/screen_optimization.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Configuration Variables" href="config.html" />
+    <link rel="prev" title="Специальные имена экранов" href="screen_special.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Оптимизация языка экранов</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Список параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Предсказание</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Повторное использование отображаемых объектов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Константные выражения и чистые функции</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Определения</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Как константы оптимизируют язык экранов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#const-text">Константный текст</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Константные функции</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#renpy.const"><code class="docutils literal notranslate"><span class="pre">renpy.const()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#renpy.not_const"><code class="docutils literal notranslate"><span class="pre">renpy.not_const()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#renpy.pure"><code class="docutils literal notranslate"><span class="pre">renpy.pure()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">Профилирование</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.profile_screen"><code class="docutils literal notranslate"><span class="pre">renpy.profile_screen</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#const-names">Константные имена</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pure-names">Чистые имена</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Оптимизация языка экранов</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/screen_optimization.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Оптимизация языка экранов<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Ren'Py использует ряд техник для оптимизации скорости языка экранов.
+При использовании Ren'Py для создания сложных интерфейсов, например,
+для симуляторов, полезно понимать, как работает язык экранов, чтобы
+достичь максимальной производительности.</p>
+<p>Это руководство применимо ко второй реализации языка экранов, которая
+была добавлена в Ren'Py 6.18. Если ваша игра была создана в Ren'Py 6.17
+или ранее, может потребоваться выбрать опцию &quot;Force Recompile&quot;
+(Принудительная перекомпиляция) в лаунчере, чтобы обеспечить
+обновление её экранов до последней версии.</p>
+<p>Это руководство не заменяет хорошие практики программирования. Если
+экран использует вложенные циклы для выполнения большого количества
+непродуктивной работы, он будет медленнее, чем экран, который избегает
+таких циклов. Хотя понимание техник из этого руководства важно, полное
+избегание лишней работы всегда лучше, чем позволять Ren'Py
+оптимизировать работу за вас.</p>
+<section id="id2">
+<h2>Список параметров<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Для лучшей производительности все экраны должны быть определены со списком
+параметров. Когда экран не принимает параметров, он должен быть определен
+с пустым списком параметров. Этот экран:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">screen</span> <span class="n">test</span><span class="p">():</span>
+    <span class="k">vbox</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="na">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="k">text</span> <span class="s2">&quot;[i]&quot;</span>
+</pre></div>
+</div>
+<p>быстрее, чем этот:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">screen</span> <span class="n">test</span><span class="p">:</span>
+    <span class="k">vbox</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="na">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="k">text</span> <span class="s2">&quot;[i]&quot;</span>
+</pre></div>
+</div>
+<p>Когда экран определяется без списка параметров, любое имя, используемое
+в этом экране, может быть переопределено при его показе. Это требует от
+Ren'Py быть более консервативным при анализе экрана, что может
+ограничить выполняемую оптимизацию.</p>
+</section>
+<section id="id3">
+<h2>Предсказание<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Экраны работают лучше, когда они предсказаны заранее. Это потому,
+что Ren'Py выполнит код экрана во время предсказания и загрузит
+изображения, используемые экраном.</p>
+<p>Существует два способа, которыми Ren'Py автоматически предсказывает экраны:</p>
+<ul class="simple">
+<li><p>Ren'Py будет предсказывать экраны, показанные операторами
+<code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">screen</span></code> и <code class="docutils literal notranslate"><span class="pre">call</span> <span class="pre">screen</span></code>.</p></li>
+<li><p>Ren'Py будет предсказывать экраны, которые будут показаны
+действиями <a class="reference internal" href="screen_actions.html#Show" title="Show"><code class="xref py py-func docutils literal notranslate"><span class="pre">Show()</span></code></a> и <a class="reference internal" href="screen_actions.html#ShowMenu" title="ShowMenu"><code class="xref py py-func docutils literal notranslate"><span class="pre">ShowMenu()</span></code></a>.</p></li>
+</ul>
+<p>Если экраны показываются из Python, хорошей практикой является начать
+предсказание экрана до того, как он будет показан. Чтобы начать
+предсказание экрана, используйте функцию
+<a class="reference internal" href="screen_python.html#renpy.start_predict_screen" title="renpy.start_predict_screen"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.start_predict_screen()</span></code></a>. Чтобы остановить предсказание
+экрана, используйте функцию <a class="reference internal" href="screen_python.html#renpy.stop_predict_screen" title="renpy.stop_predict_screen"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.stop_predict_screen()</span></code></a>.</p>
+</section>
+<section id="id4">
+<h2>Повторное использование отображаемых объектов<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<p>При вычислении оператора языка экранов, который создает отображаемый
+объект (displayable), Ren'Py проверяет, равны ли позиционные аргументы
+и свойства, переданные этому объекту, позиционным аргументам и
+свойствам, переданным при последнем вычислении этого оператора.
+Если они равны, вместо создания нового отображаемого объекта, Ren'Py
+повторно использует существующий.</p>
+<p>Повторное использование отображаемых объектов имеет ряд преимуществ для
+производительности. Это экономит затраты на создание нового объекта,
+что может быть значительно для объектов с большим количеством
+внутренних состояний. Что еще важнее, повторное использование
+отображаемого объекта означает, что во многих случаях Ren'Py не нужно
+будет повторно отрисовывать объект перед его показом пользователю, что
+может привести к еще одному значительному ускорению.</p>
+<p>Для сравнения позиционных аргументов и свойств Ren'Py использует понятие
+равенства, воплощенное оператором == в Python. Мы расширили это понятие
+равенства на действия, решив, что два действия должны быть равны, когда
+они неотличимы друг от друга — когда не имеет значения, какое действие
+вызывается или какое действие опрашивается для определения
+чувствительности (sensitivity) или выбранности (selectedness).</p>
+<p>Все действия, поставляемые с Ren'Py, соответствуют этому определению.
+При определении собственных действий имеет смысл обеспечить их этим
+понятием равенства. Это можно сделать, предоставив соответствующий
+метод <code class="docutils literal notranslate"><span class="pre">__eq__</span></code>. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">TargetShip</span><span class="p">(</span><span class="n">Action</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ship</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ship</span> <span class="o">=</span> <span class="n">ship</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="k">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">TargetShip</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ship</span> <span class="k">is</span> <span class="n">other</span><span class="o">.</span><span class="n">ship</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">global</span> <span class="n">target</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ship</span>
+</pre></div>
+</div>
+<p>Важно определять функцию <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> аккуратно, убедившись, что она
+сравнивает все поля и использует сравнение по значению (==) и по
+ссылке (is) соответствующим образом.</p>
+</section>
+<section id="id5">
+<h2>Константные выражения и чистые функции<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py может использовать свойства константных переменных и чистых
+функций для повышения скорости вычисления экранов и полного исключения
+вычисления некоторых их частей.</p>
+<section id="id6">
+<h3>Определения<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h3>
+<p>Выражение является <strong>const</strong> (сокращение от constant — константа),
+если оно всегда представляет одно и то же значение при вычислении.
+Для целей Ren'Py выражение является константным тогда и только тогда,
+когда следующие выражения всегда вычисляются в одно и то же
+константное значение или не определены:</p>
+<ul class="simple">
+<li><p>Применение любого унарного, бинарного или тернарного оператора
+к выражению, при условии, что другие операнды также являются
+константными.</p></li>
+<li><p>Доступ к полю выражения.</p></li>
+<li><p>Индексирование выражения, будь то с помощью числа или объекта.</p></li>
+</ul>
+<p>Числа и строки Python являются константными, так же как и литералы
+list, tuple, set и dict, у которых все компоненты константны. Ren'Py
+помечает переменные, определенные с помощью оператора <code class="docutils literal notranslate"><span class="pre">define</span></code>, как
+константные. Функции <a class="reference internal" href="#renpy.const" title="renpy.const"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.const()</span></code></a> и <a class="reference internal" href="#renpy.not_const" title="renpy.not_const"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.not_const()</span></code></a>
+могут быть использованы для дальнейшего контроля того, что Ren'Py
+считает константным. Список константных имен по умолчанию приведен
+в разделе <a class="reference internal" href="#const-names"><span class="std std-ref">Const Names</span></a> ниже.</p>
+<p>Если у вас есть переменная, которая никогда не будет меняться, имеет
+смысл использовать <code class="docutils literal notranslate"><span class="pre">define</span></code> как для ее определения, так и для
+объявления ее константной. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">GRID_WIDTH</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="k">define</span> <span class="n">GRID_HEIGHT</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>Вызываемая функция, класс или действие являются <strong>чистыми</strong> (pure),
+если при передаче константных значений в качестве всех своих аргументов
+они всегда возвращают одно и то же константное значение.
+Альтернативно, выражение, вызывающее чистую функцию с константными
+аргументами, также является константным выражением.</p>
+<p>Большое количество стандартных функций, классов и действий помечены
+как чистые. Эти функции перечислены в разделе
+<a class="reference internal" href="#pure-names"><span class="std std-ref">Pure Names</span></a> ниже.</p>
+<p>Функции объявляются чистыми с помощью функции <a class="reference internal" href="#renpy.pure" title="renpy.pure"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.pure()</span></code></a>,
+которую можно использовать как декоратор для функций, объявленных
+в хранилище по умолчанию (default store).</p>
+<p>Константные выражения и чистые функции не обязаны сохранять одно и то
+же значение после следующих событий:</p>
+<ul class="simple">
+<li><p>Конец фазы init.</p></li>
+<li><p>Смена языка.</p></li>
+<li><p>Перестройка стилей.</p></li>
+</ul>
+</section>
+<section id="id7">
+<h3>Как константы оптимизируют язык экранов<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h3>
+<p>Существует три преимущества в обеспечении константности аргументов и
+свойств языка экранов.</p>
+<p>Во-первых, константные аргументы и свойства вычисляются при подготовке
+экранов, то есть в конце фазы init, при смене языка или при
+перестройке стилей. После этого больше не нужно тратить время на
+вычисление константных аргументов и свойств.</p>
+<p>Во-вторых, константы хорошо сочетаются с повторным использованием
+отображаемых объектов. Когда все аргументы и свойства отображаемого
+объекта константны, его всегда можно повторно использовать, что дает
+все преимущества такого подхода.</p>
+<p>Наконец, когда Ren'Py встречает дерево отображаемых объектов, у
+которого все аргументы, свойства и выражения, влияющие на поток
+управления, также константны, Ren'Py повторно использует все дерево,
+не вычисляя выражений и не создавая отображаемых объектов. Это может
+дать значительный прирост производительности.</p>
+<p>Например, следующий экран не выполняет никакого Python-кода и не
+создает никаких отображаемых объектов после первого его предсказания
+или показа:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">screen</span> <span class="n">mood_picker</span><span class="p">():</span>
+    <span class="k">hbox</span><span class="p">:</span>
+        <span class="na">xalign</span> <span class="mf">1.0</span>
+        <span class="na">yalign</span> <span class="mf">0.0</span>
+
+        <span class="k">textbutton</span> <span class="s2">&quot;Happy&quot;</span> <span class="na">action</span> <span class="n">SetVariable</span><span class="p">(</span><span class="s2">&quot;mood&quot;</span><span class="p">,</span> <span class="s2">&quot;happy&quot;</span><span class="p">)</span>
+        <span class="k">textbutton</span> <span class="s2">&quot;Sad&quot;</span> <span class="na">action</span> <span class="n">SetVariable</span><span class="p">(</span><span class="s2">&quot;mood&quot;</span><span class="p">,</span> <span class="s2">&quot;sad&quot;</span><span class="p">)</span>
+        <span class="k">textbutton</span> <span class="s2">&quot;Angry&quot;</span> <span class="na">action</span> <span class="n">SetVariable</span><span class="p">(</span><span class="s2">&quot;mood&quot;</span><span class="p">,</span> <span class="s2">&quot;angry&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="const-text">
+<span id="id8"></span><h3>Константный текст<a class="headerlink" href="#const-text" title="Ссылка на этот заголовок"></a></h3>
+<p>При определении текста обратите внимание, что строки, содержащие
+подстановки текста нового стиля, являются константными:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">$</span> <span class="n">t</span> <span class="o">=</span> <span class="s2">&quot;Hello, world.&quot;</span>
+<span class="k">text</span> <span class="s2">&quot;[t]&quot;</span>
+</pre></div>
+</div>
+<p>Прямая передача переменной, содержащей текст, как правило, не является
+константной:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">$</span> <span class="n">t</span> <span class="o">=</span> <span class="s2">&quot;Hello, world.&quot;</span>
+<span class="k">text</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>То же самое касается использования процентной подстановки:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">$</span> <span class="n">t</span> <span class="o">=</span> <span class="s2">&quot;Hello, world.&quot;</span>
+<span class="k">text</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Наконец, обратите внимание, что функция перевода текста _ является
+чистой, поэтому если она содержит строку, все выражение является
+константным:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">text</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Your score is: [score]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Если переменная, содержащая текст, содержит подстановку, необходимо
+использовать флаг преобразования <code class="docutils literal notranslate"><span class="pre">!i</span></code>:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">$</span> <span class="n">who</span> <span class="o">=</span> <span class="s2">&quot;Jane&quot;</span>
+<span class="k">$</span> <span class="n">t</span> <span class="o">=</span> <span class="s2">&quot;Hello, [who]!&quot;</span>
+<span class="k">text</span> <span class="s1">&#39;Then I told her, &quot;[t!i]&quot;&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h3>Константные функции<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.const">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">const</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.const" title="Ссылка на это определение"></a></dt>
+<dd><p>Объявляет переменную в хранилище (store) константой.</p>
+<p>Переменная является константой, если ничто не может изменить ее значение или любое значение, доступное через индексацию или обращение к ее атрибутам. Переменные должны оставаться константными вне блоков <cite>define</cite>, <cite>init</cite> и <cite>translate python</cite>.</p>
+<dl class="simple">
+<dt><cite>name</cite></dt><dd><p>Строка, содержащая имя переменной, которую нужно объявить константой.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.not_const">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">not_const</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.not_const" title="Ссылка на это определение"></a></dt>
+<dd><p>Объявляет имя в хранилище (store) неконстантным.</p>
+<p>Отменяет эффект вызовов <a class="reference internal" href="#renpy.const" title="renpy.const"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.const()</span></code></a> и <a class="reference internal" href="#renpy.pure" title="renpy.pure"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.pure()</span></code></a>.</p>
+<dl class="simple">
+<dt><cite>name</cite></dt><dd><p>Имя, которое нужно объявить неконстантным.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.pure">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">pure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.pure" title="Ссылка на это определение"></a></dt>
+<dd><p>Объявляет функцию чистой (pure). Чистая функция должна всегда возвращать одно и то же значение при вызове с одними и теми же аргументами вне блоков <cite>define</cite>, <cite>init</cite> и <cite>translate python</cite>.</p>
+<dl class="simple">
+<dt><cite>fn</cite></dt><dd><p>Имя функции, которую нужно объявить чистой. Это может быть либо строка с именем функции, либо сама функция. Если передается строка, и функция находится внутри модуля, эта строка должна содержать имя модуля с точкой.</p>
+</dd>
+</dl>
+<p>Возвращает <cite>fn</cite>, что позволяет использовать эту функцию как декоратор.</p>
+</dd></dl>
+
+</section>
+</section>
+<section id="id10">
+<h2>Профилирование<a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py поддерживает профилирование выполнения экранов с помощью функции
+<code class="docutils literal notranslate"><span class="pre">renpy.profile_screen</span></code>:</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="renpy.profile_screen">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">profile_screen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">const</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.profile_screen" title="Ссылка на это определение"></a></dt>
+<dd><p>Запрашивает профилирование экрана с именем <cite>name</cite>, которое
+должно быть строкой.</p>
+<p>За исключением <cite>name</cite>, все аргументы должны передаваться как именованные.
+Эта функция принимает три группы аргументов.</p>
+<p>Первая группа аргументов определяет, когда происходит профилирование.</p>
+<dl class="simple">
+<dt><cite>predict</cite></dt><dd><p>Если true, профилирование происходит, когда экран предсказывается.</p>
+</dd>
+<dt><cite>show</cite></dt><dd><p>Если true, профилирование происходит, когда экран показывается впервые.</p>
+</dd>
+<dt><cite>update</cite></dt><dd><p>Если true, профилирование происходит, когда экран обновляется.</p>
+</dd>
+<dt><cite>request</cite></dt><dd><p>Если true, профилирование происходит по запросу при нажатии F8.</p>
+</dd>
+</dl>
+<p>Вторая группа аргументов управляет тем, какой вывод профилирования
+создается при профилировании.</p>
+<dl>
+<dt><cite>time</cite></dt><dd><p>Если true, Ren'Py запишет в лог количество времени, затраченное на вычисление
+экрана.</p>
+</dd>
+<dt><cite>debug</cite></dt><dd><p>Если true, Ren'Py запишет в лог информацию о том, как вычисляются экраны,
+включая:</p>
+<ul class="simple">
+<li><p>Какие displayable Ren'Py считает константными.</p></li>
+<li><p>Какие аргументы, если таковые имеются, требовали вычисления.</p></li>
+<li><p>Какие displayable были повторно использованы.</p></li>
+</ul>
+<p>Создание и сохранение этой отладочной информации занимает заметное
+количество времени, поэтому вывод <cite>time</cite> не следует считать
+надежным, если установлен <cite>debug</cite>.</p>
+</dd>
+</dl>
+<p>Последняя группа аргументов управляет тем, какой вывод создается один раз
+за запуск Ren'Py.</p>
+<dl class="simple">
+<dt><cite>const</cite></dt><dd><p>Отображает переменные на экране, которые помечены как const и
+не-const.</p>
+</dd>
+</dl>
+<p>Весь вывод профилирования будет записан в файл profile_screen.txt в
+директории игры.</p>
+</dd></dl>
+
+</section>
+<section id="const-names">
+<span id="id11"></span><h2>Константные имена<a class="headerlink" href="#const-names" title="Ссылка на этот заголовок"></a></h2>
+<p>Следующие имена по умолчанию являются константными.</p>
+<ul class="simple">
+<li><p>False</p></li>
+<li><p>None</p></li>
+<li><p>True</p></li>
+<li><p><code class="xref std std-var docutils literal notranslate"><span class="pre">config</span></code></p></li>
+<li><p><a class="reference internal" href="namespaces.html#var-style"><code class="xref std std-var docutils literal notranslate"><span class="pre">style</span></code></a></p></li>
+</ul>
+</section>
+<section id="pure-names">
+<span id="id12"></span><h2>Чистые имена<a class="headerlink" href="#pure-names" title="Ссылка на этот заголовок"></a></h2>
+<p>Следующие имена по умолчанию являются и чистыми, и константными.</p>
+<ul class="simple">
+<li><p>ADVCharacter</p></li>
+<li><p>ADVSpeaker</p></li>
+<li><p><a class="reference internal" href="screen_actions.html#AddToSet" title="AddToSet"><code class="xref py py-func docutils literal notranslate"><span class="pre">AddToSet()</span></code></a></p></li>
+<li><p>Alpha</p></li>
+<li><p><a class="reference internal" href="displayables.html#AlphaBlend" title="AlphaBlend"><code class="xref py py-func docutils literal notranslate"><span class="pre">AlphaBlend()</span></code></a></p></li>
+<li><p><a class="reference internal" href="transitions.html#AlphaDissolve" title="AlphaDissolve"><code class="xref py py-func docutils literal notranslate"><span class="pre">AlphaDissolve()</span></code></a></p></li>
+<li><p><a class="reference internal" href="displayables.html#AlphaMask" title="AlphaMask"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlphaMask</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#AnimatedValue" title="AnimatedValue"><code class="xref py py-func docutils literal notranslate"><span class="pre">AnimatedValue()</span></code></a></p></li>
+<li><p>Animation</p></li>
+<li><p><a class="reference internal" href="transforms.html#At" title="At"><code class="xref py py-func docutils literal notranslate"><span class="pre">At()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#AudioPositionValue" title="AudioPositionValue"><code class="xref py py-func docutils literal notranslate"><span class="pre">AudioPositionValue()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Call" title="Call"><code class="xref py py-func docutils literal notranslate"><span class="pre">Call()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#CaptureFocus" title="CaptureFocus"><code class="xref py py-func docutils literal notranslate"><span class="pre">CaptureFocus()</span></code></a></p></li>
+<li><p><a class="reference internal" href="dialogue.html#Character" title="Character"><code class="xref py py-func docutils literal notranslate"><span class="pre">Character()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#ClearFocus" title="ClearFocus"><code class="xref py py-func docutils literal notranslate"><span class="pre">ClearFocus()</span></code></a></p></li>
+<li><p><a class="reference internal" href="color_class.html#Color" title="Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a></p></li>
+<li><p><a class="reference internal" href="transitions.html#ComposeTransition" title="ComposeTransition"><code class="xref py py-func docutils literal notranslate"><span class="pre">ComposeTransition()</span></code></a></p></li>
+<li><p><a class="reference internal" href="displayables.html#ConditionSwitch" title="ConditionSwitch"><code class="xref py py-func docutils literal notranslate"><span class="pre">ConditionSwitch()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Confirm" title="Confirm"><code class="xref py py-func docutils literal notranslate"><span class="pre">Confirm()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Continue" title="Continue"><code class="xref py py-func docutils literal notranslate"><span class="pre">Continue()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#CopyToClipboard" title="CopyToClipboard"><code class="xref py py-func docutils literal notranslate"><span class="pre">CopyToClipboard()</span></code></a></p></li>
+<li><p><a class="reference internal" href="transitions.html#CropMove" title="CropMove"><code class="xref py py-func docutils literal notranslate"><span class="pre">CropMove()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#CycleDict" title="CycleDict"><code class="xref py py-func docutils literal notranslate"><span class="pre">CycleDict()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#CycleField" title="CycleField"><code class="xref py py-func docutils literal notranslate"><span class="pre">CycleField()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#CycleScreenVariable" title="CycleScreenVariable"><code class="xref py py-func docutils literal notranslate"><span class="pre">CycleScreenVariable()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#CycleVariable" title="CycleVariable"><code class="xref py py-func docutils literal notranslate"><span class="pre">CycleVariable()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#DictInputValue" title="DictInputValue"><code class="xref py py-func docutils literal notranslate"><span class="pre">DictInputValue()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#DictValue" title="DictValue"><code class="xref py py-func docutils literal notranslate"><span class="pre">DictValue()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#DisableAllInputValues" title="DisableAllInputValues"><code class="xref py py-func docutils literal notranslate"><span class="pre">DisableAllInputValues()</span></code></a></p></li>
+<li><p><a class="reference internal" href="transitions.html#Dissolve" title="Dissolve"><code class="xref py py-func docutils literal notranslate"><span class="pre">Dissolve()</span></code></a></p></li>
+<li><p><a class="reference internal" href="drag_drop.html#Drag" title="Drag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Drag</span></code></a></p></li>
+<li><p>DynamicCharacter</p></li>
+<li><p><a class="reference internal" href="displayables.html#DynamicDisplayable" title="DynamicDisplayable"><code class="xref py py-class docutils literal notranslate"><span class="pre">DynamicDisplayable</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#EditFile" title="EditFile"><code class="xref py py-func docutils literal notranslate"><span class="pre">EditFile()</span></code></a></p></li>
+<li><p><a class="reference internal" href="rooms.html#EndReplay" title="EndReplay"><code class="xref py py-func docutils literal notranslate"><span class="pre">EndReplay()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#ExecJS" title="ExecJS"><code class="xref py py-func docutils literal notranslate"><span class="pre">ExecJS()</span></code></a></p></li>
+<li><p>FactorZoom</p></li>
+<li><p><a class="reference internal" href="transitions.html#Fade" title="Fade"><code class="xref py py-func docutils literal notranslate"><span class="pre">Fade()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#FieldInputValue" title="FieldInputValue"><code class="xref py py-func docutils literal notranslate"><span class="pre">FieldInputValue()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#FieldValue" title="FieldValue"><code class="xref py py-func docutils literal notranslate"><span class="pre">FieldValue()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#FileDelete" title="FileDelete"><code class="xref py py-func docutils literal notranslate"><span class="pre">FileDelete()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#FilePage" title="FilePage"><code class="xref py py-func docutils literal notranslate"><span class="pre">FilePage()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#FilePageNameInputValue" title="FilePageNameInputValue"><code class="xref py py-func docutils literal notranslate"><span class="pre">FilePageNameInputValue()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#FileTakeScreenshot" title="FileTakeScreenshot"><code class="xref py py-func docutils literal notranslate"><span class="pre">FileTakeScreenshot()</span></code></a></p></li>
+<li><p><a class="reference internal" href="displayables.html#Fixed" title="Fixed"><code class="xref py py-func docutils literal notranslate"><span class="pre">Fixed()</span></code></a></p></li>
+<li><p><a class="reference internal" href="displayables.html#Flatten" title="Flatten"><code class="xref py py-class docutils literal notranslate"><span class="pre">Flatten</span></code></a></p></li>
+<li><p><a class="reference internal" href="text.html#FontGroup" title="FontGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontGroup</span></code></a></p></li>
+<li><p><a class="reference internal" href="displayables.html#Frame" title="Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Function" title="Function"><code class="xref py py-func docutils literal notranslate"><span class="pre">Function()</span></code></a></p></li>
+<li><p><a class="reference internal" href="displayables.html#Grid" title="Grid"><code class="xref py py-func docutils literal notranslate"><span class="pre">Grid()</span></code></a></p></li>
+<li><p><a class="reference internal" href="displayables.html#HBox" title="HBox"><code class="xref py py-func docutils literal notranslate"><span class="pre">HBox()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Help" title="Help"><code class="xref py py-func docutils literal notranslate"><span class="pre">Help()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Hide" title="Hide"><code class="xref py py-func docutils literal notranslate"><span class="pre">Hide()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#HideInterface" title="HideInterface"><code class="xref py py-func docutils literal notranslate"><span class="pre">HideInterface()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#If" title="If"><code class="xref py py-func docutils literal notranslate"><span class="pre">If()</span></code></a></p></li>
+<li><p><a class="reference internal" href="displayables.html#Image" title="Image"><code class="xref py py-func docutils literal notranslate"><span class="pre">Image()</span></code></a></p></li>
+<li><p><a class="reference internal" href="transitions.html#ImageDissolve" title="ImageDissolve"><code class="xref py py-func docutils literal notranslate"><span class="pre">ImageDissolve()</span></code></a></p></li>
+<li><p>ImageReference</p></li>
+<li><p><a class="reference internal" href="screen_actions.html#IncrementDict" title="IncrementDict"><code class="xref py py-func docutils literal notranslate"><span class="pre">IncrementDict()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#IncrementField" title="IncrementField"><code class="xref py py-func docutils literal notranslate"><span class="pre">IncrementField()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#IncrementScreenVariable" title="IncrementScreenVariable"><code class="xref py py-func docutils literal notranslate"><span class="pre">IncrementScreenVariable()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#IncrementVariable" title="IncrementVariable"><code class="xref py py-func docutils literal notranslate"><span class="pre">IncrementVariable()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_python.html#InputValue" title="InputValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputValue</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#InvertSelected" title="InvertSelected"><code class="xref py py-func docutils literal notranslate"><span class="pre">InvertSelected()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Jump" title="Jump"><code class="xref py py-func docutils literal notranslate"><span class="pre">Jump()</span></code></a></p></li>
+<li><p><a class="reference internal" href="translation.html#Language" title="Language"><code class="xref py py-func docutils literal notranslate"><span class="pre">Language()</span></code></a></p></li>
+<li><p>LiveComposite</p></li>
+<li><p>LiveCrop</p></li>
+<li><p>LiveTile</p></li>
+<li><p><a class="reference internal" href="screen_actions.html#MainMenu" title="MainMenu"><code class="xref py py-func docutils literal notranslate"><span class="pre">MainMenu()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#MixerValue" title="MixerValue"><code class="xref py py-func docutils literal notranslate"><span class="pre">MixerValue()</span></code></a></p></li>
+<li><p>Motion</p></li>
+<li><p><a class="reference internal" href="screen_actions.html#MouseMove" title="MouseMove"><code class="xref py py-func docutils literal notranslate"><span class="pre">MouseMove()</span></code></a></p></li>
+<li><p>Move</p></li>
+<li><p>MoveFactory</p></li>
+<li><p>MoveIn</p></li>
+<li><p>MoveOut</p></li>
+<li><p><a class="reference internal" href="transitions.html#MoveTransition" title="MoveTransition"><code class="xref py py-func docutils literal notranslate"><span class="pre">MoveTransition()</span></code></a></p></li>
+<li><p><a class="reference internal" href="movie.html#Movie" title="Movie"><code class="xref py py-class docutils literal notranslate"><span class="pre">Movie</span></code></a></p></li>
+<li><p><a class="reference internal" href="transitions.html#MultipleTransition" title="MultipleTransition"><code class="xref py py-func docutils literal notranslate"><span class="pre">MultipleTransition()</span></code></a></p></li>
+<li><p>NVLCharacter</p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Notify" title="Notify"><code class="xref py py-func docutils literal notranslate"><span class="pre">Notify()</span></code></a></p></li>
+<li><p><a class="reference internal" href="displayables.html#Null" title="Null"><code class="xref py py-class docutils literal notranslate"><span class="pre">Null</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#NullAction" title="NullAction"><code class="xref py py-func docutils literal notranslate"><span class="pre">NullAction()</span></code></a></p></li>
+<li><p>OldMoveTransition</p></li>
+<li><p><a class="reference internal" href="screen_actions.html#OpenDirectory" title="OpenDirectory"><code class="xref py py-func docutils literal notranslate"><span class="pre">OpenDirectory()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#OpenURL" title="OpenURL"><code class="xref py py-func docutils literal notranslate"><span class="pre">OpenURL()</span></code></a></p></li>
+<li><p>Pan</p></li>
+<li><p><a class="reference internal" href="text.html#ParameterizedText" title="ParameterizedText"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParameterizedText</span></code></a></p></li>
+<li><p>Particles</p></li>
+<li><p><a class="reference internal" href="transitions.html#Pause" title="Pause"><code class="xref py py-func docutils literal notranslate"><span class="pre">Pause()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#PauseAudio" title="PauseAudio"><code class="xref py py-func docutils literal notranslate"><span class="pre">PauseAudio()</span></code></a></p></li>
+<li><p><a class="reference internal" href="transitions.html#Pixellate" title="Pixellate"><code class="xref py py-func docutils literal notranslate"><span class="pre">Pixellate()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Play" title="Play"><code class="xref py py-func docutils literal notranslate"><span class="pre">Play()</span></code></a></p></li>
+<li><p><a class="reference internal" href="voice.html#PlayCharacterVoice" title="PlayCharacterVoice"><code class="xref py py-func docutils literal notranslate"><span class="pre">PlayCharacterVoice()</span></code></a></p></li>
+<li><p>Position</p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Preference" title="Preference"><code class="xref py py-func docutils literal notranslate"><span class="pre">Preference()</span></code></a></p></li>
+<li><p><a class="reference internal" href="transitions.html#PushMove" title="PushMove"><code class="xref py py-func docutils literal notranslate"><span class="pre">PushMove()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Queue" title="Queue"><code class="xref py py-func docutils literal notranslate"><span class="pre">Queue()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#QueueEvent" title="QueueEvent"><code class="xref py py-func docutils literal notranslate"><span class="pre">QueueEvent()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#QuickLoad" title="QuickLoad"><code class="xref py py-func docutils literal notranslate"><span class="pre">QuickLoad()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#QuickSave" title="QuickSave"><code class="xref py py-func docutils literal notranslate"><span class="pre">QuickSave()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Quit" title="Quit"><code class="xref py py-func docutils literal notranslate"><span class="pre">Quit()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#RemoveFromSet" title="RemoveFromSet"><code class="xref py py-func docutils literal notranslate"><span class="pre">RemoveFromSet()</span></code></a></p></li>
+<li><p><a class="reference internal" href="rooms.html#Replay" title="Replay"><code class="xref py py-func docutils literal notranslate"><span class="pre">Replay()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#RestartStatement" title="RestartStatement"><code class="xref py py-func docutils literal notranslate"><span class="pre">RestartStatement()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Return" title="Return"><code class="xref py py-func docutils literal notranslate"><span class="pre">Return()</span></code></a></p></li>
+<li><p>Revolve</p></li>
+<li><p>RevolveInOut</p></li>
+<li><p><a class="reference internal" href="screen_actions.html#RollForward" title="RollForward"><code class="xref py py-func docutils literal notranslate"><span class="pre">RollForward()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Rollback" title="Rollback"><code class="xref py py-func docutils literal notranslate"><span class="pre">Rollback()</span></code></a></p></li>
+<li><p>RotoZoom</p></li>
+<li><p><a class="reference internal" href="screen_actions.html#ScreenVariableValue" title="ScreenVariableValue"><code class="xref py py-func docutils literal notranslate"><span class="pre">ScreenVariableValue()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Screenshot" title="Screenshot"><code class="xref py py-func docutils literal notranslate"><span class="pre">Screenshot()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Scroll" title="Scroll"><code class="xref py py-func docutils literal notranslate"><span class="pre">Scroll()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#SelectedIf" title="SelectedIf"><code class="xref py py-func docutils literal notranslate"><span class="pre">SelectedIf()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#SensitiveIf" title="SensitiveIf"><code class="xref py py-func docutils literal notranslate"><span class="pre">SensitiveIf()</span></code></a></p></li>
+<li><p><a class="reference internal" href="voice.html#SetCharacterVolume" title="SetCharacterVolume"><code class="xref py py-func docutils literal notranslate"><span class="pre">SetCharacterVolume()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#SetDict" title="SetDict"><code class="xref py py-func docutils literal notranslate"><span class="pre">SetDict()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#SetField" title="SetField"><code class="xref py py-func docutils literal notranslate"><span class="pre">SetField()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#SetMixer" title="SetMixer"><code class="xref py py-func docutils literal notranslate"><span class="pre">SetMixer()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#SetMute" title="SetMute"><code class="xref py py-func docutils literal notranslate"><span class="pre">SetMute()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#SetScreenVariable" title="SetScreenVariable"><code class="xref py py-func docutils literal notranslate"><span class="pre">SetScreenVariable()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#SetVariable" title="SetVariable"><code class="xref py py-func docutils literal notranslate"><span class="pre">SetVariable()</span></code></a></p></li>
+<li><p><a class="reference internal" href="voice.html#SetVoiceMute" title="SetVoiceMute"><code class="xref py py-func docutils literal notranslate"><span class="pre">SetVoiceMute()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Show" title="Show"><code class="xref py py-func docutils literal notranslate"><span class="pre">Show()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#ShowMenu" title="ShowMenu"><code class="xref py py-func docutils literal notranslate"><span class="pre">ShowMenu()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#ShowTransient" title="ShowTransient"><code class="xref py py-func docutils literal notranslate"><span class="pre">ShowTransient()</span></code></a></p></li>
+<li><p><a class="reference internal" href="displayables.html#ShowingSwitch" title="ShowingSwitch"><code class="xref py py-func docutils literal notranslate"><span class="pre">ShowingSwitch()</span></code></a></p></li>
+<li><p>SizeZoom</p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Skip" title="Skip"><code class="xref py py-func docutils literal notranslate"><span class="pre">Skip()</span></code></a></p></li>
+<li><p><a class="reference internal" href="sprites.html#SnowBlossom" title="SnowBlossom"><code class="xref py py-func docutils literal notranslate"><span class="pre">SnowBlossom()</span></code></a></p></li>
+<li><p><a class="reference internal" href="displayables.html#Solid" title="Solid"><code class="xref py py-class docutils literal notranslate"><span class="pre">Solid</span></code></a></p></li>
+<li><p>Speaker</p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Start" title="Start"><code class="xref py py-func docutils literal notranslate"><span class="pre">Start()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#StaticValue" title="StaticValue"><code class="xref py py-func docutils literal notranslate"><span class="pre">StaticValue()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#Stop" title="Stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">Stop()</span></code></a></p></li>
+<li><p><a class="reference internal" href="style.html#StylePreference" title="StylePreference"><code class="xref py py-func docutils literal notranslate"><span class="pre">StylePreference()</span></code></a></p></li>
+<li><p>SubTransition</p></li>
+<li><p><a class="reference internal" href="transitions.html#Swing" title="Swing"><code class="xref py py-func docutils literal notranslate"><span class="pre">Swing()</span></code></a></p></li>
+<li><p><a class="reference internal" href="text.html#Text" title="Text"><code class="xref py py-class docutils literal notranslate"><span class="pre">Text</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#ToggleDict" title="ToggleDict"><code class="xref py py-func docutils literal notranslate"><span class="pre">ToggleDict()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#ToggleField" title="ToggleField"><code class="xref py py-func docutils literal notranslate"><span class="pre">ToggleField()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#ToggleFocus" title="ToggleFocus"><code class="xref py py-func docutils literal notranslate"><span class="pre">ToggleFocus()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#ToggleMute" title="ToggleMute"><code class="xref py py-func docutils literal notranslate"><span class="pre">ToggleMute()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#ToggleScreen" title="ToggleScreen"><code class="xref py py-func docutils literal notranslate"><span class="pre">ToggleScreen()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#ToggleScreenVariable" title="ToggleScreenVariable"><code class="xref py py-func docutils literal notranslate"><span class="pre">ToggleScreenVariable()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#ToggleSetMembership" title="ToggleSetMembership"><code class="xref py py-func docutils literal notranslate"><span class="pre">ToggleSetMembership()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#ToggleVariable" title="ToggleVariable"><code class="xref py py-func docutils literal notranslate"><span class="pre">ToggleVariable()</span></code></a></p></li>
+<li><p><a class="reference internal" href="voice.html#ToggleVoiceMute" title="ToggleVoiceMute"><code class="xref py py-func docutils literal notranslate"><span class="pre">ToggleVoiceMute()</span></code></a></p></li>
+<li><p><a class="reference internal" href="transforms.html#Transform" title="Transform"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transform</span></code></a></p></li>
+<li><p><a class="reference internal" href="displayables.html#VBox" title="VBox"><code class="xref py py-func docutils literal notranslate"><span class="pre">VBox()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#VariableInputValue" title="VariableInputValue"><code class="xref py py-func docutils literal notranslate"><span class="pre">VariableInputValue()</span></code></a></p></li>
+<li><p><a class="reference internal" href="screen_actions.html#VariableValue" title="VariableValue"><code class="xref py py-func docutils literal notranslate"><span class="pre">VariableValue()</span></code></a></p></li>
+<li><p>Viewport</p></li>
+<li><p><a class="reference internal" href="voice.html#VoiceReplay" title="VoiceReplay"><code class="xref py py-func docutils literal notranslate"><span class="pre">VoiceReplay()</span></code></a></p></li>
+<li><p>Window</p></li>
+<li><p>Zoom</p></li>
+<li><p>ZoomInOut</p></li>
+<li><p><a class="reference internal" href="translation.html#id0" title="_"><code class="xref py py-func docutils literal notranslate"><span class="pre">_()</span></code></a></p></li>
+<li><p>_CharacterVolumeValue</p></li>
+<li><p>_DisplayReset</p></li>
+<li><p>_InputValueAction</p></li>
+<li><p>_TouchKeyboardBackspace</p></li>
+<li><p>_TouchKeyboardReturn</p></li>
+<li><p>_TouchKeyboardTextInput</p></li>
+<li><p>__renpy__dict__</p></li>
+<li><p>__renpy__list__</p></li>
+<li><p>__renpy__set__</p></li>
+<li><p>_m1_00gallery__GalleryAction</p></li>
+<li><p>_m1_00gallery__GalleryToggleSlideshow</p></li>
+<li><p>_m1_00musicroom__MusicRoomPlay</p></li>
+<li><p>_m1_00musicroom__MusicRoomRandomPlay</p></li>
+<li><p>_m1_00musicroom__MusicRoomStop</p></li>
+<li><p>_m1_00musicroom__MusicRoomTogglePause</p></li>
+<li><p>_m1_00musicroom__MusicRoomTogglePlay</p></li>
+<li><p>_m1_00preferences__DisplayAction</p></li>
+<li><p>_m1_00preferences__ResetPreferences</p></li>
+<li><p>_movebottom</p></li>
+<li><p>_moveleft</p></li>
+<li><p>_moveright</p></li>
+<li><p>_movetop</p></li>
+<li><p>_notify_transform</p></li>
+<li><p><a class="reference internal" href="translation.html#p" title="_p"><code class="xref py py-func docutils literal notranslate"><span class="pre">_p()</span></code></a></p></li>
+<li><p>_touch_keyboard</p></li>
+<li><p>abs</p></li>
+<li><p><a class="reference internal" href="style_properties.html#absolute" title="absolute"><code class="xref py py-func docutils literal notranslate"><span class="pre">absolute()</span></code></a></p></li>
+<li><p>all</p></li>
+<li><p>any</p></li>
+<li><p>ascii</p></li>
+<li><p>bin</p></li>
+<li><p><a class="reference internal" href="transitions.html#var-blinds"><code class="xref std std-var docutils literal notranslate"><span class="pre">blinds</span></code></a></p></li>
+<li><p>bool</p></li>
+<li><p>bytes</p></li>
+<li><p>callable</p></li>
+<li><p>chr</p></li>
+<li><p>color</p></li>
+<li><p>complex</p></li>
+<li><p>dict</p></li>
+<li><p>dir</p></li>
+<li><p>dissolve</p></li>
+<li><p>divmod</p></li>
+<li><p>enumerate</p></li>
+<li><p><a class="reference internal" href="transitions.html#var-fade"><code class="xref std std-var docutils literal notranslate"><span class="pre">fade</span></code></a></p></li>
+<li><p>filter</p></li>
+<li><p>float</p></li>
+<li><p>format</p></li>
+<li><p>frozenset</p></li>
+<li><p>getattr</p></li>
+<li><p><a class="reference internal" href="gui_advanced.html#gui.SetPreference" title="gui.SetPreference"><code class="xref py py-func docutils literal notranslate"><span class="pre">gui.SetPreference()</span></code></a></p></li>
+<li><p><a class="reference internal" href="gui_advanced.html#gui.TogglePreference" title="gui.TogglePreference"><code class="xref py py-func docutils literal notranslate"><span class="pre">gui.TogglePreference()</span></code></a></p></li>
+<li><p><a class="reference internal" href="gui_advanced.html#gui.preference" title="gui.preference"><code class="xref py py-func docutils literal notranslate"><span class="pre">gui.preference()</span></code></a></p></li>
+<li><p>hasattr</p></li>
+<li><p>hash</p></li>
+<li><p>hex</p></li>
+<li><p><a class="reference internal" href="transitions.html#var-hpunch"><code class="xref std std-var docutils literal notranslate"><span class="pre">hpunch</span></code></a></p></li>
+<li><p>int</p></li>
+<li><p><a class="reference internal" href="transitions.html#var-irisin"><code class="xref std std-var docutils literal notranslate"><span class="pre">irisin</span></code></a></p></li>
+<li><p>irisout</p></li>
+<li><p>isinstance</p></li>
+<li><p>issubclass</p></li>
+<li><p>len</p></li>
+<li><p>list</p></li>
+<li><p>map</p></li>
+<li><p>max</p></li>
+<li><p>min</p></li>
+<li><p>oct</p></li>
+<li><p>ord</p></li>
+<li><p><a class="reference internal" href="transitions.html#var-pixellate"><code class="xref std std-var docutils literal notranslate"><span class="pre">pixellate</span></code></a></p></li>
+<li><p><a class="reference internal" href="style_properties.html#position" title="position"><code class="xref py py-func docutils literal notranslate"><span class="pre">position()</span></code></a></p></li>
+<li><p>pow</p></li>
+<li><p>pushdown</p></li>
+<li><p>pushleft</p></li>
+<li><p><a class="reference internal" href="transitions.html#var-pushright"><code class="xref std std-var docutils literal notranslate"><span class="pre">pushright</span></code></a></p></li>
+<li><p>pushup</p></li>
+<li><p>range</p></li>
+<li><p>renpy.Keymap</p></li>
+<li><p>renpy.ParameterizedText</p></li>
+<li><p><a class="reference internal" href="cds.html#renpy.check_text_tags" title="renpy.check_text_tags"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.check_text_tags()</span></code></a></p></li>
+<li><p>renpy.curried_call_in_new_context</p></li>
+<li><p>renpy.curried_invoke_in_new_context</p></li>
+<li><p>renpy.curry</p></li>
+<li><p>renpy.easy_displayable</p></li>
+<li><p><a class="reference internal" href="file_python.html#renpy.exists" title="renpy.exists"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.exists()</span></code></a></p></li>
+<li><p><a class="reference internal" href="text.html#renpy.filter_text_tags" title="renpy.filter_text_tags"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.filter_text_tags()</span></code></a></p></li>
+<li><p><a class="reference internal" href="file_python.html#renpy.fsdecode" title="renpy.fsdecode"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.fsdecode()</span></code></a></p></li>
+<li><p><a class="reference internal" href="file_python.html#renpy.fsencode" title="renpy.fsencode"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.fsencode()</span></code></a></p></li>
+<li><p><a class="reference internal" href="label.html#renpy.get_all_labels" title="renpy.get_all_labels"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.get_all_labels()</span></code></a></p></li>
+<li><p><a class="reference internal" href="label.html#renpy.has_label" title="renpy.has_label"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.has_label()</span></code></a></p></li>
+<li><p>renpy.has_screen</p></li>
+<li><p>renpy.image_exists</p></li>
+<li><p><a class="reference internal" href="translation.html#renpy.known_languages" title="renpy.known_languages"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.known_languages()</span></code></a></p></li>
+<li><p><a class="reference internal" href="other.html#var-renpy.license"><code class="xref std std-var docutils literal notranslate"><span class="pre">renpy.license</span></code></a></p></li>
+<li><p><a class="reference internal" href="file_python.html#renpy.list_files" title="renpy.list_files"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.list_files()</span></code></a></p></li>
+<li><p><a class="reference internal" href="file_python.html#renpy.loadable" title="renpy.loadable"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.loadable()</span></code></a></p></li>
+<li><p>renpy.munged_filename</p></li>
+<li><p>renpy.partial</p></li>
+<li><p><a class="reference internal" href="other.html#renpy.split_properties" title="renpy.split_properties"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.split_properties()</span></code></a></p></li>
+<li><p>renpy.unelide_filename</p></li>
+<li><p><a class="reference internal" href="screen_python.html#renpy.variant" title="renpy.variant"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.variant()</span></code></a></p></li>
+<li><p><a class="reference internal" href="other.html#renpy.version" title="renpy.version"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.version()</span></code></a></p></li>
+<li><p><a class="reference internal" href="other.html#var-renpy.version_name"><code class="xref std std-var docutils literal notranslate"><span class="pre">renpy.version_name</span></code></a></p></li>
+<li><p><a class="reference internal" href="other.html#var-renpy.version_only"><code class="xref std std-var docutils literal notranslate"><span class="pre">renpy.version_only</span></code></a></p></li>
+<li><p><a class="reference internal" href="other.html#var-renpy.version_string"><code class="xref std std-var docutils literal notranslate"><span class="pre">renpy.version_string</span></code></a></p></li>
+<li><p><a class="reference internal" href="other.html#var-renpy.version_tuple"><code class="xref std std-var docutils literal notranslate"><span class="pre">renpy.version_tuple</span></code></a></p></li>
+<li><p>repr</p></li>
+<li><p>reversed</p></li>
+<li><p>round</p></li>
+<li><p>set</p></li>
+<li><p>slice</p></li>
+<li><p>slideawaydown</p></li>
+<li><p><a class="reference internal" href="transitions.html#var-slideawayleft"><code class="xref std std-var docutils literal notranslate"><span class="pre">slideawayleft</span></code></a></p></li>
+<li><p>slideawayright</p></li>
+<li><p>slideawayup</p></li>
+<li><p>slidedown</p></li>
+<li><p><a class="reference internal" href="transitions.html#var-slideleft"><code class="xref std std-var docutils literal notranslate"><span class="pre">slideleft</span></code></a></p></li>
+<li><p>slideright</p></li>
+<li><p>slideup</p></li>
+<li><p>sorted</p></li>
+<li><p><a class="reference internal" href="transitions.html#var-squares"><code class="xref std std-var docutils literal notranslate"><span class="pre">squares</span></code></a></p></li>
+<li><p>str</p></li>
+<li><p>sum</p></li>
+<li><p>tuple</p></li>
+<li><p>type</p></li>
+<li><p>ui.callsinnewcontext</p></li>
+<li><p>ui.gamemenus</p></li>
+<li><p>ui.invokesinnewcontext</p></li>
+<li><p>ui.jumps</p></li>
+<li><p>ui.jumpsoutofcontext</p></li>
+<li><p>ui.returns</p></li>
+<li><p><a class="reference internal" href="updater.html#updater.Update" title="updater.Update"><code class="xref py py-func docutils literal notranslate"><span class="pre">updater.Update()</span></code></a></p></li>
+<li><p><a class="reference internal" href="transitions.html#var-vpunch"><code class="xref std std-var docutils literal notranslate"><span class="pre">vpunch</span></code></a></p></li>
+<li><p>wipedown</p></li>
+<li><p><a class="reference internal" href="transitions.html#var-wipeleft"><code class="xref std std-var docutils literal notranslate"><span class="pre">wipeleft</span></code></a></p></li>
+<li><p>wiperight</p></li>
+<li><p>wipeup</p></li>
+<li><p>zip</p></li>
+<li><p><a class="reference internal" href="transitions.html#var-zoomin"><code class="xref std std-var docutils literal notranslate"><span class="pre">zoomin</span></code></a></p></li>
+<li><p><a class="reference internal" href="transitions.html#var-zoominout"><code class="xref std std-var docutils literal notranslate"><span class="pre">zoominout</span></code></a></p></li>
+<li><p><a class="reference internal" href="transitions.html#var-zoomout"><code class="xref std std-var docutils literal notranslate"><span class="pre">zoomout</span></code></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="screen_special.html" class="btn btn-neutral float-left" title="Специальные имена экранов" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="config.html" class="btn btn-neutral float-right" title="Configuration Variables" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
