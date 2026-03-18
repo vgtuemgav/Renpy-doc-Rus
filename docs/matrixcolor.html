@@ -1,0 +1,535 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matrixcolor &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/matrixcolor.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Слоёные изображения" href="layeredimage.html" />
+    <link rel="prev" title="Переходы" href="transitions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Matrixcolor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Цвет с предварительно умноженной альфой</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Использование матрицы для изменения цветов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#colormatrix">ColorMatrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Структурное сходство</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Встроенные подклассы ColorMatrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#BrightnessMatrix"><code class="docutils literal notranslate"><span class="pre">BrightnessMatrix</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ColorizeMatrix"><code class="docutils literal notranslate"><span class="pre">ColorizeMatrix</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ContrastMatrix"><code class="docutils literal notranslate"><span class="pre">ContrastMatrix</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#HueMatrix"><code class="docutils literal notranslate"><span class="pre">HueMatrix</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#IdentityMatrix"><code class="docutils literal notranslate"><span class="pre">IdentityMatrix</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#InvertMatrix"><code class="docutils literal notranslate"><span class="pre">InvertMatrix</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#OpacityMatrix"><code class="docutils literal notranslate"><span class="pre">OpacityMatrix</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#SaturationMatrix"><code class="docutils literal notranslate"><span class="pre">SaturationMatrix</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#SepiaMatrix"><code class="docutils literal notranslate"><span class="pre">SepiaMatrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#TintMatrix"><code class="docutils literal notranslate"><span class="pre">TintMatrix</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Matrixcolor</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/matrixcolor.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="matrixcolor">
+<h1>Matrixcolor<a class="headerlink" href="#matrixcolor" title="Ссылка на этот заголовок"></a></h1>
+<p>Ren'Py поддерживает перекрашивание изображений с помощью свойства трансформации <a class="reference internal" href="transform_properties.html#transform-property-matrixcolor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixcolor</span></code></a>.
+Это свойство может принимать объект <a class="reference internal" href="matrix.html#Matrix" title="Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">Matrix</span></code></a> или ColorMatrix.</p>
+<section id="id1">
+<h2>Цвет с предварительно умноженной альфой<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
+<p>Когда изображение загружается, Ren'Py распаковывает его, а затем копирует в GPU вашего компьютера или мобильного устройства.
+В процессе копирования каждый из четырех цветовых каналов (красный, зелёный, синий и альфа — где альфа представляет непрозрачность) масштабируется до числа в диапазоне от 0.0 до 1.0.
+В этой системе 1.0 представляет полный уровень цвета или полную непрозрачность, тогда как 0.0 представляет отсутствие цвета или полную прозрачность пикселя.</p>
+<p>Однако Ren'Py на этом не останавливается. Как только значения были масштабированы, красный, зелёный и синий каналы умножаются на альфа-канал.
+Это означает, что непрозрачный белый пиксель будет иметь значение (1.0, 1.0, 1.0, 1.0), на 50% прозрачный красный пиксель — (0.5, 0.0, 0.0, 0.5), а полностью прозрачный пиксель — (0.0, 0.0, 0.0, 0.0).</p>
+<p>Предварительно умноженная альфа позволяет Ren'Py масштабировать изображения
+вверх и вниз, не вызывая тёмных артефактов, которые появляются при более прямом представлении цветов.
+Масштабирование изображений похоже на усреднение двух пикселей.
+Без предварительно умноженной альфы у нас мог бы быть сплошной белый пиксель и прозрачный пиксель — (1.0, 1.0, 1.0, 1.0) и (0.0, 0.0, 0.0, 0.0) соответственно.
+Их усреднение даёт (0.5, 0.5, 0.5, 0.5), что в системе с прямой альфой представляет 50% непрозрачный серый цвет.</p>
+<p>Однако, поскольку полностью прозрачный пиксель на самом деле не имеет
+цвета, он не должен влиять и на итоговый цвет — только на итоговую
+прозрачность. В системе с предварительно умноженной альфой начальные значения те же,
+и результат тоже — за исключением того, что теперь (0.5, 0.5, 0.5, 0.5) предопределено как
+50% непрозрачный белый цвет. Сохраняя цвета таким образом, Ren'Py может корректно отрисовывать их на экране, не получая странных артефактов при масштабировании.</p>
+</section>
+<section id="id2">
+<h2>Использование матрицы для изменения цветов<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Объекты <a class="reference internal" href="matrix.html#Matrix" title="Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">Matrix</span></code></a>, используемые для изменения цветов, могут состоять из 16
+чисел, которые, в свою очередь, можно расположить в виде сетки 4x4. Вот способ
+сделать это, присвоив букву каждому числу:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">mymatrix</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span>
+                           <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span>
+                           <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span>
+                           <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="p">])</span>
+</pre></div>
+</div>
+<p>Хотя здесь они представлены буквами, следует понимать, что на самом деле это числа, заданные напрямую или вычисленные.</p>
+<p>Эти значения применяются к красному (R), зелёному (G), синему (B) и альфа (A)
+каналам исходного цвета для создания нового цвета (R', G', B', A'). Формулы
+для этого таковы:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R&#39; = R * a + G * b + B * c + A * d
+G&#39; = R * e + G * f + B * g + A * h
+B&#39; = R * i + G * j + B * k + A * l
+A&#39; = R * m + G * n + B * o + A * p
+</pre></div>
+</div>
+<p>Хотя это может показаться сложным, у этого есть довольно простая структура —
+первая строка создаёт новый красный канал, вторая — новый зелёный канал и так далее.
+Так что, если бы мы по какой-то причине захотели создать матрицу, которая меняет местами
+красный и зелёный каналы, мы бы написали:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">swap_red_and</span> <span class="n">green</span><span class="p">:</span>
+    <span class="na">matrixcolor</span> <span class="n">Matrix</span><span class="p">([</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+                         <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+                         <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+                         <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="p">])</span>
+</pre></div>
+</div>
+<p>Хотя это простой пример, таким образом можно выразить большую часть теории цвета.
+Матрицы можно комбинировать, перемножая их друг с другом,
+и в этом случае матрицы комбинируются справа налево.</p>
+</section>
+<section id="colormatrix">
+<span id="id3"></span><h2>ColorMatrix<a class="headerlink" href="#colormatrix" title="Ссылка на этот заголовок"></a></h2>
+<p>Хотя объекты Matrix подходят для статических изменений цвета, они не годятся
+для анимированных изменений цвета. Также полезно иметь способ брать распространённые
+матрицы и инкапсулировать их так, чтобы матрицу можно было
+параметризовать.</p>
+<p>ColorMatrix — это базовый класс, который расширяется рядом классов, создающих
+Matrix. Экземпляры ColorMatrix вызываются Ren'Py и возвращают
+объекты Matrix. ColorMatrix хорошо интегрирован с ATL, что позволяет создавать
+анимации <cite>matrixcolor</cite>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">red_blue_tint</span><span class="p">:</span>
+    <span class="na">matrixcolor</span> <span class="n">TintMatrix</span><span class="p">(</span><span class="s2">&quot;#f00&quot;</span><span class="p">)</span>
+    <span class="n">linear</span> <span class="mf">3.0</span> <span class="na">matrixcolor</span> <span class="n">TintMatrix</span><span class="p">(</span><span class="s2">&quot;#00f&quot;</span><span class="p">)</span>
+    <span class="n">linear</span> <span class="mf">3.0</span> <span class="na">matrixcolor</span> <span class="n">TintMatrix</span><span class="p">(</span><span class="s2">&quot;#f00&quot;</span><span class="p">)</span>
+    <span class="k">repeat</span>
+</pre></div>
+</div>
+<p>Класс ColorMatrix можно наследовать, при этом подклассы переопределяют его
+метод <code class="docutils literal notranslate"><span class="pre">__call__</span></code>. Этот метод принимает:</p>
+<ul class="simple">
+<li><p>Старый объект для интерполяции. Этот объект может быть любого класса,
+и может быть None, если старого объекта нет.</p></li>
+<li><p>Значение от 0.0 до 1.0, представляющее точку для интерполяции.
+0.0 — это полностью старый объект, а 1.0 — полностью новый объект.</p></li>
+</ul>
+<p>И должен возвращать <a class="reference internal" href="matrix.html#Matrix" title="Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">Matrix</span></code></a>.</p>
+<p>В качестве примера ColorMatrix, вот реализация класса TintMatrix
+из Ren'Py.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">TintMatrix</span><span class="p">(</span><span class="n">ColorMatrix</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="na">color</span><span class="p">):</span>
+
+        <span class="c1"># Store the color given as a parameter.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="na">color</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="na">color</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">done</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="k">is</span> <span class="k">not</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+            <span class="c1"># When not using an old color, we can take</span>
+            <span class="c1"># r, g, b, and a from self.color.</span>
+            <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="na">color</span><span class="o">.</span><span class="n">rgb</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="na">color</span><span class="o">.</span><span class="na">alpha</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="c1"># Otherwise, we have to extract from self.color</span>
+            <span class="c1"># and other.color, and interpolate the results.</span>
+            <span class="n">oldr</span><span class="p">,</span> <span class="n">oldg</span><span class="p">,</span> <span class="n">oldb</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="na">color</span><span class="o">.</span><span class="n">rgb</span>
+            <span class="n">olda</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="na">color</span><span class="o">.</span><span class="na">alpha</span>
+            <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="na">color</span><span class="o">.</span><span class="n">rgb</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="na">color</span><span class="o">.</span><span class="na">alpha</span>
+
+            <span class="n">r</span> <span class="o">=</span> <span class="n">oldr</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">oldr</span><span class="p">)</span> <span class="o">*</span> <span class="n">done</span>
+            <span class="n">g</span> <span class="o">=</span> <span class="n">oldg</span> <span class="o">+</span> <span class="p">(</span><span class="n">g</span> <span class="o">-</span> <span class="n">oldg</span><span class="p">)</span> <span class="o">*</span> <span class="n">done</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">oldb</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">oldb</span><span class="p">)</span> <span class="o">*</span> <span class="n">done</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">olda</span> <span class="o">+</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">olda</span><span class="p">)</span> <span class="o">*</span> <span class="n">done</span>
+
+        <span class="c1"># To properly handle premultiplied alpha, the color channels</span>
+        <span class="c1"># have to be multiplied by the alpha channel.</span>
+        <span class="n">r</span> <span class="o">*=</span> <span class="n">a</span>
+        <span class="n">g</span> <span class="o">*=</span> <span class="n">a</span>
+        <span class="n">b</span> <span class="o">*=</span> <span class="n">a</span>
+
+        <span class="c1"># Return a Matrix.</span>
+        <span class="k">return</span> <span class="n">Matrix</span><span class="p">([</span> <span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="mi">0</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">a</span> <span class="p">])</span>
+</pre></div>
+</div>
+<section id="id4">
+<h3>Структурное сходство<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h3>
+<p>В ATL интерполяция свойства <a class="reference internal" href="transform_properties.html#transform-property-matrixcolor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixcolor</span></code></a> требует использования
+объектов ColorMatrix, имеющих структурное сходство. Это означает одинаковые
+типы ColorMatrix, перемноженные в том же порядке.</p>
+<p>Например, следующий код выполнит интерполяцию от нормального состояния до обесцвеченного
+синего оттенка, а затем вернётся к нормальному.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="k">at</span> <span class="n">center</span><span class="p">:</span>
+    <span class="na">matrixcolor</span> <span class="n">TintMatrix</span><span class="p">(</span><span class="s2">&quot;#ffffff&quot;</span><span class="p">)</span> <span class="o">*</span> <span class="n">SaturationMatrix</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">linear</span> <span class="mf">2.0</span> <span class="na">matrixcolor</span> <span class="n">TintMatrix</span><span class="p">(</span><span class="s2">&quot;#ccccff&quot;</span><span class="p">)</span> <span class="o">*</span> <span class="n">SaturationMatrix</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">linear</span> <span class="mf">2.0</span> <span class="na">matrixcolor</span> <span class="n">TintMatrix</span><span class="p">(</span><span class="s2">&quot;#ffffff&quot;</span><span class="p">)</span> <span class="o">*</span> <span class="n">SaturationMatrix</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Хотя первая установка matrixcolor может показаться ненужной, она требуется
+для создания основы для первой линейной интерполяции. Если бы её не было, эта
+интерполяция была бы пропущена.</p>
+</section>
+</section>
+<section id="id5">
+<h2>Встроенные подклассы ColorMatrix<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h2>
+<p>Ниже приведён список подклассов ColorMatrix, встроенных в
+Ren'Py.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="BrightnessMatrix">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BrightnessMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BrightnessMatrix" title="Ссылка на это определение"></a></dt>
+<dd><p>ColorMatrix, которая может быть использована с <a class="reference internal" href="transform_properties.html#transform-property-matrixcolor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixcolor</span></code></a> для изменения
+яркости изображения, оставляя альфа-канал без изменений.</p>
+<dl class="simple">
+<dt><cite>value</cite></dt><dd><p>Величина изменения яркости изображения. Это должно быть
+число от -1 до 1, где -1 соответствует самому тёмному
+возможному изображению, а 1 – самому яркому.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ColorizeMatrix">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ColorizeMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">black_color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">white_color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ColorizeMatrix" title="Ссылка на это определение"></a></dt>
+<dd><p>ColorMatrix, которая может быть использована с <a class="reference internal" href="transform_properties.html#transform-property-matrixcolor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixcolor</span></code></a> для окрашивания
+чёрно-белых отображаемых объектов. Она использует цвет каждого пикселя
+в чёрно-белом изображении для интерполяции между чёрным и белым цветами.</p>
+<p>Альфа-канал не затрагивается.</p>
+<p>Предназначена для использования с чёрно-белым изображением (или тем, что
+было обесцвечено с помощью <a class="reference internal" href="#SaturationMatrix" title="SaturationMatrix"><code class="xref py py-func docutils literal notranslate"><span class="pre">SaturationMatrix()</span></code></a>), и приведёт
+к странным результатам при использовании с изображениями, которые не являются чёрно-белыми.</p>
+<dl class="simple">
+<dt><cite>black_color</cite>, <cite>white_color</cite></dt><dd><p>Цвета, используемые в интерполяции.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ContrastMatrix">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ContrastMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ContrastMatrix" title="Ссылка на это определение"></a></dt>
+<dd><p>ColorMatrix, которая может быть использована с <a class="reference internal" href="transform_properties.html#transform-property-matrixcolor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixcolor</span></code></a> для изменения
+контрастности изображения, оставляя альфа-канал без изменений.</p>
+<dl class="simple">
+<dt><cite>value</cite></dt><dd><p>Значение контрастности. Значения от 0.0 до 1.0 уменьшают
+контрастность, а значения выше 1.0 – увеличивают.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="HueMatrix">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HueMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HueMatrix" title="Ссылка на это определение"></a></dt>
+<dd><p>ColorMatrix, которая может быть использована с <a class="reference internal" href="transform_properties.html#transform-property-matrixcolor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixcolor</span></code></a> для поворота цветового тона на
+<cite>value</cite> градусов. Хотя <cite>value</cite> может быть любым числом, положительным или отрицательным,
+360 градусов соответствуют полному обороту. Альфа-канал не затрагивается.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="IdentityMatrix">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IdentityMatrix</span></span><a class="headerlink" href="#IdentityMatrix" title="Ссылка на это определение"></a></dt>
+<dd><p>ColorMatrix, которая может быть использована с <a class="reference internal" href="transform_properties.html#transform-property-matrixcolor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixcolor</span></code></a> и не
+изменяет цвет или альфа-канал того, к чему она применяется.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="InvertMatrix">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InvertMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#InvertMatrix" title="Ссылка на это определение"></a></dt>
+<dd><p>ColorMatrix, которая может быть использована с <a class="reference internal" href="transform_properties.html#transform-property-matrixcolor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixcolor</span></code></a> для инвертирования
+каждого из цветовых каналов. Альфа-канал не затрагивается.</p>
+<dl class="simple">
+<dt><cite>value</cite></dt><dd><p>Степень инвертирования. 0.0 – не инвертировано, 1.0 – полностью
+инвертировано. Используется для анимации инверсии.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="OpacityMatrix">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OpacityMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OpacityMatrix" title="Ссылка на это определение"></a></dt>
+<dd><p>ColorMatrix, которая может быть использована с <a class="reference internal" href="transform_properties.html#transform-property-matrixcolor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixcolor</span></code></a> для изменения
+непрозрачности изображения, оставляя цветовые каналы без изменений.</p>
+<dl class="simple">
+<dt><cite>value</cite></dt><dd><p>Значение, на которое будет умножен альфа-канал,
+число от 0.0 до 1.0.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="SaturationMatrix">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SaturationMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.2126,</span> <span class="pre">0.7152,</span> <span class="pre">0.0722)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SaturationMatrix" title="Ссылка на это определение"></a></dt>
+<dd><p>ColorMatrix, которая может быть использована с <a class="reference internal" href="transform_properties.html#transform-property-matrixcolor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixcolor</span></code></a> для изменения
+насыщенности изображения, оставляя альфа-канал
+без изменений.</p>
+<dl class="simple">
+<dt><cite>value</cite></dt><dd><p>Степень насыщенности в итоговом изображении. 1.0 –
+неизменённое изображение, 0.0 – оттенки серого.</p>
+</dd>
+<dt><cite>desat</cite></dt><dd><p>Это кортеж из 3 элементов, который контролирует, какая часть
+красного, зелёного и синего каналов будет помещена во все
+три канала полностью обесцвеченного изображения. Значение по умолчанию
+основано на константах, используемых для канала яркости
+телевизионного сигнала NTSC. Поскольку человеческий глаз
+наиболее чувствителен к зелёному цвету, сохраняется большая часть зелёного канала,
+чем двух других.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="SepiaMatrix">
+<span class="sig-name descname"><span class="pre">SepiaMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#ffeec2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.2126,</span> <span class="pre">0.7152,</span> <span class="pre">0.0722)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SepiaMatrix" title="Ссылка на это определение"></a></dt>
+<dd><p>Функция, которая возвращает ColorMatrix, которую можно использовать с <a class="reference internal" href="transform_properties.html#transform-property-matrixcolor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixcolor</span></code></a>
+для придания отображаемому объекту оттенка сепии. Это эквивалентно следующему:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">TintMatrix</span><span class="p">(</span><span class="n">tint</span><span class="p">)</span> <span class="o">*</span> <span class="n">SaturationMatrix</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">desat</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="TintMatrix">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TintMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TintMatrix" title="Ссылка на это определение"></a></dt>
+<dd><p>ColorMatrix, которая может быть использована с <a class="reference internal" href="transform_properties.html#transform-property-matrixcolor"><code class="xref std std-tpref docutils literal notranslate"><span class="pre">matrixcolor</span></code></a> для тонирования
+изображения, оставляя альфа-канал без изменений.</p>
+<dl class="simple">
+<dt><cite>color</cite></dt><dd><p>Цвет, в который матрица будет тонировать. Этот параметр передаётся
+в <a class="reference internal" href="color_class.html#Color" title="Color"><code class="xref py py-func docutils literal notranslate"><span class="pre">Color()</span></code></a> и поэтому может быть чем угодно, что Color поддерживает
+в качестве своего первого аргумента.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="transitions.html" class="btn btn-neutral float-left" title="Переходы" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="layeredimage.html" class="btn btn-neutral float-right" title="Слоёные изображения" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

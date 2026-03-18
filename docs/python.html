@@ -1,0 +1,584 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Инструкции Python &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/python.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Условные инструкции" href="conditional.html" />
+    <link rel="prev" title="Внутриигровые меню" href="menus.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Инструкции Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python-statement">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dollar-line">Однострочная инструкция Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#init-python">Инструкция Init Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#define">Инструкция Define</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#default">Инструкция Default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#store">Имена в хранилище (Store)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#named-stores">Другие именованные хранилища</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constant-stores">Константные хранилища</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jsondb">JSONDB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#JSONDB"><code class="docutils literal notranslate"><span class="pre">JSONDB</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-modules">Собственные и сторонние модули и пакеты Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isinstance">Откат и Isinstance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#python_dict"><code class="docutils literal notranslate"><span class="pre">python_dict</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python_list"><code class="docutils literal notranslate"><span class="pre">python_list</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python_set"><code class="docutils literal notranslate"><span class="pre">python_set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Инструкции Python</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/python.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="python">
+<span id="id1"></span><h1>Инструкции Python<a class="headerlink" href="#python" title="Ссылка на этот заголовок"></a></h1>
+<p>Ren'Py написан на языке программирования Python и поддерживает включение кода Python в скрипты Ren'Py. Поддержку Python можно использовать для многих вещей, от установки флага до создания новых отображаемых объектов (displayables). В этой главе рассматриваются способы, которыми скрипты Ren'Py могут напрямую вызывать Python через различные инструкции Python.</p>
+<p>С версии 8.4 Ren'Py поддерживает Python 3.12. Версия Python, используемая Ren'Py, может быть обновлена в будущих релизах. Скрипты Ren'Py должны быть совместимы с Python 3.12 и более поздними версиями.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Если вы знаете Python, вы сможете этим воспользоваться. Однако не всё, что вы знаете о Python, будет применяться напрямую. Например, пакеты Python, не входящие в состав Ren'Py, могут не работать внутри Ren'Py.</p>
+<p>Также существуют некоторые конструкции Python, которые работают, но могут привести к проблемам при сохранении. Пожалуйста, прочтите страницу <a class="reference internal" href="save_load_rollback.html"><span class="doc">сохранения, загрузки и отката</span></a> для получения дополнительной информации, особенно раздел о том, <a class="reference internal" href="save_load_rollback.html#cant-save"><span class="std std-ref">что не может быть сохранено</span></a>.
+(Нужно быть осторожным с файлами, сокетами, итераторами, задачами (tasks), фьючерсами (futures) и генераторами.)</p>
+<p>Наконец, хотя многие инструкции имеют эквиваленты на Python, эти эквиваленты могут быть хуже. Например, Ren'Py может предсказывать инструкцию <code class="docutils literal notranslate"><span class="pre">show</span></code> и загружать изображения заранее, но он не может предсказать функцию <a class="reference internal" href="statement_equivalents.html#renpy.show" title="renpy.show"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.show()</span></code></a>.</p>
+</div>
+<section id="python-statement">
+<span id="id2"></span><h2>Python<a class="headerlink" href="#python-statement" title="Ссылка на этот заголовок"></a></h2>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">python</span></code> принимает блок кода Python и выполняет его, когда управление доходит до этой инструкции. Простая инструкция Python может быть очень простой:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">python</span><span class="p">:</span>
+    <span class="n">flag</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>При необходимости инструкции Python могут становиться более сложными:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">python</span><span class="p">:</span>
+    <span class="n">player_health</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">player_health</span> <span class="o">-</span> <span class="n">damage</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">enemy_vampire</span><span class="p">:</span>
+        <span class="n">enemy_health</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">enemy_health</span> <span class="o">+</span> <span class="n">damage</span><span class="p">,</span> <span class="n">enemy_max_health</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Существует два модификатора для инструкции Python, которые изменяют её поведение:</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">hide</span></code></dt><dd><p>Если указан модификаator hide, инструкция Python выполнит блок кода в анонимной области видимости. Эта область видимости будет потеряна по завершении блока Python.</p>
+<p>Это позволяет Python использовать временные переменные, которые не могут быть сохранены, но это означает, что доступ к хранилищу (store) должен осуществляться через поля объекта хранилища, а не напрямую.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">in</span></code></dt><dd><p>Модификатор <code class="docutils literal notranslate"><span class="pre">in</span></code> принимает имя. Вместо выполнения в хранилище по умолчанию, код Python будет выполнен в хранилище с указанным именем.</p>
+</dd>
+</dl>
+</section>
+<section id="dollar-line">
+<span id="id3"></span><h2>Однострочная инструкция Python<a class="headerlink" href="#dollar-line" title="Ссылка на этот заголовок"></a></h2>
+<p>Часто возникает необходимость выполнить одну строку Python в хранилище по умолчанию. Например, однострочный Python-код можно использовать для инициализации или обновления флага. Чтобы сделать написание однострочного кода на Python более удобным, существует однострочная инструкция Python.</p>
+<p>Однострочная инструкция Python начинается с символа доллара <code class="docutils literal notranslate"><span class="pre">$</span></code> и включает в себя всё остальное на этой строке. Вот несколько примеров однострочных инструкций Python:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Установка флага.</span>
+<span class="k">$</span> <span class="n">flag</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Инициализация переменной.</span>
+<span class="k">$</span> <span class="n">romance_points</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Увеличение значения переменной.</span>
+<span class="k">$</span> <span class="n">romance_points</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># Вызов функции, предоставляющей функциональность Ren&#39;Py.</span>
+<span class="k">$</span> <span class="n">renpy</span><span class="o">.</span><span class="n">movie_cutscene</span><span class="p">(</span><span class="s2">&quot;opening.ogv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Однострочные инструкции Python всегда выполняются в хранилище по умолчанию.</p>
+</section>
+<section id="init-python">
+<span id="init-python-statement"></span><h2>Инструкция Init Python<a class="headerlink" href="#init-python" title="Ссылка на этот заголовок"></a></h2>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">init</span> <span class="pre">python</span></code> выполняет код Python во время инициализации, до загрузки игры. Помимо прочего, это можно использовать для определения классов и функций или для инициализации стилей, переменных конфигурации или персистентных данных.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">auto_voice_function</span><span class="p">(</span><span class="n">ident</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;voice/&quot;</span> <span class="o">+</span> <span class="n">ident</span> <span class="o">+</span> <span class="s2">&quot;.ogg&quot;</span>
+
+    <span class="n">config</span><span class="o">.</span><span class="n">auto_voice</span> <span class="o">=</span> <span class="n">auto_voice_function</span>
+
+    <span class="k">if</span> <span class="n">persistent</span><span class="o">.</span><span class="n">endings</span> <span class="k">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">persistent</span><span class="o">.</span><span class="n">endings</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="k">init</span> <span class="mi">1</span> <span class="k">python</span><span class="p">:</span>
+
+    <span class="c1"># Плохая концовка всегда разблокирована.</span>
+    <span class="n">persistent</span><span class="o">.</span><span class="n">endings</span><span class="o">.</span><span class="k">add</span><span class="p">(</span><span class="s2">&quot;bad_ending&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Между <code class="docutils literal notranslate"><span class="pre">init</span></code> и <code class="docutils literal notranslate"><span class="pre">python</span></code> можно указать числовой приоритет. Если приоритет не указан, используется 0. Инструкции init выполняются в порядке приоритета, от самого низкого до самого высокого. Инструкции init с одинаковым приоритетом выполняются в Unicode-порядке по пути к файлу, а затем сверху вниз внутри файла.</p>
+<p>Чтобы избежать конфликтов с Ren'Py, разработчикам следует использовать приоритеты в диапазоне от -999 до 999. Приоритеты меньше 0 обычно используются для библиотек и настройки тем. Обычные инструкции init должны иметь приоритет 0 или выше.</p>
+<p>Инструкции init python также могут принимать опции <code class="docutils literal notranslate"><span class="pre">hide</span></code> или <code class="docutils literal notranslate"><span class="pre">in</span></code>.</p>
+<p>Переменные, значение которых установлено в блоке init python, не сохраняются, не загружаются и не участвуют в откате (rollback). Поэтому эти переменные не следует изменять после завершения инициализации.</p>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Классы, созданные в Ren'Py и не наследующие ничего или явно наследующие <code class="docutils literal notranslate"><span class="pre">object</span></code>, а также их подклассы, не поддерживают <code class="docutils literal notranslate"><span class="pre">__slots__</span></code>. Попытка их использования приведёт к некорректной работе отката (rollback) в старых версиях Ren'Py и вызовет ошибки в новых.</p>
+<p>Для создания &quot;слотовых&quot; классов разработчикам следует явно наследоваться от <code class="docutils literal notranslate"><span class="pre">python_object</span></code>, который не поддерживает откат.</p>
+</div>
+</section>
+<section id="define">
+<span id="define-statement"></span><h2>Инструкция Define<a class="headerlink" href="#define" title="Ссылка на этот заголовок"></a></h2>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">define</span></code> устанавливает значение для одной переменной во время инициализации. Переменная считается константой, и её не следует изменять после установки. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">e</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s2">&quot;Eileen&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>эквивалентно (за исключением некоторых преимуществ, см. ниже):</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s2">&quot;Eileen&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Инструкция define может принимать опциональное именованное хранилище (см. ниже), добавив его имя к имени переменной через точку. Хранилище создаётся, если оно ещё не существует. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">character</span><span class="o">.</span><span class="n">e</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s2">&quot;Eileen&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Инструкция define может принимать опциональный индекс, что позволяет добавлять записи в словарь:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">tag_layer</span><span class="p">[</span><span class="s2">&quot;eileen&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;master&quot;</span>
+</pre></div>
+</div>
+<p>В дополнение к <code class="docutils literal notranslate"><span class="pre">=</span></code>, define может принимать ещё два оператора. Оператор <code class="docutils literal notranslate"><span class="pre">+=</span></code> добавляет и обычно используется для конкатенации списков. Оператор <code class="docutils literal notranslate"><span class="pre">|=</span></code> обычно используется для объединения множеств. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">keymap</span><span class="p">[</span><span class="s2">&quot;dismiss&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span> <span class="s2">&quot;K_KP_PLUS&quot;</span> <span class="p">]</span>
+<span class="k">define</span> <span class="n">endings</span> <span class="o">|=</span> <span class="p">{</span> <span class="s2">&quot;best_ending&quot;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Инструкция define может принимать опциональный приоритет инициализации, указанный между <code class="docutils literal notranslate"><span class="pre">define</span></code> и именем переменной. Если приоритет не указан, используется 0. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="o">-</span><span class="mi">1</span> <span class="n">config</span><span class="o">.</span><span class="n">image_directories</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="s2">&quot;dlc/images&quot;</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Одно из преимуществ использования инструкции define заключается в том, что она записывает имя файла и номер строки, где произошло присваивание, и делает эту информацию доступной для функции навигации в лаунчере. Другое преимущество в том, что <a class="reference internal" href="developer_tools.html#lint"><span class="std std-ref">Lint</span></a> сможет проверять определённые значения, например, обнаруживая, была ли одна и та же переменная определена дважды, возможно, с разными значениями.</p>
+<p>Переменные, определённые с помощью инструкции define, считаются константами, не сохраняются и не загружаются, и их не следует изменять. Эта константность распространяется на объекты, доступные через эти переменные посредством доступа к полям и по индексу. (Ren'Py не применяет это правило принудительно, но его нарушение приведёт к неопределённому поведению.)</p>
+</section>
+<section id="default">
+<span id="default-statement"></span><h2>Инструкция Default<a class="headerlink" href="#default" title="Ссылка на этот заголовок"></a></h2>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">default</span></code> устанавливает значение для переменной, если эта переменная не определена при запуске игры или после загрузки новой игры. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">default</span> <span class="n">points</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Когда переменная <code class="docutils literal notranslate"><span class="pre">points</span></code> не определена при запуске игры, эта инструкция примерно эквивалентна:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="k">$</span> <span class="n">points</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Фактически переменная устанавливается до запуска заставки (splashscreen) и главного меню. Когда переменная <code class="docutils literal notranslate"><span class="pre">points</span></code> не определена при загрузке игры, это эквивалентно:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">after_load</span><span class="p">:</span>
+    <span class="k">$</span> <span class="n">points</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Инструкция default может принимать опциональное именованное хранилище (см. ниже), добавив его имя к имени переменной через точку. Хранилище создаётся, если оно ещё не существует. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">default</span> <span class="n">schedule</span><span class="o">.</span><span class="n">day</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Как и в случае с инструкцией <code class="docutils literal notranslate"><span class="pre">define</span></code>, <a class="reference internal" href="developer_tools.html#lint"><span class="std std-ref">Lint</span></a> предлагает проверки и оптимизации, связанные с инструкцией <code class="docutils literal notranslate"><span class="pre">default</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Настоятельно рекомендуется использовать <code class="docutils literal notranslate"><span class="pre">default</span></code> для каждой переменной в вашей игре, которая может изменяться. Если вы используете <code class="docutils literal notranslate"><span class="pre">init</span> <span class="pre">python</span></code> или <code class="docutils literal notranslate"><span class="pre">define</span></code> для объявления переменной, то когда игрок проходит игру и изменяет эту переменную, а затем возвращается в главное меню и начинает новую игру, переменная не будет иметь значения, установленного в <code class="docutils literal notranslate"><span class="pre">init</span> <span class="pre">python</span></code>, и таким образом данные из прошлой игры &quot;протекут&quot; в новую. Если же вы создадите эти переменные в метке start, они будут отсутствовать при загрузке файла сохранения, который был создан до их добавления.</p>
+</div>
+</section>
+<section id="store">
+<h2>Имена в хранилище (Store)<a class="headerlink" href="#store" title="Ссылка на этот заголовок"></a></h2>
+<p>Место, где Ren'Py по умолчанию хранит переменные Python, называется хранилищем (store). Важно убедиться, что имена, которые вы используете в хранилище, не конфликтуют.</p>
+<p>Инструкция define присваивает значение переменной, даже когда она используется для определения персонажа. Это означает, что невозможно использовать одно и то же имя для персонажа и для флага.</p>
+<p>Следующий ошибочный скрипт:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">e</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s2">&quot;Eileen&quot;</span><span class="p">)</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+
+    <span class="k">$</span> <span class="n">e</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">e</span> <span class="s2">&quot;Hello, world.&quot;</span>
+
+    <span class="k">$</span> <span class="n">e</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">e</span> <span class="s2">&quot;You scored a point!&quot;</span>
+</pre></div>
+</div>
+<p>не будет работать, потому что переменная <code class="docutils literal notranslate"><span class="pre">e</span></code> используется и как персонаж, и как флаг. Другие сущности, которые обычно помещаются в хранилище, — это переходы (transitions) и трансформации (transforms).</p>
+<p>Имена, начинающиеся с подчёркивания <code class="docutils literal notranslate"><span class="pre">_</span></code>, зарезервированы для внутреннего использования Ren'Py. Кроме того, существует <a class="reference internal" href="reserved.html"><span class="doc">индекс зарезервированных имён</span></a>.</p>
+</section>
+<section id="named-stores">
+<span id="id4"></span><h2>Другие именованные хранилища<a class="headerlink" href="#named-stores" title="Ссылка на этот заголовок"></a></h2>
+<p>Именованные хранилища (named stores) предоставляют способ организации функций и переменных Python в модули. Размещая код Python в именованных хранилищах, вы можете минимизировать вероятность конфликтов имён. Каждое хранилище соответствует модулю Python. Хранилище по умолчанию — это <code class="docutils literal notranslate"><span class="pre">store</span></code>, в то время как доступ к именованному хранилищу осуществляется как <code class="docutils literal notranslate"><span class="pre">store.named</span></code>.</p>
+<p>Именованные хранилища можно создавать с помощью блоков <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">in</span></code> (или их вариантов <code class="docutils literal notranslate"><span class="pre">init</span> <span class="pre">python</span></code> и <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">early</span></code>), а также с помощью инструкций <code class="docutils literal notranslate"><span class="pre">default</span></code>, <code class="docutils literal notranslate"><span class="pre">define</span></code> или <a class="reference internal" href="transforms.html#transform-statement"><span class="std std-ref">transform</span></a>. Переменные можно импортировать по отдельности с помощью <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">store.named</span> <span class="pre">import</span> <span class="pre">variable</span></code>, а само именованное хранилище можно импортировать с помощью <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">store</span> <span class="pre">import</span> <span class="pre">named</span></code>.</p>
+<p>Доступ к именованным хранилищам можно получить, указав опцию <code class="docutils literal notranslate"><span class="pre">in</span></code> в инструкциях <code class="docutils literal notranslate"><span class="pre">python</span></code> или <code class="docutils literal notranslate"><span class="pre">init</span> <span class="pre">python</span></code> (или <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">early</span></code>), которые выполняют содержащийся в них код Python в указанном именованном хранилище.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span> <span class="k">in</span> <span class="n">mystore</span><span class="p">:</span>
+
+    <span class="n">serial_number</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">serial</span><span class="p">():</span>
+
+        <span class="k">global</span> <span class="n">serial_number</span>
+        <span class="n">serial_number</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">serial_number</span>
+
+<span class="k">default</span> <span class="n">character_stats</span><span class="o">.</span><span class="n">chloe_substore</span><span class="o">.</span><span class="n">friends</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Eileen&quot;</span><span class="p">,}</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="k">$</span> <span class="n">serial</span> <span class="o">=</span> <span class="n">mystore</span><span class="o">.</span><span class="n">serial</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="s2">&quot;Lucy&quot;</span> <span class="k">in</span> <span class="n">character_stats</span><span class="o">.</span><span class="n">chloe_substore</span><span class="o">.</span><span class="n">friends</span><span class="p">:</span>
+        <span class="n">chloe</span> <span class="s2">&quot;Lucy is my friend !&quot;</span>
+    <span class="k">elif</span> <span class="n">character_stats</span><span class="o">.</span><span class="n">chloe_substore</span><span class="o">.</span><span class="n">friends</span><span class="p">:</span>
+        <span class="n">chloe</span> <span class="s2">&quot;I have friends, but Lucy is not one of them.&quot;</span>
+
+    <span class="k">python</span> <span class="k">in</span> <span class="n">character_stats</span><span class="o">.</span><span class="n">chloe_substore</span><span class="p">:</span>
+        <span class="n">friends</span><span class="o">.</span><span class="k">add</span><span class="p">(</span><span class="s2">&quot;Jeremy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Из блока <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">in</span></code> к хранилищу по умолчанию («внешнему») можно получить доступ, используя либо <code class="docutils literal notranslate"><span class="pre">renpy.store</span></code>, либо <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">store</span></code>.</p>
+<p>Именованные хранилища участвуют в сохранении, загрузке и откате так же, как и хранилище по умолчанию. Специальные пространства имён, такие как <code class="docutils literal notranslate"><span class="pre">persistent</span></code>, <code class="docutils literal notranslate"><span class="pre">config</span></code>, <code class="docutils literal notranslate"><span class="pre">renpy</span></code>... не поддерживают и никогда не поддерживали создание в них дочерних хранилищ.</p>
+</section>
+<section id="constant-stores">
+<span id="id5"></span><h2>Константные хранилища<a class="headerlink" href="#constant-stores" title="Ссылка на этот заголовок"></a></h2>
+<p>Именованное хранилище можно объявить константным, установив для переменной с именем <code class="docutils literal notranslate"><span class="pre">_constant</span></code> истинное значение, например, с помощью:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span> <span class="k">in</span> <span class="n">mystore</span><span class="p">:</span>
+    <span class="n">_constant</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Когда хранилище является константным, переменные в нём не сохраняются, а объекты, доступные только через эти переменные, не участвуют в откате.</p>
+<p>Переменные в константном хранилище можно изменять на этапе инициализации. Только после завершения этапа инициализации (включая инструкции, такие как <code class="docutils literal notranslate"><span class="pre">define</span></code>, <code class="docutils literal notranslate"><span class="pre">transform</span></code> и т.д.) хранилище должно рассматриваться как константное.</p>
+<p>Поскольку Ren'Py не может обеспечить это принудительно, ответственность за то, чтобы переменные в константном хранилище не изменялись после этапа инициализации, лежит на разработчике.</p>
+<p>Причина объявления хранилища константным заключается в том, что каждое хранилище и переменная несут небольшие накладные расходы для поддержки сохранения, загрузки и отката. Константное хранилище позволяет избежать этих накладных расходов.</p>
+<p>Следующие хранилища по умолчанию объявлены константными:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">_errorhandling</span>
+<span class="n">_gamepad</span>
+<span class="n">_renpysteam</span>
+<span class="n">_warper</span>
+<span class="n">audio</span>
+<span class="n">achievement</span>
+<span class="n">build</span>
+<span class="n">director</span>
+<span class="n">iap</span>
+<span class="k">layeredimage</span>
+<span class="n">updater</span>
+</pre></div>
+</div>
+</section>
+<section id="jsondb">
+<span id="id6"></span><h2>JSONDB<a class="headerlink" href="#jsondb" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="JSONDB">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">JSONDB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#JSONDB" title="Ссылка на это определение"></a></dt>
+<dd><p><cite>JSONDB</cite> — это двухуровневая база данных, которая использует JSON для хранения своих данных.
+Она предназначена для использования разработчиками игр для хранения данных
+в базе, которая может контролироваться системой версий как часть игрового скрипта.
+Например, здесь можно хранить информацию, связанную с каждой репликой,
+что может изменять способ её отображения.</p>
+<p><cite>JSONDB</cite> не предназначены для данных, которые изменяются в результате действий
+игрока. Для таких данных лучше подходят <a class="reference internal" href="persistent.html"><span class="doc">Постоянные данные</span></a> или обычные
+файлы сохранений.</p>
+<p>База данных должна содержать только данные, которые Python может сериализовать
+в JSON. К ним относятся списки, словари (с ключами-строками),
+строки, числа, True, False и None. См.
+<a class="reference external" href="https://docs.python.org/3/library/json.html#encoders-and-decoders">документацию Python</a>
+о совместимости, о том, как данные преобразуются между двумя форматами,
+и о различных связанных с этим подводных камнях.</p>
+<p>Два уровня базы данных — это словари, оба с ключами-строками.
+Первый уровень доступен только для чтения — при доступе к ключу в словаре
+первого уровня создается словарь второго уровня, опционально с
+содержимым по умолчанию. Словарь второго уровня доступен для чтения и записи,
+и при изменении одного из ключей в словаре второго уровня это изменение
+сохраняется в базу данных при выходе из игры.</p>
+<p>Как и другие персистентные данные, <cite>JSONDB</cite> не участвуют в откате (rollback).</p>
+<p><cite>JSONDB</cite> следует создавать во время инициализации (в блоке <cite>init python</cite>
+или инструкции <cite>define</cite>), и он будет автоматически сохранен на диск при
+условии, что в словаре установлен хотя бы один ключ. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">balloonData</span> <span class="o">=</span> <span class="n">JSONDB</span><span class="p">(</span><span class="s2">&quot;balloon.json&quot;</span><span class="p">,</span> <span class="k">default</span><span class="o">=</span><span class="p">{</span> <span class="s2">&quot;enabled&quot;</span> <span class="p">:</span> <span class="kc">False</span> <span class="p">})</span>
+</pre></div>
+</div>
+<dl>
+<dt>Это создаёт <cite>JSONDB</cite>, который хранится в файле balloon.json и имеет</dt><dd><p>значение <cite>enabled</cite> по умолчанию, равное False. Значения второго уровня
+можно использовать как обычные словари::
+screen say(who, what):</p>
+<blockquote>
+<div><p>default bd = balloonData[renpy.get_translation_identifier()]</p>
+<dl class="simple">
+<dt>if bd[&quot;enabled&quot;]:</dt><dd><p>use balloon_say(who, what)</p>
+</dd>
+<dt>else:</dt><dd><p>use adv_say(who, what)</p>
+</dd>
+<dt>if config.developer:</dt><dd><dl class="simple">
+<dt>textbutton &quot;Dialogue Balloon Mode&quot;:</dt><dd><p>action ToggleDict(bd, &quot;enabled&quot;)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+<p>Конструктор <cite>JSONDB</cite> принимает следующие аргументы:</p>
+<dl class="simple">
+<dt><cite>filename</cite></dt><dd><p>Имя файла, в котором хранится база данных. Путь указывается
+относительно каталога игры. Рекомендуется, чтобы имя файла
+заканчивалось на &quot;.json&quot;.</p>
+</dd>
+<dt><cite>default</cite></dt><dd><p>Если не None, должен быть словарем. Когда создается новый
+словарь второго уровня, этот объект поверхностно копируется
+и используется для инициализации нового словаря. Новый словарь
+будет сохранен как часть базы данных, только если в нём будет
+сохранён хотя бы один ключ.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="python-modules">
+<span id="id7"></span><h2>Собственные и сторонние модули и пакеты Python<a class="headerlink" href="#python-modules" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py может импортировать модули и пакеты, написанные на чистом Python. Собственные модули и пакеты — те, что написаны для игры — можно размещать непосредственно в каталоге игры. Сторонние пакеты можно размещать в каталоге game/python-packages.</p>
+<p>Например, для установки пакета python-dateutil можно перейти в корневой каталог игры и выполнить команду:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">target</span> <span class="n">game</span><span class="o">/</span><span class="k">python</span><span class="o">-</span><span class="n">packages</span> <span class="k">python</span><span class="o">-</span><span class="n">dateutil</span>
+</pre></div>
+</div>
+<p>В любом случае, модуль или пакет можно импортировать из блока init python:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">dateutil.parser</span>
+</pre></div>
+</div>
+<p>Не все пакеты Python совместимы с Ren'Py. Вы сами должны проверять устанавливаемые пакеты и убеждаться в их работоспособности.</p>
+</section>
+<section id="isinstance">
+<h2>Откат и Isinstance<a class="headerlink" href="#isinstance" title="Ссылка на этот заголовок"></a></h2>
+<p>Код Python, определённый в .rpy файлах, преобразуется для обеспечения работы отката. Код Python, импортированный из .py файлов, — нет. В результате объекты, созданные в Python, не будут работать с откатом и, вероятно, не должны изменяться после создания.</p>
+<p>В рамках этого преобразования Ren'Py заменяет классы dict, list и set собственными версиями, поддерживающими откат. Эти классы являются подклассами встроенных классов, поэтому все методы будут работать. Однако эти классы не будут соответствовать экземплярам встроенных в Python классов dict, list и set.</p>
+<p>Для решения этой проблемы Ren'Py предоставляет доступ к оригинальным классам Python.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="python_dict">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">python_dict</span></span><a class="headerlink" href="#python_dict" title="Ссылка на это определение"></a></dt>
+<dd><p>Класс python_dict — это встроенный класс dict из Python.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="python_list">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">python_list</span></span><a class="headerlink" href="#python_list" title="Ссылка на это определение"></a></dt>
+<dd><p>Класс python_list — это встроенный класс list из Python.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="python_set">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">python_set</span></span><a class="headerlink" href="#python_set" title="Ссылка на это определение"></a></dt>
+<dd><p>Класс python_set — это встроенный класс set из Python.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="menus.html" class="btn btn-neutral float-left" title="Внутриигровые меню" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="conditional.html" class="btn btn-neutral float-right" title="Условные инструкции" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

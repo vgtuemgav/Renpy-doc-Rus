@@ -1,0 +1,704 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Слоёные изображения &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/layeredimage.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="3D-сцена" href="3dstage.html" />
+    <link rel="prev" title="Matrixcolor" href="matrixcolor.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Слоёные изображения</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Объявление слоёных изображений</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#layeredimage">Layeredimage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#always">Always</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#if">If</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#attribute">Attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#group">Group</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#when">When</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Устаревшие свойства</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#layeredimage-pattern">Шаблон и функция форматирования</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#layeredimage.format_function"><code class="docutils literal notranslate"><span class="pre">layeredimage.format_function()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">Проксирование слоёных изображений</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#LayeredImageProxy"><code class="docutils literal notranslate"><span class="pre">LayeredImageProxy</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#attribute-selection-process">Выбор атрибутов для отображения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">Советы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#layeredimage-examples">Примеры</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Слоёные изображения</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/layeredimage.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Слоёные изображения<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Когда набор спрайтов достигает определённого уровня сложности, объявление каждой возможной комбинации может стать громоздким. Например, для персонажа с 4 нарядами, 4 причёсками и 6 эмоциями уже существует 96 возможных комбинаций. Создание статических изображений для каждой из них заняло бы много места на диске и времени программиста.</p>
+<p>Для решения этой проблемы Ren'Py вводит способ объявления изображения, состоящего из нескольких спрайтов, организованных в слои. (Для целей этого раздела рассматривайте слои как слои в графическом редакторе, вроде Photoshop или GIMP, а не как слои, используемые в других частях Ren'Py). Элементы этих слоёв можно выбирать с помощью <a class="reference internal" href="displaying_images.html#concept-image"><span class="std std-ref">атрибутов</span></a>, переданных изображению, или с помощью условий, которые вычисляются во время выполнения.</p>
+<p>Эти изображения можно объявить с помощью инструкции <code class="docutils literal notranslate"><span class="pre">layeredimage</span></code>, используя специальный язык. Объект <a class="reference internal" href="statement_equivalents.html#LayeredImage" title="LayeredImage"><code class="xref py py-func docutils literal notranslate"><span class="pre">LayeredImage()</span></code></a> является его Python-альтернативой; он не является <a class="reference internal" href="displayables.html"><span class="doc">отображаемым объектом</span></a>, но может быть присвоен инструкции image и использоваться как таковой.</p>
+<p>Внизу этой страницы содержатся советы и примеры использования.</p>
+<section id="id2">
+<h2>Объявление слоёных изображений<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Язык, используемый для объявления слоёных изображений, состоит всего из нескольких инструкций для введения слоёв. Вот пример, который, хоть и не имеет большого практического смысла, технически корректен и демонстрирует синтаксис layeredimage:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">layeredimage</span> <span class="n">augustina</span><span class="p">:</span>
+    <span class="na">zoom</span> <span class="mf">1.4</span>
+    <span class="k">at</span> <span class="n">recolor_transform</span>
+
+    <span class="k">always</span><span class="p">:</span>
+        <span class="s2">&quot;augustina_base&quot;</span>
+
+    <span class="k">attribute</span> <span class="n">base2</span> <span class="k">default</span>
+
+    <span class="k">group</span> <span class="n">outfit</span><span class="p">:</span>
+        <span class="k">attribute</span> <span class="n">dress</span> <span class="k">default</span><span class="p">:</span>
+            <span class="s2">&quot;augustina_dress&quot;</span>
+        <span class="k">attribute</span> <span class="n">uniform</span>
+        <span class="k">attribute</span> <span class="n">psychedelic</span><span class="p">:</span>
+            <span class="k">image</span><span class="p">:</span>
+                <span class="s2">&quot;augustina_dress&quot;</span>
+                <span class="na">matrixcolor</span> <span class="n">TintMatrix</span><span class="p">(</span><span class="s2">&quot;#f00&quot;</span><span class="p">)</span>
+                <span class="n">linear</span> <span class="mi">1</span> <span class="na">matrixcolor</span> <span class="n">TintMatrix</span><span class="p">(</span><span class="s2">&quot;#0f0&quot;</span><span class="p">)</span>
+                <span class="n">linear</span> <span class="mi">1</span> <span class="na">matrixcolor</span> <span class="n">TintMatrix</span><span class="p">(</span><span class="s2">&quot;#00f&quot;</span><span class="p">)</span>
+                <span class="k">repeat</span>
+
+    <span class="k">group</span> <span class="n">face</span> <span class="k">auto</span><span class="p">:</span>
+        <span class="na">pos</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="k">attribute</span> <span class="n">neutral</span> <span class="k">default</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="k">show</span> <span class="n">augustina</span> <span class="c1"># отображаются dress и neutral</span>
+    <span class="n">aug</span> <span class="s2">&quot;Мне нравится это платье.&quot;</span>
+
+    <span class="k">show</span> <span class="n">augustina</span> <span class="n">happy</span> <span class="c1"># авто-определён в auto группе</span>
+    <span class="n">aug</span> <span class="s2">&quot;Но что мне нравится ещё больше...&quot;</span>
+
+    <span class="k">show</span> <span class="n">augustina</span> <span class="n">uniform</span> <span class="o">-</span><span class="n">happy</span> <span class="c1"># uniform заменяет dress, neutral заменяет happy</span>
+    <span class="n">aug</span> <span class="s2">&quot;Так это эта униформа!&quot;</span>
+</pre></div>
+</div>
+<section id="layeredimage">
+<span id="layeredimage-statement"></span><h3>Layeredimage<a class="headerlink" href="#layeredimage" title="Ссылка на этот заголовок"></a></h3>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">layeredimage</span></code> начинает объявление. Эта инструкция является частью языка сценариев Ren'Py и выполняется во время <a class="reference internal" href="lifecycle.html#init-phase"><span class="std std-ref">фазы инициализации</span></a>. Подобно <a class="reference internal" href="transforms.html#atl-image-statement"><span class="std std-ref">инструкции image в ATL</span></a>, она принимает имя изображения и открывает блок, хотя содержимое блока сильно отличается. Имя изображения может содержать пробелы, как и любое другое имя изображения в Ren'Py.</p>
+<p>Внутри блока могут находиться инструкции, описанные ниже, а также следующие необязательные свойства.</p>
+<dl>
+<dt><cite>image_format</cite></dt><dd><p>Когда данное изображение является строкой и это свойство указано, имя изображения подставляется в <cite>image_format</cite> для создания файла изображения. Например, &quot;sprites/eileen/{image}.png&quot; будет искать изображение в подкаталоге sprites. (Это не используется auto-группами, которые ищут определённые изображения, а не файлы изображений).</p>
+</dd>
+<dt><cite>format_function</cite></dt><dd><p>Функция, которая используется вместо <a class="reference internal" href="#layeredimage.format_function" title="layeredimage.format_function"><code class="xref py py-func docutils literal notranslate"><span class="pre">layeredimage.format_function()</span></code></a> для форматирования информации об изображении в отображаемый объект во время объявления изображения на этапе инициализации.</p>
+</dd>
+<dt><cite>attribute_function</cite></dt><dd><p>Функция или вызываемый объект, используемый для настройки того, какие атрибуты в итоге будут отображаться. Он вызывается с набором атрибутов, переданных изображению, и должен возвращать набор атрибутов, который будет использоваться для выбора слоёв. Это можно использовать для выражения сложных зависимостей между атрибутами или для выбора атрибутов случайным образом. См. <a class="reference internal" href="#attribute-selection-process"><span class="std std-ref">процесс выбора атрибутов</span></a> для получения дополнительной информации о том, когда и как это вызывается.</p>
+</dd>
+<dt><cite>at</cite></dt><dd><p>Преобразование или список преобразований, применяемых к слоёному изображению. Может также использоваться в виде <code class="docutils literal notranslate"><span class="pre">at</span> <span class="pre">transform:</span></code> с последующим ATL-блоком для определения ATL-преобразования, которое будет применено к layeredimage.</p>
+</dd>
+<dt><a class="reference internal" href="transform_properties.html#transform-properties"><span class="std std-ref">Свойства преобразования</span></a></dt><dd><p>Если указаны, они используются для создания преобразования, которое применяется к отображаемому объекту.</p>
+</dd>
+<dt><cite>offer_screen</cite></dt><dd><p>Если это True, layeredimage будет размещать свои дочерние элементы и определять их размер (для элементов с переменным размером) так, как если бы ему была предоставлена область, соответствующая всему экрану игры. Если False, указанные действия будут выполняться с учётом доступной области, которая, например, будет меньше в hbox, содержащем другие элементы, и отображение layeredimage не будет постоянным при каждом показе.</p>
+<p>Если None (значение по умолчанию), используется <a class="reference internal" href="config.html#var-config.layeredimage_offer_screen"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.layeredimage_offer_screen</span></code></a>, которое по умолчанию равно True.</p>
+</dd>
+</dl>
+</section>
+<section id="always">
+<h3>Always<a class="headerlink" href="#always" title="Ссылка на этот заголовок"></a></h3>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">always</span></code> объявляет изображение, которое всегда отображается внутри layeredimage и не привязывается к атрибуту. Ей должен быть передан отображаемый объект, и она также может принимать свойства. И то, и другое можно разместить на одной строке или внутри блока. Отображаемый объект может быть объявлен с помощью слова <code class="docutils literal notranslate"><span class="pre">image:</span></code>, за которым следует ATL-блок, что аналогично <a class="reference internal" href="transforms.html#atl-image-statement"><span class="std std-ref">инструкции image в ATL</span></a>.</p>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">always</span></code> принимает следующие свойства:</p>
+<dl class="simple">
+<dt><cite>when</cite></dt><dd><p>Выражение <a class="reference internal" href="#when"><span class="std std-ref">When</span></a> в скобках. Если оно указано, этот слой отображается только в том случае, если набор атрибутов, вызванных для layeredimage, удовлетворяет этому выражению when.</p>
+</dd>
+<dt><a class="reference internal" href="transform_properties.html#transform-properties"><span class="std std-ref">Свойства преобразования</span></a></dt><dd><p>Если указаны, они используются для создания преобразования, которое применяется к отображаемому объекту.</p>
+</dd>
+<dt><cite>at</cite></dt><dd><p>Преобразование или список преобразований, применяемых к предоставленному отображаемому объекту.
+Может также использоваться в виде <code class="docutils literal notranslate"><span class="pre">at</span> <span class="pre">transform:</span></code> с последующим ATL-блоком для определения ATL-преобразования, которое будет применено к отображаемоemu объекту.</p>
+</dd>
+</dl>
+<section id="if">
+<h4>If<a class="headerlink" href="#if" title="Ссылка на этот заголовок"></a></h4>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">if</span></code> (или, в более полном виде, инструкция if-elif-else) позволяет вам указать одно или несколько условий, которые вычисляются во время выполнения. Каждое условие связано с отображаемым объектом, и отображается тот, чьё условие истинно первым. Если ни одно условие не истинно, отображается слой <code class="docutils literal notranslate"><span class="pre">else</span></code>, если он указан.</p>
+<p>Более полный пример инструкции <code class="docutils literal notranslate"><span class="pre">if</span></code> может выглядеть так:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">glasses</span> <span class="o">==</span> <span class="s2">&quot;evil&quot;</span><span class="p">:</span>
+    <span class="s2">&quot;augustina_glasses_evil&quot;</span>
+<span class="k">elif</span> <span class="n">glasses</span> <span class="o">==</span> <span class="s2">&quot;normal&quot;</span><span class="p">:</span>
+    <span class="s2">&quot;augustina_glasses&quot;</span>
+<span class="k">elif</span> <span class="n">glasses</span> <span class="o">==</span> <span class="s2">&quot;funky&quot;</span><span class="p">:</span>
+    <span class="s2">&quot;augustina_glasses_clown&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="s2">&quot;augustina_nose_mark&quot;</span>
+</pre></div>
+</div>
+<p>Каждому предложению должен быть предоставлен отображаемый объект, что можно сделать с помощью синтаксиса <code class="docutils literal notranslate"><span class="pre">image:</span></code>, описанного ранее. Ему также могут быть переданы следующие свойства:</p>
+<dl class="simple">
+<dt><cite>when</cite></dt><dd><p>Выражение <a class="reference internal" href="#when"><span class="std std-ref">When</span></a> в скобках. Если оно указано, это условие отображается только в том случае, если набор атрибутов, вызванных для layeredimage, удовлетворяет выражению when.</p>
+</dd>
+<dt><a class="reference internal" href="transform_properties.html#transform-properties"><span class="std std-ref">Свойства преобразования</span></a></dt><dd><p>Если указаны, они используются для создания преобразования, которое применяется к отображаемому объекту.</p>
+</dd>
+<dt><cite>at</cite></dt><dd><p>Преобразование или список преобразований, применяемых к отображаемому объекту.
+Может также использоваться в виде <code class="docutils literal notranslate"><span class="pre">at</span> <span class="pre">transform:</span></code> с последующим ATL-блоком для определения ATL-преобразования, которое будет применено к отображаемому объекту.</p>
+</dd>
+</dl>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">if</span></code> преобразуется в <a class="reference internal" href="displayables.html#ConditionSwitch" title="ConditionSwitch"><code class="xref py py-func docutils literal notranslate"><span class="pre">ConditionSwitch()</span></code></a> при выполнении инструкции <code class="docutils literal notranslate"><span class="pre">layeredimage</span></code>.</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-layeredimage.predict_all">
+<span class="sig-name descname"><span class="pre">layeredimage.predict_all</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-layeredimage.predict_all" title="Ссылка на это определение"></a></dt>
+<dd><p>Устанавливает значение <cite>predict_all</cite> для ConditionSwitch, создаваемых инструкциями <code class="docutils literal notranslate"><span class="pre">if</span></code> в layeredimage.</p>
+</dd></dl>
+
+<p>Когда <cite>predict_all</cite> не является true, следует избегать изменения условия инструкции if, пока слоёное изображение отображается или готовится к отображению, так как это может привести к загрузке непредсказанного изображения. Это предназначено для использования в опциях кастомизации персонажа, которые не меняются часто.</p>
+</section>
+</section>
+<section id="attribute">
+<h3>Attribute<a class="headerlink" href="#attribute" title="Ссылка на этот заголовок"></a></h3>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">attribute</span></code> добавляет отображаемый объект, который становится частью итогового изображения, когда для его отображения используется указанный атрибут. Например, используя предыдущий пример, вызов <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">augustina</span> <span class="pre">dress</span></code> приведёт к тому, что &quot;augustina_dress&quot; будет показан как часть изображения &quot;augustina&quot;.</p>
+<p>Предложение <code class="docutils literal notranslate"><span class="pre">attribute</span></code> принимает имя атрибута, которое является одним словом (точнее, одним компонентом имени изображения, см. <a class="reference internal" href="language_basics.html#elements-of-statements"><span class="std std-ref">элементы инструкций</span></a>). Оно также может принимать два ключевых слова. Ключевое слово <code class="docutils literal notranslate"><span class="pre">default</span></code> указывает, что атрибут должен присутствовать по умолчанию, если не вызван другой атрибут из той же группы. Ключевое слово <code class="docutils literal notranslate"><span class="pre">null</span></code> предотвращает привязку отображаемого объекта к этому предложению, что может быть полезно для учёта и создания условий условного отображения с использованием <cite>when</cite>, <cite>attribute_function</cite>,
+<a class="reference internal" href="config.html#var-config.adjust_attributes"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.adjust_attributes</span></code></a> или <a class="reference internal" href="config.html#var-config.default_attribute_callbacks"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.default_attribute_callbacks</span></code></a>.</p>
+<p>Одно и то же имя атрибута
+можно использовать в нескольких предложениях <code class="docutils literal notranslate"><span class="pre">attribute</span></code> (а также в автоматически определённых атрибутах в составе <code class="docutils literal notranslate"><span class="pre">auto</span></code>-групп, о чём позже), при этом все соответствующие отображаемые объекты будут показаны одновременно (свойство <cite>when</cite> может это изменить).</p>
+<p>Может быть указан отображаемый объект, опционально с использованием синтаксиса <code class="docutils literal notranslate"><span class="pre">image:</span></code>, описанного ранее. Если отображаемый объект не указан явно, он будет вычислен на основе имени layeredimage, группы (если есть), варианта группы или атрибута (если есть) и самого атрибута. См. раздел <a class="reference internal" href="#layeredimage-pattern"><span class="std std-ref">шаблон</span></a> для получения дополнительной информации.</p>
+<p>Инструкция attribute принимает следующие свойства:</p>
+<dl class="simple">
+<dt><cite>when</cite></dt><dd><p>Выражение <a class="reference internal" href="#when"><span class="std std-ref">When</span></a> в скобках. Если оно указано, этот слой отображается только в том случае, если набор атрибутов, вызванных для layeredimage, удовлетворяет выражению when.</p>
+</dd>
+<dt><a class="reference internal" href="transform_properties.html#transform-properties"><span class="std std-ref">Свойства преобразования</span></a></dt><dd><p>Если указаны, они используются для создания преобразования, которое применяется к слою.</p>
+</dd>
+<dt><cite>at</cite></dt><dd><p>Преобразование или список преобразований, применяемых к слою.
+Может также использоваться в виде <code class="docutils literal notranslate"><span class="pre">at</span> <span class="pre">transform:</span></code> с последующим ATL-блоком для определения ATL-преобразования, которое будет применено к слою.</p>
+</dd>
+<dt><cite>variant</cite></dt><dd><p>Слово, которое добавляется в начало имени атрибута (с подчёркиванием) при поиске отображаемого объекта для этого атрибута. Это свойство допустимо только для атрибутов без явно заданного отображаемого объекта и которые ещё не находятся в группе с вариантом.</p>
+</dd>
+</dl>
+<p>Проверка предложения <cite>when</cite> основана на списке атрибутов итогового изображения, как объяснено <a class="reference internal" href="displaying_images.html#concept-image"><span class="std std-ref">здесь</span></a>, но оно <strong>не изменяет</strong> этот список.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">layeredimage</span> <span class="n">eileen</span><span class="p">:</span>
+    <span class="k">attribute</span> <span class="n">a</span>
+    <span class="k">attribute</span> <span class="n">b</span> <span class="k">default</span> <span class="n">when</span> <span class="k">not</span> <span class="n">a</span>
+    <span class="k">attribute</span> <span class="n">c</span> <span class="k">default</span> <span class="n">when</span> <span class="k">not</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p>В этом примере атрибуты <code class="docutils literal notranslate"><span class="pre">b</span></code> и <code class="docutils literal notranslate"><span class="pre">c</span></code> <em>всегда</em> являются частью списка атрибутов (из-за их предложения <code class="docutils literal notranslate"><span class="pre">default</span></code>). При вызове <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">eileen</span> <span class="pre">a</span></code> атрибут <code class="docutils literal notranslate"><span class="pre">a</span></code> будет отображён, как и запрошено, а атрибут <code class="docutils literal notranslate"><span class="pre">b</span></code> — нет, из-за его свойства <code class="docutils literal notranslate"><span class="pre">when</span></code>. Но даже если он не отображается, атрибут <code class="docutils literal notranslate"><span class="pre">b</span></code> всё равно будет частью списка атрибутов, что означает, что атрибут <code class="docutils literal notranslate"><span class="pre">c</span></code> также не будет отображаться.</p>
+</section>
+<section id="group">
+<h3>Group<a class="headerlink" href="#group" title="Ссылка на этот заголовок"></a></h3>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">group</span></code> объединяет атрибуты, делая их взаимоисключающими. Когда атрибуты <cite>a</cite> и <cite>b</cite> находятся в одной группе, будет ошибкой включать оба атрибута одновременно, например, с помощью <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">eileen</span> <span class="pre">a</span> <span class="pre">b</span></code>, за исключением случаев, когда группа является <code class="docutils literal notranslate"><span class="pre">multiple</span></code>. В том же примере вызов атрибута <cite>a</cite> скроет атрибут <cite>b</cite>, и наоборот. Однако обратите внимание, что несколько предложений <code class="docutils literal notranslate"><span class="pre">attribute</span></code> могут иметь одно и то же имя, <em>даже в пределах одной группы</em>. В этом случае они будут рассматриваться как один атрибут, содержащий несколько спрайтов — подробнее об этом в конце этого раздела.</p>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">group</span></code> принимает имя. Это имя используется не так часто, за исключением генерации имён атрибутов по умолчанию внутри группы.</p>
+<p>Имя группы <code class="docutils literal notranslate"><span class="pre">multiple</span></code> зарезервировано, оно имеет специфическое поведение, делая группу <code class="docutils literal notranslate"><span class="pre">multiple</span></code>. В этом случае несовместимость не применяется к атрибутам, объявленным внутри блока. Это полезно для автоматического определения группой нескольких атрибутов, которые не являются эксклюзивными, или для применения одних и тех же свойств к набору атрибутов одновременно. Это конфликтует с использованием ключевого слова <code class="docutils literal notranslate"><span class="pre">default</span></code> для одного из атрибутов. Обратите внимание, что <code class="docutils literal notranslate"><span class="pre">multiple</span></code> группы сильно отличаются от других, обычных групп, и большая часть того, что верно для групп, к ним не относится. В частности, считается, что у них вообще нет имени.</p>
+<p>За именем может следовать ключевое слово <code class="docutils literal notranslate"><span class="pre">auto</span></code>. Если оно присутствует, то после объявления всех атрибутов в группе Ren'Py просканирует свой список изображений на предмет тех, которые соответствуют шаблону группы (см. <a class="reference internal" href="#layeredimage-pattern"><span class="std std-ref">ниже</span></a>), с той особенностью, что в этом случае <cite>format_function</cite>, переданная в layeredimage, игнорируется. Любые найденные изображения, за исключением тех, которые соответствуют явно объявленным атрибутам, добавляются в группу так, как если бы они были объявлены с помощью инструкции <code class="docutils literal notranslate"><span class="pre">attribute</span></code> внутри блока группы. См. раздел <a class="reference internal" href="#layeredimage-examples"><span class="std std-ref">примеры layeredimage</span></a> для практической демонстрации.</p>
+<p>После этого необязательного ключевого слова на первой строке группы можно объявить свойства, и она может содержать блок со свойствами и атрибутами.</p>
+<p>Инструкция group принимает те же свойства, что и <code class="docutils literal notranslate"><span class="pre">attribute</span></code>, такие как
+<code class="docutils literal notranslate"><span class="pre">when</span></code>, <code class="docutils literal notranslate"><span class="pre">at</span></code> и так далее. Свойства, предоставленные группе, передаются
+атрибутам внутри группы, если они не переопределены тем же свойством
+самого атрибута. Два свойства более специфичны для групп:</p>
+<dl class="simple">
+<dt><cite>variant</cite></dt><dd><p>Это свойство аналогично тому, что принимает <code class="docutils literal notranslate"><span class="pre">attribute</span></code>, за исключением того, что его нельзя передать одновременно и группе, _и_ атрибутам внутри неё.
+Если указано, это должно быть слово. Если оно присутствует, оно используется как вариант для автоматической генерации имён изображений для атрибутов без явно переданных отображаемых объектов (см. раздел <a class="reference internal" href="#layeredimage-pattern"><span class="std std-ref">шаблон</span></a> для получения дополнительной информации), и оно используется в шаблоне для поиска изображений при автоматическом определении атрибутов в <code class="docutils literal notranslate"><span class="pre">auto</span></code>-группах (см. выше).</p>
+</dd>
+<dt><cite>prefix</cite></dt><dd><p>Если указано, это префикс, который объединяется с помощью подчёркивания с именами атрибутов, определённых вручную или автоматически. Так, если префикс — <code class="docutils literal notranslate"><span class="pre">leftarm</span></code>, и встречается <code class="docutils literal notranslate"><span class="pre">attribute</span> <span class="pre">hip</span></code>, то <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">eileen</span> <span class="pre">leftarm_hip</span></code> отобразит его.</p>
+</dd>
+</dl>
+<p>Атрибут также может быть частью нескольких групп, и в этом случае он будет несовместим со всеми другими атрибутами в каждой группе, к которой он принадлежит. Это может быть полезно, например, для атрибута <cite>dress</cite>, чтобы он скрывал и верх, и штаны, которые могут быть показаны, когда он отображается:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">layeredimage</span> <span class="n">eileen</span><span class="p">:</span>
+    <span class="k">attribute</span> <span class="n">base</span> <span class="k">default</span>
+    <span class="k">group</span> <span class="n">bottom</span><span class="p">:</span>
+        <span class="k">attribute</span> <span class="n">jeans</span> <span class="k">default</span>
+        <span class="k">attribute</span> <span class="n">dress</span> <span class="k">null</span>
+    <span class="k">group</span> <span class="n">top</span><span class="p">:</span>
+        <span class="k">attribute</span> <span class="n">shirt</span> <span class="k">default</span>
+        <span class="k">attribute</span> <span class="n">dress</span>
+</pre></div>
+</div>
+<p>Когда в одном и том же layeredimage определено несколько блоков <code class="docutils literal notranslate"><span class="pre">group</span></code> с одинаковым именем, они считаются частями одной группы. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">layeredimage</span> <span class="n">eileen</span> <span class="n">sitting</span><span class="p">:</span>
+    <span class="k">attribute</span> <span class="n">base</span> <span class="k">default</span>
+    <span class="k">group</span> <span class="n">arms</span> <span class="na">variant</span> <span class="k">behind</span><span class="p">:</span>
+        <span class="k">attribute</span> <span class="n">on_hips</span>
+        <span class="k">attribute</span> <span class="n">on_knees</span>
+        <span class="k">attribute</span> <span class="n">mixed</span>
+    <span class="k">attribute</span> <span class="n">table</span> <span class="k">default</span>
+    <span class="k">group</span> <span class="n">arms</span> <span class="na">variant</span> <span class="n">infront</span><span class="p">:</span>
+        <span class="k">attribute</span> <span class="n">on_table</span> <span class="k">default</span>
+        <span class="k">attribute</span> <span class="n">holding_margarita</span>
+        <span class="k">attribute</span> <span class="n">mixed</span>
+</pre></div>
+</div>
+<p>В этом примере <code class="docutils literal notranslate"><span class="pre">eileen_sitting_arms_behind_mixed.png</span></code> будет содержать её левую руку за столом, а <code class="docutils literal notranslate"><span class="pre">eileen_sitting_arms_infront_mixed.png</span></code> — её правую руку на столе. При вызове <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">eileen</span> <span class="pre">sitting</span> <span class="pre">mixed</span></code> оба изображения будут показаны одновременно, соответственно, за и перед столом. В этом примере атрибут <cite>on_hips</cite> несовместим с атрибутом <cite>on_table</cite>, потому что, хотя они не объявлены в одном блоке, они оба находятся в одной группе.</p>
+</section>
+</section>
+<section id="when">
+<span id="id3"></span><h2>When<a class="headerlink" href="#when" title="Ссылка на этот заголовок"></a></h2>
+<p>Выражение when представляет собой логическое условие, зависящее от набора
+атрибутов, активных в данный момент для layeredimage.</p>
+<p>Оно состоит из одного или нескольких имён атрибутов, разделённых ключевыми словами &quot;and&quot; и &quot;or&quot;, и, возможно, с отрицанием &quot;not&quot;. Вы также можете использовать скобки для задания приоритета.</p>
+<p>Пример:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">always</span><span class="p">:</span>
+    <span class="s2">&quot;eileen_red_dress&quot;</span>
+    <span class="n">when</span> <span class="n">b</span> <span class="k">and</span> <span class="k">not</span> <span class="n">c</span>
+    <span class="c1"># изображение будет показано, когда активен атрибут b и не активен атрибут c</span>
+
+<span class="k">if</span> <span class="n">var</span><span class="p">:</span>
+    <span class="s2">&quot;eileen_blue_ribbon&quot;</span>
+    <span class="n">when</span> <span class="k">not</span> <span class="p">(</span><span class="n">a</span> <span class="k">or</span> <span class="n">b</span><span class="p">)</span>
+    <span class="c1"># изображение будет показано, когда переменная var истинна</span>
+    <span class="c1"># и ни атрибут a, ни атрибут b не активны</span>
+
+<span class="k">attribute</span> <span class="n">a</span><span class="p">:</span>
+    <span class="s2">&quot;eileen_a&quot;</span>
+    <span class="n">when</span> <span class="n">b</span> <span class="k">or</span> <span class="n">e</span>
+    <span class="c1"># изображение будет показано, когда активен атрибут &quot;a&quot;</span>
+    <span class="c1"># и активен либо атрибут &quot;b&quot;, либо &quot;e&quot;</span>
+</pre></div>
+</div>
+<section id="id4">
+<h3>Устаревшие свойства<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h3>
+<p>Следующие свойства инструкций <code class="docutils literal notranslate"><span class="pre">always</span></code>, <code class="docutils literal notranslate"><span class="pre">if</span></code> и <code class="docutils literal notranslate"><span class="pre">attribute</span></code>
+устарели, но могут присутствовать в играх, написанных до
+добавления предложения <code class="docutils literal notranslate"><span class="pre">when</span></code>. Они всё ещё работают, но предпочтительнее использовать <code class="docutils literal notranslate"><span class="pre">when</span></code>.</p>
+<dl class="simple">
+<dt><cite>if_all</cite></dt><dd><p>Строка или список строк, содержащих имена атрибутов. Если указано, этот слой отображается только в том случае, если все названные атрибуты
+присутствуют.</p>
+</dd>
+<dt><cite>if_any</cite></dt><dd><p>Строка или список строк, содержащих имена атрибутов. Если указано, этот слой отображается только в том случае, если любой из названных атрибутов
+присутствует.</p>
+</dd>
+<dt><cite>if_not</cite></dt><dd><p>Строка или список строк, содержащих имена атрибутов. Если указано, этот слой отображается только в том случае, если ни один из названных атрибутов не
+присутствует.</p>
+</dd>
+</dl>
+<p>Для преобразования в синтаксис <code class="docutils literal notranslate"><span class="pre">when</span></code> вы можете заменить:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">if_any</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">]</span>
+<span class="n">if_all</span> <span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">]</span>
+<span class="n">if_not</span> <span class="p">[</span><span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>на более лаконичное:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">when</span> <span class="p">(</span><span class="n">a</span> <span class="k">or</span> <span class="n">b</span><span class="p">)</span> <span class="k">and</span> <span class="n">c</span> <span class="k">and</span> <span class="n">d</span> <span class="k">and</span> <span class="k">not</span> <span class="p">(</span><span class="n">e</span> <span class="k">or</span> <span class="n">f</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="layeredimage-pattern">
+<span id="id5"></span><h2>Шаблон и функция форматирования<a class="headerlink" href="#layeredimage-pattern" title="Ссылка на этот заголовок"></a></h2>
+<p>Шаблон, используемый для поиска изображений для атрибутов, когда им явно не присвоено изображение, состоит из:</p>
+<ul class="simple">
+<li><p>Имени layeredimage, с заменой пробелов на подчёркивания.</p></li>
+<li><p>Имени группы, если мы находимся в группе, не являющейся <code class="docutils literal notranslate"><span class="pre">multiple</span></code>.</p></li>
+<li><p>Имени варианта, если он есть.</p></li>
+<li><p>Имени атрибута.</p></li>
+</ul>
+<p>всех частей, объединённых подчёркиваниями. Например, если у нас есть слоёное изображение с именем &quot;augustina work&quot; и группа &quot;eyes&quot;, это будет соответствовать изображениям, которые совпадают с шаблоном augustina_work_eyes_<cite>attribute</cite>. С <cite>variant</cite> <cite>blue</cite> это будет соответствовать шаблону augustina_work_eyes_blue_<cite>attribute</cite>. В следующем примере:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">layeredimage</span> <span class="n">augustina</span> <span class="n">work</span><span class="p">:</span>
+    <span class="k">group</span> <span class="n">eyes</span> <span class="na">variant</span> <span class="n">blue</span><span class="p">:</span>
+        <span class="k">attribute</span> <span class="n">closed</span>
+</pre></div>
+</div>
+<p>Атрибут связывается с изображением <code class="docutils literal notranslate"><span class="pre">&quot;augustina_work_eyes_blue_closed&quot;</span></code>. Это может быть файлом изображения с именем <code class="file docutils literal notranslate"><span class="pre">augustina_work_eyes_blue_closed.png</span></code>, но также может быть явно определено, например, с помощью <a class="reference internal" href="displaying_images.html#image-statement"><span class="std std-ref">инструкции image</span></a>.</p>
+<p>Всё поведение шаблона можно изменить с помощью <cite>format_function</cite>:
+<a class="reference internal" href="#layeredimage.format_function" title="layeredimage.format_function"><code class="xref py py-func docutils literal notranslate"><span class="pre">layeredimage.format_function()</span></code></a> — это функция, которая используется &quot;под капотом&quot; для реализации описанного выше поведения. Вы можете посмотреть, какие аргументы она принимает, если захотите предоставить свою собственную <cite>format_function</cite> для её замены.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="layeredimage.format_function">
+<span class="sig-prename descclassname"><span class="pre">layeredimage.</span></span><span class="sig-name descname"><span class="pre">format_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">what</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attribute</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_format</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#layeredimage.format_function" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта функция вызывается для форматирования информации об атрибуте
+или условии в displayable. Она может быть заменена
+создателем, но новая функция должна игнорировать неизвестные kwargs.</p>
+<dl class="simple">
+<dt><cite>what</cite></dt><dd><p>Строка, дающая описание форматируемого элемента,
+которое используется для создания более качественных сообщений об ошибках.</p>
+</dd>
+<dt><cite>name</cite></dt><dd><p>Имя layeredimage.</p>
+</dd>
+<dt><cite>group</cite></dt><dd><p>Группа атрибута, None, если не указана или если это
+часть условия.</p>
+</dd>
+<dt><cite>variant</cite></dt><dd><p>Аргумент <cite>variant</cite> для группы или None, если он не
+указан.</p>
+</dd>
+<dt><cite>attribute</cite></dt><dd><p>Сам атрибут.</p>
+</dd>
+<dt><cite>image</cite></dt><dd><p>Либо displayable, либо строка.</p>
+</dd>
+<dt><cite>image_format</cite></dt><dd><p>Аргумент <cite>image_format</cite> для LayeredImage.</p>
+</dd>
+</dl>
+<p>Если <cite>image</cite> равен None, то <cite>name</cite>, <cite>group</cite> (если не None), <cite>variant</cite> (если не None)
+и <cite>attribute</cite> объединяются с помощью подчёркиваний для создания <cite>image</cite>, которое
+затем будет строкой.</p>
+<p>Если <cite>images</cite> является строкой, а <cite>image_format</cite> не равен None, <cite>image</cite> форматируется
+в строку для получения конечного displayable.</p>
+<p>Так, если <cite>name</cite> — &quot;eileen&quot;, <cite>group</cite> — &quot;expression&quot;, и
+<cite>attribute</cite> — &quot;happy&quot;, <cite>image</cite> будет установлено в &quot;eileen_expression_happy&quot;.
+Если <cite>image_format</cite> — &quot;images/{image}.png&quot;,
+конечное изображение, которое найдёт Ren'Py, будет &quot;images/eileen_expression_happy.png&quot;.
+Но обратите внимание, что он нашёл бы то же изображение и без аргумента
+форматирования.</p>
+</dd></dl>
+
+<p>Но обратите внимание, что переданная <cite>format_function</cite> _не_ меняет то, как <code class="docutils literal notranslate"><span class="pre">auto</span></code>-группы находят свои изображения: они всегда будут использовать точный шаблон, описанный выше.</p>
+</section>
+<section id="id6">
+<h2>Проксирование слоёных изображений<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h2>
+<p>Иногда бывает полезно (и даже необходимо) создать прокси для слоёного изображения, чтобы использовать одно и то же слоёное изображение в нескольких местах. Одной из причин этого может быть необходимость иметь трансформированную версию данного layeredimage, а другой — использовать его как изображение сбоку (side image).</p>
+<p>Объект <a class="reference internal" href="#LayeredImageProxy" title="LayeredImageProxy"><code class="xref py py-func docutils literal notranslate"><span class="pre">LayeredImageProxy()</span></code></a> делает это, принимая одно слоёное изображение и дублируя его в другом месте. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">dupe</span> <span class="o">=</span> <span class="n">LayeredImageProxy</span><span class="p">(</span><span class="s2">&quot;augustina&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>создаёт дубликат изображения, который можно отображать независимо. Он также принимает аргумент transform, что делает его полезным для позиционирования изображения сбоку, например, так:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="k">side</span> <span class="n">augustina</span> <span class="o">=</span> <span class="n">LayeredImageProxy</span><span class="p">(</span><span class="s2">&quot;augustina&quot;</span><span class="p">,</span> <span class="n">Transform</span><span class="p">(</span><span class="na">crop</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">362</span><span class="p">,</span> <span class="mi">362</span><span class="p">),</span> <span class="na">xoffset</span><span class="o">=-</span><span class="mi">80</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Смотрите разницу:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">sepia_augustina_one</span> <span class="o">=</span> <span class="n">Transform</span><span class="p">(</span><span class="s2">&quot;augustina&quot;</span><span class="p">,</span> <span class="na">matrixcolor</span><span class="o">=</span><span class="n">SepiaMatrix</span><span class="p">())</span>
+<span class="k">image</span> <span class="n">sepia_augustina_two</span> <span class="o">=</span> <span class="n">LayeredImageProxy</span><span class="p">(</span><span class="s2">&quot;augustina&quot;</span><span class="p">,</span> <span class="n">Transform</span><span class="p">(</span><span class="na">matrixcolor</span><span class="o">=</span><span class="n">SepiaMatrix</span><span class="p">()))</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sepia_augustina_one</span></code> будет версией в сепии <em>оригинальной версии</em> слоёного изображения &quot;augustina&quot;, другими словами, тем, что отображается, когда вы не предоставляете ему никаких атрибутов. Напротив, <code class="docutils literal notranslate"><span class="pre">sepia_augustina_two</span></code> будет принимать любые атрибуты, которые принимает &quot;augustina&quot;, а затем применять эффект сепии к результату. Если вы можете сделать это:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">augustina</span> <span class="n">happy</span> <span class="n">eyes_blue</span> <span class="n">dress</span>
+</pre></div>
+</div>
+<p>тогда:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">sepia_augustina_one</span> <span class="n">happy</span> <span class="n">eyes_blue</span> <span class="n">dress</span>
+<span class="c1"># не сработает, потому что Transform не принимает атрибуты</span>
+
+<span class="k">show</span> <span class="n">sepia_augustina_two</span> <span class="n">happy</span> <span class="n">eyes_blue</span> <span class="n">dress</span>
+<span class="c1"># сработает, и покажет &quot;augustina happy eyes_blue dress&quot; с эффектом сепии</span>
+</pre></div>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="LayeredImageProxy">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LayeredImageProxy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LayeredImageProxy" title="Ссылка на это определение"></a></dt>
+<dd><p>Это объект, подобный изображению, который проксирует переданные ему атрибуты
+другому layered image.</p>
+<dl class="simple">
+<dt><cite>name</cite></dt><dd><p>Строка, задающая имя layeredimage, на которое будет осуществляться проксирование.</p>
+</dd>
+<dt><cite>transform</cite></dt><dd><p>Если задано, трансформация или список трансформаций, которые применяются к
+изображению после проксирования.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="attribute-selection-process">
+<span id="id7"></span><h2>Выбор атрибутов для отображения<a class="headerlink" href="#attribute-selection-process" title="Ссылка на этот заголовок"></a></h2>
+<p>Несколько факторов влияют на то, что отображается после выполнения определённой <a class="reference internal" href="displaying_images.html#show-statement"><span class="std std-ref">инструкции show</span></a>. Чтобы внести больше ясности в то, что происходит и в каком порядке, этот раздел демонстрирует жизнь набора атрибутов, от инструкции show до отображения на экране.</p>
+<ul class="simple">
+<li><p>Инструкция <code class="docutils literal notranslate"><span class="pre">show</span></code> предоставляет начальный набор атрибутов после тега изображения.</p></li>
+<li><p>Если существует функция <a class="reference internal" href="config.html#var-config.adjust_attributes"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.adjust_attributes</span></code></a>, соответствующая тегу изображения, она вызывается и возвращает потенциально другой набор атрибутов. Если да, то он заменяет предыдущий набор, который забывается.</p></li>
+<li><p>Если существует функция <a class="reference internal" href="config.html#var-config.default_attribute_callbacks"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.default_attribute_callbacks</span></code></a> и если её условия срабатывания выполнены, она вызывается и потенциально добавляет атрибуты в набор.</p></li>
+</ul>
+<p>Предыдущие этапы не являются специфичными для layeredimages, потому что только после этого этапа Ren'Py определяет, какое изображение или layeredimage будет вызвано для отображения. По этой причине данный набор атрибутов должен приводить к одному, и только одному, определённому изображению (или layeredimage, Live2D...), используя поведение, описанное в <a class="reference internal" href="displaying_images.html#show-statement"><span class="std std-ref">разделе инструкции show</span></a>.</p>
+<ul class="simple">
+<li><p>Затем предоставленные атрибуты объединяются с атрибутами, определёнными в layeredimage, отбрасывая некоторые ранее показанные атрибуты и сохраняя другие. На этом этапе также обнаруживаются нераспознанные атрибуты и генерируются соответствующие ошибки. Если таких ошибок нет, новые атрибуты, а также те, которые не были отброшены, будут распознаны Ren'Py как набор атрибутов, связанный с этим тегом изображения. Это вычисление учитывает некоторые ограничения несовместимости, но не все. Например, несовместимости из-за нахождения атрибутов в одной и той же группе (не <cite>multiple</cite>) сработают на этом этапе, а предложения <code class="docutils literal notranslate"><span class="pre">when</span></code> — нет.
+Вот почему атрибут, вызванный, но отменённый таким предложением, будет считаться активным Ren'Py и, например, станет видимым без повторного вызова, если в какой-то момент условие предложения if_x больше не будет выполняться.</p></li>
+<li><p>Если для layeredimage была предоставлена <code class="docutils literal notranslate"><span class="pre">attribute_function</span></code>, она вызывается с набором оставшихся атрибутов. Она возвращает потенциально другой набор атрибутов.</p></li>
+<li><p>Этот набор снова сопоставляется с ограничениями несовместимости layeredimage, на этот раз в полной мере. Это заключительный этап, и оставшиеся атрибуты вызываются для отображения.</p></li>
+</ul>
+</section>
+<section id="id8">
+<h2>Советы<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h2>
+<p><strong>Используйте подчёркивания в именах файлов изображений.</strong></p>
+<p>По умолчанию слоёные изображения Ren'Py используют подчёркивания для разделения частей имён изображений. Может возникнуть соблазн использовать изображения с пробелами между частями, но это может привести к проблемам в будущем.</p>
+<p>В Ren'Py есть правило: если вы показываете изображение с точным именем того, что уже отображается, оно показывается вместо него. Это может обойти определённое вами слоёное изображение и показать спрайт напрямую, что может привести к странным проблемам, таким как пара глаз, парящих в пространстве.</p>
+<p>Если у каждого спрайта будет свой тег, отличный от основного изображения, эта проблема исчезнет.</p>
+<p><strong>Обрезка слоёв не обязательна.</strong></p>
+<p>Ren'Py оптимизирует изображения, обрезая их до ограничивающей рамки непрозрачных пикселей перед загрузкой в ОЗУ. В результате, при условии, что изображения правильно предсказываются, самостоятельная обрезка изображений, как правило, не сильно улучшит производительность или размер изображений.</p>
+<p><strong>Слоёные изображения не должны использовать данные, изменяющиеся во время выполнения.</strong></p>
+<p>Обратите внимание, что за исключением условий в инструкции <code class="docutils literal notranslate"><span class="pre">if</span></code>, все выражения, написанные в блоке <code class="docutils literal notranslate"><span class="pre">layeredimage</span></code>, вычисляются во время инициализации, когда слоёное изображение определяется впервые. Это не относится, например, к ATL-преобразованиям или ко всему, что происходит в <a class="reference internal" href="config.html#var-config.adjust_attributes"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.adjust_attributes</span></code></a>,
+<a class="reference internal" href="config.html#var-config.default_attribute_callbacks"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.default_attribute_callbacks</span></code></a> или <code class="docutils literal notranslate"><span class="pre">attribute_function</span></code>, но это относится к <code class="docutils literal notranslate"><span class="pre">format_function</span></code>, которая также вызывается только при определении layeredimage.</p>
+<p><strong>Выбор синтаксиса для использования</strong></p>
+<p>Если вы хотите, чтобы спрайт был всегда виден, используйте либо предложение <code class="docutils literal notranslate"><span class="pre">always</span></code>, либо синтаксис <code class="docutils literal notranslate"><span class="pre">attribute</span> <span class="pre">x</span> <span class="pre">default</span></code>. <code class="docutils literal notranslate"><span class="pre">always</span></code> потребует от вас явного предоставления отображаемого объекта (автоматическое присваивание с использованием <a class="reference internal" href="#layeredimage-pattern"><span class="std std-ref">шаблона</span></a> будет недоступно), а <code class="docutils literal notranslate"><span class="pre">attribute</span></code> займёт имя атрибута &quot;x&quot;, который всегда будет активен для этого layeredimage.</p>
+<p>Если вы хотите, чтобы он появлялся в зависимости от атрибутов, передаваемых layeredimage в момент инструкции <code class="docutils literal notranslate"><span class="pre">show</span></code>, например, <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">eileen</span> <span class="pre">happy</span></code> вместо <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">eileen</span> <span class="pre">jeans</span></code>, используйте инструкцию <code class="docutils literal notranslate"><span class="pre">attribute</span></code>, внутри или вне блока <code class="docutils literal notranslate"><span class="pre">group</span></code> (или неявно определённую в <code class="docutils literal notranslate"><span class="pre">auto</span></code>-группе).</p>
+<p>Если вы хотите, чтобы он появлялся в зависимости от переменной или условия Python, используйте инструкцию <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
+<p>Если вы хотите, чтобы он зависел от обоих (например, чтобы <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">eileen</span> <span class="pre">ribbon</span></code> показывал синюю или красную ленту в зависимости от переменной, но лента не появлялась, пока вы не запросите её с атрибутом <code class="docutils literal notranslate"><span class="pre">ribbon</span></code>), объявите все версии как атрибуты и используйте специальную функцию <a class="reference internal" href="config.html#var-config.adjust_attributes"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.adjust_attributes</span></code></a>.</p>
+</section>
+<section id="layeredimage-examples">
+<span id="id9"></span><h2>Примеры<a class="headerlink" href="#layeredimage-examples" title="Ссылка на этот заголовок"></a></h2>
+<p><strong>Шаблон и auto-группы</strong></p>
+<p>Из следующих файлов в каталоге images/ (или одном из его подкаталогов) и написанного кода:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>francis_base.png
+francis_face_neutral.png
+francis_face_angry.png
+francis_face_happy.png
+francis_face_very_happy.png
+francis_face annoyed.png
+francis_supersad.png
+</pre></div>
+</div>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">layeredimage</span> <span class="n">francis</span><span class="p">:</span>
+    <span class="k">attribute</span> <span class="n">base</span> <span class="k">default</span>
+    <span class="k">group</span> <span class="n">face</span> <span class="k">auto</span><span class="p">:</span>
+        <span class="k">attribute</span> <span class="n">neutral</span> <span class="k">default</span>
+    <span class="k">attribute</span> <span class="n">supersad</span> <span class="k">image</span><span class="p">:</span>
+        <span class="s2">&quot;#00c3&quot;</span>
+        <span class="na">xysize</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Слоёное изображение <code class="docutils literal notranslate"><span class="pre">francis</span></code> объявит (по умолчанию) атрибут <code class="docutils literal notranslate"><span class="pre">base</span></code> и свяжет с ним (автоматически определённое) изображение &quot;francis_base&quot;, используя <a class="reference internal" href="#layeredimage-pattern"><span class="std std-ref">шаблон</span></a>: имя layeredimage (&quot;francis&quot;), имя группы (здесь нет), имя варианта (здесь нет) и имя атрибута (&quot;base&quot;), разделённые подчёркиваниями.</p>
+<p>Затем, в группе <code class="docutils literal notranslate"><span class="pre">face</span></code>, явный атрибут <code class="docutils literal notranslate"><span class="pre">neutral</span></code> связывается с изображением &quot;francis_face_neutral&quot;, следуя тому же шаблону, но используя &quot;face&quot; в качестве имени группы и &quot;neutral&quot; в качестве имени атрибута.</p>
+<p>После того как все явные атрибуты получат свои изображения, поскольку <code class="docutils literal notranslate"><span class="pre">face</span></code> является <code class="docutils literal notranslate"><span class="pre">auto</span></code>-группой, существующие изображения (автоматически определённые или нет) сканируются на соответствие шаблону. Здесь находятся три соответствия: &quot;francis_face_angry&quot;, &quot;francis_face_happy&quot; и &quot;francis_face_very_happy&quot;. Они связываются с атрибутами <code class="docutils literal notranslate"><span class="pre">angry</span></code>, <code class="docutils literal notranslate"><span class="pre">happy</span></code> и <code class="docutils literal notranslate"><span class="pre">very_happy</span></code> соответственно, используя тот же шаблон, что и раньше. Однако атрибут <code class="docutils literal notranslate"><span class="pre">annoyed</span></code> не определяется, поскольку изображение &quot;francis_face annoyed&quot; содержит пробел там, где шаблон ожидал подчёркивание.</p>
+<p>Наконец, объявляется атрибут <code class="docutils literal notranslate"><span class="pre">supersad</span></code>, но поскольку отображаемый объект предоставлен явно, шаблон не ищет соответствующее изображение.</p>
+<p>Изображения &quot;francis_supersad&quot; и &quot;francis_face annoyed&quot; автоматически определяются из имени файла в рамках обычного <a class="reference internal" href="displaying_images.html#images-directory"><span class="std std-ref">протокола Ren'Py</span></a>, но эти спрайты не находят соответствия ни с одним атрибутом или auto-группой, поэтому они в конечном итоге не используются в layeredimage <code class="docutils literal notranslate"><span class="pre">francis</span></code>.</p>
+<p>Как видите, использование шаблона для связывания изображений с атрибутами и использование auto-групп значительно сокращает код. То же самое слоёное изображение заняло бы 13 строк, если бы всё было объявлено явно (попробуйте!), и этот синтаксис позволяет геометрически наращивать набор спрайтов — например, добавление любого количества новых лиц не потребует никаких изменений в коде.</p>
+<p><strong>Динамика в атрибутах</strong></p>
+<p>Вот пример определения атрибутов в зависимости от переменных (как упоминалось в разделе &quot;Советы&quot;):</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">layeredimage</span> <span class="n">eileen</span><span class="p">:</span>
+    <span class="k">attribute</span> <span class="n">base</span> <span class="k">default</span>
+    <span class="k">group</span> <span class="n">outfit</span> <span class="k">auto</span>
+    <span class="k">group</span> <span class="n">ribbon</span> <span class="na">prefix</span> <span class="n">ribbon</span><span class="p">:</span>
+        <span class="k">attribute</span> <span class="n">red</span>
+        <span class="k">attribute</span> <span class="n">blue</span>
+
+<span class="k">default</span> <span class="n">eileen_ribbon_color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
+
+<span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">eileen_adjuster</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+        <span class="n">atts</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="k">if</span> <span class="s2">&quot;ribbon&quot;</span> <span class="k">in</span> <span class="n">atts</span><span class="p">:</span>
+            <span class="n">atts</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;ribbon&quot;</span><span class="p">)</span>
+            <span class="n">atts</span><span class="o">.</span><span class="k">add</span><span class="p">(</span><span class="s2">&quot;ribbon_&quot;</span> <span class="o">+</span> <span class="n">eileen_ribbon_color</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">names</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">*</span><span class="n">atts</span>
+
+<span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">adjust_attributes</span><span class="p">[</span><span class="s2">&quot;eileen&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">eileen_adjuster</span>
+</pre></div>
+</div>
+<p><strong>Включение групп в when</strong></p>
+<p>Свойство <code class="docutils literal notranslate"><span class="pre">when</span></code> не позволяет указывать имя группы, чтобы данный слой отображался только тогда, когда отображается какой-либо или ни один из атрибутов в данной группе. Однако, есть способ сделать это, используя различные другие части синтаксиса layeredimage.</p>
+<p>Предположим, что у группы нет атрибута по умолчанию, вы можете добавить атрибут <code class="docutils literal notranslate"><span class="pre">null</span></code> по умолчанию с выбранным вами именем. Таким образом, если ни один атрибут из группы не показан, этот атрибут активируется (хотя ничего не отображается), и он снова деактивируется, если атрибут группы скрывается.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">layeredimage</span> <span class="n">eliza</span><span class="p">:</span>
+    <span class="k">attribute</span> <span class="n">head_and_hair</span> <span class="k">default</span>
+    <span class="k">group</span> <span class="n">top</span> <span class="k">auto</span>
+    <span class="k">group</span> <span class="n">headtop</span> <span class="na">prefix</span> <span class="n">headtop</span><span class="p">:</span>
+        <span class="k">attribute</span> <span class="n">notop</span> <span class="k">null</span> <span class="k">default</span>
+        <span class="k">attribute</span> <span class="n">hat</span>
+        <span class="k">attribute</span> <span class="n">cap</span>
+    <span class="k">attribute</span> <span class="n">hair_patch</span> <span class="n">when</span> <span class="n">notop</span>
+</pre></div>
+</div>
+<p>Здесь атрибут hair_patch будет показывать дополнительную часть волос Элизы поверх её верхнего слоя (например, на плечах) только в том случае, если нет шляпы, чтобы их скрыть.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="matrixcolor.html" class="btn btn-neutral float-left" title="Matrixcolor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="3dstage.html" class="btn btn-neutral float-right" title="3D-сцена" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1489 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Текст &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/text.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Перевод" href="translation.html" />
+    <link rel="prev" title="Озвучка" href="voice.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Текст</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Управляющие символы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#text-interpolation">Интерполяция данных</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Стили и текстовые теги</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Общие текстовые теги</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Теги диалогового текста</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Теги стилей</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">Неанглийские языки</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Вертикальный текст</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ruby">Текст Ruby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">Шрифты</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Замена шрифта</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Имена и псевдонимы шрифтов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fontgroup">Группы шрифтов</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#FontGroup"><code class="docutils literal notranslate"><span class="pre">FontGroup</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Шрифты на основе изображений</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#renpy.register_bmfont"><code class="docutils literal notranslate"><span class="pre">renpy.register_bmfont()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#renpy.register_mudgefont"><code class="docutils literal notranslate"><span class="pre">renpy.register_mudgefont()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#renpy.register_sfont"><code class="docutils literal notranslate"><span class="pre">renpy.register_sfont()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#text-displayables">Текстовые отображаемые объекты</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ParameterizedText"><code class="docutils literal notranslate"><span class="pre">ParameterizedText</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">Утилитарные функции для текста</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.filter_text_tags"><code class="docutils literal notranslate"><span class="pre">renpy.filter_text_tags()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.substitute"><code class="docutils literal notranslate"><span class="pre">renpy.substitute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.transform_text"><code class="docutils literal notranslate"><span class="pre">renpy.transform_text()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">Особенности медленного вывода текста</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">Логирование переполнения текста</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variable-fonts">Вариативные шрифты</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.variable_font_info"><code class="docutils literal notranslate"><span class="pre">renpy.variable_font_info()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Текст</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/text.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="text">
+<span id="id1"></span><h1>Текст<a class="headerlink" href="#text" title="Ссылка на этот заголовок"></a></h1>
+<p>Ren'Py содержит несколько способов отображения текста. Инструкции <a class="reference internal" href="dialogue.html#say-statement"><span class="std std-ref">say</span></a>
+и <a class="reference internal" href="menus.html"><span class="doc">menu</span></a> в первую очередь предназначены для
+отображения текста пользователю. Пользовательский интерфейс часто содержит текст,
+отображаемый с помощью инструкций языка экранов <a class="reference internal" href="screens.html#sl-text"><span class="std std-ref">text</span></a>, <a class="reference internal" href="screens.html#sl-textbutton"><span class="std std-ref">textbutton</span></a>
+и <a class="reference internal" href="screens.html#sl-label"><span class="std std-ref">label</span></a>. Эти
+функции, наряду с другими, создают отображаемые объекты (displayables) <a class="reference internal" href="#Text" title="Text"><code class="xref py py-func docutils literal notranslate"><span class="pre">Text()</span></code></a>
+и выводят их на экран.</p>
+<p>Отображаемый объект Text отвечает за управление процессом
+показа текста пользователю. Он выполняет действия в
+следующем порядке:</p>
+<ol class="arabic simple">
+<li><p>Перевод текста.</p></li>
+<li><p>Интерполяция данных в текст.</p></li>
+<li><p>Стилизация текста с использованием стилей и текстовых тегов.</p></li>
+<li><p>Разметка стилизованного текста.</p></li>
+<li><p>Отрисовка текста на экране.</p></li>
+</ol>
+<p>В этой главе обсуждается процесс отображения текста в Ren'Py.</p>
+<section id="id2">
+<h2>Управляющие символы<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Существует три специальных символа, которые могут управлять способом
+отображения текста в Ren'Py. Разработчику необходимо знать об этих символах,
+чтобы движок случайно не неверно истолковал написанный им текст.</p>
+<dl>
+<dt>(обратная косая черта)</dt><dd><p>Символ обратной косой черты используется для вставки управляющих последовательностей при написании
+строки в Ren'Py или Python. Некоторые распространённые управляющие последовательности:</p>
+<dl class="simple">
+<dt>\&quot; (обратная косая черта-двойная кавычка)</dt><dd><p>Включает двойную кавычку в строку, заключённую в двойные кавычки.</p>
+</dd>
+<dt>\' (обратная косая черта-одинарная кавычка)</dt><dd><p>Включает одинарную кавычку в строку, заключённую в одинарные кавычки.</p>
+</dd>
+<dt>\ (обратная косая черта-пробел)</dt><dd><p>Включает дополнительный пробел в строку Ren'Py. По умолчанию
+в тексте скрипта Ren'Py соседние пробельные символы объединяются в один
+пробел.</p>
+</dd>
+<dt>\n (обратная косая черта-n)</dt><dd><p>Включает символ новой строки в текст.</p>
+</dd>
+<dt>\\ (двойная обратная косая черта)</dt><dd><p>Включает символ обратной косой черты в текст.</p>
+</dd>
+<dt>\% (обратная косая черта-процент)</dt><dd><p>Включает защищённый символ процента в текст. Также
+можно написать %%: оба варианта защиты в итоге приведут к
+выводу одного символа %.</p>
+</dd>
+</dl>
+</dd>
+<dt>[ (левая квадратная скобка)</dt><dd><p>Левая квадратная скобка используется для введения интерполяции значения
+в текст. Чтобы включить одну левую квадратную скобку в ваш текст,
+удвойте её — напишите <code class="docutils literal notranslate"><span class="pre">[[</span></code>.</p>
+</dd>
+<dt>{ (левая фигурная скобка)</dt><dd><p>Левая фигурная скобка используется для введения текстового тега. Чтобы включить
+левую фигурную скобку в ваш текст, удвойте её — напишите <code class="docutils literal notranslate"><span class="pre">{{</span></code>.</p>
+</dd>
+<dt>【 (левая линзовидная скобка)</dt><dd><p>Левая линзовидная скобка используется для введения текста ruby/фуриганы.
+Чтобы включить левую линзовидную скобку в ваш текст, удвойте её
+— напишите <code class="docutils literal notranslate"><span class="pre">【【</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="text-interpolation">
+<span id="id3"></span><h2>Интерполяция данных<a class="headerlink" href="#text-interpolation" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py поддерживает интерполяцию данных в текстовую строку перед её
+отображением. Например, если имя игрока хранится в переменной
+<code class="docutils literal notranslate"><span class="pre">playername</span></code>, можно написать такую строку диалога:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="s2">&quot;Welcome to the Nekomimi Institute, [playername]!&quot;</span>
+</pre></div>
+</div>
+<p>Ren'Py будет искать переменные в следующем порядке:</p>
+<ul class="simple">
+<li><p>При использовании на экране — локальные переменные экрана.</p></li>
+<li><p>Переменные, найденные в пространстве имён <code class="docutils literal notranslate"><span class="pre">interpolate</span></code>.</p></li>
+<li><p>Переменные, найденные в глобальном пространстве имён.</p></li>
+</ul>
+<p>Ren'Py не ограничивается интерполяцией простых переменных. Он также может
+интерполировать любое допустимое выражение Python. Так что возможно и такое:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="s2">&quot;My first name is [player.names[0]].&quot;</span>
+</pre></div>
+</div>
+<p>При отображении чисел можно применять форматирование.
+Это отобразит число с плавающей точкой с двумя знаками после запятой:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="s2">&quot;I like you [100.0 * points / max_points:.2] percent!&quot;</span>
+</pre></div>
+</div>
+<p>Форматирование строк в Ren'Py заимствовано из синтаксиса
+форматирования строк <span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-3101/"><strong>PEP 3101</strong></a>. Ren'Py использует [ для введения интерполяции строк,
+потому что { уже был занят текстовыми тегами.</p>
+<p>Наряду с флагами преобразования <code class="docutils literal notranslate"><span class="pre">!s</span></code> и <code class="docutils literal notranslate"><span class="pre">!r</span></code>, поддерживаемыми Python, Ren'Py
+поддерживает несколько дополнительных флагов. Флаг преобразования <code class="docutils literal notranslate"><span class="pre">!q</span></code> гарантирует,
+что текстовые теги будут правильно экранированы, так что отображение строки не
+приведёт к нежелательным конструкциям форматирования. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="s2">&quot;Don&#39;t pull a fast one on me, [playername!q].&quot;</span>
+</pre></div>
+</div>
+<p>Флаг <code class="docutils literal notranslate"><span class="pre">!t</span></code> переводит интерполированную строку:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">points</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="k">$</span> <span class="n">mood</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;happy&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">$</span> <span class="n">mood</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;annoyed&quot;</span><span class="p">)</span>
+
+<span class="n">g</span> <span class="s2">&quot;I&#39;m [mood!t] to see you.&quot;</span>
+</pre></div>
+</div>
+<p>Флаг <code class="docutils literal notranslate"><span class="pre">!i</span></code> выполняет дополнительную интерполяцию для интерполированной строки:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">earned_points_info</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;[points]{image=points.png} earned points&quot;</span><span class="p">)</span>
+<span class="n">g</span> <span class="s2">&quot;I&#39;m happy to see you you have [earned_points_info!ti].&quot;</span>
+</pre></div>
+</div>
+<p>Это следует использовать для подстановки текста, внутри которого есть своя подстановка.
+Это часто полезно в языке экранов, см. <a class="reference internal" href="screen_optimization.html#const-text"><span class="std std-ref">Const Text</span></a>.</p>
+<p>Флаг <code class="docutils literal notranslate"><span class="pre">!u</span></code> переводит текст в верхний регистр, а флаг <code class="docutils literal notranslate"><span class="pre">!l</span></code> —
+в нижний. Флаг <code class="docutils literal notranslate"><span class="pre">!c</span></code> действует только на первый символ,
+делая его заглавным. Эти флаги можно комбинировать, например, <code class="docutils literal notranslate"><span class="pre">!cl</span></code>
+сделает заглавным первый символ, а остальной текст переведёт в нижний регистр.</p>
+<p>Следует отметить, что:</p>
+<ul class="simple">
+<li><p>порядок, в котором указаны флаги, не меняет результат: <code class="docutils literal notranslate"><span class="pre">!cl</span></code>
+сделает то же самое, что и <code class="docutils literal notranslate"><span class="pre">!lc</span></code>.</p></li>
+<li><p>Дополнительные восклицательные знаки будут проигнорированы и не обойдут
+предыдущее правило: <code class="docutils literal notranslate"><span class="pre">!l!c</span></code> сделает то же самое, что и <code class="docutils literal notranslate"><span class="pre">!c!l</span></code> или <code class="docutils literal notranslate"><span class="pre">!cl</span></code>.</p></li>
+</ul>
+<p>Преобразования выполняются в следующем порядке:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r</span></code>/<code class="docutils literal notranslate"><span class="pre">s</span></code> (repr или str)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t</span></code> (перевод)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code> (рекурсивная интерполяция)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">q</span></code> (экранирование)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">u</span></code> (верхний регистр)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">l</span></code> (нижний регистр)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">c</span></code> (капитализация первого символа)</p></li>
+</ol>
+</section>
+<section id="id4">
+<h2>Стили и текстовые теги<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<p>В Ren'Py текст получает информацию о стиле двумя способами. Первый —
+из стиля, который применяется ко всему блоку текста. Пожалуйста, обратитесь к
+разделу о <a class="reference internal" href="style.html"><span class="doc">системе стилей</span></a> для получения дополнительной информации,
+особенно к разделу о <a class="reference internal" href="style_properties.html#text-style-properties"><span class="std std-ref">свойствах стиля текста</span></a>.</p>
+<p>Второй способ — через текстовые теги. Текстовые теги подходят для
+стилизации части текстового блока или небольшой доли текстовых
+блоков в программе. Если вы обнаружите, что применяете одни и те же
+текстовые теги к каждой строке текста, рассмотрите возможность использования стиля.</p>
+<p>Существует два типа текстовых тегов. Некоторые теги являются самозакрывающимися, в то время как другие
+позволяют использовать закрывающий тег. Закрывающий тег начинается с косой черты (/), и теги
+закрываются в порядке &quot;последним вошёл — первым вышел&quot;. Каждый закрывающий тег должен
+соответствовать соответствующему открывающему. В противном случае Ren'Py выдаст предупреждение.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Эта строка корректна.</span>
+<span class="s2">&quot;Plain </span><span class="si">{b}</span><span class="s2">Bold </span><span class="si">{i}</span><span class="s2">Bold-Italic{/i} Bold{/b} Plain&quot;</span>
+
+<span class="c1"># Эта строка некорректна и вызовет неправильное поведение.</span>
+<span class="s2">&quot;Plain </span><span class="si">{b}</span><span class="s2">Bold </span><span class="si">{i}</span><span class="s2">Bold-Italic{/b} Italic{/i} Plain&quot;</span>
+</pre></div>
+</div>
+<p>Не обязательно закрывать все текстовые теги. Ren'Py закроет все
+теги, которые остались открытыми в конце текстового блока. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;{size=+20}This is big!&quot;</span>
+</pre></div>
+</div>
+<p>Некоторые текстовые теги принимают аргумент. В этом случае за именем
+тега следует знак равенства (=) и аргумент. Аргумент не может
+содержать символ правой фигурной скобки (}). Значение аргумента
+зависит от конкретного текстового тега.</p>
+<section id="id5">
+<h3>Общие текстовые теги<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h3>
+<p>Теги, которые применяются ко всему тексту:</p>
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-a">
+<span class="sig-name descname"><span class="pre">a</span></span><a class="headerlink" href="#text-tag-a" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег-якорь создаёт гиперссылку между собой и своим закрывающим
+тегом. Хотя поведение гиперссылки контролируется свойством
+стиля <a class="reference internal" href="style_properties.html#style-property-hyperlink_functions"><code class="xref std std-propref docutils literal notranslate"><span class="pre">hyperlink_functions</span></code></a>, обработчик по умолчанию
+имеет следующее поведение.</p>
+<ul class="simple">
+<li><p>Когда аргумент начинается с <code class="docutils literal notranslate"><span class="pre">jump:</span></code>, остальная часть аргумента — это метка для перехода.</p></li>
+<li><p>Когда аргумент начинается с <code class="docutils literal notranslate"><span class="pre">call:</span></code>, остальная часть аргумента — это метка
+для вызова. Как обычно, вызов завершает текущую инструкцию Ren'Py.</p></li>
+<li><p>Когда аргумент начинается с <code class="docutils literal notranslate"><span class="pre">call_in_new_context:</span></code>, остальная часть аргумента
+— это метка для вызова в новом контексте (с помощью <a class="reference internal" href="label.html#renpy.call_in_new_context" title="renpy.call_in_new_context"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.call_in_new_context()</span></code></a>).</p></li>
+<li><p>Когда аргумент начинается с <code class="docutils literal notranslate"><span class="pre">show:</span></code>, остальная часть аргумента — это экран для показа.</p></li>
+<li><p>Когда аргумент начинается с <code class="docutils literal notranslate"><span class="pre">showmenu:</span></code>, остальная часть аргумента — это
+игровой экран меню для показа.</p></li>
+<li><p>В противном случае аргумент — это URL-адрес, который открывается системным веб-браузером.</p></li>
+</ul>
+<p>Если в аргументе нет раздела протокола, к нему добавляется
+<a class="reference internal" href="config.html#var-config.hyperlink_protocol"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.hyperlink_protocol</span></code></a>. Если config.hyperlink_protocol установлен в &quot;jump&quot;,
+{a=label} и {a=jump:label} становятся эквивалентными. Создатели могут определять новые
+протоколы с помощью <a class="reference internal" href="config.html#var-config.hyperlink_handlers"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.hyperlink_handlers</span></code></a>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">test</span><span class="p">:</span>
+
+    <span class="n">e</span> <span class="s2">&quot;Why don&#39;t you visit {a=https://renpy.org}Ren&#39;Py&#39;s home page{/a}?&quot;</span>
+
+    <span class="n">e</span> <span class="s2">&quot;Or {a=jump:more_text}here for more info{/a}.&quot;</span>
+
+    <span class="k">return</span>
+
+<span class="k">label</span> <span class="n">more_text</span><span class="p">:</span>
+
+    <span class="n">e</span> <span class="s2">&quot;In Hot Springs, Arkansas, there&#39;s a statue of Al Capone you can take a picture with.&quot;</span>
+
+    <span class="n">e</span> <span class="s2">&quot;That&#39;s more info, but not the kind you wanted, is it?&quot;</span>
+
+    <span class="k">return</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-alpha">
+<span class="sig-name descname"><span class="pre">alpha</span></span><a class="headerlink" href="#text-tag-alpha" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег <cite>alpha</cite> отображает текст между собой и своим закрывающим
+тегом с указанной непрозрачностью. Непрозрачность должна быть значением
+от 0.0 до 1.0, что соответствует полной невидимости и полной
+непрозрачности соответственно. Если перед значением стоит префикс + или -, непрозрачность
+будет изменена на эту величину, а не полностью заменена. Если
+перед значением стоит префикс *, непрозрачность будет умножена
+на эту величину.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;{alpha=0.1}This text is barely readable!{/alpha}&quot;</span>
+<span class="s2">&quot;{alpha=-0.1}This text is 10 percent more transparent than the default.{/alpha}&quot;</span>
+<span class="s2">&quot;{alpha=*0.5}This text is half as opaque as the default.{/alpha}&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-alt">
+<span class="sig-name descname"><span class="pre">alt</span></span><a class="headerlink" href="#text-tag-alt" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег <cite>alt</cite> предотвращает отрисовку текста, но оставляет его
+доступным для системы преобразования текста в речь.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="s2">&quot;Good to see you! {image=heart.png}</span><span class="si">{alt}</span><span class="s2">heart{/alt}&quot;</span>
+</pre></div>
+</div>
+<p>См. также персонажа <a class="reference internal" href="self_voicing.html#var-alt"><code class="xref std std-var docutils literal notranslate"><span class="pre">alt</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-art">
+<span class="sig-name descname"><span class="pre">art</span></span><a class="headerlink" href="#text-tag-art" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег альтернативного верхнего текста ruby (<cite>art</cite>) помечает текст между собой и своим
+закрывающим тегом как альтернативный верхний текст ruby. См. раздел о
+<a class="reference internal" href="#ruby-text"><span class="std std-ref">Тексте Ruby</span></a> для получения дополнительной информации.</p>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-b">
+<span class="sig-name descname"><span class="pre">b</span></span><a class="headerlink" href="#text-tag-b" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег полужирного начертания (<cite>bold</cite>) отображает текст между собой и своим закрывающим тегом
+полужирным шрифтом.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;An example of </span><span class="si">{b}</span><span class="s2">bold test{/b}.&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-color">
+<span class="sig-name descname"><span class="pre">color</span></span><a class="headerlink" href="#text-tag-color" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег цвета (<cite>color</cite>) отображает текст между собой и своим закрывающим
+тегом указанным цветом. Цвет должен быть в формате #rgb, #rgba,
+#rrggbb или #rrggbbaa.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;{color=#f00}Red{/color}, {color=#00ff00}Green{/color}, {color=#0000ffff}Blue{/color}&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-cps">
+<span class="sig-name descname"><span class="pre">cps</span></span><a class="headerlink" href="#text-tag-cps" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег символов в секунду (<cite>characters per second</cite>) устанавливает скорость отображения текста
+для текста между тегом и его закрывающим тегом. Если аргумент
+начинается со звёздочки, он воспринимается как множитель к текущей
+скорости текста. В противном случае аргумент задаёт скорость
+отображения текста в символах в секунду.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;{cps=20}Fixed Speed{/cps} {cps=*2}Double Speed{/cps}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-feature">
+<span class="sig-name descname"><span class="pre">feature</span></span><a class="headerlink" href="#text-tag-feature" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег <cite>feature</cite> включает или отключает функции разметки OpenType. Имя
+функции является частью тега, отделённой двоеточием. Аргументом
+должно быть 1 для включения функции или 0 для её отключения. Например,
+чтобы отключить лигатуры, используйте следующее:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;{feature:liga=0}Traffic{/feature} is light today.&quot;</span>
+</pre></div>
+</div>
+<p>Список функций разметки можно найти <a class="reference external" href="https://learn.microsoft.com/en-us/typography/opentype/spec/featuretags">здесь</a>.</p>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-font">
+<span class="sig-name descname"><span class="pre">font</span></span><a class="headerlink" href="#text-tag-font" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег шрифта (<cite>font</cite>) отображает текст между собой и своим закрывающим тегом
+указанным шрифтом. Аргументом является имя файла шрифта для
+использования.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Try out the {font=mikachan.ttf}mikachan font{/font}.&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-i">
+<span class="sig-name descname"><span class="pre">i</span></span><a class="headerlink" href="#text-tag-i" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег курсива (<cite>italics</cite>) отображает текст между собой и своим закрывающим тегом
+курсивом.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Visit the </span><span class="si">{i}</span><span class="s2">leaning tower of Pisa{/i}.&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-image">
+<span class="sig-name descname"><span class="pre">image</span></span><a class="headerlink" href="#text-tag-image" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег изображения (<cite>image</cite>) — это самозакрывающийся тег, который вставляет изображение
+в текст. Изображение должно быть высотой с одну строку текста.
+Аргументом должно быть либо имя файла изображения, либо имя
+изображения, определённого с помощью инструкции <cite>image</cite>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="s2">&quot;Good to see you! {image=heart.png}</span><span class="si">{alt}</span><span class="s2">heart{/alt}&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-k">
+<span class="sig-name descname"><span class="pre">k</span></span><a class="headerlink" href="#text-tag-k" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег кернинга (<cite>kerning</cite>) настраивает кернинг символов
+между собой и своим закрывающим тегом. Он принимает в качестве аргумента
+число с плавающей точкой, указывающее количество пикселей кернинга для
+добавления к каждой кернинговой паре. (Число может быть отрицательным для
+уменьшения кернинга.)</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;{k=-.5}Negative{/k} Normal {k=.5}Positive{/k}&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-noalt">
+<span class="sig-name descname"><span class="pre">noalt</span></span><a class="headerlink" href="#text-tag-noalt" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег <cite>noalt</cite> предотвращает озвучивание текста системой преобразования текста в речь.
+Часто используется в сочетании с тегом <cite>alt</cite> для предоставления
+доступных и визуальных опций.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="s2">&quot;Good to see you! </span><span class="si">{noalt}</span><span class="s2">&lt;3{/noalt}</span><span class="si">{alt}</span><span class="s2">heart{/alt}&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-outlinecolor">
+<span class="sig-name descname"><span class="pre">outlinecolor</span></span><a class="headerlink" href="#text-tag-outlinecolor" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег цвета обводки (<cite>outlinecolor</cite>) изменяет цвет всех обводок (включая
+тени) на заданный. Цвет должен быть в формате #rgb, #rgba,
+#rrggbb или #rrggbbaa. Он изменяет только существующие обводки,
+а не добавляет их.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Let&#39;s have a {outlinecolor=#00ff00}Green{/outlinecolor} outline.&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-plain">
+<span class="sig-name descname"><span class="pre">plain</span></span><a class="headerlink" href="#text-tag-plain" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег обычного текста (<cite>plain</cite>) гарантирует, что к тексту не будет применено полужирное
+начертание, курсив, подчёркивание или зачёркивание.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="si">{b}</span><span class="s2">This is bold. </span><span class="si">{plain}</span><span class="s2">This is not.{/plain} This is bold.{/b}&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-rb">
+<span class="sig-name descname"><span class="pre">rb</span></span><a class="headerlink" href="#text-tag-rb" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег нижнего текста ruby (<cite>rb</cite>) помечает текст между собой и своим
+закрывающим тегом как нижний текст ruby. См. раздел о <a class="reference internal" href="#ruby-text"><span class="std std-ref">Тексте Ruby</span></a>
+для получения дополнительной информации.</p>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-rt">
+<span class="sig-name descname"><span class="pre">rt</span></span><a class="headerlink" href="#text-tag-rt" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег верхнего текста ruby (<cite>rt</cite>) помечает текст между собой и своим
+закрывающим тегом как верхний текст ruby. См. раздел о <a class="reference internal" href="#ruby-text"><span class="std std-ref">Тексте Ruby</span></a>
+для получения дополнительной информации.</p>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-s">
+<span class="sig-name descname"><span class="pre">s</span></span><a class="headerlink" href="#text-tag-s" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег зачёркивания (<cite>strikethrough</cite>) рисует линию через текст между
+собой и своим закрывающим тегом.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="s2">&quot;It&#39;s good </span><span class="si">{s}</span><span class="s2">to see you{/s}.&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-shader">
+<span class="sig-name descname"><span class="pre">shader</span></span><a class="headerlink" href="#text-tag-shader" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег шейдера (<cite>shader</cite>) применяет текстовый шейдер к участку текста.
+Аргументом является имя шейдера для применения.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;This text is {shader=jitter:u__jitter=1.0, 3.0}jittery{/shader}.&quot;</span>
+</pre></div>
+</div>
+<p>См. <a class="reference internal" href="textshaders.html"><span class="doc">Текстовые шейдеры</span></a> для получения дополнительной информации.</p>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-size">
+<span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#text-tag-size" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег размера (<cite>size</cite>) изменяет размер текста между собой и своим
+закрывающим тегом. Аргументом должно быть целое число, которому
+опционально предшествует + или -. Если аргумент — просто целое число,
+размер устанавливается в это количество пикселей по высоте. В противном случае
+размер увеличивается или уменьшается на эту величину.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;{size=+10}Bigger{/size} {size=-10}Smaller{/size} {size=24}24 px{/size}.&quot;</span>
+</pre></div>
+</div>
+<p>Вы также можете указать число с плавающей точкой, которому предшествует
+*, в этом случае размер будет умножен на это число, а затем
+округлён вниз.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;{size=*2}Twice as big{/size} {size=*0.5}half as big.{/size}&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-space">
+<span class="sig-name descname"><span class="pre">space</span></span><a class="headerlink" href="#text-tag-space" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег пробела (<cite>space</cite>) — это самозакрывающийся тег, который вставляет
+горизонтальное пространство в строку текста. В качестве аргумента он
+принимает целое число, указывающее количество пикселей пространства
+для добавления.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Before the space.{space=30}After the space.&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-u">
+<span class="sig-name descname"><span class="pre">u</span></span><a class="headerlink" href="#text-tag-u" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег подчёркивания (<cite>underline</cite>) подчёркивает текст между собой
+и своим закрывающим тегом.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="s2">&quot;It&#39;s good to </span><span class="si">{u}</span><span class="s2">see{/u} you.&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-vspace">
+<span class="sig-name descname"><span class="pre">vspace</span></span><a class="headerlink" href="#text-tag-vspace" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег <cite>vspace</cite> — это самозакрывающийся тег, который вставляет вертикальное
+пространство между строками текста. В качестве аргумента он принимает
+целое число, указывающее количество пикселей пространства для добавления.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Line 1{vspace=30}Line 2&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-0">
+<span class="sig-name descname"><span class="pre">#</span></span><a class="headerlink" href="#text-tag-0" title="Ссылка на это определение"></a></dt>
+<dd><p>Текстовые теги, начинающиеся с #, игнорируются, но могут быть включены для
+различения строк при переводе.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;New{#playlist}&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="id7">
+<h3>Теги диалогового текста<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h3>
+<p>Текстовые теги, которые применяются только к диалогам:</p>
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-w">
+<span class="sig-name descname"><span class="pre">w</span></span><a class="headerlink" href="#text-tag-w" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег ожидания (<cite>wait</cite>) — это самозакрывающийся тег, который ждёт,
+пока пользователь нажмёт кнопку мыши для продолжения. Если ему передан
+аргумент, он интерпретируется как число, и ожидание
+автоматически заканчивается через указанное количество секунд.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Line 1</span><span class="si">{w}</span><span class="s2"> Line 1{w=1.0} Line 1&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-p">
+<span class="sig-name descname"><span class="pre">p</span></span><a class="headerlink" href="#text-tag-p" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег паузы в абзаце (<cite>paragraph pause</cite>) — это самозакрывающийся тег, который
+завершает текущий абзац и ждёт, пока пользователь нажмёт кнопку мыши
+для продолжения. Если ему передан аргумент, он интерпретируется как
+число, и ожидание автоматически заканчивается через указанное
+количество секунд.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Line 1</span><span class="si">{p}</span><span class="s2">Line 2{p=1.0}Line 3&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-nw">
+<span class="sig-name descname"><span class="pre">nw</span></span><a class="headerlink" href="#text-tag-nw" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег <cite>no-wait</cite> — это самозакрывающийся тег, который заставляет текущую
+строку диалога автоматически закрываться, как только будет отображён
+конец строки.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="s2">&quot;Looks like they&#39;re</span><span class="si">{nw}</span><span class="s2">&quot;</span>
+<span class="k">show</span> <span class="n">trebuchet</span>
+<span class="n">g</span> <span class="s2">&quot;Looks like they&#39;re</span><span class="si">{fast}</span><span class="s2"> playing with their trebuchet again.&quot;</span>
+</pre></div>
+</div>
+<p>Если ему передан аргумент, он интерпретируется как число,
+и ожидание автоматически заканчивается через указанное количество секунд.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="s2">&quot;I&#39;m gonna fall in a few seconds!{nw=2}&quot;</span>
+<span class="k">show</span> <span class="n">g_gone</span>
+</pre></div>
+</div>
+<p>Тег <cite>no-wait</cite> будет ждать завершения самоозвучивания перед
+переходом к следующему действию.</p>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-fast">
+<span class="sig-name descname"><span class="pre">fast</span></span><a class="headerlink" href="#text-tag-fast" title="Ссылка на это определение"></a></dt>
+<dd><p>Если тег <cite>fast</cite> присутствует в строке текста, то весь текст
+перед ним отображается мгновенно, даже в режиме медленного вывода
+текста. Тег <cite>fast</cite> — это самозакрывающийся тег.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="s2">&quot;Looks like they&#39;re</span><span class="si">{nw}</span><span class="s2">&quot;</span>
+<span class="k">show</span> <span class="n">trebuchet</span>
+<span class="n">g</span> <span class="s2">&quot;Looks like they&#39;re</span><span class="si">{fast}</span><span class="s2"> playing with their trebuchet again.&quot;</span>
+</pre></div>
+</div>
+<p>При наличии тега {fast} озвучка будет продолжаться с
+предыдущей строки.</p>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-done">
+<span class="sig-name descname"><span class="pre">done</span></span><a class="headerlink" href="#text-tag-done" title="Ссылка на это определение"></a></dt>
+<dd><p>Текст после тега <cite>done</cite> не отображается. Зачем это может понадобиться?
+Чтобы избежать &quot;прыжков&quot; текста, когда <a class="reference internal" href="style_properties.html#style-property-adjust_spacing"><code class="xref std std-propref docutils literal notranslate"><span class="pre">adjust_spacing</span></code></a>
+имеет значение True.</p>
+<p>При наличии тега <cite>done</cite> строка диалога не добавляется в буфер
+истории. Если присутствует тег <cite>nw</cite>, он должен стоять перед тегом <cite>done</cite>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="s2">&quot;Looks like they&#39;re</span><span class="si">{nw}{done}</span><span class="s2"> playing with their trebuchet again.&quot;</span>
+<span class="k">show</span> <span class="n">trebuchet</span>
+<span class="n">g</span> <span class="s2">&quot;Looks like they&#39;re</span><span class="si">{fast}</span><span class="s2"> playing with their trebuchet again.&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><a class="headerlink" href="#text-tag-clear" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег <cite>clear</cite> имеет смысл только на отдельной строке в режиме <a class="reference internal" href="nvl_mode.html#nvl-monologue-mode"><span class="std std-ref">монолога NVL</span></a>.
+Он делает то же самое, что и инструкция <code class="docutils literal notranslate"><span class="pre">nvl</span> <span class="pre">clear</span></code>, но не завершает блок текста.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Block 1 on page 1.</span>
+
+<span class="sd">Block 2 on page 1.</span>
+
+<span class="sd">{clear}</span>
+
+<span class="sd">Block 1 on page 2.</span>
+
+<span class="sd">etc.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Также возможно определять <a class="reference internal" href="custom_text_tags.html"><span class="doc">пользовательские текстовые теги</span></a> с
+помощью Python.</p>
+</section>
+<section id="id8">
+<h3>Теги стилей<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h3>
+<p>Ren'Py поддерживает текстовые теги, которые обращаются к стилям. Это
+текстовые теги, у которых имя тега пустое. В этом случае аргумент
+воспринимается как имя стиля. Например, тег {=mystyle}
+обратится к стилю <code class="docutils literal notranslate"><span class="pre">mystyle</span></code>.</p>
+<p>Текст между тегом и соответствующим ему закрывающим тегом получает
+следующие свойства, определённые в стиле:</p>
+<ul class="simple">
+<li><p>antialias</p></li>
+<li><p>font</p></li>
+<li><p>size</p></li>
+<li><p>bold</p></li>
+<li><p>italic</p></li>
+<li><p>underline</p></li>
+<li><p>strikethrough</p></li>
+<li><p>color</p></li>
+<li><p>black_color</p></li>
+<li><p>kerning</p></li>
+</ul>
+</section>
+</section>
+<section id="id9">
+<h2>Неанглийские языки<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h2>
+<p>Шрифт по умолчанию в Ren'Py содержит символы для английского и многих
+других языков. Из-за соображений размера он не содержит символов,
+необходимых для отображения других языков, включая китайский, японский и
+корейский. Чтобы поддерживать эти языки, проект должен сначала
+изменить используемые шрифты.</p>
+<p>После этого Ren'Py должен поддерживать большинство мировых языков без дополнительной
+конфигурации. Однако корейский язык может быть написан как с пробелами
+между словами, так и без них. В Ren'Py есть специальный режим для поддержки
+корейского языка с пробелами, который можно включить, установив:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">gui</span><span class="o">.</span><span class="na">language</span> <span class="o">=</span> <span class="s2">&quot;korean-with-spaces&quot;</span>
+</pre></div>
+</div>
+<p>Это значение можно изменить с &quot;unicode&quot; по умолчанию в файле gui.rpy.</p>
+<p>В японском языке существует несколько правил переноса строк. Мы рекомендуем начинать с
+&quot;japanese-normal&quot; и переходить к &quot;japanese-loose&quot; или &quot;japanese-strict&quot; для
+большего или меньшего количества возможностей для переноса соответственно.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">gui</span><span class="o">.</span><span class="na">language</span> <span class="o">=</span> <span class="s2">&quot;japanese-loose&quot;</span>
+</pre></div>
+</div>
+<p>Идеографические языки предоставляют большое количество возможностей
+для переноса строк. Чтобы включить более быстрый, но менее точный алгоритм
+переноса строк, используйте:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">gui</span><span class="o">.</span><span class="na">language</span> <span class="o">=</span> <span class="s2">&quot;greedy&quot;</span>
+</pre></div>
+</div>
+<p>Более быстрый алгоритм переноса строк может не понадобиться, если
+игра не отображает огромные объёмы текста, как, например, в режиме NVL.</p>
+<p>Алгоритмы переноса строк можно дополнительно настроить с помощью
+функции <a class="reference internal" href="other.html#renpy.language_tailor" title="renpy.language_tailor"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.language_tailor()</span></code></a>.</p>
+<section id="id10">
+<h3>Вертикальный текст<a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h3>
+<p>Когда установлено свойство стиля <a class="reference internal" href="style_properties.html#style-property-vertical"><code class="xref std std-propref docutils literal notranslate"><span class="pre">vertical</span></code></a>, Ren'Py будет выводить
+текст в вертикальной ориентации. Текст пишется сверху вниз,
+справа налево.</p>
+<p>Есть два текстовых тега, которые взаимодействуют с вертикальным текстом.</p>
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-horiz">
+<span class="sig-name descname"><span class="pre">horiz</span></span><a class="headerlink" href="#text-tag-horiz" title="Ссылка на это определение"></a></dt>
+<dd><p>Включает текст с горизонтальной ориентацией внутрь вертикального текста.</p>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-vert">
+<span class="sig-name descname"><span class="pre">vert</span></span><a class="headerlink" href="#text-tag-vert" title="Ссылка на это определение"></a></dt>
+<dd><p>Включает текст с вертикальной ориентацией внутрь горизонтального текста. (Это
+не поворачивает текст в вертикальную ориентацию.)</p>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Если шрифт не содержит информации о межсимвольном расстоянии для
+вертикального текста, Ren'Py попытается синтезировать эту информацию
+из информации для горизонтального текста. Расстояние может не оставаться
+постоянным между релизами Ren'Py.</p>
+</div>
+</section>
+</section>
+<section id="ruby">
+<span id="ruby-text"></span><h2>Текст Ruby<a class="headerlink" href="#ruby" title="Ссылка на этот заголовок"></a></h2>
+<p>Текст ruby (также известный как фуригана или интерлинейные аннотации) — это способ
+размещения маленького текста над символом или словом. Для поддержки
+текста ruby в вашей игре требуется выполнить несколько шагов.</p>
+<p>Во-первых, вы должны настроить стили для текста ruby. Требуются следующие
+изменения стилей:</p>
+<ol class="arabic simple">
+<li><p>Одно из свойств <a class="reference internal" href="style_properties.html#style-property-line_leading"><code class="xref std std-propref docutils literal notranslate"><span class="pre">line_leading</span></code></a> или <a class="reference internal" href="style_properties.html#style-property-ruby_line_leading"><code class="xref std std-propref docutils literal notranslate"><span class="pre">ruby_line_leading</span></code></a>
+должно быть использовано для оставления достаточного вертикального пространства для текста ruby.</p></li>
+<li><p>Необходимо создать новый именованный стиль. Свойства этого стиля,
+такие как <a class="reference internal" href="style_properties.html#style-property-size"><code class="xref std std-propref docutils literal notranslate"><span class="pre">size</span></code></a>, должны быть установлены соответствующим
+образом для текста ruby.</p></li>
+<li><p><a class="reference internal" href="style_properties.html#style-property-yoffset"><code class="xref std std-propref docutils literal notranslate"><span class="pre">yoffset</span></code></a> нового стиля должен быть установлен, чтобы
+переместить текст ruby над базовой линией.</p></li>
+<li><p>Поле <a class="reference internal" href="style_properties.html#style-property-ruby_style"><code class="xref std std-propref docutils literal notranslate"><span class="pre">ruby_style</span></code></a> стиля текста должно быть установлено
+в только что созданный стиль, как для текста диалога, так и для
+окна истории.</p></li>
+</ol>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">style</span> <span class="na">ruby_style</span> <span class="k">is</span> <span class="k">default</span><span class="p">:</span>
+    <span class="na">size</span> <span class="mi">12</span>
+    <span class="na">yoffset</span> <span class="o">-</span><span class="mi">20</span>
+    <span class="na">color</span> <span class="kc">None</span> <span class="c1"># Использовать тот же цвет, что и у родительского текста.</span>
+
+<span class="k">style</span> <span class="n">say_dialogue</span><span class="p">:</span>
+    <span class="n">ruby_line_leading</span> <span class="mi">12</span>
+    <span class="na">ruby_style</span> <span class="k">style</span><span class="o">.</span><span class="na">ruby_style</span>
+
+<span class="k">style</span> <span class="n">history_text</span><span class="p">:</span>
+    <span class="n">ruby_line_leading</span> <span class="mi">12</span>
+    <span class="na">ruby_style</span> <span class="k">style</span><span class="o">.</span><span class="na">ruby_style</span>
+</pre></div>
+</div>
+<p>(Используйте <code class="docutils literal notranslate"><span class="pre">style.style_name</span></code> для ссылки на стиль в этих целях.)</p>
+<p>После настройки Ren'Py текст ruby можно включать двумя способами.</p>
+<p><strong>Линзовидные скобки.</strong> Текст ruby можно написать, заключив его
+в полноширинные линзовидные скобки (【】), с полноширинным или полуширинным
+символом вертикальной черты (｜ или |), разделяющим нижний текст от верхнего.
+Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="s2">&quot;Ruby can be used for furigana (【東｜とう】 【京｜きょう】).&quot;</span>
+
+<span class="n">e</span> <span class="s2">&quot;It&#39;s also used for translations (【東京｜Tokyo】).&quot;</span>
+</pre></div>
+</div>
+<p>Текст ruby сработает только при наличии вертикальной черты. Левую
+линзовидную скобку можно экранировать, удвоив её. Линзовидный текст ruby
+не может содержать других текстовых тегов.</p>
+<p><strong>Теги {rt} и {rb}.</strong> Тег {rt} используется для пометки одного или нескольких
+символов, которые будут отображаться как текст ruby. Если тексту ruby предшествует
+текст, заключённый в тег {rb}, то текст ruby центрируется над этим
+текстом. В противном случае он центрируется над предшествующим символом.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="s2">&quot;Ruby can be used for furigana (東</span><span class="si">{rt}</span><span class="s2">とう{/rt} 京</span><span class="si">{rt}</span><span class="s2">きょう{/rt}).&quot;</span>
+
+<span class="n">e</span> <span class="s2">&quot;It&#39;s also used for translations (</span><span class="si">{rb}</span><span class="s2">東京{/rb}</span><span class="si">{rt}</span><span class="s2">Tokyo{/rt}).&quot;</span>
+</pre></div>
+</div>
+<p>Создатель несёт ответственность за то, чтобы текст ruby не выходил
+за границы текста. Может потребоваться добавить ведущие или
+пробелы слева и справа от текста, чтобы предотвратить возникновение
+этих ошибок.</p>
+<p>Ren'Py также поддерживает альтернативный текст ruby, который является вторым типом
+верхнего текста ruby. Он вводится с помощью тега {art} (вместо {rt})
+и свойства <a class="reference internal" href="style_properties.html#style-property-altruby_style"><code class="xref std std-propref docutils literal notranslate"><span class="pre">altruby_style</span></code></a> (вместо <a class="reference internal" href="style_properties.html#style-property-ruby_style"><code class="xref std std-propref docutils literal notranslate"><span class="pre">ruby_style</span></code></a>).</p>
+</section>
+<section id="id11">
+<h2>Шрифты<a class="headerlink" href="#id11" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py поддерживает масштабируемые шрифты в форматах OpenType, TrueType, WOFF и WOFF2.</p>
+<p>Масштабируемые шрифты указываются путем передачи имени файла шрифта в виде строки.
+Шрифты ищутся в директории <code class="file docutils literal notranslate"><span class="pre">game</span></code> и в архивных файлах.
+Если шрифт не найден, поиск производится с использованием префикса <code class="file docutils literal notranslate"><span class="pre">fonts/</span></code>.
+Например, при поиске &quot;test.ttf&quot;, Ren'Py сначала будет искать
+<code class="file docutils literal notranslate"><span class="pre">game/test.ttf</span></code>, а затем <code class="file docutils literal notranslate"><span class="pre">game/fonts/test.ttf</span></code>. (Он также будет
+искать в архивных файлах.)</p>
+<p>Ren'Py поддерживает коллекции TrueType/OpenType, которые определяют более одного
+шрифта. При доступе к коллекции используйте индекс шрифта, начинающийся с 0,
+за которым следует знак &#64; и имя файла. Например, &quot;0&#64;font.ttc&quot; — это
+первый шрифт в коллекции, &quot;1&#64;font.ttc&quot; — второй, и так далее.</p>
+<p>Хотя Ren'Py поддерживает файлы шрифтов любого размера (в зависимости от ограничений системной памяти),
+инструменты сжатия WOFF2 могут испытывать проблемы с очень большими файлами шрифтов. См. <a class="extlink-ghbug reference external" href="https://github.com/renpy/renpy/issues/6605">github bug 6605</a>
+для обсуждения этого вопроса.</p>
+<section id="id12">
+<h3>Замена шрифта<a class="headerlink" href="#id12" title="Ссылка на этот заголовок"></a></h3>
+<p>Переменная <a class="reference internal" href="config.html#var-config.font_replacement_map"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.font_replacement_map</span></code></a> используется для сопоставления
+шрифтов. Комбинация имени файла шрифта, жирности и курсива
+сопоставляется с аналогичной комбинацией. Это позволяет использовать
+шрифт с настоящим курсивом вместо автоматически сгенерированного курсива.</p>
+<p>Одним из таких сопоставлений может быть замена курсивной версии шрифта
+DejaVu Sans на официальную наклонную версию (вам потребуется
+загрузить наклонный шрифт из интернета):</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">font_replacement_map</span><span class="p">[</span><span class="s2">&quot;DejaVuSans.ttf&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;DejaVuSans-Oblique.ttf&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Это сопоставление может улучшить вид курсивного текста.</p>
+</section>
+<section id="id13">
+<h3>Имена и псевдонимы шрифтов<a class="headerlink" href="#id13" title="Ссылка на этот заголовок"></a></h3>
+<p>Переменная <a class="reference internal" href="config.html#var-config.font_name_map"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.font_name_map</span></code></a> используется для присвоения имён
+или псевдонимов шрифтам. Это позволяет достичь двух вещей: во-первых, сделать
+диалоги с использованием тега <code class="docutils literal notranslate"><span class="pre">{font}</span></code> короче и проще в использовании, и, во-вторых,
+позволить использовать <a class="reference internal" href="#fontgroup"><span class="std std-ref">Группы шрифтов</span></a> с этими тегами.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">font_name_map</span><span class="p">[</span><span class="s2">&quot;jap&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;electroharmonix.ttf&quot;</span>
+<span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">font_name_map</span><span class="p">[</span><span class="s2">&quot;tjap&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FontGroup</span><span class="p">()</span><span class="o">.</span><span class="k">add</span><span class="p">(</span><span class="s2">&quot;OrthodoxHerbertarian.ttf&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;Z&quot;</span><span class="p">)</span><span class="o">.</span><span class="k">add</span><span class="p">(</span><span class="s2">&quot;electroharmonix.ttf&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="k">label</span> <span class="n">yamato</span><span class="p">:</span>
+    <span class="n">e</span> <span class="s2">&quot;Sorry, what does {font=jap}Black holes and revelations{/font} mean ?&quot;</span>
+    <span class="n">y</span> <span class="s2">&quot;You pronounce it {font=tjap}Black Holes And Revelations{/font}.&quot;</span> <span class="c1"># the capital letters appear in OrthodoxHerbertarian</span>
+</pre></div>
+</div>
+</section>
+<section id="fontgroup">
+<span id="id14"></span><h3>Группы шрифтов<a class="headerlink" href="#fontgroup" title="Ссылка на этот заголовок"></a></h3>
+<p>При создании многоязычной игры может оказаться невозможным найти один
+шрифт, который охватывает все системы письма, используемые в игре,
+и при этом передает задуманное настроение. Для поддержки этого
+Ren'Py поддерживает группы шрифтов, которые могут брать символы из
+двух или более шрифтов и объединять их в один шрифт.</p>
+<p>Чтобы создать группу шрифтов, создайте объект <a class="reference internal" href="#FontGroup" title="FontGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontGroup</span></code></a> и вызовите на
+нём метод <code class="docutils literal notranslate"><span class="pre">.add</span></code> один или несколько раз. Группу FontGroup можно использовать
+везде, где можно использовать имя шрифта. Метод add принимает начало
+и конец диапазона кодовых точек Unicode, и используется первый диапазон,
+покрывающий точку.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">style</span> <span class="k">default</span><span class="p">:</span>
+    <span class="na">font</span> <span class="n">FontGroup</span><span class="p">()</span><span class="o">.</span><span class="k">add</span><span class="p">(</span><span class="s2">&quot;english.ttf&quot;</span><span class="p">,</span> <span class="mh">0x0020</span><span class="p">,</span> <span class="mh">0x007f</span><span class="p">)</span><span class="o">.</span><span class="k">add</span><span class="p">(</span><span class="s2">&quot;japanese.ttf&quot;</span><span class="p">,</span> <span class="mh">0x0000</span><span class="p">,</span> <span class="mh">0xffff</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="FontGroup">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FontGroup</span></span><a class="headerlink" href="#FontGroup" title="Ссылка на это определение"></a></dt>
+<dd><p>Группа шрифтов, которую можно использовать как единый шрифт.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="FontGroup.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_increment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#FontGroup.add" title="Ссылка на это определение"></a></dt>
+<dd><p>Связывает диапазон символов со <cite>шрифтом</cite> (<cite>font</cite>).</p>
+<dl class="simple">
+<dt><cite>start</cite></dt><dd><p>Начало диапазона. Может быть односимвольной строкой или
+целым числом, обозначающим кодовую точку Unicode. Если <cite>start</cite>
+равно None, то шрифт используется по умолчанию.</p>
+</dd>
+<dt><cite>end</cite></dt><dd><p>Конец диапазона. Может быть односимвольной строкой или
+целым числом, обозначающим кодовую точку Unicode. Игнорируется,
+если <cite>start</cite> равно None.</p>
+</dd>
+<dt><cite>target</cite></dt><dd><p>Если задан, связывает данный диапазон символов с определёнными
+символами из указанного шрифта, в зависимости от target_increment.
+Может быть односимвольной строкой или целым числом, обозначающим
+кодовую точку Unicode. Игнорируется, если символ уже был добавлен.</p>
+</dd>
+<dt><cite>target_increment</cite></dt><dd><p>Если True, диапазон [start, end] сопоставляется с диапазоном
+[target, target+end-start]. Если False, каждый символ из
+диапазона связывается с целевым символом (<cite>target</cite>).</p>
+</dd>
+</dl>
+<p>Если несколько вызовов .add() включают один и тот же символ,
+приоритет имеет первый вызов.</p>
+<p>Возвращает FontGroup, чтобы можно было выстраивать цепочки
+из нескольких вызовов .add().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="FontGroup.remap">
+<span class="sig-name descname"><span class="pre">remap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#FontGroup.remap" title="Ссылка на это определение"></a></dt>
+<dd><p>Переназначает один или набор символов на один целевой символ.</p>
+<dl class="simple">
+<dt><cite>cha</cite></dt><dd><p>Символ или символы для переназначения. Может быть односимвольной
+строкой, целым числом (кодовая точка Unicode) или
+итерируемым объектом из них.</p>
+</dd>
+<dt><cite>target</cite></dt><dd><p>Символ, на который нужно переназначить. Может быть односимвольной
+строкой или целым числом (кодовая точка Unicode).</p>
+</dd>
+</dl>
+<p>Любой заданный символ, который уже был переназначен (с помощью <cite>add</cite>
+или <cite>remap</cite>), будет проигнорирован. Однако, если у FontGroup нет
+шрифта по умолчанию, любой заданный символ должен был быть
+добавлен ранее.</p>
+<p>Этот метод также возвращает FontGroup по тем же причинам.</p>
+</dd></dl>
+
+</dd></dl>
+
+<p>Обратите внимание, что хотя группам FontGroup можно присвоить имя с помощью <a class="reference internal" href="config.html#var-config.font_name_map"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.font_name_map</span></code></a>,
+FontGroup принимает в качестве шрифтов только пути к файлам и не распознаёт имена
+или псевдонимы, определённые с помощью этой переменной.</p>
+</section>
+<section id="id15">
+<h3>Шрифты на основе изображений<a class="headerlink" href="#id15" title="Ссылка на этот заголовок"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Шрифты на основе изображений не рекомендуются для использования в новых проектах. Применение графических эффектов к шрифтам можно осуществить с помощью текстовых шейдеров.</p>
+</div>
+<p>Шрифты на основе изображений можно зарегистрировать, вызвав одну из следующих
+функций регистрации. Регистрация шрифта на основе изображения требует
+указания имени, размера, жирности, курсива и подчёркивания.
+Когда все эти свойства совпадают с зарегистрированным шрифтом,
+используется зарегистрированный шрифт.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.register_bmfont">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">register_bmfont</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">italics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">underline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.register_bmfont" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта функция регистрирует BMFont с указанными данными. Обратите внимание, что size, bold,
+italic и underline являются рекомендательными (используются для сопоставления)
+и не изменяют внешний вид шрифта.</p>
+<p>Пожалуйста, ознакомьтесь с <a class="reference external" href="http://www.angelcode.com/products/bmfont/">домашней страницей BMFont</a>
+для получения инструмента, который создаёт шрифты BMFont. Ren'Py ожидает, что
+параметр filename будет указывать на файл в текстовом формате BMFont, описывающий
+32-битный шрифт. Альфа-канал должен содержать информацию о шрифте, в то время как
+красный, зелёный и синий каналы должны быть установлены в единицу. Файлы изображений,
+кернинг и другая управляющая информация считываются из файла BMFont.</p>
+<p>Мы рекомендуем включать Latin и General Punctuation в ваш BMFont,
+чтобы обеспечить отрисовку всего интерфейса Ren'Py.</p>
+<dl class="simple">
+<dt><cite>name</cite></dt><dd><p>Имя регистрируемого шрифта, строка.</p>
+</dd>
+<dt><cite>size</cite></dt><dd><p>Размер регистрируемого шрифта, целое число.</p>
+</dd>
+<dt><cite>bold</cite></dt><dd><p>Жирность регистрируемого шрифта, логическое значение.</p>
+</dd>
+<dt><cite>italics</cite></dt><dd><p>Курсивность регистрируемого шрифта, логическое значение.</p>
+</dd>
+<dt><cite>underline</cite></dt><dd><p>Игнорируемый параметр.</p>
+</dd>
+<dt><cite>filename</cite></dt><dd><p>Файл, содержащий управляющую информацию BMFont.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.register_mudgefont">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">register_mudgefont</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">italics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">underline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_kern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kerns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.register_mudgefont" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта функция регистрирует MudgeFont с указанными данными. Обратите внимание, что size,
+bold, italic и underline являются рекомендательными (используются для сопоставления)
+и не изменяют внешний вид шрифта.</p>
+<p>Пожалуйста, ознакомьтесь с <a class="reference external" href="http://www.larryhastings.com/programming/mudgefont/">домашней страницей MudgeFont</a>
+для получения инструмента, который создаёт шрифты MudgeFont. Ren'Py предполагает, что коды
+символов, найденные в XML-файле MudgeFont, являются номерами символов Unicode,
+и игнорирует отрицательные коды символов.</p>
+<dl class="simple">
+<dt><cite>name</cite></dt><dd><p>Имя регистрируемого шрифта, строка.</p>
+</dd>
+<dt><cite>size</cite></dt><dd><p>Размер регистрируемого шрифта, целое число.</p>
+</dd>
+<dt><cite>bold</cite></dt><dd><p>Жирность регистрируемого шрифта, логическое значение.</p>
+</dd>
+<dt><cite>italics</cite></dt><dd><p>Курсивность регистрируемого шрифта, логическое значение.</p>
+</dd>
+<dt><cite>underline</cite></dt><dd><p>Игнорируемый параметр.</p>
+</dd>
+<dt><cite>filename</cite></dt><dd><p>Файл, содержащий изображение MudgeFont, строка. Обычно это
+TGA-файл, но может быть PNG или другой формат, поддерживаемый Ren'Py.</p>
+</dd>
+<dt><cite>xml</cite></dt><dd><p>XML-файл, содержащий информацию, сгенерированную инструментом MudgeFont.</p>
+</dd>
+<dt><cite>spacewidth</cite></dt><dd><p>Ширина символа пробела, целое число в пикселях.</p>
+</dd>
+<dt><cite>default_kern</cite></dt><dd><p>Межсимвольный интервал по умолчанию (кернинг), в пикселях.</p>
+</dd>
+<dt><cite>kerns</cite></dt><dd><p>Словарь, сопоставляющий двухсимвольные строки с кернингом, который должен
+использоваться между этими символами.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.register_sfont">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">register_sfont</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">italics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">underline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_kern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kerns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'!&quot;#$%&amp;\'()*+,-./0123456789:;&lt;=&gt;?&#64;ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.register_sfont" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта функция регистрирует SFont с указанными данными. Обратите внимание, что size, bold,
+italic и underline являются рекомендательными (используются для сопоставления)
+и не изменяют внешний вид шрифта.</p>
+<p><a class="reference external" href="http://www.linux-games.com/sfont/">Подробнее об SFont.</a></p>
+<dl class="simple">
+<dt><cite>name</cite></dt><dd><p>Имя регистрируемого шрифта, строка.</p>
+</dd>
+<dt><cite>size</cite></dt><dd><p>Размер регистрируемого шрифта, целое число.</p>
+</dd>
+<dt><cite>bold</cite></dt><dd><p>Жирность регистрируемого шрифта, логическое значение.</p>
+</dd>
+<dt><cite>italics</cite></dt><dd><p>Курсивность регистрируемого шрифта, логическое значение.</p>
+</dd>
+<dt><cite>underline</cite></dt><dd><p>Игнорируемый параметр.</p>
+</dd>
+<dt><cite>filename</cite></dt><dd><p>Файл, содержащий изображение sfont, строка.</p>
+</dd>
+<dt><cite>spacewidth</cite></dt><dd><p>Ширина символа пробела, целое число в пикселях.</p>
+</dd>
+<dt><cite>baseline</cite></dt><dd><p>Расстояние от верхнего края шрифта до базовой линии (невидимой
+линии, на которой располагаются буквы), целое число в пикселях. Если этот шрифт
+смешивается с другими, их базовые линии будут выровнены. Отрицательные значения
+означают расстояние от нижнего края шрифта, а <code class="docutils literal notranslate"><span class="pre">None</span></code> означает,
+что базовая линия равна высоте (т.е. находится в самом низу шрифта).</p>
+</dd>
+<dt><cite>default_kern</cite></dt><dd><p>Межсимвольный интервал по умолчанию (кернинг), в пикселях.</p>
+</dd>
+<dt><cite>kerns</cite></dt><dd><p>Словарь, сопоставляющий двухсимвольные строки с кернингом, который должен
+использоваться между этими символами.</p>
+</dd>
+<dt><cite>charset</cite></dt><dd><p>Набор символов шрифта. Строка, содержащая символы в
+том порядке, в котором они находятся в изображении. Набор символов
+по умолчанию для SFont:</p>
+</dd>
+</dl>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>! &quot; # $ % &amp; &#39; ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
+@ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _
+` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Пример использования BMFont:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="n">renpy</span><span class="o">.</span><span class="n">register_bmfont</span><span class="p">(</span><span class="s2">&quot;bmfont&quot;</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;bmfont.fnt&quot;</span><span class="p">)</span>
+
+<span class="k">define</span> <span class="n">ebf</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;Eileen&#39;</span><span class="p">,</span> <span class="n">what_font</span><span class="o">=</span><span class="s2">&quot;bmfont&quot;</span><span class="p">,</span> <span class="n">what_size</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
+
+<span class="k">label</span> <span class="n">demo_bmfont</span><span class="p">:</span>
+
+    <span class="n">ebf</span> <span class="s2">&quot;Finally, Ren&#39;Py supports BMFonts.&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="text-displayables">
+<span id="id16"></span><h2>Текстовые отображаемые объекты<a class="headerlink" href="#text-displayables" title="Ссылка на этот заголовок"></a></h2>
+<p>Текст также можно использовать как <a class="reference internal" href="displayables.html"><span class="doc">отображаемый объект</span></a>, что
+позволяет применять к тексту трансформации, отображая его как изображение
+и перемещая по экрану.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ParameterizedText">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ParameterizedText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ParameterizedText" title="Ссылка на это определение"></a></dt>
+<dd><p>Это displayable, который может быть показан с дополнительным строковым параметром, который затем отображает эту строку так, как если бы это было изображение.
+Обычно это используется как часть предопределенного изображения <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p>
+<p>Например, можно сделать:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="k">text</span> <span class="s2">&quot;Hello, World&quot;</span> <span class="k">at</span> <span class="n">truecenter</span>
+<span class="k">with</span> <span class="n">dissolve</span>
+<span class="k">pause</span> <span class="mi">1</span>
+<span class="k">hide</span> <span class="k">text</span>
+<span class="k">with</span> <span class="n">dissolve</span>
+</pre></div>
+</div>
+<p>Вы можете использовать ParameterizedText напрямую для определения схожих изображений с другими свойствами стиля. Например, можно написать:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">top_text</span> <span class="o">=</span> <span class="n">ParameterizedText</span><span class="p">(</span><span class="na">xalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="na">yalign</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="k">show</span> <span class="n">top_text</span> <span class="s2">&quot;This text is shown at the center-top of the screen&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Text">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substitute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slow_done</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenized</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Text" title="Ссылка на это определение"></a></dt>
+<dd><p>Displayable, который отображает текст на экране.</p>
+<dl class="simple">
+<dt><cite>text</cite></dt><dd><p>Текст для отображения на экране. Это может быть строка или список строк и displayable-объектов.</p>
+</dd>
+<dt><cite>slow</cite></dt><dd><p>Определяет, отображается ли текст медленно, выводимый по одному символу за раз.
+Если None, режим медленного текста определяется свойством стиля <a class="reference internal" href="style_properties.html#style-property-slow_cps"><code class="xref std std-propref docutils literal notranslate"><span class="pre">slow_cps</span></code></a>. В противном случае,
+истинность этого параметра определяет, используется ли режим медленного текста.</p>
+</dd>
+<dt><cite>scope</cite></dt><dd><p>Если не None, это должен быть словарь, который предоставляет дополнительную область видимости (scope) для интерполяции текста.</p>
+</dd>
+<dt><cite>substitute</cite></dt><dd><p>Если true, выполняется интерполяция текста. Если false, она не выполняется. Если
+None, это контролируется <a class="reference internal" href="config.html#var-config.new_substitutions"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.new_substitutions</span></code></a>.</p>
+</dd>
+<dt><cite>slow_done</cite></dt><dd><p>Если не None, и если включен режим медленного текста (см. параметр <cite>slow</cite>), это
+функция или вызываемый объект, который вызывается без аргументов, когда текст завершает свое отображение.</p>
+</dd>
+<dt><cite>tokenized</cite></dt><dd><p>Если true, <cite>text</cite> должен быть списком токенов, а не строкой. Токены
+описаны на странице <a class="reference internal" href="custom_text_tags.html"><span class="doc">Пользовательские теги текста</span></a>.</p>
+</dd>
+<dt><cite>**properties</cite></dt><dd><p>Как и другие Displayable, Text принимает свойства стиля, включая (среди многих других)
+свойство <a class="reference internal" href="style_properties.html#style-property-mipmap"><code class="xref std std-propref docutils literal notranslate"><span class="pre">mipmap</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="id17">
+<h2>Утилитарные функции для текста<a class="headerlink" href="#id17" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.filter_text_tags">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">filter_text_tags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deny</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.filter_text_tags" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает копию <cite>s</cite> с отфильтрованными тегами текста. Должен быть указан ровно один из именованных
+аргументов <cite>allow</cite> или <cite>deny</cite>.</p>
+<dl class="simple">
+<dt><cite>allow</cite></dt><dd><p>Множество тегов, которые разрешены. Если тег отсутствует в этом списке, он удаляется.</p>
+</dd>
+<dt><cite>deny</cite></dt><dd><p>Множество тегов, которые запрещены. Если тег отсутствует в этом списке, он остается в строке.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.substitute">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">substitute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.substitute" title="Ссылка на это определение"></a></dt>
+<dd><p>Применяет перевод и форматирование нового стиля к строке <cite>s</cite>.</p>
+<dl class="simple">
+<dt><cite>scope</cite></dt><dd><p>Если не None, это область видимости (scope), которая используется при форматировании, в дополнение
+к стандартному хранилищу.</p>
+</dd>
+<dt><cite>translate</cite></dt><dd><p>Определяет, происходит ли перевод.</p>
+</dd>
+</dl>
+<p>Возвращает переведенную и отформатированную строку.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.transform_text">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">transform_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.transform_text" title="Ссылка на это определение"></a></dt>
+<dd><p>Преобразует <cite>s</cite>, оставляя текстовые теги и интерполяцию без изменений.</p>
+<dl class="simple">
+<dt><cite>function</cite></dt><dd><p>Функция, которая вызывается со строками, соответствующими фрагментам
+текста, и должна возвращать другую строку, которая заменяет этот фрагмент
+текста.</p>
+</dd>
+</dl>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">upper</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+<span class="k">$</span> <span class="n">upper_string</span> <span class="o">=</span> <span class="n">renpy</span><span class="o">.</span><span class="n">transform_text</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{b}</span><span class="s2">Not Upper{/b}&quot;</span><span class="p">,</span> <span class="n">upper</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="id18">
+<h2>Особенности медленного вывода текста<a class="headerlink" href="#id18" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py позволяет создателю или пользователю указать, что текст должен
+отображаться медленно. В этом случае Ren'Py отрисует текст
+в текстуру, а затем будет отрисовывать прямоугольники из этой текстуры
+на экране.</p>
+<p>К сожалению, это означает, что возможны артефакты рендеринга
+при наложении символов друг на друга. Чтобы минимизировать эти артефакты
+рендеринга, убедитесь, что свойства <a class="reference internal" href="style_properties.html#style-property-line_leading"><code class="xref std std-propref docutils literal notranslate"><span class="pre">line_leading</span></code></a> и
+<a class="reference internal" href="style_properties.html#style-property-line_spacing"><code class="xref std std-propref docutils literal notranslate"><span class="pre">line_spacing</span></code></a> достаточно велики, чтобы строки не
+перекрывались. Если нижние части символов на первой строке
+обрезаются, особенно если line_spacing отрицательное, рассмотрите
+возможность увеличения <a class="reference internal" href="style_properties.html#style-property-line_overlap_split"><code class="xref std std-propref docutils literal notranslate"><span class="pre">line_overlap_split</span></code></a>.</p>
+<p>Также возможны горизонтальные артефакты, когда символы сдвигаются
+вместе с помощью кернинга, но эти артефакты менее серьёзны, так как они
+существуют только в течение одного кадра.</p>
+<p>Артефакты не являются проблемой для статичного текста, такого как текст
+в меню и других частях пользовательского интерфейса.</p>
+</section>
+<section id="id19">
+<h2>Логирование переполнения текста<a class="headerlink" href="#id19" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py может логировать случаи, когда текст выходит за пределы
+выделенной для него области. Чтобы включить логирование переполнения текста,
+необходимо выполнить следующие шаги.</p>
+<ol class="arabic simple">
+<li><p>Установите переменную <a class="reference internal" href="config.html#var-config.debug_text_overflow"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.debug_text_overflow</span></code></a> в true.</p></li>
+<li><p>Установите свойства стиля <a class="reference internal" href="style_properties.html#style-property-xmaximum"><code class="xref std std-propref docutils literal notranslate"><span class="pre">xmaximum</span></code></a> и <a class="reference internal" href="style_properties.html#style-property-ymaximum"><code class="xref std std-propref docutils literal notranslate"><span class="pre">ymaximum</span></code></a> либо на
+отображаемом объекте Text, либо на содержащем его контейнере.</p></li>
+<li><p>Запустите игру.</p></li>
+</ol>
+<p>Всякий раз, когда отображается текст, который переполняет доступную область,
+Ren'Py будет записывать ошибку в файл text_overflow.txt.</p>
+</section>
+<section id="variable-fonts">
+<span id="id20"></span><h2>Вариативные шрифты<a class="headerlink" href="#variable-fonts" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py поддерживает вариативные шрифты OpenType. Эти шрифты могут поддерживать
+несколько осей, таких как начертание (weight) и ширина (width), и в зависимости
+от значения этих осей отображение шрифта может меняться. Вариативные шрифты
+также могут иметь именованные экземпляры, которые предоставляют разные значения
+для осей. Например, именованный экземпляр &quot;bold&quot;, скорее всего, предоставит
+жирную версию шрифта, в то время как &quot;regular&quot; будет более обычной версией.</p>
+<p>Для использования вариативных шрифтов требуется использование текстового формировщика harfbuzz,
+управляемого свойством стиля <a class="reference internal" href="style_properties.html#style-property-shaper"><code class="xref std std-propref docutils literal notranslate"><span class="pre">shaper</span></code></a>. После его установки свойство
+<a class="reference internal" href="style_properties.html#style-property-instance"><code class="xref std std-propref docutils literal notranslate"><span class="pre">instance</span></code></a> выбирает именованный экземпляр, а свойство <a class="reference internal" href="style_properties.html#style-property-axis"><code class="xref std std-propref docutils literal notranslate"><span class="pre">axis</span></code></a>
+устанавливает значение одной или нескольких осей.</p>
+<p>Их также можно установить в системе GUI. Например, можно использовать:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">gui</span><span class="o">.</span><span class="na">text_font</span> <span class="o">=</span> <span class="s2">&quot;nunito.ttf&quot;</span>
+<span class="k">define</span> <span class="n">gui</span><span class="o">.</span><span class="na">text_instance</span> <span class="o">=</span> <span class="s2">&quot;light&quot;</span>
+<span class="k">define</span> <span class="n">gui</span><span class="o">.</span><span class="na">text_axis</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;width&quot;</span> <span class="p">:</span> <span class="mi">125</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Это начнёт с экземпляра &quot;light&quot; и сделает его широким.</p>
+<p>Если экземпляр не указан, Ren'Py по умолчанию будет использовать &quot;regular&quot; для нежирного
+текста и &quot;bold&quot; для жирного текста.</p>
+<p>Есть два текстовых тега, которые поддерживают использование вариативных шрифтов.</p>
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-instance">
+<span class="sig-name descname"><span class="pre">instance</span></span><a class="headerlink" href="#text-tag-instance" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег <cite>instance</cite> изменяет используемый экземпляр. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;This is {instance=heavy}heavy{/instance} text.&quot;</span>
+</pre></div>
+</div>
+<p>Когда используется тег <cite>instance</cite>, свойства осей переопределяются.</p>
+</dd></dl>
+
+<dl class="std text-tag">
+<dt class="sig sig-object std" id="text-tag-axis">
+<span class="sig-name descname"><span class="pre">axis</span></span><a class="headerlink" href="#text-tag-axis" title="Ссылка на это определение"></a></dt>
+<dd><p>Тег <cite>axis</cite> изменяет значение одной или нескольких осей. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;This is {axis:width=125}wide{/axis} text.&quot;</span>
+</pre></div>
+</div>
+<p>Тег <cite>axis</cite> можно использовать несколько раз, и значения будут комбинироваться.</p>
+<blockquote>
+<div><p>&quot;This is {axis:width=125}{axis:weight=200}wide and bold{/axis}{/axis} text.&quot;</p>
+</div></blockquote>
+<p>Значение справа от знака равенства должно быть числом
+с плавающей точкой.</p>
+</dd></dl>
+
+<p>Чтобы получить доступные экземпляры и оси шрифта, используйте функцию
+<a class="reference internal" href="#renpy.variable_font_info" title="renpy.variable_font_info"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.variable_font_info()</span></code></a>. Эта функция предназначена для вызова из
+консоли. Чтобы получить к ней доступ, нажмите shift+O, чтобы открыть консоль,
+а затем введите:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">renpy</span><span class="o">.</span><span class="n">variable_font_info</span><span class="p">(</span><span class="s2">&quot;nunito.ttf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Это отобразит информацию для шрифта nunito.ttf.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.variable_font_info">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">variable_font_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.variable_font_info" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает информацию о вариативном шрифте или None, если шрифт не
+является вариативным.</p>
+<dl class="simple">
+<dt><cite>font</cite></dt><dd><p>Имя файла, содержащего шрифт.</p>
+</dd>
+</dl>
+<p>Возвращаемое значение — это объект со следующими полями:</p>
+<dl>
+<dt><cite>instance</cite></dt><dd><p>Словарь, где ключи — это имена именованных начертаний
+шрифта. (Например, 'light', 'regular', 'bold' и 'heavy'.)
+Значения можно игнорировать.</p>
+</dd>
+<dt><cite>axis</cite></dt><dd><p>Словарь, который сопоставляет имена осей шрифта с объектами
+со следующими полями:</p>
+<dl class="simple">
+<dt><cite>minimum</cite></dt><dd><p>Минимальное значение оси.</p>
+</dd>
+<dt><cite>default</cite></dt><dd><p>Значение оси по умолчанию.</p>
+</dd>
+<dt><cite>maximum</cite></dt><dd><p>Максимальное значение оси.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Объект, возвращаемый этой функцией, и данные внутри него не должны
+изменяться.</p>
+<p>Эту функцию можно вызывать только после инициализации дисплея Ren'Py. Она
+предназначена для вызова из консоли, где она выведет результат в
+человекочитаемом виде.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="voice.html" class="btn btn-neutral float-left" title="Озвучка" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="translation.html" class="btn btn-neutral float-right" title="Перевод" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

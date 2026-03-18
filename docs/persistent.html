@@ -1,0 +1,439 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Постоянные данные &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/persistent.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Продвинутый GUI" href="gui_advanced.html" />
+    <link rel="prev" title="Сохранение, загрузка и откат" href="save_load_rollback.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Постоянные данные</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Слияние постоянных данных</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Функции для постоянных данных</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#persistent._hasattr"><code class="docutils literal notranslate"><span class="pre">persistent._hasattr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#persistent._clear"><code class="docutils literal notranslate"><span class="pre">persistent._clear()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.register_persistent"><code class="docutils literal notranslate"><span class="pre">renpy.register_persistent()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.save_persistent"><code class="docutils literal notranslate"><span class="pre">renpy.save_persistent()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Межигровые постоянные данные</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#MultiPersistent"><code class="docutils literal notranslate"><span class="pre">MultiPersistent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#MultiPersistent.save"><code class="docutils literal notranslate"><span class="pre">MultiPersistent.save()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Постоянные данные</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/persistent.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Постоянные данные<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Ren'Py поддерживает постоянные данные — сохраняемые данные, которые не
+связаны с определённой точкой в игре. Доступ к постоянным данным
+осуществляется через поля объекта persistent, который привязан к
+переменной <code class="docutils literal notranslate"><span class="pre">persistent</span></code>.</p>
+<p>Все данные, доступные через поля <code class="docutils literal notranslate"><span class="pre">persistent</span></code>, сохраняются, когда
+Ren'Py завершает работу или когда вызывается функция <a class="reference internal" href="#renpy.save_persistent" title="renpy.save_persistent"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.save_persistent()</span></code></a>.
+Постоянные данные загружаются при запуске Ren'Py и когда Ren'Py
+обнаруживает, что постоянные данные на диске были обновлены.</p>
+<p>Объект persistent является особенным в том, что доступ к неопределенному полю будет
+иметь значение None, а не вызывать исключение. Если по умолчанию для постоянного значения
+должно быть что-то отличное от None, следует использовать оператор
+<a class="reference internal" href="python.html#default-statement"><span class="std std-ref">default</span></a>:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">default</span> <span class="n">persistent</span><span class="o">.</span><span class="n">main_background</span> <span class="o">=</span> <span class="s2">&quot;princess_not_saved&quot;</span>
+</pre></div>
+</div>
+<p>Пример использования persistent — создание разблокируемой галереи изображений.
+Это делается путем хранения флага в persistent, который определяет, была ли
+галерея разблокирована, как в примере:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">gallery</span><span class="p">:</span>
+
+    <span class="k">if</span> <span class="k">not</span> <span class="n">persistent</span><span class="o">.</span><span class="n">gallery_unlocked</span><span class="p">:</span>
+        <span class="k">show</span> <span class="na">background</span>
+        <span class="n">centered</span> <span class="s2">&quot;You haven&#39;t unlocked this gallery yet.&quot;</span>
+        <span class="k">$</span> <span class="n">renpy</span><span class="o">.</span><span class="n">full_restart</span><span class="p">()</span>
+
+    <span class="c1"># Здесь фактическое отображение галереи.</span>
+</pre></div>
+</div>
+<p>Когда игрок получает концовку, которая разблокирует галерею, флаг
+должен быть установлен в True.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">$</span> <span class="n">persistent</span><span class="o">.</span><span class="n">gallery_unlocked</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Поскольку постоянные данные загружаются до выполнения блоков <code class="docutils literal notranslate"><span class="pre">init</span> <span class="pre">python</span></code>, постоянные данные
+должны содержать только типы, которые являются родными для Python или Ren'Py. В качестве альтернативы
+можно использовать классы, определенные в блоках <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">early</span></code>, при условии,
+что эти классы могут быть сериализованы (pickled) и реализуют равенство.</p>
+<p>Поля, начинающиеся с двух подчёркиваний (<code class="docutils literal notranslate"><span class="pre">__</span></code>), поддерживаются, но к ним будет применён
+эффект искажения имён, описанный в <a class="reference internal" href="language_basics.html#elements-of-statements"><span class="std std-ref">этом разделе</span></a>,
+что означает, что они будут специфичны для файла, в котором они определены. Это подразумевает, что
+если файл будет переименован между двумя релизами, доступ к значению, которое это поле имело в
+предыдущем релизе, будет нарушен.</p>
+<p>Кроме того, эти поля не затрагиваются методом <a class="reference internal" href="#persistent._clear" title="persistent._clear"><code class="xref py py-meth docutils literal notranslate"><span class="pre">persistent._clear()</span></code></a>.</p>
+<p>Напоминаем, что поля, начинающиеся с одного подчёркивания <code class="docutils literal notranslate"><span class="pre">_</span></code>, зарезервированы и
+не должны использоваться.</p>
+<section id="id2">
+<h2>Слияние постоянных данных<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Бывают случаи, когда Ren'Py должен объединить постоянные данные из двух
+источников. Например, Ren'Py может потребоваться объединить постоянные данные, хранящиеся
+на USB-накопителе, с постоянными данными с локальной машины.</p>
+<p>Ren'Py выполняет это слияние по полям, принимая значение
+поля, которое было обновлено последним. В некоторых случаях это
+нежелательное поведение. В таком случае можно использовать функцию <a class="reference internal" href="#renpy.register_persistent" title="renpy.register_persistent"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.register_persistent()</span></code></a>.</p>
+<p>Например, если у нас есть набор просмотренных концовок, мы бы хотели получить
+объединение этого набора при слиянии данных.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">persistent</span><span class="o">.</span><span class="n">endings</span> <span class="k">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">persistent</span><span class="o">.</span><span class="n">endings</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">merge_endings</span><span class="p">(</span><span class="k">old</span><span class="p">,</span> <span class="k">new</span><span class="p">,</span> <span class="n">current</span><span class="p">):</span>
+        <span class="n">current</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="k">old</span><span class="p">)</span>
+        <span class="n">current</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="k">new</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">current</span>
+
+    <span class="n">renpy</span><span class="o">.</span><span class="n">register_persistent</span><span class="p">(</span><span class="s1">&#39;endings&#39;</span><span class="p">,</span> <span class="n">merge_endings</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>Функции для постоянных данных<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="persistent._hasattr">
+<span class="sig-prename descclassname"><span class="pre">persistent.</span></span><span class="sig-name descname"><span class="pre">_hasattr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persistent._hasattr" title="Ссылка на это определение"></a></dt>
+<dd><p>Проверяет, было ли установлено постоянное поле <cite>field_name</cite> или нет.
+Это позволяет различать поля, которые были явно установлены
+в None, и поля, которые никогда не устанавливались.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="persistent._clear">
+<span class="sig-prename descclassname"><span class="pre">persistent.</span></span><span class="sig-name descname"><span class="pre">_clear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">progress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persistent._clear" title="Ссылка на это определение"></a></dt>
+<dd><p>Сбрасывает постоянные данные, за исключением полей, начинающихся с <code class="docutils literal notranslate"><span class="pre">__</span></code>.</p>
+<dl class="simple">
+<dt><cite>progress</cite></dt><dd><p>Если true, также сбрасывает данные о прогрессе, которые хранит Ren'Py.</p>
+</dd>
+</dl>
+<p>Обратите внимание, что это приведет к повторному применению значений по умолчанию.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.register_persistent">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">register_persistent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.register_persistent" title="Ссылка на это определение"></a></dt>
+<dd><p>Регистрирует функцию, которая используется для слияния значений поля persistent-объекта,
+загруженного с диска, со значениями текущего persistent-объекта.</p>
+<dl>
+<dt><cite>field</cite></dt><dd><p>Имя поля в persistent-объекте.</p>
+</dd>
+<dt><cite>function</cite></dt><dd><p>Функция, которая вызывается с тремя параметрами: <cite>old</cite>, <cite>new</cite> и
+<cite>current</cite>:</p>
+<dl class="simple">
+<dt><cite>old</cite></dt><dd><p>Значение поля в более старом объекте.</p>
+</dd>
+<dt><cite>new</cite></dt><dd><p>Значение поля в более новом объекте.</p>
+</dd>
+<dt><cite>current</cite></dt><dd><p>Значение поля в текущем persistent-объекте. Этот параметр
+предоставляется для случаев, когда идентификатор объекта, на который
+ссылается поле, не может измениться.</p>
+</dd>
+</dl>
+<p>Ожидается, что функция вернёт новое значение поля в
+persistent-объекте.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.save_persistent">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">save_persistent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.save_persistent" title="Ссылка на это определение"></a></dt>
+<dd><p>Сохраняет persistent-данные на диск.</p>
+</dd></dl>
+
+</section>
+<section id="id4">
+<h2>Межигровые постоянные данные<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<p>Межигровые постоянные данные (Multi-Game persistence) — это функция, которая позволяет вам обмениваться информацией между
+играми Ren'Py. Это может быть полезно, если вы планируете сделать серию игр и
+хотите, чтобы они обменивались информацией.</p>
+<p>Для использования межигровых постоянных данных объект MultiPersistent должен быть создан во время инициализации
+(желательно с помощью <code class="docutils literal notranslate"><span class="pre">define</span></code>).
+Затем пользователь может обновлять этот объект и сохранять его на диск,
+вызывая его метод save. Неопределенные поля по умолчанию равны None. Чтобы обеспечить
+возможность повторной загрузки объекта в другой игре, мы настоятельно не рекомендуем
+хранить в объекте экземпляры пользовательских типов.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="MultiPersistent">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultiPersistent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_on_quit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MultiPersistent" title="Ссылка на это определение"></a></dt>
+<dd><p>Создает новый объект <code class="docutils literal notranslate"><span class="pre">MultiPersistent</span></code>. Это следует вызывать только во время инициализации,
+и он возвращает новый <code class="docutils literal notranslate"><span class="pre">MultiPersistent</span></code> с заданным именем.</p>
+<dl class="simple">
+<dt><cite>name</cite></dt><dd><p>Имя, используемое для доступа к межигровым постоянным данным. Игры, использующие
+одно и то же имя, будут получать доступ к одним и тем же данным.</p>
+</dd>
+<dt><cite>save_on_quit</cite></dt><dd><p>Если это True, этот объект будет автоматически сохраняться при завершении работы Ren'Py.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="MultiPersistent.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MultiPersistent.save" title="Ссылка на это определение"></a></dt>
+<dd><p>Сохраняет межигровые постоянные данные на диск. Этот метод необходимо вызывать после
+изменения данных.</p>
+</dd></dl>
+
+</dd></dl>
+
+<p>В качестве примера, возьмем первую часть игры, состоящей из двух частей:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">mp</span> <span class="o">=</span> <span class="n">MultiPersistent</span><span class="p">(</span><span class="s2">&quot;demo.renpy.org&quot;</span><span class="p">)</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+
+    <span class="c1"># ...</span>
+
+    <span class="c1"># Записываем факт, что пользователь прошел первую часть.</span>
+
+    <span class="k">$</span> <span class="n">mp</span><span class="o">.</span><span class="n">beat_part_1</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">$</span> <span class="n">mp</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="n">e</span> <span class="s2">&quot;You beat part 1. See you in part 2!&quot;</span>
+</pre></div>
+</div>
+<p>А это вторая часть:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">mp</span> <span class="o">=</span> <span class="n">MultiPersistent</span><span class="p">(</span><span class="s2">&quot;demo.renpy.org&quot;</span><span class="p">)</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+
+    <span class="k">if</span> <span class="n">mp</span><span class="o">.</span><span class="n">beat_part_1</span><span class="p">:</span>
+        <span class="n">e</span> <span class="s2">&quot;I see you&#39;ve beaten part 1, so welcome back!&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">e</span> <span class="s2">&quot;Hmm, you haven&#39;t played part 1, why not try it first?&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="save_load_rollback.html" class="btn btn-neutral float-left" title="Сохранение, загрузка и откат" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="gui_advanced.html" class="btn btn-neutral float-right" title="Продвинутый GUI" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

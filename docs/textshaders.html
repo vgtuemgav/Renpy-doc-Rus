@@ -1,0 +1,676 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Текстовые шейдеры &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/textshaders.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Лаунчер" href="launcher.html" />
+    <link rel="prev" title="Пользовательские курсоры мыши" href="mouse.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Текстовые шейдеры</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Использование текстовых шейдеров</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Задание текстовых шейдеров</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Коллбэки текстовых шейдеров</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Встроенные текстовые шейдеры</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">Создание текстовых шейдеров</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.register_textshader"><code class="docutils literal notranslate"><span class="pre">renpy.register_textshader()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Переменные в текстовых шейдерах</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#uniforms">Uniforms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Атрибуты</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Псевдо-глифы</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Пример</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Текстовые шейдеры</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/textshaders.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Текстовые шейдеры<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Ren'Py содержит систему текстовых шейдеров, которая позволяет контролировать, как
+Ren'Py отображает текст. Когда эта система включена, она использует <a class="reference internal" href="model.html"><span class="doc">модели</span></a>
+для рендеринга двух треугольников для каждого символа Unicode. Части шейдера, либо указанные
+создателем, либо сгенерированные Ren'Py, применяются к модели и
+могут изменять способ отображения текста.</p>
+<p>Документация по текстовым шейдерам состоит из трех частей:</p>
+<ol class="arabic simple">
+<li><p>Как использовать текстовые шейдеры</p></li>
+<li><p>Какие текстовые шейдеры включены в Ren'Py</p></li>
+<li><p>Как создавать новые текстовые шейдеры</p></li>
+</ol>
+<p>Обратите внимание, что, хотя текстовые шейдеры предназначены для простого использования создателями игр,
+создание собственных текстовых шейдеров требует некоторых знаний GLSL (OpenGL Shading
+Language), а также <a class="reference internal" href="model.html"><span class="doc">моделей</span></a>, и, следовательно, является более продвинутой
+функцией, чем большинство возможностей Ren'Py.</p>
+<section id="id2">
+<h2>Использование текстовых шейдеров<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Есть три способа использовать текстовые шейдеры:</p>
+<p><strong>Текстовый шейдер по умолчанию</strong> Первый способ — установить текстовый
+шейдер по умолчанию, используя <code class="xref std std-var docutils literal notranslate"><span class="pre">config.default_textshader</span></code>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">default_textshader</span> <span class="o">=</span> <span class="s2">&quot;wave:10&quot;</span>
+</pre></div>
+</div>
+<p>При такой установке текстовый шейдер будет использоваться для всего текста, который не
+указывает свой собственный текстовый шейдер. Он также будет комбинироваться с текстовыми шейдерами,
+которые включают шейдер по умолчанию, а таких большинство.</p>
+<p>Как правило, шейдер по умолчанию должен отвечать за эффект медленного появления текста
+и не должен добавлять более сложных эффектов.</p>
+<p><strong>Стили</strong> Второй способ использовать текстовые шейдеры — это установить свойство стиля <code class="xref std std-propref docutils literal notranslate"><span class="pre">textshader</span></code>,
+либо напрямую, либо одним из многих способов, которые Ren'Py предоставляет для
+настройки стилей.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">style</span> <span class="k">default</span><span class="p">:</span>
+    <span class="na">textshader</span> <span class="s2">&quot;dissolve&quot;</span>
+
+<span class="k">define</span> <span class="n">goldfinger</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s2">&quot;Goldfinger&quot;</span><span class="p">,</span> <span class="n">what_textshader</span><span class="o">=</span><span class="s2">&quot;linetexture:gold.png&quot;</span><span class="p">)</span>
+
+<span class="k">screen</span> <span class="n">purchase</span><span class="p">():</span>
+    <span class="k">vbox</span><span class="p">:</span>
+        <span class="k">text</span> <span class="s2">&quot;Buy the DLC for more!&quot;</span> <span class="na">textshader</span> <span class="s2">&quot;wave&quot;</span>
+        <span class="k">textbutton</span> <span class="s2">&quot;Buy Now&quot;</span><span class="p">:</span>
+            <span class="na">text_textshader</span> <span class="s2">&quot;wave&quot;</span> <span class="na">action</span> <span class="n">iap</span><span class="o">.</span><span class="n">Purchase</span><span class="p">(</span><span class="s2">&quot;dlc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Текстовые теги</strong> Третий способ использовать текстовые шейдеры — это использовать
+<a class="reference internal" href="text.html#text-tag-shader"><code class="xref std std-tt docutils literal notranslate"><span class="pre">соответствующий</span> <span class="pre">текстовый</span> <span class="pre">тег</span></code></a>, чтобы изменить внешний вид части текста.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;What&#39;s this? A letter from {shader=zoom}out of nowhere{/shader}?&quot;</span>
+</pre></div>
+</div>
+<p><strong>Примечание</strong> Текстовый блок должен либо использовать текстовые шейдеры, либо нет — смешивание
+не поддерживается. Например, вам следует установить свойство стиля <code class="xref std std-var docutils literal notranslate"><span class="pre">config.default_textshader</span></code>
+или <code class="xref std std-propref docutils literal notranslate"><span class="pre">textshader</span></code>, если вы используете текстовый тег, как в примере выше.</p>
+<section id="id3">
+<h3>Задание текстовых шейдеров<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h3>
+<p>Текстовые шейдеры задаются в виде строк, например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;dissolve&quot;</span>
+<span class="s2">&quot;jitter:u__jitter=1.0, 3.0&quot;</span>
+<span class="s2">&quot;texture:gold.png&quot;</span>
+</pre></div>
+</div>
+<p>Первая часть строки, до первого двоеточия, — это имя текстового шейдера.
+Остальная часть строки — это серия uniform-переменных, которые передаются в шейдер,
+разделённых двоеточиями. (Uniform-переменные — это параметры, которые передаются в шейдер
+и могут использоваться для управления его работой.)</p>
+<p>Uniform-переменные можно указывать по имени с последующим знаком =, или же имя можно
+опустить, чтобы установить каждую uniform-переменную по порядку. (Опускать имя не поддерживается в Ren'Py 7.) Хотя
+внутренне все uniform-переменные начинаются с u_, для краткости u_ можно опустить.</p>
+<p>Значением uniform-переменной может быть:</p>
+<ul class="simple">
+<li><p>От 1 до 4 чисел, разделенных запятыми. Они могут использоваться с
+типами float, vec2, vec3 или vec4.</p></li>
+<li><p>Цвет, начинающийся с #. (Например, #f00 или #ff0000 для красного.) Это
+создает vec4, соответствующий этому цвету. Этот цвет будет
+предварительно умножен на свой альфа-канал.</p></li>
+<li><p><a class="reference internal" href="displayables.html"><span class="doc">Отображаемый объект</span></a>, который будет
+использоваться как текстура. Это создаёт sampler2D, который можно использовать для
+сэмплирования текстуры.</p></li>
+</ul>
+<p>Значения uniform-переменных не могут быть выражениями или обращаться к переменным, хотя можно
+использовать интерполяцию текста для создания строки, которая может быть
+обработана как тег textshader или его параметр.</p>
+<p>Наконец, текстовые шейдеры можно комбинировать друг с другом с помощью оператора |.
+Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;jitter:1.0, 3.0|wave&quot;</span>
+</pre></div>
+</div>
+<p>Это применит к тексту и шейдер jitter, и шейдер wave. Это работает только
+в том случае, если шейдеры совместимы друг с другом и не используют одни и те же
+uniform-переменные (или используют uniform-переменную таким образом, который совместим друг с другом,
+в этом случае она принимает значение из последнего шейдера в списке).</p>
+<p>Если для шейдера не установлено <cite>include_default</cite> в False, то шейдер по умолчанию
+будет объединен с шейдером, указанным в стиле или теге.</p>
+</section>
+<section id="id4">
+<h3>Коллбэки текстовых шейдеров<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h3>
+<p>Переменная <a class="reference internal" href="config.html#var-config.textshader_callbacks"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.textshader_callbacks</span></code></a> может использоваться для установки коллбэка, который
+выполняется при применении текстового шейдера. Это можно использовать для настройки
+текстового шейдера в зависимости от предпочтений.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">default</span> <span class="n">persistent</span><span class="o">.</span><span class="n">dissolve_text</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_default_textshader</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">persistent</span><span class="o">.</span><span class="n">dissolve_text</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;dissolve&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;typewriter&quot;</span>
+
+<span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">default_textshader</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+<span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">textshader_callbacks</span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_default_textshader</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id5">
+<h2>Встроенные текстовые шейдеры<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py включает в себя ряд встроенных текстовых шейдеров. К ним относятся:</p>
+<dl class="std textshader">
+<dt class="sig sig-object std" id="textshader-dissolve">
+<span class="sig-name descname"><span class="pre">dissolve</span></span><a class="headerlink" href="#textshader-dissolve" title="Ссылка на это определение"></a></dt>
+<dd><p>Шейдер текста dissolve обрабатывает текст, медленно растворяя его, начиная с начала и заканчивая концом.</p>
+<dl class="simple">
+<dt><cite>u__duration</cite> = 10.0</dt><dd><p>Количество символов, которые будут одновременно изменять свой альфа-канал. Если установлено в 0, эффект будет перемещаться по тексту попиксельно.</p>
+</dd>
+</dl>
+<p>Использование этого шейдера предотвратит использование стандартного шейдера текста.</p>
+</dd></dl>
+
+<dl class="std textshader">
+<dt class="sig sig-object std" id="textshader-flip">
+<span class="sig-name descname"><span class="pre">flip</span></span><a class="headerlink" href="#textshader-flip" title="Ссылка на это определение"></a></dt>
+<dd><p>Шейдер flip обрабатывает медленный текст, переворачивая его по горизонтали, начиная с начала и заканчивая концом.</p>
+<dl class="simple">
+<dt><cite>u__duration</cite> = 10.0</dt><dd><p>Количество символов, которые будут переворачиваться одновременно. Если установлено в 0, символы перевернутся мгновенно.</p>
+</dd>
+</dl>
+<p>Использование этого шейдера предотвратит использование стандартного шейдера текста.</p>
+</dd></dl>
+
+<dl class="std textshader">
+<dt class="sig sig-object std" id="textshader-jitter">
+<span class="sig-name descname"><span class="pre">jitter</span></span><a class="headerlink" href="#textshader-jitter" title="Ссылка на это определение"></a></dt>
+<dd><p>Шейдер текста jitter перемещает текст в случайные позиции относительно того, где он должен был бы быть нарисован. Позиция меняется один раз за кадр.</p>
+<dl class="simple">
+<dt><cite>u__jitter</cite> = (3.0, 3.0)</dt><dd><p>Величина дрожания, применяемая к тексту, в пикселях.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std textshader">
+<dt class="sig sig-object std" id="textshader-linetexture">
+<span class="sig-name descname"><span class="pre">linetexture</span></span><a class="headerlink" href="#textshader-linetexture" title="Ссылка на это определение"></a></dt>
+<dd><p>Умножает цвет текста на цвет текстуры, по одной строке за раз. Текстура выравнивается по левому краю текста. Вертикальный центр текстуры выравнивается по базовой линии текста, что означает, что большая часть нижней половины текстуры не будет видна.</p>
+<dl class="simple">
+<dt><cite>u__texture</cite> = ...</dt><dd><p>Текстура для умножения цвета текста.</p>
+</dd>
+<dt><cite>u__scale</cite> = (1.0, 1.0)</dt><dd><p>Коэффициент масштабирования текстуры. Например, (1.0, 0.5) сделает текстуру в два раза ниже, чем она была бы в противном случае.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std textshader">
+<dt class="sig sig-object std" id="textshader-offset">
+<span class="sig-name descname"><span class="pre">offset</span></span><a class="headerlink" href="#textshader-offset" title="Ссылка на это определение"></a></dt>
+<dd><p>Шейдер текста offset сдвигает текст на фиксированное значение.</p>
+<dl class="simple">
+<dt><cite>u__offset</cite> = (0.0, 0.0)</dt><dd><p>Величина смещения текста, в виртуальных пикселях.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std textshader">
+<dt class="sig sig-object std" id="textshader-slowalpha">
+<span class="sig-name descname"><span class="pre">slowalpha</span></span><a class="headerlink" href="#textshader-slowalpha" title="Ссылка на это определение"></a></dt>
+<dd><p>Шейдер slowalpha предназначен для использования с другими шейдерами медленного текста, такими как typewriter или dissolve. Он заставляет еще не появившийся текст отрисовываться со значением альфа-канала <cite>u__alpha</cite> = 0.2, а не быть невидимым.</p>
+<dl class="simple">
+<dt><cite>u__alpha</cite> = 0.2</dt><dd><p>Значение альфа-канала для текста, который еще не появился.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std textshader">
+<dt class="sig sig-object std" id="textshader-texture">
+<span class="sig-name descname"><span class="pre">texture</span></span><a class="headerlink" href="#textshader-texture" title="Ссылка на это определение"></a></dt>
+<dd><p>Шейдер текста texture умножает цвет текста на цвета из текстуры. Это не применяется к обводкам или смещённому тексту. Текстура выравнивается по верхнему левому углу текста.</p>
+<dl class="simple">
+<dt><cite>u__texture</cite> = ...</dt><dd><p>Текстура для умножения цвета текста.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std textshader">
+<dt class="sig sig-object std" id="textshader-typewriter">
+<span class="sig-name descname"><span class="pre">typewriter</span></span><a class="headerlink" href="#textshader-typewriter" title="Ссылка на это определение"></a></dt>
+<dd><p>Шейдер текста typewriter обрабатывает медленный текст, заставляя его появляться по одному символу за раз, как будто он печатается на пишущей машинке.</p>
+<p>Использование этого шейдера предотвратит использование стандартного шейдера текста.</p>
+</dd></dl>
+
+<dl class="std textshader">
+<dt class="sig sig-object std" id="textshader-wave">
+<span class="sig-name descname"><span class="pre">wave</span></span><a class="headerlink" href="#textshader-wave" title="Ссылка на это определение"></a></dt>
+<dd><p>Шейдер текста wave заставляет текст подпрыгивать вверх и вниз волной.</p>
+<dl class="simple">
+<dt><cite>u__amplitude</cite> = 5.0</dt><dd><p>На сколько пикселей вверх и вниз будет двигаться текст.</p>
+</dd>
+<dt><cite>u__frequency</cite> = 2.0</dt><dd><p>Количество волн в секунду.</p>
+</dd>
+<dt><cite>u__wavelength</cite> = 20.0</dt><dd><p>Количество символов между пиками волны.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std textshader">
+<dt class="sig sig-object std" id="textshader-zoom">
+<span class="sig-name descname"><span class="pre">zoom</span></span><a class="headerlink" href="#textshader-zoom" title="Ссылка на это определение"></a></dt>
+<dd><p>Шейдер текста zoom обрабатывает медленный текст, заставляя его приближаться (увеличиваться) от начального размера <cite>u__zoom</cite> = 0.0 до полного размера.</p>
+<dl class="simple">
+<dt><cite>u__zoom</cite> = 0.0</dt><dd><p>Начальная степень увеличения, применяемая к символу, когда он только начинает появляться.</p>
+</dd>
+<dt><cite>u__duration</cite> = 10.0</dt><dd><p>Количество символов, которые будут увеличиваться одновременно. Если установлено в 0, символы мгновенно увеличатся до полного размера.</p>
+</dd>
+</dl>
+<p>Использование этого шейдера предотвратит использование стандартного шейдера текста.</p>
+</dd></dl>
+
+</section>
+<section id="id6">
+<h2>Создание текстовых шейдеров<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h2>
+<p>Текстовые шейдеры — это программы на GLSL, которые выполняются на GPU. Эти шейдеры
+регистрируются с помощью функции renpy.register_text_shader.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.register_textshader">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">register_textshader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shaders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_slow_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_slow_duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redraw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redraw_when_slow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.register_textshader" title="Ссылка на это определение"></a></dt>
+<dd><p>Это создает textshader и регистрирует его под именем <cite>name</cite>.</p>
+<p>Эта функция принимает следующие аргументы:</p>
+<dl>
+<dt><cite>name</cite></dt><dd><p>Это имя textshader'а. Оно также используется для регистрации части шейдера
+(shader part) с именем textshader.`name`.</p>
+</dd>
+<dt><cite>shaders</cite></dt><dd><p>Части шейдера (shader parts) для применения к тексту. Это может быть строка, или список, или кортеж строк.
+Это должна быть часть шейдера, зарегистрированная с помощью <a class="reference internal" href="model.html#renpy.register_shader" title="renpy.register_shader"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.register_shader()</span></code></a> или этой
+функции. Если часть шейдера начинается с '-', она удаляется из списка
+частей. (Например, '-textshader.typewriter' удалит эту часть.)</p>
+<p>Обратите внимание, что части шейдера, зарегистрированные с помощью этой функции, имеют префикс
+textshader., который необходимо указывать при их использовании с этой функцией.</p>
+</dd>
+<dt><cite>extra_slow_time</cite></dt><dd><p>Дополнительное время, добавляемое к эффекту медленного времени сверх того, что Ren'Py вычислит из
+текущей скорости символов в секунду. Это полезно для шейдеров, которым
+может потребоваться больше времени для перехода символа, чем стандартное время.
+Если True, шейдер обновляется всегда.</p>
+</dd>
+<dt><cite>extra_slow_duration</cite></dt><dd><p>Добавляется к <cite>extra_slow_time</cite>, но умножается на время
+на один символ, чтобы получить дополнительное время, добавляемое к эффекту медленного времени.
+(Время на символ равно 1 / количество символов в секунду.)</p>
+</dd>
+<dt><cite>redraw</cite></dt><dd><p>Время в секундах до перерисовки текста после того, как
+весь медленный текст был показан и <cite>extra_slow_time</cite> прошло.</p>
+</dd>
+<dt><cite>redraw_when_slow</cite></dt><dd><p>Время в секундах до перерисовки текста во время показа
+медленного текста.</p>
+</dd>
+<dt><cite>include_default</cite></dt><dd><p>Если True, при непосредственном использовании этого textshader'а, он будет объединен
+с <code class="xref std std-var docutils literal notranslate"><span class="pre">config.default_textshader</span></code>.</p>
+</dd>
+<dt><cite>adjust_function</cite></dt><dd><p>Функция, которая вызывается с объектом и uniforms, передаваемыми
+в textshader в качестве именованных аргументов. Эта
+функция может устанавливать поля <cite>extra_slow_time</cite>, <cite>extra_slow_duration</cite>,
+<cite>redraw</cite> и <cite>redraw_when_slow</cite> объекта.</p>
+</dd>
+<dt><cite>doc</cite></dt><dd><p>Строка, содержащая информацию для документации. Это в основном предназначено
+для системы документации Ren'Py.</p>
+</dd>
+</dl>
+<p>Именованные аргументы, начинающиеся с <code class="docutils literal notranslate"><span class="pre">u_</span></code>, передаются в шейдер как uniforms,
+при этом строки, начинающиеся с <code class="docutils literal notranslate"><span class="pre">#</span></code>, интерпретируются как цвета. Большинство uniforms
+должны начинаться с <code class="docutils literal notranslate"><span class="pre">u__</span></code>, используя <a class="reference internal" href="model.html#shader-local-variables"><span class="std std-ref">локальные переменные шейдера</span></a>,
+чтобы предотвратить конфликты с другими шейдерами.</p>
+<p>Именованный аргумент <cite>variables</cite> и все именованные аргументы, начинающиеся
+с <cite>fragment_</cite> или <cite>vertex_</cite>, передаются в <a class="reference internal" href="model.html#renpy.register_shader" title="renpy.register_shader"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.register_shader()</span></code></a>,
+которая регистрирует часть шейдера.</p>
+</dd></dl>
+
+<section id="id7">
+<h3>Переменные в текстовых шейдерах<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h3>
+<p>В дополнение к uniform-переменным, которые вы передали в текстовый шейдер (обычно начинающимся с <code class="docutils literal notranslate"><span class="pre">u__</span></code>),
+Ren'Py делает доступными для текстовых шейдеров следующие переменные. Чтобы использовать переменную в текстовом шейдере,
+её необходимо объявить в аргументе <cite>variables</cite> функции renpy.register_text_shader.</p>
+<p>Кроме них, доступны <a class="reference internal" href="model.html#model-uniforms"><span class="std std-ref">uniform-переменные и атрибуты модели</span></a>, из которых
+особенно полезны <cite>a_position</cite>, <cite>a_tex_coord</cite>, <cite>u_time</cite> и <cite>u_random</cite>.</p>
+<section id="uniforms">
+<h4>Uniforms<a class="headerlink" href="#uniforms" title="Ссылка на этот заголовок"></a></h4>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">u_text_depth</span></code></dt><dd><p>Глубина текста от верха. Самый верхний текст имеет глубину 0.0, первая обводка или тень —
+глубину 1.0, вторая обводка или тень — глубину 2.0 и так далее.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">u_text_main</span></code></dt><dd><p>Если это 1.0, то это основной текст. Если 0.0, то это обводка или тень основного текста.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">u_text_max_depth</span></code></dt><dd><p>Максимальное значение u_text_depth. Это количество обводок и теней, которые будут нарисованы. Когда u_text_depth
+равно этому значению, текст является последней обводкой или тенью, что может быть полезно для рисования фона.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">vec2</span> <span class="pre">u_text_offset</span></code></dt><dd><p>Смещение текста от центра символа. Указывается в отрисовываемых пикселях (drawable pixels) в порядке x, y.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">u_text_outline</span></code></dt><dd><p>Ширина обводки вокруг текста. Указывается в отрисовываемых пикселях и представляет собой расстояние от края текста до края обводки.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">u_text_slow_duration</span></code></dt><dd><p>Продолжительность появления одного символа при медленном отображении текста. Равна 0.0, если медленное отображение не используется.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">u_text_slow_time</span></code></dt><dd><p>Время в секундах с начала эффекта медленного отображения текста. Оно будет увеличиваться только до конца
+медленного отображения, после чего достигнет максимального значения. Если пользователь кликнет, чтобы пропустить медленное отображение, оно сразу станет максимальным.
+Эту переменную следует использовать только для медленного отображения текста — для других эффектов, которые должны меняться со временем, используйте u_time.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">u_text_to_drawable</span></code></dt><dd><p>Соотношение виртуальных пикселей к отрисовываемым пикселям. Используется для преобразования виртуальных пикселей в отрисовываемые.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">u_text_to_virtual</span></code></dt><dd><p>Соотношение отрисовываемых пикселей к виртуальным пикселям. Используется для преобразования отрисовываемых пикселей в виртуальные.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">sampler2D</span> <span class="pre">tex0</span></code></dt><dd><p>Эта текстура содержит отрисованный текст на текущей глубине.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">vec2</span> <span class="pre">res0</span></code></dt><dd><p>Разрешение tex0 в отрисовываемых пикселях.</p>
+</dd>
+</dl>
+</section>
+<section id="id8">
+<h4>Атрибуты<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h4>
+<p>При рисовании текста каждая вершина соответствует одному глифу. Несколько глифов могут иметь вершины,
+совпадающие по местоположению, но они передаются в шейдер как разные вершины.</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">a_text_ascent</span></code></dt><dd><p>Выносной элемент (ascent) шрифта текущего глифа над базовой линией, в отрисовываемых пикселях.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">vec2</span> <span class="pre">a_text_center</span></code></dt><dd><p>Позиция центра базовой линии глифа в отрисовываемых пикселях. Это не
+центр прямоугольника, а точка на базовой линии и около центра символа.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">a_text_descent</span></code></dt><dd><p>Нижний выносной элемент (descent) текущего глифа ниже базовой линии, в отрисовываемых пикселях.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">a_text_index</span></code></dt><dd><p>Индекс рисуемого глифа. Равен 0 для первой вершины и увеличивается на единицу для каждой последующей.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">vec2</span> <span class="pre">a_text_min_time</span></code></dt><dd><p>Минимальное время, в которое должна быть показана любая вершина глифа. При появлении слева направо,
+это время, когда должны быть показаны самые левые вершины. Когда текст должен появиться мгновенно,
+но <cite>u_text_slow_duration</cite> не равно 0.0, это значение будет -3600.0.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">vec2</span> <span class="pre">a_text_max_time</span></code></dt><dd><p>Максимальное время, в которое должна быть показана любая вершина глифа. При появлении слева направо,
+это время, когда должны быть показаны самые правые вершины. Когда текст должен появиться мгновенно,
+но <cite>u_text_slow_duration</cite> не равно 0.0, это значение будет -3600.0.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">a_text_time</span></code></dt><dd><p>Время, в которое должна быть показана эта вершина. Когда текст должен появиться мгновенно,
+но <cite>u_text_slow_duration</cite> не равно 0.0, это значение будет -3600.0.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">vec4</span> <span class="pre">a_text_pos_rect</span></code></dt><dd><p>Прямоугольник, содержащий глиф, в отрисовываемых пикселях. Это vec4 с координатами x, y, шириной и высотой прямоугольника
+в отрисовываемых пикселях. Его можно преобразовать в текстурные координаты, разделив на <cite>res0</cite>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">a_text_pseudo_glyph</span></code></dt><dd><p>1.0, если эта вершина является частью псевдо-глифа, иначе 0.0. Подробнее см. ниже.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="id9">
+<h3>Псевдо-глифы<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h3>
+<p>Ren'Py создает псевдо-глифы, которые покрывают начало и конец каждой строки. Если строка
+пуста, создается один псевдо-глиф, покрывающий всю строку. Эти псевдо-глифы необходимы
+для покрытия областей, где обводки могут выходить на строку выше или ниже текущей.</p>
+</section>
+<section id="id10">
+<h3>Пример<a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h3>
+<p>Это пример текстового шейдера, который вращает текст при его появлении.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">adjust_extra_slow_time</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">u__delay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adjusts a text shader&#39;s extra slow time to support the spinning text shader.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">extra_slow_time</span> <span class="o">=</span> <span class="n">u__delay</span>
+
+    <span class="n">renpy</span><span class="o">.</span><span class="n">register_textshader</span><span class="p">(</span>
+        <span class="s2">&quot;spin&quot;</span><span class="p">,</span>
+        <span class="n">adjust_function</span> <span class="o">=</span> <span class="n">adjust_extra_slow_time</span><span class="p">,</span>
+
+        <span class="n">variables</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        uniform float u__delay;</span>
+<span class="s2">        uniform float u__offset;</span>
+<span class="s2">        uniform float u_text_slow_time;</span>
+<span class="s2">        attribute vec2 a_text_center;</span>
+<span class="s2">        attribute float a_text_min_time;</span>
+<span class="s2">        &quot;&quot;&quot;</span><span class="p">,</span>
+
+        <span class="n">vertex_50</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        float l__angle = clamp((u_text_slow_time - a_text_min_time) / u__delay, 0.0, 1.0) * 2.0 * 3.1415926536;</span>
+<span class="s2">        float l__sin = sin(l__angle);</span>
+<span class="s2">        float l__cos = cos(l__angle);</span>
+
+<span class="s2">        gl_Position.y -= u__offset;</span>
+<span class="s2">        gl_Position.xy -= a_text_center;</span>
+<span class="s2">        gl_Position = vec4(</span>
+<span class="s2">            gl_Position.x * l__cos - gl_Position.y * l__sin,</span>
+<span class="s2">            gl_Position.x * l__sin + gl_Position.y * l__cos,</span>
+<span class="s2">            gl_Position.z,</span>
+<span class="s2">            gl_Position.w</span>
+<span class="s2">            );</span>
+<span class="s2">        gl_Position.xy += a_text_center;</span>
+<span class="s2">        gl_Position.y += u__offset;</span>
+<span class="s2">        &quot;&quot;&quot;</span><span class="p">,</span>
+
+        <span class="n">u__delay</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">u__offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Его можно использовать со следующим скриптом:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">default_textshader</span> <span class="o">=</span> <span class="s2">&quot;typewriter&quot;</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+
+    <span class="s2">&quot;This is a test of the {shader=spin:0.5:-5}spin{/shader} text shader.&quot;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">orphan<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<span class="target" id="thequestion"></span></section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="mouse.html" class="btn btn-neutral float-left" title="Пользовательские курсоры мыши" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="launcher.html" class="btn btn-neutral float-right" title="Лаунчер" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

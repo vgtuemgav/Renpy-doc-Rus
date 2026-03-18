@@ -1,0 +1,947 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Быстрый старт &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/quickstart.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Руководство по настройке GUI" href="gui.html" />
+    <link rel="prev" title="Добро пожаловать в документацию Ren&#39;Py!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Быстрый старт</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ren-py">Лаунчер Ren'Py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Простая игра</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Персонажи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Изображения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">Переходы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">Позиции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">Музыка и звук</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pause">Инструкция Pause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">Завершение игры</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">Меню, метки и переходы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#default-python-if">Поддержка флагов с помощью инструкций Default, Python и If</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">Файлы в шаблоне</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">Выпуск вашей игры</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-question">Скрипт игры The Question</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">Куда двигаться дальше?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Быстрый старт</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/quickstart.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Быстрый старт<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Добро пожаловать в руководство по быстрому старту Ren'Py. Цель этого руководства —
+продемонстрировать, как вы можете создать игру на Ren'Py с нуля за несколько
+простых шагов. Мы сделаем это, показав, как создать простую игру,
+<em>The Question</em>.</p>
+<section id="ren-py">
+<h2>Лаунчер Ren'Py<a class="headerlink" href="#ren-py" title="Ссылка на этот заголовок"></a></h2>
+<p>Прежде чем вы приступите к созданию игры, вам следует уделить немного времени
+изучению того, как работает лаунчер Ren'Py. Лаунчер позволяет вам создавать,
+управлять, редактировать и запускать проекты Ren'Py.</p>
+<p><strong>Начало работы.</strong> Для начала вам потребуется
+<a class="reference external" href="https://www.renpy.org/latest.html">скачать Ren'Py</a>.</p>
+<p>После того как вы скачали Ren'Py, его нужно будет извлечь и запустить.</p>
+<ul class="simple">
+<li><p>В Windows дважды щёлкните по скачанному исполняемому файлу. Он
+извлечёт Ren'Py в папку с именем <code class="file docutils literal notranslate"><span class="pre">renpy-</span><em><span class="pre">&lt;version&gt;</span></em></code>. Вы можете перейти
+в эту папку и запустить <code class="file docutils literal notranslate"><span class="pre">renpy.exe</span></code>. (Может отображаться
+как <code class="file docutils literal notranslate"><span class="pre">renpy</span></code>, если расширения файлов скрыты.)</p></li>
+<li><p>В Mac OS X дважды щёлкните по скачанному образу диска, чтобы смонтировать его как
+диск. Когда диск откроется, скопируйте папку с именем <code class="file docutils literal notranslate"><span class="pre">renpy-</span><em><span class="pre">&lt;version&gt;</span></em></code>
+в другое место. (Куда — не имеет значения, но её нужно переместить
+из образа диска, доступного только для чтения. Не перемещайте приложение renpy
+из папки, в которой оно находится, — в другом месте оно работать не будет.)
+Затем перейдите в неё и запустите приложение <code class="file docutils literal notranslate"><span class="pre">renpy</span></code>.</p></li>
+<li><p>В Linux распакуйте tar-архив, перейдите в директорию <code class="file docutils literal notranslate"><span class="pre">renpy-</span><em><span class="pre">&lt;version&gt;</span></em></code>
+и затем запустите <code class="file docutils literal notranslate"><span class="pre">renpy.sh</span></code>.</p></li>
+</ul>
+<p>После этого должен запуститься лаунчер Ren'Py.</p>
+<p>Лаунчер Ren'Py переведён на несколько языков. Чтобы
+сменить язык, выберите «preferences» в правом нижнем углу, а затем
+выберите язык.</p>
+<p><strong>Выбор и запуск проекта.</strong> Для начала вам стоит посмотреть, как выглядит
+готовая игра <em>The Question</em>. Для этого запустите лаунчер Ren'Py
+и на первом экране выберите «The Question». Нажмите
+«Launch Project», чтобы запустить <em>The Question</em>.</p>
+<p>Вы можете вернуться к демо-игре Ren'Py, сделав то же самое, но
+выбрав «Tutorial» вместо «The Question».</p>
+<figure class="align-default" id="id17">
+<a class="reference internal image-reference" href="_images/launcher.png"><img alt="_images/launcher.png" src="_images/launcher.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Главный экран лаунчера Ren'Py.</span><a class="headerlink" href="#id17" title="Ссылка на это изображение"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id18">
+<a class="reference internal image-reference" href="_images/project_name.png"><img alt="_images/project_name.png" src="_images/project_name.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Присвоение имени новому проекту.</span><a class="headerlink" href="#id18" title="Ссылка на это изображение"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id19">
+<a class="reference internal image-reference" href="_images/resolution.png"><img alt="_images/resolution.png" src="_images/resolution.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Выбор разрешения проекта.</span><a class="headerlink" href="#id19" title="Ссылка на это изображение"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id20">
+<a class="reference internal image-reference" href="_images/color.png"><img alt="_images/color.png" src="_images/color.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Выбор акцентного и фонового цветов для темы по умолчанию.</span><a class="headerlink" href="#id20" title="Ссылка на это изображение"></a></p>
+</figcaption>
+</figure>
+<p><strong>Создание нового проекта.</strong>
+Создайте новый проект, выбрав в лаунчере «Create New Project».</p>
+<p>Если вы создаёте проект впервые, Ren'Py может попросить вас
+выбрать директорию проектов. Это директория (также называемая папкой),
+где создаются новые проекты и которая сканируется на наличие существующих.
+Окно выбора директории может появиться под окном Ren'Py, так что
+не забудьте поискать его там.</p>
+<p>Затем лаунчер попросит вас ввести имя проекта. Поскольку
+«The Question» уже занято, введите что-нибудь другое,
+например, «My Question», и нажмите Enter.</p>
+<p>После этого лаунчер попросит вас выбрать разрешение проекта.
+1280x720 — это хороший компромисс между размером игры и качеством изображений.
+Для целей этого руководства мы выберем 1280x720, чтобы соответствовать
+арту игры «The Question», а затем нажмём «Continue».</p>
+<p>Затем лаунчер попросит вас выбрать цветовую схему — акцентный
+и фоновый цвета для нового GUI. На данном этапе неважно, что вы выберете,
+так что просто выберите то, что вам нравится, и нажмите
+«Continue».</p>
+<p>После этого Ren'Py немного подумает и выдаст простой шаблон
+игры. В шаблоне используются заглушки для арта и текста, но он является
+запускаемым и поддерживает ожидаемые функции, такие как откат, загрузка и сохранение.
+Выберите «Launch Project», чтобы запустить его.</p>
+</section>
+<section id="id3">
+<h2>Простая игра<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+
+    <span class="s2">&quot;Sylvie&quot;</span> <span class="s2">&quot;Hi there! How was class?&quot;</span>
+
+    <span class="s2">&quot;Me&quot;</span> <span class="s2">&quot;Good...&quot;</span>
+
+    <span class="s2">&quot;I can&#39;t bring myself to admit that it all went in one ear and out the other.&quot;</span>
+
+    <span class="s2">&quot;Me&quot;</span> <span class="s2">&quot;Are you going home now? Wanna walk back with me?&quot;</span>
+
+    <span class="s2">&quot;Sylvie&quot;</span> <span class="s2">&quot;Sure!&quot;</span>
+</pre></div>
+</div>
+<p>Это очень простая игра на Ren'Py. В ней нет ни картинок, ни
+музыки, но она показывает диалог между двумя персонажами и
+строку повествования.</p>
+<p>Чтобы попробовать, на главном экране лаунчера выберите проект «My Question»,
+а затем в разделе «Edit File» выберите «script.rpy». Если вы делаете это
+в первый раз, Ren'Py попросит вас выбрать редактор. Мы рекомендуем Visual
+Studio Code для начинающих разработчиков — помимо того, что это надёжный выбор,
+лаунчер также может скачать его для вас.
+Затем он откроет файл сценария в редакторе.</p>
+<p>Когда редактор откроется, сотрите всё в файле <code class="file docutils literal notranslate"><span class="pre">script.rpy</span></code>. Мы начинаем
+с нуля, так что то, что там есть, вам не понадобится. Скопируйте пример выше в
+<code class="file docutils literal notranslate"><span class="pre">script.rpy</span></code> и сохраните его.</p>
+<p>Теперь вы готовы запустить этот пример. Вернитесь в лаунчер и
+выберите «Launch Project». Ren'Py запустится. Обратите внимание, что без
+каких-либо дополнительных усилий Ren'Py предоставил вам меню, которые
+позволяют загружать и сохранять игру, а также изменять различные настройки.
+Когда будете готовы, нажмите «Launch Project» и пройдите этот пример игры.</p>
+<p>Этот пример показывает некоторые из наиболее часто используемых инструкций Ren'Py.</p>
+<p>Первая строка — это <a class="reference internal" href="label.html#label-statement"><span class="std std-ref">инструкция label</span></a>. Инструкция
+<cite>label</cite> используется для присвоения имени определённому месту в программе. В данном случае,
+мы создаём метку с именем <code class="docutils literal notranslate"><span class="pre">start</span></code>. Метка <cite>start</cite> является особенной, так как
+именно с неё начинается выполнение скриптов Ren'Py, когда пользователь нажимает «Start Game»
+в главном меню.</p>
+<p>Остальные строки — это <a class="reference internal" href="dialogue.html#say-statement"><span class="std std-ref">инструкции say</span></a>. Существует две
+формы инструкции <cite>say</cite>. Первая — это строка (начинающаяся с двойных кавычек,
+содержащая символы и заканчивающаяся двойными кавычками) на отдельной строке,
+которая используется для повествования и мыслей главного
+героя. Вторая форма состоит из двух строк. Она используется для
+диалога, где первая строка — это имя персонажа, а вторая —
+то, что этот персонаж говорит.</p>
+<p>Обратите внимание, что все инструкции <cite>say</cite> имеют отступ в четыре пробела. Это
+потому, что они являются блоком под инструкцией <cite>label</cite>. В Ren'Py,
+блоки должны иметь отступ относительно предыдущей инструкции, и все
+инструкции в блоке должны иметь одинаковый отступ.</p>
+<p>Когда строки содержат кавычки, этим символам должен
+предшествовать обратный слэш. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span>
+    <span class="s2">&quot;Sylvie&quot;</span> <span class="s2">&quot;Did you ever hear Lincon&#39;s famous saying, </span><span class="se">\&quot;</span><span class="s2">The problem with Internet quotations is that many of them are not genuine.</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>Хотя эта простая игра и не представляет собой ничего особенного, она является примером того,
+как легко заставить что-то работать в Ren'Py. Мы добавим изображения
+чуть позже, но сначала давайте посмотрим, как определять персонажей.</p>
+</section>
+<section id="id4">
+<h2>Персонажи<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<p><em>Основная статья:</em> <a class="reference internal" href="dialogue.html#defining-character-objects"><span class="std std-ref">Определение объектов Character</span></a></p>
+<p>Одна из проблем первого примера заключается в том, что он требует от вас
+повторно вводить имя персонажа каждый раз, когда он говорит. В игре
+с большим количеством диалогов это может потребовать много печати. Кроме того,
+имена обоих персонажей отображаются одинаково, акцентным цветом,
+выбранным при запуске игры. Чтобы исправить это, Ren'Py позволяет
+вам определять персонажей заранее. Это позволяет связать короткое
+имя с персонажем и изменить цвет имени персонажа.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">s</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;Sylvie&#39;</span><span class="p">,</span> <span class="na">color</span><span class="o">=</span><span class="s2">&quot;#c8ffc8&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">m</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;Me&#39;</span><span class="p">,</span> <span class="na">color</span><span class="o">=</span><span class="s2">&quot;#c8c8ff&quot;</span><span class="p">)</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+
+    <span class="n">s</span> <span class="s2">&quot;Hi there! How was class?&quot;</span>
+
+    <span class="n">m</span> <span class="s2">&quot;Good...&quot;</span>
+
+    <span class="s2">&quot;I can&#39;t bring myself to admit that it all went in one ear and out the other.&quot;</span>
+
+    <span class="n">s</span> <span class="s2">&quot;Are you going home now? Wanna walk back with me?&quot;</span>
+
+    <span class="n">m</span> <span class="s2">&quot;Sure!&quot;</span>
+</pre></div>
+</div>
+<p>Первая и вторая строки определяют персонажей. Первая строка
+определяет персонажа с коротким именем «s», полным именем
+«Sylvie», причём имя отображается зеленоватым цветом. (Цвета
+представляют собой шестнадцатеричные триплеты red-green-blue, используемые на веб-страницах.)</p>
+<p>Вторая строка создаёт персонажа с коротким именем «m», полным именем
+«Me», причём имя отображается синеватым цветом. Других персонажей можно
+определить, скопировав одну из строк определения персонажа и изменив
+короткое имя, полное имя и цвет.</p>
+<p>Мы также изменили инструкции <cite>say</cite> так, чтобы они использовали объекты персонажей
+вместо строки с именем персонажа. Это указывает Ren'Py
+использовать определённых нами персонажей.</p>
+</section>
+<section id="id5">
+<h2>Изображения<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h2>
+<p><em>Основная статья:</em> <a class="reference internal" href="displaying_images.html"><span class="doc">Отображение изображений</span></a></p>
+<p>Визуальная новелла не была бы визуальной новеллой без изображений. Вот ещё
+одна сцена из «The Question». Она также включает инструкции, которые
+показывают изображения игроку. Этот фрагмент может полностью заменить предыдущий
+раздел скрипта, если вы хотите его опробовать.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">s</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;Sylvie&#39;</span><span class="p">,</span> <span class="na">color</span><span class="o">=</span><span class="s2">&quot;#c8ffc8&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">m</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;Me&#39;</span><span class="p">,</span> <span class="na">color</span><span class="o">=</span><span class="s2">&quot;#c8c8ff&quot;</span><span class="p">)</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+
+    <span class="k">scene</span> <span class="n">bg</span> <span class="n">meadow</span>
+
+    <span class="s2">&quot;After a short while, we reach the meadows just outside the neighborhood where we both live.&quot;</span>
+
+    <span class="s2">&quot;It&#39;s a scenic view I&#39;ve grown used to. Autumn is especially beautiful here.&quot;</span>
+
+    <span class="s2">&quot;When we were children, we played in these meadows a lot, so they&#39;re full of memories.&quot;</span>
+
+    <span class="n">m</span> <span class="s2">&quot;Hey... Umm...&quot;</span>
+
+    <span class="k">show</span> <span class="n">sylvie</span> <span class="n">green</span> <span class="n">smile</span>
+
+    <span class="s2">&quot;She turns to me and smiles. She looks so welcoming that I feel my nervousness melt away.&quot;</span>
+
+    <span class="s2">&quot;I&#39;ll ask her...!&quot;</span>
+
+    <span class="n">m</span> <span class="s2">&quot;Ummm... Will you...&quot;</span>
+
+    <span class="n">m</span> <span class="s2">&quot;Will you be my artist for a visual novel?&quot;</span>
+
+    <span class="k">show</span> <span class="n">sylvie</span> <span class="n">green</span> <span class="n">surprised</span>
+
+    <span class="s2">&quot;Silence.&quot;</span>
+</pre></div>
+</div>
+<p>Этот фрагмент скрипта вводит две новые инструкции. Инструкция <code class="docutils literal notranslate"><span class="pre">scene</span></code> в
+строке 6 очищает все изображения и отображает фоновое изображение. Инструкции <code class="docutils literal notranslate"><span class="pre">show</span></code>
+в строках 16 и 26 отображают спрайт поверх фона и меняют
+отображаемый спрайт, соответственно.</p>
+<p>В Ren'Py у каждого изображения есть имя. Имя состоит из тега и, опционально,
+одного или нескольких атрибутов. И тег, и атрибуты должны начинаться
+с буквы и содержать только буквы, цифры и символы подчёркивания. Например:</p>
+<ul class="simple">
+<li><p>В инструкции <cite>scene</cite> в строке 6, тег — «bg», а атрибут —
+«meadow». По соглашению, фоновые изображения должны использовать тег <cite>bg</cite>.</p></li>
+<li><p>В первой инструкции <cite>show</cite> в строке 16, тег — «sylvie», а
+атрибуты — «green» и «smile».</p></li>
+<li><p>Во второй инструкции <cite>show</cite> в строке 26, тег — «sylvie», а
+атрибуты — «green» и «surprised».</p></li>
+</ul>
+<p>Одновременно может отображаться только одно изображение с определённым тегом. Когда
+показывается второе изображение с тем же тегом, оно заменяет первое, как
+это происходит в строке 26.</p>
+<p>Ren'Py ищет файлы изображений в директории <cite>images</cite>, которую можно
+найти, выбрав «images» в разделе «Open Directory» лаунчера.
+Ren'Py ожидает, что арт персонажей будет в файлах PNG, WEBP или AVIF,
+а фоновый арт — в файлах JPG, JPEG, PNG, WEBP или AVIF.
+Файлы SVG также поддерживаются, но в основном используются для настройки интерфейса.
+Имя файла очень важно — расширение удаляется, имя файла
+приводится к нижнему регистру, и результат используется в качестве имени изображения.</p>
+<p>Например, следующие файлы, помещённые в директорию <cite>images</cite>, определяют
+следующие изображения.</p>
+<ul class="simple">
+<li><p>«bg meadow.jpg» -&gt; <code class="docutils literal notranslate"><span class="pre">bg</span> <span class="pre">meadow</span></code></p></li>
+<li><p>«sylvie green smile.png» -&gt; <code class="docutils literal notranslate"><span class="pre">sylvie</span> <span class="pre">green</span> <span class="pre">smile</span></code></p></li>
+<li><p>«sylvie green surprised.png» -&gt; <code class="docutils literal notranslate"><span class="pre">sylvie</span> <span class="pre">green</span> <span class="pre">surprised</span></code></p></li>
+</ul>
+<p>Поскольку имена файлов приводятся к нижнему регистру, следующее также верно.</p>
+<ul class="simple">
+<li><p>«Sylvie Green Surprised.png» -&gt; <code class="docutils literal notranslate"><span class="pre">sylvie</span> <span class="pre">green</span> <span class="pre">surprised</span></code></p></li>
+</ul>
+<p>Изображения можно размещать в поддиректориях (подпапках) внутри директории <cite>images</cite>.
+Имя директории игнорируется, и для определения имени изображения используется
+только имя файла.</p>
+<p><strong>Инструкция Hide.</strong>
+Ren'Py также поддерживает инструкцию <code class="docutils literal notranslate"><span class="pre">hide</span></code>, которая скрывает указанное изображение.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">leaving</span><span class="p">:</span>
+
+    <span class="n">s</span> <span class="s2">&quot;I&#39;ll get right on it!&quot;</span>
+
+    <span class="k">hide</span> <span class="n">sylvie</span>
+
+    <span class="s2">&quot;...&quot;</span>
+
+    <span class="n">m</span> <span class="s2">&quot;That wasn&#39;t what I meant!&quot;</span>
+</pre></div>
+</div>
+<p>На самом деле, вам довольно редко придётся использовать <cite>hide</cite>. <cite>Show</cite> можно
+использовать, когда персонаж меняет эмоции, а <cite>scene</cite> — когда
+все уходят. Использовать <cite>hide</cite> нужно только тогда, когда персонаж уходит,
+а сцена остаётся прежней.</p>
+<p><strong>Инструкция Image.</strong>
+Иногда разработчик может не захотеть, чтобы Ren'Py определял изображения
+автоматически. Для этого и предназначена инструкция <code class="docutils literal notranslate"><span class="pre">image</span></code>. Она должна
+находиться на верхнем уровне файла (без отступов и перед <cite>label start</cite>)
+и может использоваться для сопоставления имени изображения с файлом изображения. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">logo</span> <span class="o">=</span> <span class="s2">&quot;renpy logo.png&quot;</span>
+<span class="k">image</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="o">=</span> <span class="s2">&quot;eileen_happy_blue_dress.png&quot;</span>
+</pre></div>
+</div>
+<p>Инструкция <cite>image</cite> выполняется во время инициализации (init time), перед <cite>label start</cite> и
+остальной частью игрового скрипта, который взаимодействует с игроком.</p>
+<p>Инструкция <cite>image</cite> также может использоваться для более сложных задач, но это
+обсуждается в <a class="reference internal" href="displaying_images.html"><span class="doc">другом месте</span></a>.</p>
+</section>
+<section id="id6">
+<h2>Переходы<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h2>
+<p><em>Основная статья:</em> <a class="reference internal" href="transitions.html"><span class="doc">Переходы</span></a></p>
+<p>В приведённом выше скрипте изображения появляются и исчезают мгновенно. Поскольку
+смена локации или появление/уход персонажа со сцены являются
+важными событиями, Ren'Py поддерживает переходы, которые позволяют эффектам
+применяться при изменении того, что отображается на экране.</p>
+<p>Переходы изменяют то, что отображается, с того, что было в конце
+последнего взаимодействия (диалог, меню или переход — среди прочих
+инструкций), на то, как это выглядит после выполнения инструкций <cite>scene</cite>, <cite>show</cite> и <cite>hide</cite>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+
+    <span class="k">scene</span> <span class="n">bg</span> <span class="n">meadow</span>
+    <span class="k">with</span> <span class="n">fade</span>
+
+    <span class="s2">&quot;After a short while, we reach the meadows just outside the neighborhood where we both live.&quot;</span>
+
+    <span class="s2">&quot;It&#39;s a scenic view I&#39;ve grown used to. Autumn is especially beautiful here.&quot;</span>
+
+    <span class="s2">&quot;When we were children, we played in these meadows a lot, so they&#39;re full of memories.&quot;</span>
+
+    <span class="n">m</span> <span class="s2">&quot;Hey... Umm...&quot;</span>
+
+    <span class="k">show</span> <span class="n">sylvie</span> <span class="n">green</span> <span class="n">smile</span>
+    <span class="k">with</span> <span class="n">dissolve</span>
+
+    <span class="s2">&quot;She turns to me and smiles. She looks so welcoming that I feel my nervousness melt away.&quot;</span>
+
+    <span class="s2">&quot;I&#39;ll ask her...!&quot;</span>
+
+    <span class="n">m</span> <span class="s2">&quot;Ummm... Will you...&quot;</span>
+
+    <span class="n">m</span> <span class="s2">&quot;Will you be my artist for a visual novel?&quot;</span>
+</pre></div>
+</div>
+<p>Инструкция <cite>with</cite> принимает имя перехода для использования. Самый
+распространённый — это <code class="docutils literal notranslate"><span class="pre">dissolve</span></code>, который плавно переходит от одного экрана
+к другому. Другой полезный переход — <code class="docutils literal notranslate"><span class="pre">fade</span></code>, который затемняет
+экран до чёрного, а затем проявляет новый экран.</p>
+<p>Когда переход размещается после нескольких инструкций <cite>scene</cite>, <cite>show</cite> или <cite>hide</cite>,
+он применяется ко всем ним одновременно. Если бы вы написали:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span>
+    <span class="k">scene</span> <span class="n">bg</span> <span class="n">meadow</span>
+    <span class="k">show</span> <span class="n">sylvie</span> <span class="n">green</span> <span class="n">smile</span>
+    <span class="k">with</span> <span class="n">dissolve</span>
+</pre></div>
+</div>
+<p>Изображения «bg meadow» и «sylvie green smile» появились бы плавно
+одновременно. Чтобы они появлялись по одному, вам нужно написать две
+инструкции <cite>with</cite>:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span>
+    <span class="k">scene</span> <span class="n">bg</span> <span class="n">meadow</span>
+    <span class="k">with</span> <span class="n">dissolve</span>
+    <span class="k">show</span> <span class="n">sylvie</span> <span class="n">green</span> <span class="n">smile</span>
+    <span class="k">with</span> <span class="n">dissolve</span>
+</pre></div>
+</div>
+<p>Сначала плавно появляется луг, а затем плавно появляется Сильви. Если
+бы вы хотели мгновенно показать луг, а затем показать Сильви, вы
+могли бы написать:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span>
+    <span class="k">scene</span> <span class="n">bg</span> <span class="n">meadow</span>
+    <span class="k">with</span> <span class="kc">None</span>
+    <span class="k">show</span> <span class="n">sylvie</span> <span class="n">smile</span>
+    <span class="k">with</span> <span class="n">dissolve</span>
+</pre></div>
+</div>
+<p>Здесь <cite>None</cite> используется для обозначения специального перехода, который обновляет
+представление Ren'Py о предыдущем экране, фактически ничего не показывая
+игроку.</p>
+</section>
+<section id="id7">
+<h2>Позиции<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h2>
+<p><em>Основная статья:</em> <a class="reference internal" href="transforms.html"><span class="doc">Трансформации</span></a></p>
+<p>По умолчанию изображения показываются выровненными по центру по горизонтали, и
+с их нижним краем, касающимся нижнего края экрана. Обычно это подходит
+для фонов и одиночных персонажей, но при отображении более одного
+персонажа на экране, вероятно, имеет смысл делать это в другой
+позиции. Также может иметь смысл переместить персонажа для сюжетных
+целей.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span>
+     <span class="k">show</span> <span class="n">sylvie</span> <span class="n">green</span> <span class="n">smile</span> <span class="k">at</span> <span class="n">right</span>
+</pre></div>
+</div>
+<p>Для такого перемещения добавьте выражение <code class="docutils literal notranslate"><span class="pre">at</span></code> к инструкции <cite>show</cite>.
+Выражение <cite>at</cite> принимает позицию и показывает изображение в этой позиции.
+Ren'Py включает несколько предопределённых позиций: <code class="docutils literal notranslate"><span class="pre">left</span></code> для левой части
+экрана, <code class="docutils literal notranslate"><span class="pre">right</span></code> для правой, <code class="docutils literal notranslate"><span class="pre">center</span></code> для центрирования
+по горизонтали (по умолчанию) и <code class="docutils literal notranslate"><span class="pre">truecenter</span></code> для центрирования
+по горизонтали и вертикали.</p>
+<p>Разработчики могут определять свои собственные позиции и даже сложные перемещения,
+но это выходит за рамки этого краткого руководства.</p>
+</section>
+<section id="id8">
+<h2>Музыка и звук<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h2>
+<p><em>Основная статья:</em> <a class="reference internal" href="audio.html"><span class="doc">Аудио</span></a></p>
+<p>В большинстве игр на Ren'Py в фоне играет музыка. Музыка воспроизводится с помощью
+инструкции <code class="docutils literal notranslate"><span class="pre">play</span> <span class="pre">music</span></code>. Инструкция <cite>play music</cite> принимает имя файла,
+которое интерпретируется как аудиофайл для воспроизведения. Имена аудиофайлов
+интерпретируются относительно директории игры. Аудиофайлы должны быть в
+формате opus, ogg vorbis или mp3.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span>
+    <span class="k">play</span> <span class="k">music</span> <span class="s2">&quot;audio/illurock.ogg&quot;</span>
+</pre></div>
+</div>
+<p>При смене музыки можно указать выражения <code class="docutils literal notranslate"><span class="pre">fadeout</span></code> и <code class="docutils literal notranslate"><span class="pre">fadein</span></code>,
+которые используются для плавного затухания старой музыки и плавного появления новой.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span>
+    <span class="k">play</span> <span class="k">music</span> <span class="s2">&quot;audio/illurock.ogg&quot;</span> <span class="n">fadeout</span> <span class="mf">1.0</span> <span class="n">fadein</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">queue</span> <span class="pre">music</span></code> воспроизводит аудиофайл после того, как
+завершится воспроизведение текущего файла.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span>
+    <span class="k">queue</span> <span class="k">music</span> <span class="s2">&quot;audio/next_track.opus&quot;</span>
+</pre></div>
+</div>
+<p>Музыку можно остановить с помощью инструкции <code class="docutils literal notranslate"><span class="pre">stop</span> <span class="pre">music</span></code>, которая также
+может опционально принимать выражение <cite>fadeout</cite>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span>
+    <span class="k">stop</span> <span class="k">music</span>
+</pre></div>
+</div>
+<p>Звуковые эффекты можно воспроизводить с помощью инструкции <code class="docutils literal notranslate"><span class="pre">play</span> <span class="pre">sound</span></code>. В отличие от
+музыки, звуковые эффекты не зацикливаются.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span>
+    <span class="k">play</span> <span class="k">sound</span> <span class="s2">&quot;audio/effect.ogg&quot;</span>
+</pre></div>
+</div>
+<p>Когда файл находится в директории <code class="file docutils literal notranslate"><span class="pre">game/audio</span></code>, и его имя без
+расширения может быть использовано как переменная Python (то есть начинается
+с буквы и содержит только буквы, цифры и символы подчёркивания),
+возможно воспроизвести этот файл без использования кавычек.</p>
+<p>Например, если <code class="file docutils literal notranslate"><span class="pre">game/audio/illurock.ogg</span></code> существует, мы можем написать:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span>
+    <span class="k">play</span> <span class="k">music</span> <span class="n">illurock</span>
+</pre></div>
+</div>
+<p>Смотрите <a class="reference internal" href="audio.html#audio-namespace"><span class="std std-ref">пространство имён audio</span></a> для более подробной информации.</p>
+</section>
+<section id="pause">
+<span id="pause-statement"></span><h2>Инструкция Pause<a class="headerlink" href="#pause" title="Ссылка на этот заголовок"></a></h2>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">pause</span></code> заставляет Ren'Py приостановить выполнение до щелчка мыши.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span>
+    <span class="k">pause</span>
+</pre></div>
+</div>
+<p>Если указано число, пауза закончится по истечении указанного количества
+секунд.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span>
+    <span class="k">pause</span> <span class="mf">3.0</span>
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h2>Завершение игры<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h2>
+<p>Вы можете завершить игру, выполнив инструкцию <code class="docutils literal notranslate"><span class="pre">return</span></code>, не вызывая
+ничего. Прежде чем сделать это, лучше добавить в игру что-то, что указывает
+на её завершение, и, возможно, дать пользователю номер или название
+концовки.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span>
+    <span class="s2">&quot;.:. Хорошая концовка.&quot;</span>
+
+    <span class="k">return</span>
+</pre></div>
+</div>
+<p>Это всё, что вам нужно для создания кинетической новеллы — игры без каких-либо
+выборов. Теперь мы рассмотрим, что требуется для создания игры, которая
+представляет пользователю меню.</p>
+</section>
+<section id="id10">
+<h2>Меню, метки и переходы<a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h2>
+<p><em>Основные статьи:</em> <a class="reference internal" href="menus.html"><span class="doc">Внутриигровые меню</span></a> <em>и</em> <a class="reference internal" href="label.html"><span class="doc">Метки и управление потоком</span></a></p>
+<p>Инструкция <code class="docutils literal notranslate"><span class="pre">menu</span></code> позволяет представить игроку выбор:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span>
+    <span class="n">s</span> <span class="s2">&quot;Sure, but what&#39;s a </span><span class="se">\&quot;</span><span class="s2">visual novel?</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+
+<span class="k">menu</span><span class="p">:</span>
+
+    <span class="s2">&quot;It&#39;s a videogame.&quot;</span><span class="p">:</span>
+        <span class="k">jump</span> <span class="n">game</span>
+
+    <span class="s2">&quot;It&#39;s an interactive book.&quot;</span><span class="p">:</span>
+        <span class="k">jump</span> <span class="n">book</span>
+
+<span class="k">label</span> <span class="n">game</span><span class="p">:</span>
+
+    <span class="n">m</span> <span class="s2">&quot;It&#39;s a kind of videogame you can play on your computer or a console.&quot;</span>
+
+    <span class="k">jump</span> <span class="n">marry</span>
+
+<span class="k">label</span> <span class="n">book</span><span class="p">:</span>
+
+    <span class="n">m</span> <span class="s2">&quot;It&#39;s like an interactive book that you can read on a computer or a console.&quot;</span>
+
+    <span class="k">jump</span> <span class="n">marry</span>
+
+<span class="k">label</span> <span class="n">marry</span><span class="p">:</span>
+
+    <span class="s2">&quot;And so, we become a visual novel creating duo.&quot;</span>
+</pre></div>
+</div>
+<p>Этот пример показывает, как можно использовать меню в Ren'Py. Инструкция <cite>menu</cite>
+вводит внутриигровой выбор. Она принимает блок строк с отступом, каждая
+из которых состоит из строки, за которой следует двоеточие. Это варианты
+выбора в меню, которые представляются игроку. Каждый вариант выбора принимает
+свой собственный блок строк с отступом, который выполняется, когда этот вариант
+выбран.</p>
+<p>В этом примере каждый из двух вариантов выбора выполняет единственную инструкцию <code class="docutils literal notranslate"><span class="pre">jump</span></code>.
+Инструкция <cite>jump</cite> передаёт управление на метку, определённую с помощью инструкции <cite>label</cite>.
+После <cite>jump</cite> выполняются инструкции скрипта, следующие за меткой.</p>
+<p>В приведённом выше примере, после того как Сильви задаёт свой вопрос, игроку
+представляется меню, содержащее два варианта. Если игрок выбрал «It's a videogame.»,
+выполняется первая инструкция <cite>jump</cite>, и Ren'Py перейдёт к метке <code class="docutils literal notranslate"><span class="pre">game</span></code>.
+Это приведёт к тому, что персонаж-рассказчик скажет «It's a story with pictures and music.»,
+после чего Ren'Py перейдёт к метке <code class="docutils literal notranslate"><span class="pre">marry</span></code>.</p>
+<p>Если в конце блока, связанного с меткой, нет инструкции <cite>jump</cite>,
+Ren'Py продолжит выполнение со следующей инструкции. Последняя инструкция <cite>jump</cite>
+здесь технически не обязательна, но включена, поскольку она делает
+поток игры более понятным.</p>
+<p>Метки могут быть определены в любом файле, который находится в директории игры и заканчивается на
+.rpy. Имя файла не имеет значения для Ren'Py, важны только метки, содержащиеся
+внутри. Вы можете думать обо всех файлах .rpy как об эквиваленте одного большого
+файла .rpy, где <cite>jump</cite> используется для передачи управления. Это даёт вам
+гибкость в организации скрипта большой игры.</p>
+</section>
+<section id="default-python-if">
+<h2>Поддержка флагов с помощью инструкций Default, Python и If<a class="headerlink" href="#default-python-if" title="Ссылка на этот заголовок"></a></h2>
+<p><em>Основные статьи:</em> <a class="reference internal" href="python.html"><span class="doc">Инструкции Python</span></a> <em>и</em> <a class="reference internal" href="conditional.html"><span class="doc">Условные инструкции</span></a></p>
+<p>Хотя некоторые игры можно создать, используя только приведённые выше
+инструкции, другие игры требуют, чтобы данные сохранялись и извлекались позже.
+Например, может иметь смысл, чтобы игра запоминала сделанный игроком выбор,
+возвращалась к общему разделу скрипта и действовала на основе этого
+выбора позже. Это одна из причин, почему в Ren'Py встроена поддержка Python.</p>
+<p>Здесь мы покажем, как сохранить флаг, содержащий информацию о выборе,
+сделанном игроком. Для инициализации флага используйте инструкцию <cite>default</cite> перед
+<cite>label start</cite>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># True, если игрок решил сравнить ВН с книгой.</span>
+<span class="k">default</span> <span class="n">book</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+
+    <span class="n">s</span> <span class="s2">&quot;Hi there! How was class?&quot;</span>
+</pre></div>
+</div>
+<p>Флаг <cite>book</cite> изначально инициализируется специальным значением <code class="docutils literal notranslate"><span class="pre">False</span></code>
+(как и в остальном Ren'Py, регистр имеет значение), что означает, что
+он не установлен. Если выбран путь с книгой, мы можем установить его в <cite>True</cite>
+с помощью инструкции присваивания Python.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">book</span><span class="p">:</span>
+
+    <span class="k">$</span> <span class="n">book</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="n">m</span> <span class="s2">&quot;It&#39;s like an interactive book that you can read on a computer or a console.&quot;</span>
+
+    <span class="k">jump</span> <span class="n">marry</span>
+</pre></div>
+</div>
+<p>Строки, начинающиеся со знака доллара, интерпретируются как инструкции Python.
+Инструкция присваивания здесь присваивает значение переменной. Ren'Py
+поддерживает другие способы включения Python, такие как многострочные
+инструкции Python, которые обсуждаются в других разделах этого руководства. Ren'Py
+поддерживает Python 2.7, хотя мы настоятельно рекомендуем вам писать код на Python,
+который работает как в Python 2, так и в Python 3.</p>
+<p>Чтобы проверить флаг, используйте инструкцию <code class="docutils literal notranslate"><span class="pre">if</span></code>:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">book</span><span class="p">:</span>
+
+    <span class="s2">&quot;Our first game is based on one of Sylvie&#39;s ideas, but afterwards I get to come up with stories of my own, too.&quot;</span>
+</pre></div>
+</div>
+<p>Если условие истинно, выполняется блок скрипта. Если нет, он пропускается.
+Инструкция <code class="docutils literal notranslate"><span class="pre">if</span></code> также может иметь выражение <code class="docutils literal notranslate"><span class="pre">else</span></code>, которое вводит блок
+скрипта, выполняемый, если условие ложно.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">book</span><span class="p">:</span>
+
+    <span class="s2">&quot;Our first game is based on one of Sylvie&#39;s ideas, but afterwards I get to come up with stories of my own, too.&quot;</span>
+
+<span class="k">else</span><span class="p">:</span>
+
+    <span class="s2">&quot;Sylvie helped with the script on our first video game.&quot;</span>
+</pre></div>
+</div>
+<p>Переменные Python не обязательно должны быть простыми значениями True/False.
+Переменные можно использовать для хранения имени игрока, счёта очков или для
+любых других целей. Поскольку Ren'Py включает возможность использования
+полноценного языка программирования Python, возможно многое.</p>
+</section>
+<section id="id11">
+<h2>Файлы в шаблоне<a class="headerlink" href="#id11" title="Ссылка на этот заголовок"></a></h2>
+<p>Папка <cite>game</cite> в созданном проекте включает в себя следующие папки и файлы.</p>
+<dl class="simple">
+<dt><strong>audio/</strong></dt><dd><p>Эта папка предназначена для хранения аудиофайлов. Смотрите <a class="reference internal" href="audio.html"><span class="doc">Аудио</span></a>
+для более подробной информации.</p>
+</dd>
+<dt><strong>cache/</strong></dt><dd><p>Эта папка содержит файлы кэша. Вам не нужно редактировать эти файлы.</p>
+</dd>
+<dt><strong>gui/</strong></dt><dd><p>Эта папка содержит изображения, которые используются GUI. Смотрите <a class="reference internal" href="gui.html#gui"><span class="std std-ref">Руководство
+по настройке GUI</span></a> для более подробной информации.</p>
+</dd>
+<dt><strong>images/</strong></dt><dd><p>Эта папка предназначена для хранения файлов изображений.
+Смотрите <a class="reference internal" href="displaying_images.html"><span class="doc">Отображение изображений</span></a> для более подробной информации.</p>
+</dd>
+<dt><strong>tl/</strong></dt><dd><p>Эта папка содержит файлы перевода. Смотрите <a class="reference internal" href="translation.html"><span class="doc">Перевод</span></a>
+для более подробной информации.</p>
+</dd>
+<dt><strong>gui.rpy</strong></dt><dd><p>В этом файле определены переменные GUI. Смотрите <a class="reference internal" href="gui.html#gui"><span class="std std-ref">Руководство
+по настройке GUI</span></a> для более подробной информации.</p>
+</dd>
+<dt><strong>options.rpy</strong></dt><dd><p>В этом файле определены переменные конфигурации (config) и сборки (build),
+часть настроек (preferences) и часть переменных GUI.
+Смотрите <a class="reference internal" href="config.html"><span class="doc">Configuration Variables</span></a>, <a class="reference internal" href="preferences.html"><span class="doc">Переменные настроек</span></a>, <a class="reference internal" href="build.html"><span class="doc">Сборка дистрибутивов</span></a> и
+<a class="reference internal" href="gui.html#gui"><span class="std std-ref">Руководство по настройке GUI</span></a> для более
+подробной информации.</p>
+</dd>
+<dt><strong>screens.rpy</strong></dt><dd><p>Экраны определяются в этом файле. Вы должны редактировать его для <a class="reference internal" href="gui.html#more-advanced-gui"><span class="std std-ref">более
+продвинутой настройки GUI</span></a>. Также смотрите
+<a class="reference internal" href="style.html"><span class="doc">Стили</span></a>, <a class="reference internal" href="style_properties.html"><span class="doc">Свойства стилей</span></a>, <a class="reference internal" href="screens.html"><span class="doc">Экраны и язык экранов</span></a>, <a class="reference internal" href="screen_actions.html"><span class="doc">Экранные действия, значения и функции</span></a>,
+<a class="reference internal" href="screen_special.html"><span class="doc">Специальные имена экранов</span></a> и <a class="reference internal" href="screen_optimization.html"><span class="doc">Оптимизация языка экранов</span></a> для более подробной информации.</p>
+</dd>
+<dt><strong>script.rpy</strong></dt><dd><p>Этот файл предназначен для включения других скриптов, содержащих сценарий.
+Вы также можете добавлять или удалять любые файлы <code class="file docutils literal notranslate"><span class="pre">.rpy</span></code>. Смотрите <a class="reference internal" href="language_basics.html"><span class="doc">Основы языка</span></a> для
+более подробной информации.</p>
+</dd>
+<dt><strong>*.rpyc</strong></dt><dd><p>Эти файлы являются результатом компиляции каждого файла <code class="file docutils literal notranslate"><span class="pre">.rpy</span></code> для сокращения времени загрузки.
+Вам не нужно редактировать эти файлы, не удаляя соответствующий файл <code class="file docutils literal notranslate"><span class="pre">.rpy</span></code>.
+Смотрите <a class="reference internal" href="language_basics.html"><span class="doc">Основы языка</span></a> для более подробной информации.</p>
+</dd>
+</dl>
+</section>
+<section id="id12">
+<h2>Выпуск вашей игры<a class="headerlink" href="#id12" title="Ссылка на этот заголовок"></a></h2>
+<p>После того как вы создали игру, есть несколько вещей, которые следует сделать
+перед её выпуском:</p>
+<dl>
+<dt><strong>Проверьте наличие новой версии Ren'Py.</strong></dt><dd><p>Новые версии Ren'Py выпускаются на регулярной основе для исправления ошибок
+и добавления новых функций. Перед выпуском вам стоит нажать «update»
+в лаунчере, чтобы обновить Ren'Py до последней версии. Вы также можете скачать
+новые версии и посмотреть список изменений на <a class="reference external" href="https://www.renpy.org/latest.html">https://www.renpy.org/latest.html</a>.</p>
+<p>В редких случаях изменения в Ren'Py могут потребовать от вас внести изменения
+в скрипт вашей игры. В <a class="reference internal" href="incompatible.html"><span class="doc">Несовместимые изменения</span></a>
+есть список этих изменений.</p>
+</dd>
+<dt><strong>Проверьте скрипт.</strong></dt><dd><p>На главной странице лаунчера выберите «Check Script
+(Lint)». Это проверит ваши игры на наличие потенциальных ошибок. Поскольку некоторые из
+этих ошибок затрагивают только пользователей на других платформах, важно
+понять и, как правило, исправить все ошибки, даже если вы не видите
+проблемы на своём компьютере.</p>
+</dd>
+<dt><strong>Соберите дистрибутивы.</strong></dt><dd><p>На главной странице лаунчера выберите «Build Distributions». На
+основе информации, содержащейся в <cite>options.rpy</cite>, лаунчер соберёт один
+или несколько архивных файлов, содержащих вашу игру.</p>
+</dd>
+<dt><strong>Протестируйте.</strong></dt><dd><p>Линтер (Lint) не заменяет тщательного тестирования. Вы
+несёте ответственность за проверку своей игры перед её выпуском. Подумайте о том,
+чтобы попросить друзей помочь с бета-тестированием вашей игры, так как часто
+тестер может найти проблемы, которые вы не видите.</p>
+</dd>
+<dt><strong>Выпустите.</strong></dt><dd><p>После того как игра будет завершена и протестирована, вы должны выложить
+сгенерированные архивные файлы в Интернет, где люди смогут их увидеть.
+(Если у вас нет своего сайта, <a class="reference external" href="https://itch.io">https://itch.io</a>
+хостит много визуальных новелл.) Поздравляем, вы выпустили свою первую визуальную
+новеллу!</p>
+<p>Есть несколько мест, где можно анонсировать игру:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://games.renpy.org">Список игр на Ren'Py</a> помогает нам отслеживать
+создаваемые на Ren'Py игры.</p></li>
+<li><p><a class="reference external" href="https://lemmasoft.renai.us/forums/viewforum.php?f=11">Раздел завершённых игр на форумах Lemma Soft</a> —
+это хорошее место, чтобы рассказать другим разработчикам о вашей игре.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Более продвинутые способы настройки сборки дистрибутива вашей игры
+можно найти в разделе <a class="reference internal" href="build.html"><span class="doc">Сборка дистрибутивов</span></a>.</p>
+</section>
+<section id="the-question">
+<h2>Скрипт игры The Question<a class="headerlink" href="#the-question" title="Ссылка на этот заголовок"></a></h2>
+<p>Вы можете посмотреть полный скрипт ''The Question'' <a class="reference internal" href="thequestion.html#thequestion"><span class="std std-ref">здесь</span></a>.</p>
+</section>
+<section id="id14">
+<h2>Куда двигаться дальше?<a class="headerlink" href="#id14" title="Ссылка на этот заголовок"></a></h2>
+<p>Это краткое руководство лишь поверхностно затрагивает возможности Ren'Py.
+Ради краткости мы опустили многие функции, которые поддерживает Ren'Py,
+и упростили другие, сосредоточившись на минимальном наборе функций,
+используемых для создания визуальной новеллы.</p>
+<p>Чтобы получить представление о том, на что способен Ren'Py, пожалуйста,
+пройдите «Tutorial» и, возможно, некоторые из игр, представленных
+на <a class="reference external" href="https://www.renpy.org">сайте Ren'Py</a>.
+Вы также можете захотеть прочитать остальную часть этого руководства, начиная с
+<a class="reference internal" href="gui.html#gui"><span class="std std-ref">Руководства по настройке GUI</span></a>.</p>
+<p>Кроме того, мы рекомендуем ознакомиться с разделом Ren'Py на <a class="reference external" href="https://lemmasoft.renai.us/forums">форумах
+Lemma Soft</a>, где есть раздел для вопросов
+и раздел с рецептами (cookbook) с библиотеками и примерами для повторного
+использования. Форумы Lemma Soft являются центральным узлом сообщества Ren'Py,
+где мы приветствуем новых разработчиков и их вопросы.</p>
+<p>Спасибо, что выбрали движок визуальных новелл Ren'Py. Мы с нетерпением
+ждём, что вы создадите с его помощью!</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="index.html" class="btn btn-neutral float-left" title="Добро пожаловать в документацию Ren&#39;Py!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="gui.html" class="btn btn-neutral float-right" title="Руководство по настройке GUI" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

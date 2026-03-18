@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Руководство по NVL-режиму &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/nvl_mode.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Речевые пузыри" href="bubble.html" />
+    <link rel="prev" title="Автоматизированное тестирование" href="testcases.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Руководство по NVL-режиму</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Начало работы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nvl-mode-menu">Меню в NVL-режиме</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Отображение и скрытие окна NVL-режима</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Настройка персонажей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Переменные конфигурации</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python">Функции Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nvl_clear"><code class="docutils literal notranslate"><span class="pre">nvl_clear()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nvl_hide"><code class="docutils literal notranslate"><span class="pre">nvl_hide()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nvl_menu"><code class="docutils literal notranslate"><span class="pre">nvl_menu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nvl_show"><code class="docutils literal notranslate"><span class="pre">nvl_show()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">Постраничный откат</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-question-nvl">Скрипт The Question (издание в NVL-режиме)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Руководство по NVL-режиму</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/nvl_mode.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nvl">
+<h1>Руководство по NVL-режиму<a class="headerlink" href="#nvl" title="Ссылка на этот заголовок"></a></h1>
+<p>Существует два основных стиля представления, используемых в визуальных новеллах.
+Игры в стиле ADV представляют диалоги и повествование по одной строке
+за раз, обычно в окне в нижней части экрана. Игры в стиле NVL
+представляют несколько строк на экране одновременно, в окне, которое
+занимает весь экран.</p>
+<p>В этом руководстве мы объясним, как создать игру в NVL-режиме с помощью
+Ren'Py. Предполагается, что вы уже знакомы с основами
+Ren'Py, изложенными в <a class="reference internal" href="quickstart.html"><span class="doc">руководстве для начинающих</span></a>.</p>
+<section id="id1">
+<h2>Начало работы<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
+<p>NVL-режим можно добавить в скрипт Ren'Py за два шага. Первый —
+объявить персонажей для использования NVL-режима, а второй — добавить операторы <code class="docutils literal notranslate"><span class="pre">nvl</span>
+<span class="pre">clear</span></code> в конце каждой страницы.</p>
+<p>Персонажи могут быть объявлены для использования NVL-режима путём добавления параметра <code class="docutils literal notranslate"><span class="pre">kind=nvl</span></code>
+к каждому объявлению Character. Например, если мы используем
+объявления персонажей из руководства для начинающих:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">s</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;Sylvie&#39;</span><span class="p">,</span> <span class="na">color</span><span class="o">=</span><span class="s2">&quot;#c8ffc8&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">m</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;Me&#39;</span><span class="p">,</span> <span class="na">color</span><span class="o">=</span><span class="s2">&quot;#c8c8ff&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Для использования NVL-режима эти объявления становятся:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">s</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;Sylvie&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="k">nvl</span><span class="p">,</span> <span class="na">color</span><span class="o">=</span><span class="s2">&quot;#c8ffc8&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">m</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;Me&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="k">nvl</span><span class="p">,</span> <span class="na">color</span><span class="o">=</span><span class="s2">&quot;#c8c8ff&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Рассказчик в NVL-режиме также может быть использован путём включения следующего
+определения:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">narrator</span> <span class="o">=</span> <span class="n">nvl_narrator</span>
+</pre></div>
+</div>
+<p>Обратите внимание, что мы также добавили объявление NVL-режима для
+<code class="docutils literal notranslate"><span class="pre">narrator</span></code>. Персонаж <code class="docutils literal notranslate"><span class="pre">narrator</span></code> используется для произнесения
+реплик, которые не связаны с именем другого персонажа.</p>
+<p>Если мы запустим игру в таком виде, первые несколько строк будут отображаться
+нормально, но через некоторое время строки начнут появляться ниже
+нижней границы экрана. Чтобы разбить скрипт на страницы, включите оператор <code class="docutils literal notranslate"><span class="pre">nvl</span>
+<span class="pre">clear</span></code> после каждой страницы.</p>
+<p>Ниже приведён пример скрипта с разбивкой на страницы:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="s2">&quot;I&#39;ll ask her...&quot;</span>
+
+    <span class="n">m</span> <span class="s2">&quot;Um... will you...&quot;</span>
+    <span class="n">m</span> <span class="s2">&quot;Will you be my artist for a visual novel?&quot;</span>
+
+    <span class="k">nvl</span> <span class="k">clear</span>
+
+    <span class="s2">&quot;Silence.&quot;</span>
+    <span class="s2">&quot;She is shocked, and then...&quot;</span>
+
+    <span class="n">s</span> <span class="s2">&quot;Sure, but what is a </span><span class="se">\&quot;</span><span class="s2">visual novel?</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+
+    <span class="k">nvl</span> <span class="k">clear</span>
+</pre></div>
+</div>
+<p>Хотя в играх NVL-режима обычно больше текста в абзаце, этот
+пример демонстрирует базовый скрипт NVL-режима. (Подходит для использования в
+кинетической новелле без переходов.)</p>
+<p id="nvl-monologue-mode"><a class="reference internal" href="dialogue.html#monologue-mode"><span class="std std-ref">Режим монолога</span></a> также работает с NVL-режимом.
+Включение текстового тега <code class="docutils literal notranslate"><span class="pre">{clear}</span></code> в отдельной строке эквивалентно
+оператору <code class="docutils literal notranslate"><span class="pre">nvl</span> <span class="pre">clear</span></code>, не выходя из режима монолога. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="n">s</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    This is one block of text in monologue mode.</span>
+
+<span class="s2">    This is a second block, on the same page as the first.</span>
+
+<span class="s2">    </span><span class="si">{clear}</span>
+
+<span class="s2">    The page just cleared!</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="nvl-mode-menu">
+<span id="id2"></span><h2>Меню в NVL-режиме<a class="headerlink" href="#nvl-mode-menu" title="Ссылка на этот заголовок"></a></h2>
+<p>По умолчанию меню отображаются в ADV-режиме, занимая весь
+экран. Существует также альтернативное представление меню в NVL-режиме, которое
+отображает меню сразу после текущей страницы текста в NVL-режиме.</p>
+<p>Чтобы получить доступ к этому альтернативному представлению меню, напишите:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="k">menu</span> <span class="o">=</span> <span class="n">nvl_menu</span>
+</pre></div>
+</div>
+<p>Меню исчезнет после того, как выбор будет сделан, поэтому обычно
+имеет смысл следовать за меню с помощью &quot;nvl clear&quot; или какого-либо
+указания на выбор.</p>
+<p><a class="reference internal" href="menus.html#menu-arguments"><span class="std std-ref">Аргументы меню</span></a> также можно использовать для доступа
+к меню в NVL-режиме. Это делается путем предоставления истинного аргумента <cite>nvl</cite>,
+установленного в True. Это полезно при смешивании меню в NVL-режиме и ADV-режиме
+в одной игре.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">menu</span> <span class="p">(</span><span class="k">nvl</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="s2">&quot;I prefer NVL-mode.&quot;</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="s2">&quot;ADV-mode is more for me.&quot;</span><span class="p">:</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>Отображение и скрытие окна NVL-режима<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Окном NVL-режима можно управлять с помощью стандартных операторов <code class="docutils literal notranslate"><span class="pre">window</span> <span class="pre">show</span></code>
+и <code class="docutils literal notranslate"><span class="pre">window</span> <span class="pre">hide</span></code>. Чтобы выбрать переходы по умолчанию, которые будут использоваться для отображения и скрытия окна, добавьте в свою игру следующее:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">window_hide_transition</span> <span class="o">=</span> <span class="n">dissolve</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">window_show_transition</span> <span class="o">=</span> <span class="n">dissolve</span>
+</pre></div>
+</div>
+<p>Переменная <a class="reference internal" href="config.html#var-config.empty_window"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.empty_window</span></code></a> по умолчанию должна выбирать подходящее окно
+автоматически, но установка <a class="reference internal" href="config.html#var-config.empty_window"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.empty_window</span></code></a> в <code class="docutils literal notranslate"><span class="pre">nvl_show_core</span></code>
+принудительно отобразит окно NVL-режима во время перехода.:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">empty_window</span> <span class="o">=</span> <span class="n">nvl_show_core</span>
+</pre></div>
+</div>
+<p>Пример использования команд окна для его отображения и скрытия:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">label</span> <span class="n">meadow</span><span class="p">:</span>
+
+    <span class="k">nvl</span> <span class="k">clear</span>
+
+    <span class="k">window</span> <span class="k">hide</span>
+    <span class="k">scene</span> <span class="n">bg</span> <span class="n">meadow</span>
+    <span class="k">with</span> <span class="n">fade</span>
+    <span class="k">window</span> <span class="k">show</span>
+
+    <span class="s2">&quot;We reached the meadows just outside our hometown. Autumn was so</span>
+     <span class="n">beautiful</span> <span class="n">here</span><span class="o">.</span><span class="s2">&quot;</span>
+    <span class="s2">&quot;When we were children, we often played here.&quot;</span>
+
+    <span class="n">m</span> <span class="s2">&quot;Hey... ummm...&quot;</span>
+
+    <span class="k">window</span> <span class="k">hide</span>
+    <span class="k">show</span> <span class="n">sylvie</span> <span class="n">smile</span>
+    <span class="k">with</span> <span class="n">dissolve</span>
+    <span class="k">window</span> <span class="k">show</span>
+
+    <span class="s2">&quot;She turned to me and smiled.&quot;</span>
+    <span class="s2">&quot;I&#39;ll ask her...&quot;</span>
+    <span class="n">m</span> <span class="s2">&quot;Ummm... will you...&quot;</span>
+    <span class="n">m</span> <span class="s2">&quot;Will you be my artist for a visual novel?&quot;</span>
+</pre></div>
+</div>
+<p>Существуют также явные команды <code class="docutils literal notranslate"><span class="pre">nvl</span> <span class="pre">show</span></code> и <code class="docutils literal notranslate"><span class="pre">nvl</span> <span class="pre">hide</span></code>, которые показывают
+и скрывают окно NVL-режима. Они принимают необязательный переход и могут
+использоваться в играх, которые используют смешение окон NVL-режима и ADV-режима.</p>
+</section>
+<section id="id4">
+<h2>Настройка персонажей<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<p>Персонажи в NVL-режиме могут быть настроены так, чтобы иметь несколько видов, что, надеюсь, позволит
+вам выбрать тот, который наиболее подходит для создаваемой вами игры.</p>
+<ol class="arabic">
+<li><p>Внешний вид по умолчанию: имя персонажа слева,
+а диалог с отступом справа от имени. Цвет имени
+контролируется параметром ''color''.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">s</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s1">&#39;Sylvie&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="k">nvl</span><span class="p">,</span> <span class="na">color</span><span class="o">=</span><span class="s2">&quot;#c8ffc8&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Второй вид: имя персонажа встроено в
+текст. Диалог, произносимый персонажем, заключается в кавычки. Обратите
+внимание, что здесь имя персонажа помещается в параметр ''what_prefix'',
+вместе с открывающей кавычкой. (Закрывающая кавычка помещается в
+параметр ''what_suffix''.)</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">s</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="k">nvl</span><span class="p">,</span> <span class="n">what_prefix</span><span class="o">=</span><span class="s2">&quot;Sylvie: </span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span>
+                     <span class="n">what_suffix</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Третий вид полностью обходится без имени персонажа,
+при этом диалог заключается в кавычки.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">s</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="k">nvl</span><span class="p">,</span> <span class="n">what_prefix</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">what_suffix</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Поскольку третий вид может затруднить распознавание того, кто говорит,
+мы можем окрасить диалог с помощью параметра ''what_color''.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">s</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="k">nvl</span><span class="p">,</span> <span class="n">what_prefix</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">what_suffix</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span>
+                     <span class="n">what_color</span><span class="o">=</span><span class="s2">&quot;#c8ffc8&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Конечно, можно использовать полностью ненастроенного персонажа NVL-режима,
+если вы хотите полностью контролировать то, что отображается. (Это
+часто используется для рассказчика.)</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">s</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="k">nvl</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="id5">
+<h2>Переменные конфигурации<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h2>
+<p>Следующие переменные конфигурации управляют функциональностью, связанной с NVL.</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config.nvl_layer">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">config.nvl_layer</span></span> <span class="pre">=</span> <span class="pre">&quot;screens&quot;</span><a class="headerlink" href="#var-config.nvl_layer" title="Ссылка на это определение"></a></dt>
+<dd><p>Слой, на котором отображаются экраны nvl.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config.nvl_list_length">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">config.nvl_list_length</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-config.nvl_list_length" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это максимальная длина списка диалогов NVL.
+Это можно установить (часто в сочетании с принудительной установкой фиксированной высоты диалогового окна),
+чтобы эмулировать бесконечно прокручивающееся окно NVL.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config.nvl_page_ctc">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">config.nvl_page_ctc</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-config.nvl_page_ctc" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это индикатор «нажмите, чтобы продолжить», который используется для
+персонажей в режиме NVL в конце страницы. (То есть сразу
+за которым следует оператор nvl clear.) Это заменяет параметр ctc
+функции <a class="reference internal" href="dialogue.html#Character" title="Character"><code class="xref py py-func docutils literal notranslate"><span class="pre">Character()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config.nvl_page_ctc_position">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">config.nvl_page_ctc_position</span></span> <span class="pre">=</span> <span class="pre">&quot;nestled&quot;</span><a class="headerlink" href="#var-config.nvl_page_ctc_position" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это позиция индикатора «нажмите, чтобы продолжить», которая используется для
+персонажей в режиме NVL в конце страницы. (То есть сразу
+за которым следует оператор nvl clear.) Это заменяет параметр ctc_position
+функции <a class="reference internal" href="dialogue.html#Character" title="Character"><code class="xref py py-func docutils literal notranslate"><span class="pre">Character()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config.nvl_paged_rollback">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">config.nvl_paged_rollback</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-config.nvl_paged_rollback" title="Ссылка на это определение"></a></dt>
+<dd><p>Если true, откат (rollback) в режиме NVL будет происходить по одной полной странице за раз.</p>
+</dd></dl>
+
+</section>
+<section id="python">
+<h2>Функции Python<a class="headerlink" href="#python" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="nvl_clear">
+<span class="sig-name descname"><span class="pre">nvl_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nvl_clear" title="Ссылка на это определение"></a></dt>
+<dd><p>Python-эквивалент инструкции <code class="docutils literal notranslate"><span class="pre">nvl</span> <span class="pre">clear</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nvl_hide">
+<span class="sig-name descname"><span class="pre">nvl_hide</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">with_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nvl_hide" title="Ссылка на это определение"></a></dt>
+<dd><p>Python-эквивалент инструкции <code class="docutils literal notranslate"><span class="pre">nvl</span> <span class="pre">hide</span></code>.</p>
+<dl class="simple">
+<dt><cite>with_</cite></dt><dd><p>Переход, используемый для скрытия окна в режиме NVL.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nvl_menu">
+<span class="sig-name descname"><span class="pre">nvl_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">items</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nvl_menu" title="Ссылка на это определение"></a></dt>
+<dd><p>Python-функция, которая отображает меню в стиле NVL. Она
+редко используется напрямую. Вместо этого она присваивается переменной
+<a class="reference internal" href="store_variables.html#var-menu"><code class="xref std std-var docutils literal notranslate"><span class="pre">menu</span></code></a>, используя что-то вроде:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="k">menu</span> <span class="o">=</span> <span class="n">nvl_menu</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nvl_show">
+<span class="sig-name descname"><span class="pre">nvl_show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">with_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nvl_show" title="Ссылка на это определение"></a></dt>
+<dd><p>Python-эквивалент инструкции <code class="docutils literal notranslate"><span class="pre">nvl</span> <span class="pre">show</span></code>.</p>
+<dl class="simple">
+<dt><cite>with_</cite></dt><dd><p>Переход, используемый для отображения окна в режиме NVL.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="id6">
+<h2>Постраничный откат<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h2>
+<p>Постраничный откат заставляет Ren'Py откатываться на одну страницу NVL-режима за раз,
+а не на один блок текста за раз. Его можно включить,
+добавив в скрипт следующее.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">nvl_paged_rollback</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</section>
+<section id="the-question-nvl">
+<h2>Скрипт The Question (издание в NVL-режиме)<a class="headerlink" href="#the-question-nvl" title="Ссылка на этот заголовок"></a></h2>
+<p>Вы можете просмотреть полный скрипт NVL-режимной версии ''The Question''
+<a class="reference internal" href="thequestion_nvl.html"><span class="doc">здесь</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="testcases.html" class="btn btn-neutral float-left" title="Автоматизированное тестирование" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="bubble.html" class="btn btn-neutral float-right" title="Речевые пузыри" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

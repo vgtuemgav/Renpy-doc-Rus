@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Видео &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/movie.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Озвучка" href="voice.html" />
+    <link rel="prev" title="Аудиофильтры" href="audio_filters.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Видео</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Полноэкранные видео</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Отображаемые видео и видео-спрайты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python">Функции Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.movie_cutscene"><code class="docutils literal notranslate"><span class="pre">renpy.movie_cutscene()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Movie"><code class="docutils literal notranslate"><span class="pre">Movie</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Видео</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/movie.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="movie">
+<span id="id1"></span><h1>Видео<a class="headerlink" href="#movie" title="Ссылка на этот заголовок"></a></h1>
+<p>Ren'Py способен использовать FFmpeg (входит в комплект) для воспроизведения видео, используя
+видеокодеки:</p>
+<ul class="simple">
+<li><p>AV1</p></li>
+<li><p>VP9</p></li>
+<li><p>VP8</p></li>
+<li><p>Theora</p></li>
+<li><p>MPEG-4 part 2 (включая Xvid и DivX)</p></li>
+<li><p>MPEG-2</p></li>
+<li><p>MPEG-1</p></li>
+</ul>
+<p>и следующие аудиокодеки:</p>
+<ul class="simple">
+<li><p>Opus</p></li>
+<li><p>Vorbis</p></li>
+<li><p>MP3</p></li>
+<li><p>MP2</p></li>
+<li><p>FLAC</p></li>
+<li><p>PCM</p></li>
+</ul>
+<p>в следующих форматах контейнеров:</p>
+<ul class="simple">
+<li><p>WebM</p></li>
+<li><p>Matroska</p></li>
+<li><p>Ogg</p></li>
+<li><p>AVI</p></li>
+<li><p>Различные виды MPEG-потоков.</p></li>
+</ul>
+<p>(Обратите внимание, что использование некоторых из этих форматов может потребовать патентных лицензий.
+В случае сомнений, и особенно для коммерческих игр, мы рекомендуем использовать
+AV1, VP9, VP8 или Theora; Opus или Vorbis; и WebM, Matroska или Ogg.)</p>
+<p>Видео может отображаться в полноэкранном режиме или как отображаемый объект. Полноэкранные видео более эффективны.
+Видео в формате YUV444 не имеют аппаратного ускорения, вместо этого используйте YUV420 или YUV422.</p>
+<p>Декодер видео в Ren'Py не поддерживает видео с альфа-каналами, но параметр
+<cite>side_mask</cite> отображаемого объекта <a class="reference internal" href="#Movie" title="Movie"><code class="xref py py-func docutils literal notranslate"><span class="pre">Movie()</span></code></a> может быть использован для этой
+цели. Вот пример использования ffmpeg для создания файла webm с
+маской side-by-side из файла mov с альфа-каналом.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">ffmpeg</span> <span class="o">-</span><span class="n">i</span> <span class="n">original</span><span class="o">.</span><span class="n">mov</span> <span class="o">-</span><span class="nb">filter</span><span class="p">:</span><span class="n">v</span> <span class="n">alphaextract</span> <span class="na">mask</span><span class="o">.</span><span class="n">mov</span>
+<span class="n">ffmpeg</span> <span class="o">-</span><span class="n">i</span> <span class="n">original</span><span class="o">.</span><span class="n">mov</span> <span class="o">-</span><span class="n">i</span> <span class="na">mask</span><span class="o">.</span><span class="n">mov</span> <span class="o">-</span><span class="n">filter_complex</span> <span class="s2">&quot;hstack&quot;</span> <span class="o">-</span><span class="n">codec</span><span class="p">:</span><span class="n">v</span> <span class="n">vp8</span> <span class="o">-</span><span class="n">crf</span> <span class="mi">10</span> <span class="n">output</span><span class="o">.</span><span class="n">webm</span>
+</pre></div>
+</div>
+<p>Видео поддерживаются на веб-платформе, но список поддерживаемых кодеков отличается
+от браузера к браузеру. Для кросс-браузерной совместимости (особенно для поддержки Safari)
+самой эффективной комбинацией является H.264 с MP3 (или AAC) в файле MP4. Однако Ren'Py
+не поддерживает декодирование H.264 (или AAC), поэтому эта комбинация может работать только на
+веб-платформе.</p>
+<section id="id2">
+<h2>Полноэкранные видео<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Самый простой и эффективный способ отобразить видео в полноэкранном режиме —
+это использовать функцию <a class="reference internal" href="#renpy.movie_cutscene" title="renpy.movie_cutscene"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.movie_cutscene()</span></code></a>. Эта функция отображает
+видео в полноэкранном режиме, пока оно не закончится или игрок не нажмёт, чтобы
+пропустить его.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">$</span> <span class="n">renpy</span><span class="o">.</span><span class="n">movie_cutscene</span><span class="p">(</span><span class="s2">&quot;On_Your_Mark.webm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>Отображаемые видео и видео-спрайты<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Отображаемый объект Movie может быть использован для показа видео везде, где Ren'Py
+может показать отображаемый объект. Например, видео может быть показано в качестве
+фона экрана меню или как фон в игре.</p>
+<p>Отображаемый объект Movie также может быть использован для определения видео-спрайта, который
+является спрайтом, основанным на двух видео. Основное видео предоставляет
+цвет спрайта. Второе видео, маска, предоставляет альфа-
+канал, где белый цвет — полная непрозрачность, а черный — полная прозрачность.</p>
+<p>Видео, воспроизводимые с помощью отображаемого объекта Movie, автоматически зацикливаются.</p>
+<p>Вот пример определения видео-спрайта:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">eileen</span> <span class="n">movie</span> <span class="o">=</span> <span class="n">Movie</span><span class="p">(</span><span class="k">play</span><span class="o">=</span><span class="s2">&quot;eileen_movie.webm&quot;</span><span class="p">,</span> <span class="n">side_mask</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Видео-спрайт может быть показан с помощью инструкции show, которая автоматически начинает
+воспроизведение видео. Воспроизведение будет автоматически остановлено, когда отображаемый объект будет скрыт.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">show</span> <span class="n">eileen</span> <span class="n">movie</span>
+
+<span class="n">e</span> <span class="s2">&quot;I&#39;m feeling quite animated today.&quot;</span>
+
+<span class="k">hide</span> <span class="n">eileen</span>
+
+<span class="n">e</span> <span class="s2">&quot;But there&#39;s no point on wasting energy when I&#39;m not around.&quot;</span>
+</pre></div>
+</div>
+<p>Отображаемый объект Movie также может быть использован как часть экрана, при условии, что он создан
+на этапе init (например, как часть инструкции image).</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">image</span> <span class="n">main_menu</span> <span class="o">=</span> <span class="n">Movie</span><span class="p">(</span><span class="k">play</span><span class="o">=</span><span class="s2">&quot;main_menu.ogv&quot;</span><span class="p">)</span>
+
+<span class="k">screen</span> <span class="n">main_menu</span><span class="p">:</span>
+    <span class="k">add</span> <span class="s2">&quot;main_menu&quot;</span>
+    <span class="k">textbutton</span> <span class="s2">&quot;Start&quot;</span> <span class="na">action</span> <span class="n">Start</span><span class="p">()</span> <span class="na">xalign</span> <span class="mf">0.5</span> <span class="na">yalign</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+<p>На экране можно одновременно отображать несколько отображаемых видео или спрайтов,
+в зависимости от производительности системы, при условии, что все они имеют одинаковую частоту кадров.
+Поведение Ren'Py при отображении видео с разной частотой кадров
+не определено, но, скорее всего, будет включать значительное количество пропущенных кадров.</p>
+</section>
+<section id="python">
+<h2>Функции Python<a class="headerlink" href="#python" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.movie_cutscene">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">movie_cutscene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loops</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_music</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.movie_cutscene" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта функция отображает видеовставку в течение указанного количества секунд. Пользователь может щёлкнуть мышью, чтобы прервать видеовставку. Overlays (наложения) и Underlays (подложки) отключаются на время показа видеовставки.</p>
+<dl class="simple">
+<dt><cite>filename</cite></dt><dd><p>Имя файла, содержащего любое видео, воспроизводимое Ren'Py.</p>
+</dd>
+<dt><cite>delay</cite></dt><dd><p>Количество секунд, которое нужно подождать перед завершением видеовставки.
+Обычно это длина видео в секундах. Если None, то задержка вычисляется из количества повторов (то есть loops + 1) * длина видео. Если -1, мы ждём, пока пользователь не щёлкнет мышью.</p>
+</dd>
+<dt><cite>loops</cite></dt><dd><p>Количество дополнительных циклов воспроизведения, -1 для бесконечного цикла.</p>
+</dd>
+</dl>
+<p>Возвращает True, если видео было прервано пользователем, или False, если указанная задержка истекла без прерывания.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Movie">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Movie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'movie'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">play</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">play_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Movie" title="Ссылка на это определение"></a></dt>
+<dd><p>Это displayable, который показывает текущее видео.</p>
+<dl>
+<dt><cite>size</cite></dt><dd><p>Должен быть указан либо как кортеж, задающий ширину и высоту видео, либо None для автоматической подстройки под размер воспроизводимого видео. (Если None, displayable будет иметь размер (0, 0), когда видео не воспроизводится.)</p>
+</dd>
+<dt><cite>channel</cite></dt><dd><p>Аудиоканал, связанный с этим видео. Когда видеофайл воспроизводится на этом канале, он будет отображаться в этом Movie displayable. Если оставить значение по умолчанию &quot;movie&quot; и указать <cite>play</cite>, имя канала выбирается автоматически, используя <a class="reference internal" href="config.html#var-config.single_movie_channel"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.single_movie_channel</span></code></a> и <a class="reference internal" href="config.html#var-config.auto_movie_channel"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.auto_movie_channel</span></code></a>.</p>
+</dd>
+<dt><cite>play</cite></dt><dd><p>Если задан, это должен быть путь к видеофайлу или список путей к видеофайлам. Эти видеофайлы
+будут автоматически воспроизводиться на <cite>channel</cite>, когда Movie отображается, и автоматически останавливаться, когда он скрывается.</p>
+</dd>
+<dt><cite>side_mask</cite></dt><dd><p>Если true, это указывает Ren'Py использовать режим маски side-by-side для Movie. В этом случае видео делится пополам. Левая половина используется для информации о цвете, а правая — для информации о прозрачности (альфа-канал). Ширина displayable равна половине ширины видеофайла.</p>
+<p>По возможности, <cite>side_mask</cite> следует использовать вместо <cite>mask</cite>, так как он исключает возможность рассинхронизации кадров.</p>
+</dd>
+<dt><cite>mask</cite></dt><dd><p>Если задан, это должен быть путь к видеофайлу или список путей
+к видеофайлам, которые используются в качестве
+альфа-канала этого displayable. Видеофайл будет
+автоматически воспроизводиться на <cite>movie_channel</cite>, когда Movie отображается,
+и автоматически останавливаться, когда он скрывается.</p>
+</dd>
+<dt><cite>mask_channel</cite></dt><dd><p>Канал, на котором воспроизводится видео альфа-маски. Если не указан,
+по умолчанию используется <cite>channel</cite>_mask. (Например, если <cite>channel</cite> — &quot;sprite&quot;,
+<cite>mask_channel</cite> по умолчанию будет &quot;sprite_mask&quot;.)</p>
+</dd>
+<dt><cite>start_image</cite></dt><dd><p>Изображение, которое отображается, когда воспроизведение началось, но первый кадр ещё не был декодирован.</p>
+</dd>
+<dt><cite>image</cite></dt><dd><p>Изображение, которое отображается, когда задан <cite>play</cite>, но файл, на который он ссылается, не существует. (Например, это можно использовать для создания урезанной мобильной версии, которая не использует видеоспрайты.) Пользователи также могут выбрать это изображение в качестве запасного варианта в настройках, если видео слишком требовательно для их системы. Изображение также будет использоваться, если видео воспроизвелось и затем закончилось, если не задан <cite>group</cite>.</p>
+</dd>
+<dt><cite>play_callback</cite></dt><dd><p>Если не None, функция, которая используется для запуска воспроизведения видео.
+(Она может выполнять такие действия, как постановка в очередь перехода между спрайтами, если это необходимо.) Она вызывается со следующими аргументами:</p>
+<dl class="simple">
+<dt><cite>old</cite></dt><dd><p>Старый объект Movie, или None, если видео не воспроизводится.</p>
+</dd>
+<dt><cite>new</cite></dt><dd><p>Новый объект Movie.</p>
+</dd>
+</dl>
+<p>Объект movie имеет параметр <cite>play</cite>, доступный как <code class="docutils literal notranslate"><span class="pre">_play</span></code>,
+в то время как поля <code class="docutils literal notranslate"><span class="pre">channel</span></code>, <code class="docutils literal notranslate"><span class="pre">loop</span></code>, <code class="docutils literal notranslate"><span class="pre">mask</span></code> и <code class="docutils literal notranslate"><span class="pre">mask_channel</span></code>
+соответствуют заданным параметрам.</p>
+<p>Как правило, для этого потребуется использовать <a class="reference internal" href="audio.html#renpy.music.play" title="renpy.music.play"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.music.play()</span></code></a> для запуска
+воспроизведения видео на указанном канале с synchro_start=True.
+Минимальная реализация выглядит так:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">play_callback</span><span class="p">(</span><span class="k">old</span><span class="p">,</span> <span class="k">new</span><span class="p">):</span>
+
+    <span class="n">renpy</span><span class="o">.</span><span class="k">music</span><span class="o">.</span><span class="k">play</span><span class="p">(</span><span class="k">new</span><span class="o">.</span><span class="n">_play</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="k">new</span><span class="o">.</span><span class="n">channel</span><span class="p">,</span> <span class="n">loop</span><span class="o">=</span><span class="k">new</span><span class="o">.</span><span class="n">loop</span><span class="p">,</span> <span class="n">synchro_start</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="k">new</span><span class="o">.</span><span class="na">mask</span><span class="p">:</span>
+        <span class="n">renpy</span><span class="o">.</span><span class="k">music</span><span class="o">.</span><span class="k">play</span><span class="p">(</span><span class="k">new</span><span class="o">.</span><span class="na">mask</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="k">new</span><span class="o">.</span><span class="n">mask_channel</span><span class="p">,</span> <span class="n">loop</span><span class="o">=</span><span class="k">new</span><span class="o">.</span><span class="n">loop</span><span class="p">,</span> <span class="n">synchro_start</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt><cite>loop</cite></dt><dd><p>Если False, видео не будет зацикливаться. Если определён <cite>image</cite>, изображение
+будет показано по окончании видео. В противном случае displayable станет
+прозрачным.</p>
+</dd>
+<dt><cite>group</cite></dt><dd><p>Если не None, это должна быть строка. Если задано, и если видео еще не начало воспроизводиться, а другое видео в той же группе воспроизводилось в предыдущем кадре, последний кадр из того видео будет использован для этого. Это может предотвратить мигание прозрачности при переключении между двумя видео.</p>
+</dd>
+<dt><cite>keep_last_frame</cite></dt><dd><p>Если true и видео завершилось, будет отображаться последний кадр, а не скрываться displayable. Это работает только если <cite>loop</cite> равно false. (Такое поведение также произойдет, если установлен <cite>group</cite>.)</p>
+</dd>
+<dt><cite>oversample</cite></dt><dd><p>Если это значение больше 1, видео считается имеющим избыточную выборку (oversampled), с большим количеством пикселей, чем предполагает его логический размер. Например, если видеофайл имеет размер 1280x720 и oversample равен 2, то изображение будет рассматриваться как видео 640x360 для целей компоновки.</p>
+<p>Если None, Ren'Py автоматически определит избыточную выборку. Если в имени файла найден символ &#64;, за которым следует число, это число будет использоваться в качестве коэффициента избыточной выборки. В противном случае Ren'Py будет искать файлы и использовать их.</p>
+<p>В частности, если используется <code class="file docutils literal notranslate"><span class="pre">launch.webm</span></code>, Ren'Py будет искать <code class="file docutils literal notranslate"><span class="pre">launch&#64;2.webm</span></code>
+если видео масштабируется более чем в 1x, и <code class="file docutils literal notranslate"><span class="pre">launch&#64;4.webm</span></code> и <code class="file docutils literal notranslate"><span class="pre">launch&#64;3.webm</span></code>
+если видео масштабируется более чем в 2x.</p>
+<p>Автоматическая избыточная выборка видео происходит только при начале воспроизведения.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="audio_filters.html" class="btn btn-neutral float-left" title="Аудиофильтры" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="voice.html" class="btn btn-neutral float-right" title="Озвучка" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

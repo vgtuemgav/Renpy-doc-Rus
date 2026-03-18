@@ -1,0 +1,1565 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Свойства стилей &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/style_properties.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Экраны и язык экранов" href="screens.html" />
+    <link rel="prev" title="Стили" href="style.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Свойства стилей</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Префиксы свойств стиля</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Значения свойств стиля</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#absolute"><code class="docutils literal notranslate"><span class="pre">absolute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#position"><code class="docutils literal notranslate"><span class="pre">position()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#style-prefix-search">Поиск по префиксу стиля</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Список всех свойств стиля</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#position-style-properties">Свойства стиля позиции</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#text-style-properties">Свойства стиля текста</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#window-style-properties">Свойства стиля окна</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#button-style-properties">Свойства стиля кнопки</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bar">Свойства стиля полосы (Bar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#box">Свойства стиля контейнера (Box)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#grid">Свойства стиля сетки (Grid)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fixed">Свойства стиля фиксированной компоновки (Fixed)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#margin">Свойства полей (Margin)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Свойства стилей</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/style_properties.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Свойства стилей<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Свойства стиля, связанные со <a class="reference internal" href="style.html"><span class="doc">стилями</span></a>, управляют отображением Отображаемых (Displayables).
+Свойства стиля могут быть заданы как без префикса, в этом случае они применяются ко всем состояниям отображаемого, так и с префиксом, который ограничивает свойство определенным количеством состояний.</p>
+<section id="id2">
+<h2>Префиксы свойств стиля<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Применение префикса к свойству стиля позволяет отображаемому изменять свой внешний вид в зависимости от состояния фокуса или выбора. Например, кнопка может изменять свой цвет при наведении на нее курсора мыши или чтобы показать, что представленный ею выбор является текущим.</p>
+<p>Отображаемое может находиться в пяти состояниях.</p>
+<dl class="simple">
+<dt><em class="dfn">insensitive</em></dt><dd><p>Используется, когда пользователь не может взаимодействовать с отображаемым.</p>
+</dd>
+<dt><em class="dfn">idle</em></dt><dd><p>Используется, когда отображаемое не находится в фокусе и не выбрано.</p>
+</dd>
+<dt><em class="dfn">hover</em></dt><dd><p>Используется, когда отображаемое находится в фокусе, но не выбрано.</p>
+</dd>
+<dt><em class="dfn">selected_idle</em></dt><dd><p>Используется, когда отображаемое не находится в фокусе, но выбрано.</p>
+</dd>
+<dt><em class="dfn">selected_hover</em></dt><dd><p>Используется, когда отображаемое находится в фокусе и выбрано.</p>
+</dd>
+</dl>
+<p>Отображаемые типа Button и Bar (и их варианты) обновляют свое состояние и состояние своих дочерних элементов в ответ на события. Например, когда пользователь наводит курсор мыши на невыбранную кнопку, она и все ее дочерние элементы перейдут в состояние hover.</p>
+<p>Префиксы свойств стиля позволяют устанавливать свойства стиля для разных состояний. Существует система наследования, так что один префикс может подразумевать установку свойства для нескольких состояний.</p>
+<p>Правила наследования:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>префикс</p></th>
+<th class="head"><p>подразумеваемые префиксом состояния</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>(без префикса)</p></td>
+<td><p>insensitive, idle, hover, selected_idle, selected_hover</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">idle_</span></code></p></td>
+<td><p>idle, selected_idle</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hover_</span></code></p></td>
+<td><p>hover, selected_hover</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">selected_</span></code></p></td>
+<td><p>selected_idle, selected_hover</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">insensitive_</span></code></p></td>
+<td><p>insensitive</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">selected_idle_</span></code></p></td>
+<td><p>selected_idle</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">selected_hover_</span></code></p></td>
+<td><p>selected_hover</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">selected_insensitive_</span></code></p></td>
+<td><p>selected_insensitive</p></td>
+</tr>
+</tbody>
+</table>
+<p>Продемонстрируем это на примере текстовой кнопки. Текстовые кнопки по умолчанию используют два стиля: <code class="docutils literal notranslate"><span class="pre">button</span></code> для самой кнопки и <code class="docutils literal notranslate"><span class="pre">button_text</span></code> для текста внутри кнопки. Свойство стиля <a class="reference internal" href="#style-property-background"><code class="xref std std-propref docutils literal notranslate"><span class="pre">background</span></code></a> устанавливает фон кнопки, а свойство <a class="reference internal" href="#style-property-color"><code class="xref std std-propref docutils literal notranslate"><span class="pre">color</span></code></a> — цвет текста.:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Фон кнопки серый в состоянии insensitive, светло-</span>
+<span class="c1"># синий при наведении (hover) и темно-синий в остальных случаях.</span>
+<span class="k">style</span> <span class="k">button</span><span class="p">:</span>
+    <span class="na">background</span> <span class="s2">&quot;#006&quot;</span>
+    <span class="na">insensitive_background</span> <span class="s2">&quot;#444&quot;</span>
+    <span class="na">hover_background</span> <span class="s2">&quot;#00a&quot;</span>
+
+<span class="c1"># Текст кнопки желтый, когда она выбрана (selected), и белый</span>
+<span class="c1"># в остальных случаях.</span>
+<span class="k">style</span> <span class="n">button_text</span><span class="p">:</span>
+    <span class="na">color</span> <span class="s2">&quot;#fff&quot;</span>
+    <span class="na">selected_color</span> <span class="s2">&quot;#ff0&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>Значения свойств стиля<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Каждое свойство стиля ожидает данные определенного типа. Многие из них являются стандартными типами Python, но некоторые являются новыми. Ниже приведены описания новых типов значений, которые может ожидать свойство стиля.</p>
+<dl class="glossary">
+<dt id="term-position">position<a class="headerlink" href="#term-position" title="Ссылка на этот термин"></a></dt><dd><p>Позиции используются для указания местоположения относительно верхнего левого угла содержащей области. (Для размещения и размера содержащей областью является компоновка (layout), в которой находится отображаемое, если она задана, или экран в противном случае. Для якорей (anchors) содержащей областью является размер самого отображаемого.)</p>
+<p>Способ интерпретации значения позиции зависит от типа этого значения:</p>
+<dl class="simple">
+<dt>int (например, 0, 1, 37 или 42)</dt><dd><p>Целое число интерпретируется как количество пикселей от левой или верхней стороны содержащей области.</p>
+</dd>
+<dt>float (например, 0.0, 0.5 или 1.0)</dt><dd><p>Число с плавающей точкой интерпретируется как доля от содержащей области. Например, 0.5 — это точка на полпути между сторонами содержащей области, а 1.0 — это на правой или нижней стороне.</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="absolute">
+<span class="sig-name descname"><span class="pre">absolute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absolute" title="Ссылка на это определение"></a></dt>
+<dd><p>Например, <code class="docutils literal notranslate"><span class="pre">absolute(100.25)</span></code> или <code class="docutils literal notranslate"><span class="pre">absolute(a+b)</span></code>, где <code class="docutils literal notranslate"><span class="pre">a</span></code> и <code class="docutils literal notranslate"><span class="pre">b</span></code> могут быть как float, так и int.</p>
+<p>Число <code class="docutils literal notranslate"><span class="pre">absolute</span></code> интерпретируется как количество пикселей от левого или верхнего края экрана при использовании рендеринга с субпиксельной точностью.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="position">
+<span class="sig-name descname"><span class="pre">position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">absolute</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#position" title="Ссылка на это определение"></a></dt>
+<dd><p>Например, <code class="docutils literal notranslate"><span class="pre">position(-10,</span> <span class="pre">.5)</span></code>.</p>
+<p>Комбинация <cite>absolute</cite>, которое будет рассматриваться как абсолютная позиция, и <cite>relative</cite>, которое будет рассматриваться как относительная позиция, как описано выше. Оба компонента складываются для формирования конечной позиции.</p>
+<p>Всегда следует передавать оба параметра, иначе результаты могут быть непредсказуемыми.</p>
+</dd></dl>
+
+</dd>
+<dt id="term-displayable">displayable<a class="headerlink" href="#term-displayable" title="Ссылка на этот термин"></a></dt><dd><p>Любое отображаемое. Если отображаемое содержит подстановку &quot;[prefix_]&quot;, выполняется поиск по префиксу, как описано ниже.</p>
+</dd>
+<dt id="term-color">color<a class="headerlink" href="#term-color" title="Ссылка на этот термин"></a></dt><dd><p>Цвета в Ren'Py можно выразить в виде строк, начинающихся со знака решетки (#), за которым следует тройка или четверка шестнадцатеричных значений, где каждый из трех или четырех элементов состоит из одного или двух шестнадцатеричных символов кода цвета.</p>
+<p>В тройке компоненты представляют красный, зеленый и синий цвета. В четверке компоненты представляют красный, зеленый, синий и альфа-канал. Например:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;#f00&quot;</span></code> и <code class="docutils literal notranslate"><span class="pre">&quot;#ff0000&quot;</span></code> представляют непрозрачный красный цвет.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;#0f08&quot;</span></code> и <code class="docutils literal notranslate"><span class="pre">&quot;#00ff0080&quot;</span></code> представляют полупрозрачный зеленый цвет.</p></li>
+</ul>
+<p>Цветовые тройки такие же, как и в HTML.</p>
+<p>Цвета также можно представить в виде кортежа из 4 компонентов, где 4 компонента — это целые числа от 0 до 255. Компоненты соответствуют красному, зеленому, синему и альфа-каналу, в указанном порядке.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">255,</span> <span class="pre">255)</span></code> представляет непрозрачный синий цвет.</p></li>
+</ul>
+<p>Наконец, цвета могут быть экземпляром класса <a class="reference internal" href="color_class.html#Color" title="Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>.</p>
+</dd>
+</dl>
+<section id="style-prefix-search">
+<span id="id4"></span><h3>Поиск по префиксу стиля<a class="headerlink" href="#style-prefix-search" title="Ссылка на этот заголовок"></a></h3>
+<p>Когда свойство стиля содержит подстановку &quot;[prefix_]&quot;, выполняется поиск по префиксу. Поиск по префиксу выполняется отдельно для каждого состояния, включая состояния, которые наследуются от исходного назначенного свойства.</p>
+<p>Например, если у нас есть:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">style</span> <span class="k">button</span><span class="p">:</span>
+    <span class="na">hover_background</span> <span class="s2">&quot;[prefix_]background.png&quot;</span>
+</pre></div>
+</div>
+<p>выполняются отдельные поиски для состояний hover и selected_hover. Искомые префиксы различаются в зависимости от состояния.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>состояние</p></th>
+<th class="head"><p>порядок поиска</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>idle</p></td>
+<td><p>&quot;idle_&quot;, &quot;&quot;</p></td>
+</tr>
+<tr class="row-odd"><td><p>hover</p></td>
+<td><p>&quot;hover_&quot;, &quot;&quot;,</p></td>
+</tr>
+<tr class="row-even"><td><p>insensitive</p></td>
+<td><p>&quot;insensitive_&quot;, &quot;&quot;, &quot;idle_&quot;</p></td>
+</tr>
+<tr class="row-odd"><td><p>selected_idle</p></td>
+<td><p>&quot;selected_idle_&quot;, &quot;idle_&quot;, &quot;selected_&quot;, &quot;&quot;</p></td>
+</tr>
+<tr class="row-even"><td><p>selected_hover</p></td>
+<td><p>&quot;selected_hover_&quot;, &quot;hover_&quot;, &quot;selected_&quot;, &quot;&quot;</p></td>
+</tr>
+<tr class="row-odd"><td><p>selected_insensitive</p></td>
+<td><p>&quot;selected_insensitive_&quot;, &quot;hover_&quot;, &quot;selected_&quot;, &quot;&quot;, &quot;selected_idle_&quot;, &quot;idle_&quot;</p></td>
+</tr>
+</tbody>
+</table>
+<p>При выполнении поиска каждый префикс проверяется в заданном порядке. В строке &quot;[prefix_]&quot; заменяется на префикс, а затем Ren'Py проверяет, существует ли загружаемый файл или изображение с таким именем. Если файл или изображение существует, поиск прекращается и используется найденное отображаемое. В противном случае поиск переходит к следующему префиксу.</p>
+<p>Префикс стиля передается через отображаемые, которые не принимают ввод от пользователя, включая контейнеры, трансформации и рамки.</p>
+<p>В качестве примера использования: если файлы <code class="file docutils literal notranslate"><span class="pre">idle_button.png</span></code> и <code class="file docutils literal notranslate"><span class="pre">hover_button.png</span></code> существуют (и других файлов, заканчивающихся на <code class="file docutils literal notranslate"><span class="pre">button.png</span></code>, нет):</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">style</span> <span class="k">button</span><span class="p">:</span>
+    <span class="na">background</span> <span class="s2">&quot;[prefix_]button.png&quot;</span>
+</pre></div>
+</div>
+<p>эквивалентно:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">style</span> <span class="k">button</span><span class="p">:</span>
+    <span class="na">idle_background</span> <span class="s2">&quot;idle_button.png&quot;</span>
+    <span class="na">hover_background</span> <span class="s2">&quot;hover_button.png&quot;</span>
+    <span class="na">insensitive_background</span> <span class="s2">&quot;idle_button.png&quot;</span>
+
+    <span class="na">selected_idle_background</span> <span class="s2">&quot;idle_button.png&quot;</span>
+    <span class="na">selected_hover_background</span> <span class="s2">&quot;hover_button.png&quot;</span>
+    <span class="na">selected_insensitive_background</span> <span class="s2">&quot;idle_button.png&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id5">
+<h2>Список всех свойств стиля<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h2>
+<p>Свойства стиля управляют внешним видом различных отображаемых. Не все свойства стиля применимы ко всем отображаемым, поэтому мы разделили их на группы.</p>
+<section id="position-style-properties">
+<span id="id6"></span><h3>Свойства стиля позиции<a class="headerlink" href="#position-style-properties" title="Ссылка на этот заголовок"></a></h3>
+<p>Эти свойства применяются ко всем отображаемым и в основном управляют положением отображаемого внутри области, выделенной ему компоновкой (layout), или на экране, если оно не находится внутри компоновки.</p>
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-alt">
+<span class="sig-name descname"><span class="pre">alt</span></span> <span class="pre">-</span>&#160; <span class="pre">string</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-alt" title="Ссылка на это определение"></a></dt>
+<dd><p>Альтернативный текст, используемый для отображаемого при включенном самоозвучивании. См. раздел <a class="reference internal" href="self_voicing.html"><span class="doc">Самоозвучивание</span></a> для получения дополнительной информации.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-xpos">
+<span class="sig-name descname"><span class="pre">xpos</span></span> <span class="pre">-</span>&#160; <span class="pre">position</span><a class="headerlink" href="#style-property-xpos" title="Ссылка на это определение"></a></dt>
+<dd><p>Положение отображаемого относительно левой стороны содержащей области.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-ypos">
+<span class="sig-name descname"><span class="pre">ypos</span></span> <span class="pre">-</span>&#160; <span class="pre">position</span><a class="headerlink" href="#style-property-ypos" title="Ссылка на это определение"></a></dt>
+<dd><p>Положение отображаемого относительно верхней стороны содержащей области.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-pos">
+<span class="sig-name descname"><span class="pre">pos</span></span> <span class="pre">-</span>&#160; <span class="pre">tuple</span> <span class="pre">of</span> <span class="pre">(position,</span> <span class="pre">position)</span><a class="headerlink" href="#style-property-pos" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке xpos в первый компонент кортежа, а ypos — во второй компонент кортежа.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-xanchor">
+<span class="sig-name descname"><span class="pre">xanchor</span></span> <span class="pre">-</span>&#160; <span class="pre">position</span><a class="headerlink" href="#style-property-xanchor" title="Ссылка на это определение"></a></dt>
+<dd><p>Положение якоря относительно левой стороны отображаемого.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-yanchor">
+<span class="sig-name descname"><span class="pre">yanchor</span></span> <span class="pre">-</span>&#160; <span class="pre">position</span><a class="headerlink" href="#style-property-yanchor" title="Ссылка на это определение"></a></dt>
+<dd><p>Положение якоря относительно верхней стороны отображаемого.</p>
+<p>Если отображаемое является <a class="reference internal" href="text.html#Text" title="Text"><code class="xref py py-func docutils literal notranslate"><span class="pre">Text()</span></code></a>, то у этого свойства есть одно специальное значение. Если свойство установлено в renpy.BASELINE, якорь устанавливается на базовую линию первой строки текста.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-anchor">
+<span class="sig-name descname"><span class="pre">anchor</span></span> <span class="pre">-</span>&#160; <span class="pre">tuple</span> <span class="pre">of</span> <span class="pre">(position,</span> <span class="pre">position)</span><a class="headerlink" href="#style-property-anchor" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке xanchor в первый компонент кортежа, а yanchor — во второй компонент кортежа.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-xalign">
+<span class="sig-name descname"><span class="pre">xalign</span></span> <span class="pre">-</span>&#160; <span class="pre">float</span><a class="headerlink" href="#style-property-xalign" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке xpos и xanchor в одно и то же значение. Это приводит к размещению отображаемого в относительном положении на экране, где 0.0 — это левая сторона, 0.5 — центр, а 1.0 — правая сторона.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-yalign">
+<span class="sig-name descname"><span class="pre">yalign</span></span> <span class="pre">-</span>&#160; <span class="pre">float</span><a class="headerlink" href="#style-property-yalign" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке ypos и yanchor в одно и то же значение. Это приводит к размещению отображаемого в относительном положении на экране, где 0.0 — это верх, 0.5 — центр, а 1.0 — низ.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-align">
+<span class="sig-name descname"><span class="pre">align</span></span> <span class="pre">-</span>&#160; <span class="pre">tuple</span> <span class="pre">of</span> <span class="pre">(float,</span> <span class="pre">float)</span><a class="headerlink" href="#style-property-align" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке xalign в первый компонент кортежа, а yalign — во второй.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-xcenter">
+<span class="sig-name descname"><span class="pre">xcenter</span></span> <span class="pre">-</span>&#160; <span class="pre">position</span><a class="headerlink" href="#style-property-xcenter" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке xpos в значение этого свойства, а xanchor в 0.5.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-ycenter">
+<span class="sig-name descname"><span class="pre">ycenter</span></span> <span class="pre">-</span>&#160; <span class="pre">position</span><a class="headerlink" href="#style-property-ycenter" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке ypos в значение этого свойства, а yanchor в 0.5.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-xycenter">
+<span class="sig-name descname"><span class="pre">xycenter</span></span> <span class="pre">-</span>&#160; <span class="pre">tuple</span> <span class="pre">of</span> <span class="pre">(position,</span> <span class="pre">position)</span><a class="headerlink" href="#style-property-xycenter" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке xcenter в первый компонент кортежа, а ycenter — во второй.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-xoffset">
+<span class="sig-name descname"><span class="pre">xoffset</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-xoffset" title="Ссылка на это определение"></a></dt>
+<dd><p>Задает количество пикселей, которое добавляется к горизонтальной позиции, вычисленной с использованием xpos и xalign.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-yoffset">
+<span class="sig-name descname"><span class="pre">yoffset</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-yoffset" title="Ссылка на это определение"></a></dt>
+<dd><p>Задает количество пикселей, которое добавляется к вертикальной позиции, вычисленной с использованием ypos и yalign.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-offset">
+<span class="sig-name descname"><span class="pre">offset</span></span> <span class="pre">-</span>&#160; <span class="pre">tuple</span> <span class="pre">of</span> <span class="pre">(int,</span> <span class="pre">int)</span><a class="headerlink" href="#style-property-offset" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке xoffset в первый компонент кортежа, а yoffset — во второй компонент кортежа.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-xmaximum">
+<span class="sig-name descname"><span class="pre">xmaximum</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-xmaximum" title="Ссылка на это определение"></a></dt>
+<dd><p>Указывает максимальный горизонтальный размер отображаемого в пикселях.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-ymaximum">
+<span class="sig-name descname"><span class="pre">ymaximum</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-ymaximum" title="Ссылка на это определение"></a></dt>
+<dd><p>Указывает максимальный вертикальный размер отображаемого в пикселях.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-maximum">
+<span class="sig-name descname"><span class="pre">maximum</span></span> <span class="pre">-</span>&#160; <span class="pre">tuple</span> <span class="pre">of</span> <span class="pre">(int,</span> <span class="pre">int)</span><a class="headerlink" href="#style-property-maximum" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке xmaximum в первый компонент кортежа, а ymaximum — во второй.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-xminimum">
+<span class="sig-name descname"><span class="pre">xminimum</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-xminimum" title="Ссылка на это определение"></a></dt>
+<dd><p>Устанавливает минимальную ширину отображаемого в пикселях. Работает только с отображаемыми, которые могут изменять свой размер.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-yminimum">
+<span class="sig-name descname"><span class="pre">yminimum</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-yminimum" title="Ссылка на это определение"></a></dt>
+<dd><p>Устанавливает минимальную высоту отображаемого в пикселях. Работает только с отображаемыми, которые могут изменять свой размер.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-minimum">
+<span class="sig-name descname"><span class="pre">minimum</span></span> <span class="pre">-</span>&#160; <span class="pre">tuple</span> <span class="pre">of</span> <span class="pre">(int,</span> <span class="pre">int)</span><a class="headerlink" href="#style-property-minimum" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке xminimum в первый компонент кортежа, а yminimum — во второй.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-xsize">
+<span class="sig-name descname"><span class="pre">xsize</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span> <span class="pre">or</span> <span class="pre">float</span><a class="headerlink" href="#style-property-xsize" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке xminimum и xmaximum в одно и то же значение. Это приводит к установке ширины отображаемого. Если размер является числом с плавающей точкой (float), он будет относительным к ширине содержащей области.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-ysize">
+<span class="sig-name descname"><span class="pre">ysize</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span> <span class="pre">or</span> <span class="pre">float</span><a class="headerlink" href="#style-property-ysize" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке yminimum и ymaximum в одно и то же значение. Это приводит к установке высоты отображаемого. Если размер является числом с плавающей точкой (float), он будет относительным к высоте содержащей области.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-xysize">
+<span class="sig-name descname"><span class="pre">xysize</span></span> <span class="pre">-</span>&#160; <span class="pre">tuple</span> <span class="pre">of</span> <span class="pre">(int</span> <span class="pre">or</span> <span class="pre">float,</span> <span class="pre">int</span> <span class="pre">or</span> <span class="pre">float)</span><a class="headerlink" href="#style-property-xysize" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке xsize в первый компонент кортежа, а ysize — во второй компонент.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-xfill">
+<span class="sig-name descname"><span class="pre">xfill</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-xfill" title="Ссылка на это определение"></a></dt>
+<dd><p>Если true, отображаемое будет расширяться, чтобы заполнить все доступное горизонтальное пространство. Если false, оно будет лишь достаточно большим, чтобы вместить свои дочерние элементы.</p>
+<p>Это работает только для отображаемых, которые могут изменять свой размер.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-yfill">
+<span class="sig-name descname"><span class="pre">yfill</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-yfill" title="Ссылка на это определение"></a></dt>
+<dd><p>Если true, отображаемое будет расширяться, чтобы заполнить все доступное вертикальное пространство. Если false, оно будет лишь достаточно большим, чтобы вместить свои дочерние элементы.</p>
+<p>Это работает только для отображаемых, которые могут изменять свой размер.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-area">
+<span class="sig-name descname"><span class="pre">area</span></span> <span class="pre">-</span>&#160; <span class="pre">tuple</span> <span class="pre">of</span> <span class="pre">(int,</span> <span class="pre">int,</span> <span class="pre">int,</span> <span class="pre">int)</span><a class="headerlink" href="#style-property-area" title="Ссылка на это определение"></a></dt>
+<dd><p>Кортеж интерпретируется как (<cite>xpos</cite>, <cite>ypos</cite>, <cite>width</cite>,
+<cite>height</cite>). Пытается расположить отображаемое так, чтобы его верхний левый угол находился в <cite>xpos</cite> и <cite>ypos</cite>, а его размер был <cite>width</cite> и <cite>height</cite>.</p>
+<p>Это достигается путем установки свойств xpos, ypos, xanchor, yanchor,
+xmaximum, ymaximum, xminimum, yminimum, xfill и yfill в соответствующие значения.</p>
+<p>Это будет работать не со всеми отображаемыми и не со всеми компоновками (layouts).</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-mipmap">
+<span class="sig-name descname"><span class="pre">mipmap</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-mipmap" title="Ссылка на это определение"></a></dt>
+<dd><p>Это свойство управляет тем, будут ли текстуры, созданные этим отображаемым, иметь мип-уровни (mipmapped).
+Это применяется только к определенным отображаемым, включая <a class="reference internal" href="text.html#Text" title="Text"><code class="xref py py-func docutils literal notranslate"><span class="pre">Text()</span></code></a>,
+<a class="reference internal" href="movie.html#Movie" title="Movie"><code class="xref py py-func docutils literal notranslate"><span class="pre">Movie()</span></code></a>, и переходы (dissolves).</p>
+<p>Если None, значение по умолчанию берется из переменных конфигурации, таких как <a class="reference internal" href="config.html#var-config.mipmap_text"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.mipmap_text</span></code></a>, <a class="reference internal" href="config.html#var-config.mipmap_movies"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.mipmap_movies</span></code></a> и
+<a class="reference internal" href="config.html#var-config.mipmap_dissolves"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.mipmap_dissolves</span></code></a>.</p>
+</dd></dl>
+
+</section>
+<section id="text-style-properties">
+<span id="id7"></span><h3>Свойства стиля текста<a class="headerlink" href="#text-style-properties" title="Ссылка на этот заголовок"></a></h3>
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-antialias">
+<span class="sig-name descname"><span class="pre">antialias</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-antialias" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True (по умолчанию), текст шрифта TrueType будет отображаться со сглаживанием (anti-aliased).</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-adjust_spacing">
+<span class="sig-name descname"><span class="pre">adjust_spacing</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span> <span class="pre">or</span> <span class="pre">str</span><a class="headerlink" href="#style-property-adjust_spacing" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, Ren'Py будет корректировать межсимвольный интервал текста с разрешением отрисовки (drawable-resolution), чтобы он соответствовал интервалу текста, отрисованного с виртуальным разрешением, гарантируя, что размер рамок и других контейнеров с текстом не изменится.</p>
+<p>Если установлено в False, размер текста не будет меняться, но создатель должен сам убедиться, что для размещения текста достаточно места при любом размере окна.</p>
+<p>Если установлено в строку &quot;horizontal&quot;, текст будет корректироваться только по горизонтали. Если в &quot;vertical&quot;, то только по вертикали.</p>
+<p>По умолчанию True для большинства текстов, но False для текста в <code class="docutils literal notranslate"><span class="pre">input</span></code>.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-altruby_style">
+<span class="sig-name descname"><span class="pre">altruby_style</span></span> <span class="pre">-</span>&#160; <span class="pre">style</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-altruby_style" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это должен быть объект стиля. Стиль, который используется для альтернативного руби-текста.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-axis">
+<span class="sig-name descname"><span class="pre">axis</span></span> <span class="pre">-</span>&#160; <span class="pre">dict</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-axis" title="Ссылка на это определение"></a></dt>
+<dd><p>Позволяет задавать оси <a class="reference internal" href="text.html#variable-fonts"><span class="std std-ref">вариативного шрифта</span></a>. Если не None, это должен быть словарь, сопоставляющий имена осей со значениями. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">style</span> <span class="k">default</span><span class="p">:</span>
+    <span class="na">font</span> <span class="s2">&quot;VariableFont.ttf&quot;</span>
+    <span class="na">axis</span> <span class="p">{</span> <span class="s2">&quot;weight&quot;</span> <span class="p">:</span> <span class="mi">500</span><span class="p">,</span> <span class="s2">&quot;width&quot;</span> <span class="p">:</span> <span class="mi">95</span> <span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-black_color">
+<span class="sig-name descname"><span class="pre">black_color</span></span> <span class="pre">-</span>&#160; <span class="pre">color</span><a class="headerlink" href="#style-property-black_color" title="Ссылка на это определение"></a></dt>
+<dd><p>При рендеринге шрифта на основе изображений черный цвет будет заменен на этот цвет. Не влияет на шрифты TrueType.</p>
+<p>Может быть None в случае руби/фуригана-текста, чтобы использовать тот же цвет, что и у родительского текста.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-bold">
+<span class="sig-name descname"><span class="pre">bold</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-bold" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, шрифт отображается жирным начертанием. Для шрифта TrueType это обычно включает синтетическое увеличение веса шрифта. Это также может привести к переназначению шрифта с помощью
+<a class="reference internal" href="config.html#var-config.font_replacement_map"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.font_replacement_map</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-caret">
+<span class="sig-name descname"><span class="pre">caret</span></span> <span class="pre">-</span>&#160; <span class="pre">displayable</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-caret" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это должно быть отображаемое. Виджет ввода будет использовать его в качестве каретки в конце текста. Если None, в качестве каретки используется мигающая линия шириной 1 пиксель.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-color">
+<span class="sig-name descname"><span class="pre">color</span></span> <span class="pre">-</span>&#160; <span class="pre">color</span><a class="headerlink" href="#style-property-color" title="Ссылка на это определение"></a></dt>
+<dd><p>Цвет, которым отображается текст. При использовании шрифта TrueType шрифт отображается этим цветом. При использовании шрифта на основе изображений белый цвет заменяется на этот цвет.</p>
+<p>Может быть None в случае руби/фуригана-текста, чтобы использовать тот же цвет, что и у родительского текста.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-emoji_font">
+<span class="sig-name descname"><span class="pre">emoji_font</span></span> <span class="pre">-</span>&#160; <span class="pre">string</span><a class="headerlink" href="#style-property-emoji_font" title="Ссылка на это определение"></a></dt>
+<dd><p>Шрифт, используемый для отображения символов Emoji. Он автоматически используется, когда встречается последовательность из одного или нескольких Emoji и не используется тег шрифта.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-first_indent">
+<span class="sig-name descname"><span class="pre">first_indent</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-first_indent" title="Ссылка на это определение"></a></dt>
+<dd><p>Величина отступа первой строки текста в абзаце, в пикселях.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-font">
+<span class="sig-name descname"><span class="pre">font</span></span> <span class="pre">-</span>&#160; <span class="pre">string</span><a class="headerlink" href="#style-property-font" title="Ссылка на это определение"></a></dt>
+<dd><p>Строка, задающая имя шрифта, используемого для отображения текста.</p>
+<p>Для файла шрифта TrueType это обычно имя файла, содержащего шрифт (например, <code class="docutils literal notranslate"><span class="pre">&quot;DejaVuSans.ttf&quot;</span></code>). Чтобы выбрать второй шрифт в коллекции, можно добавить префикс в виде номера и знака &#64; (например, <code class="docutils literal notranslate"><span class="pre">&quot;0&#64;font.ttc&quot;</span></code> или <code class="docutils literal notranslate"><span class="pre">&quot;1&#64;font.ttc&quot;</span></code>). Для шрифта на основе изображений это должно быть имя, использованное для регистрации шрифта.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-font_features">
+<span class="sig-name descname"><span class="pre">font_features</span></span> <span class="pre">-</span>&#160; <span class="pre">dict</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-font_features" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это должен быть словарь, сопоставляющий функции разметки OpenType со значениями. Ключами словаря должны быть четырехсимвольные теги функций OpenType, а значениями - булевы.
+Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">style</span> <span class="k">default</span><span class="p">:</span>
+    <span class="na">font</span> <span class="s2">&quot;SomeFont.ttf&quot;</span>
+    <span class="na">font_features</span> <span class="p">{</span> <span class="s2">&quot;liga&quot;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;smcp&quot;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;calt&quot;</span> <span class="p">:</span> <span class="kc">False</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Список функций разметки можно найти <a class="reference external" href="https://learn.microsoft.com/en-us/typography/opentype/spec/featuretags">здесь</a>.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-hinting">
+<span class="sig-name descname"><span class="pre">hinting</span></span> <span class="pre">-</span>&#160; <span class="pre">str</span><a class="headerlink" href="#style-property-hinting" title="Ссылка на это определение"></a></dt>
+<dd><p>Управляет хинтингом шрифта. Должна быть одна из следующих строк:</p>
+<dl class="simple">
+<dt>&quot;auto&quot;</dt><dd><p>(по умолчанию), принудительно использует авто-хинтер Freetype.</p>
+</dd>
+<dt>&quot;auto-light&quot;</dt><dd><p>Принудительно использует авто-хинтер Freetype в &quot;лёгком&quot; режиме, который выполняет хинтинг только по вертикали.</p>
+</dd>
+<dt>&quot;bytecode&quot;</dt><dd><p>Использует информацию о байткод-хинтинге, найденную в шрифте.</p>
+</dd>
+<dt>&quot;none&quot;</dt><dd><p>Не выполняет хинтинг шрифта.</p>
+</dd>
+</dl>
+<p>Также может быть True, и в этом случае значение берется из
+<a class="reference internal" href="config.html#var-config.font_hinting"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.font_hinting</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-hyperlink_functions">
+<span class="sig-name descname"><span class="pre">hyperlink_functions</span></span> <span class="pre">-</span>&#160; <span class="pre">tuple</span> <span class="pre">of</span> <span class="pre">(function,</span> <span class="pre">function,</span> <span class="pre">function)</span><a class="headerlink" href="#style-property-hyperlink_functions" title="Ссылка на это определение"></a></dt>
+<dd><p>Это кортеж из трех функций, связанных с гиперссылками в тексте.</p>
+<p>Первый элемент — функция стиля гиперссылки. При вызове с одним аргументом (аргументом гиперссылки) она должна возвращать объект стиля для использования с гиперссылкой, например, <code class="docutils literal notranslate"><span class="pre">style.hyperlink_text</span></code>. Обратите внимание, что объект стиля — это не строка.</p>
+<p>Второй элемент — функция клика по гиперссылке. Эта функция вызывается, когда пользователь выбирает гиперссылку. Если она возвращает значение, отличное от None, взаимодействие возвращает это значение.</p>
+<p>Третий элемент — функция фокуса гиперссылки. Эта функция вызывается с аргументом гиперссылки, когда она получает фокус, и с None, когда она его теряет. Если она возвращает значение, отличное от None, взаимодействие возвращает это значение.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-instance">
+<span class="sig-name descname"><span class="pre">instance</span></span> <span class="pre">-</span>&#160; <span class="pre">string</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-instance" title="Ссылка на это определение"></a></dt>
+<dd><p>При использовании <a class="reference internal" href="text.html#variable-fonts"><span class="std std-ref">вариативного шрифта</span></a> это может быть строка, задающая именованный экземпляр шрифта. Например, если у шрифта есть экземпляр &quot;Bold&quot;, можно установить это свойство в &quot;Bold&quot;, чтобы его использовать.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-italic">
+<span class="sig-name descname"><span class="pre">italic</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-italic" title="Ссылка на это определение"></a></dt>
+<dd><p>Если true, текст будет отображен курсивом. Для шрифта TrueType это обычно включает синтетическое увеличение наклона шрифта. Это также может привести к переназначению шрифта с помощью
+<a class="reference internal" href="config.html#var-config.font_replacement_map"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.font_replacement_map</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-justify">
+<span class="sig-name descname"><span class="pre">justify</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-justify" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, между словами вставляются дополнительные пробелы, чтобы левый и правый края каждой строки были выровнены. Это не применяется к последней строке абзаца.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-kerning">
+<span class="sig-name descname"><span class="pre">kerning</span></span> <span class="pre">-</span>&#160; <span class="pre">float</span><a class="headerlink" href="#style-property-kerning" title="Ссылка на это определение"></a></dt>
+<dd><p>Коррекция кернинга, количество пикселей пробела, которое добавляется между каждой парой символов. (Может быть отрицательным для уменьшения расстояния между символами).</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-language">
+<span class="sig-name descname"><span class="pre">language</span></span> <span class="pre">-</span>&#160; <span class="pre">string</span><a class="headerlink" href="#style-property-language" title="Ссылка на это определение"></a></dt>
+<dd><p>Управляет семейством языков, используемым для разбиения текста на строки и для некоторых других преобразований текста. Допустимые значения:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;unicode&quot;</span></code> (по умолчанию)</dt><dd><p>Использует алгоритм переноса строк Unicode, который подходит для
+большинства языков.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;japanese-strict&quot;</span></code></dt><dd><p>Форматирует японский текст в &quot;строгом&quot; стиле. Он
+запрещает разрывы перед малой каной и знаками долготы.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;japanese-normal&quot;</span></code></dt><dd><p>Форматирует японский текст в &quot;нормальном&quot; стиле. Он
+разрешает разрывы перед малой каной, знаками долготы и
+определенными дефисами.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;japanese-loose&quot;</span></code></dt><dd><p>Форматирует японский текст в &quot;свободном&quot; стиле. Разрешает разрывы
+перед малой каной, знаками долготы, знаками итерации,
+неразделимыми символами, центрированными знаками препинания и постфиксами;
+и разрешает разрывы перед префиксами.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;korean-with-spaces&quot;</span></code></dt><dd><p>Используется для корейского текста, разделенного пробелами. Это предотвращает перенос строк
+между соседними корейскими символами.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;thaic90&quot;</span></code></dt><dd><p>Используется для тайского текста, отображаемого шрифтами, которые поддерживают
+<a class="reference external" href="http://www.bakoma-tex.com/doc/fonts/enc/c90/c90.pdf">кодировку C90 для тайского языка</a>.
+Объединяет группы символов в одиночные глифы, что позволяет лучше
+отображать знаки гласных и тона. Для переноса строк используется алгоритм unicode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;western&quot;</span></code></dt><dd><p>Разрешает разрыв строки только по пробелам. Подходит для большинства
+языков.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;anywhere&quot;</span></code></dt><dd><p>Разрешает разрыв в любом месте без руби.</p>
+</dd>
+</dl>
+<p>Три режима переноса для японского языка взяты из <a class="reference external" href="http://www.w3.org/TR/css3-text/#line-break">модуля текста CSS3</a>.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-layout">
+<span class="sig-name descname"><span class="pre">layout</span></span> <span class="pre">-</span>&#160; <span class="pre">string</span><a class="headerlink" href="#style-property-layout" title="Ссылка на это определение"></a></dt>
+<dd><p>Управляет тем, как слова распределяются по строкам. Допустимые значения:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;tex&quot;</span></code> (по умолчанию)</dt><dd><p>Использует алгоритм переноса строк Кнута-Пласса, который пытается минимизировать
+разницу в длине всех строк, кроме последней.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;subtitle&quot;</span></code></dt><dd><p>Использует алгоритм переноса строк Кнута-Пласса, но пытается выровнять
+длину всех строк.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;greedy&quot;</span></code></dt><dd><p>Слово помещается на первую строку, на которой для него есть место.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;nobreak&quot;</span></code></dt><dd><p>Не выполнять перенос строк.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-line_leading">
+<span class="sig-name descname"><span class="pre">line_leading</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-line_leading" title="Ссылка на это определение"></a></dt>
+<dd><p>Количество пикселей пробела, которое добавляется над каждой строкой.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-line_overlap_split">
+<span class="sig-name descname"><span class="pre">line_overlap_split</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-line_overlap_split" title="Ссылка на это определение"></a></dt>
+<dd><p>В режиме медленного текста, если две строки перекрываются, это количество пикселей
+перекрытия выделяется для верхней строки. Увеличьте это значение, если
+нижние части символов верхней строки обрезаются.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-line_spacing">
+<span class="sig-name descname"><span class="pre">line_spacing</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-line_spacing" title="Ссылка на это определение"></a></dt>
+<dd><p>Количество пикселей пробела, которое добавляется под каждой строкой.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-min_width">
+<span class="sig-name descname"><span class="pre">min_width</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-min_width" title="Ссылка на это определение"></a></dt>
+<dd><p>Устанавливает минимальную ширину каждой строки текста. Если строка короче
+этого значения, она дополняется до этой длины, а <code class="docutils literal notranslate"><span class="pre">textalign</span></code> используется для
+указания, где размещать это дополнение.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-newline_indent">
+<span class="sig-name descname"><span class="pre">newline_indent</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-newline_indent" title="Ссылка на это определение"></a></dt>
+<dd><p>Если true, отступ <a class="reference internal" href="#style-property-first_indent"><code class="xref std std-propref docutils literal notranslate"><span class="pre">first_indent</span></code></a> используется после
+каждого символа новой строки в строке. В противном случае используется отступ <a class="reference internal" href="#style-property-rest_indent"><code class="xref std std-propref docutils literal notranslate"><span class="pre">rest_indent</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-outlines">
+<span class="sig-name descname"><span class="pre">outlines</span></span> <span class="pre">-</span>&#160; <span class="pre">list</span> <span class="pre">of</span> <span class="pre">tuple</span> <span class="pre">of</span> <span class="pre">(int,</span> <span class="pre">color,</span> <span class="pre">int,</span> <span class="pre">int)</span><a class="headerlink" href="#style-property-outlines" title="Ссылка на это определение"></a></dt>
+<dd><p>Это список обводок, которые рисуются позади текста. Каждый
+кортеж задает обводку, и обводки рисуются от задней к передней.</p>
+<p>Список содержит кортежи (<cite>size</cite>, <cite>color</cite>, <cite>xoffset</cite>, <cite>yoffset</cite>). <cite>size</cite> - это величина, на которую расширяется шрифт, в пикселях. <cite>color</cite> - это цвет обводки. <cite>xoffset</cite> и <cite>yoffset</cite> - это смещение обводки, в пикселях.</p>
+<p>Функциональность обводки также можно использовать для создания падающих теней для
+шрифтов, указав <cite>size</cite> равным 0 и ненулевые смещения.</p>
+<p>По умолчанию <cite>size</cite>, <cite>xoffset</cite> и <cite>yoffset</cite> масштабируются вместе с текстом.
+Если они заданы с типом absolute, они не масштабируются. Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">style</span> <span class="k">default</span><span class="p">:</span>
+    <span class="na">outlines</span> <span class="p">[</span> <span class="p">(</span><span class="n">absolute</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;#000&quot;</span><span class="p">,</span> <span class="n">absolute</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">absolute</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>всегда будет создавать границу шириной 1 пиксель.</p>
+<p>Обводки работают только со шрифтами TrueType. Обводки работают только при применении
+ко всему отображаемому Text. Они не работают при применении к гиперссылке,
+текстовому тегу или другому методу, который применяется только к части текста.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-outline_scaling">
+<span class="sig-name descname"><span class="pre">outline_scaling</span></span> <span class="pre">-</span>&#160; <span class="pre">string</span><a class="headerlink" href="#style-property-outline_scaling" title="Ссылка на это определение"></a></dt>
+<dd><p>Это определяет, как размеры и смещения обводки масштабируются при масштабировании
+окна.</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;linear&quot;</span></code></dt><dd><p>(по умолчанию), лучше всего подходит для текста с толстыми обводками. Коэффициент масштабирования
+окна применяется к размеру обводки, а затем округляется до целого числа.
+Это выглядит лучше для толстых обводок, но концентрические обводки схожей
+толщины могут стать неразличимыми.</p>
+<p>Итоговая ширина всегда не менее 1 пикселя.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;step&quot;</span></code></dt><dd><p>Лучше всего подходит для текста, использующего тонкие обводки, и текста
+с несколькими обводками. Коэффициент масштабирования окна
+округляется до целого числа в меньшую сторону и применяется к размеру и смещениям
+обводки. Это гарантирует, что несколько обводок масштабируются вместе,
+без риска перекрытия друг другом, но это дает разные визуальные
+результаты в зависимости от размера игрового окна.</p>
+<p>Коэффициент масштабирования окна всегда больше 1.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-prefer_emoji">
+<span class="sig-name descname"><span class="pre">prefer_emoji</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-prefer_emoji" title="Ссылка на это определение"></a></dt>
+<dd><p>Некоторые символы unicode имеют как Emoji, так и не-Emoji представление. Это
+свойство стиля выбирает, будет ли таким символам дано представление Emoji.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-reading_order">
+<span class="sig-name descname"><span class="pre">reading_order</span></span> <span class="pre">-</span>&#160; <span class="pre">string</span><a class="headerlink" href="#style-property-reading_order" title="Ссылка на это определение"></a></dt>
+<dd><p>Это свойство управляет тем, как текст представляется для чтения при включенной
+поддержке RTL. Основное применение — влияние на нейтральные по направлению строки,
+например, состоящие исключительно из знаков препинания.</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">None</span></code></dt><dd><p>(по умолчанию), порядок чтения будет определяться на основе текста.
+Большинство нейтральных строк будут рассматриваться как слева-направо (left-to-right).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;ltr&quot;</span></code></dt><dd><p>Принудительно устанавливает представление слева-направо, даже если строка преимущественно
+состоит из последовательностей RTL-символов.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;rtl&quot;</span></code></dt><dd><p>Принудительно устанавливает представление справа-налево, даже если строка преимущественно
+состоит из последовательностей LTR-символов.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;wltr&quot;</span></code></dt><dd><p>Предпочитает представление слева-направо, но переключится на справа-налево,
+если это имеет больше смысла для текущего текста. Полезно для
+влияния на строки, состоящие только из знаков препинания, такие как <code class="docutils literal notranslate"><span class="pre">&quot;..!&quot;</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;wrtl&quot;</span></code></dt><dd><p>Предпочитает представление справа-налево, но переключится на слева-направо,
+если это имеет больше смысла для текущего текста. Полезно для
+влияния на строки, состоящие только из знаков препинания, такие как <code class="docutils literal notranslate"><span class="pre">&quot;..!&quot;</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-rest_indent">
+<span class="sig-name descname"><span class="pre">rest_indent</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-rest_indent" title="Ссылка на это определение"></a></dt>
+<dd><p>Указывает количество пикселей, на которое отступают вторая и последующие строки в
+абзаце.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-ruby_line_leading">
+<span class="sig-name descname"><span class="pre">ruby_line_leading</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-ruby_line_leading" title="Ссылка на это определение"></a></dt>
+<dd><p>Количество пикселей пробела, которое добавляется над каждой строкой, содержащей
+<a class="reference internal" href="text.html#ruby-text"><span class="std std-ref">руби-текст</span></a>. Это в дополнение к
+<a class="reference internal" href="#style-property-line_leading"><code class="xref std std-propref docutils literal notranslate"><span class="pre">line_leading</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-ruby_style">
+<span class="sig-name descname"><span class="pre">ruby_style</span></span> <span class="pre">-</span>&#160; <span class="pre">style</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-ruby_style" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это должен быть объект стиля. Стиль, который используется для
+руби-текста.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-shaper">
+<span class="sig-name descname"><span class="pre">shaper</span></span> <span class="pre">-</span>&#160; <span class="pre">&quot;harfbuzz&quot;</span> <span class="pre">or</span> <span class="pre">&quot;freetype&quot;.</span><a class="headerlink" href="#style-property-shaper" title="Ссылка на это определение"></a></dt>
+<dd><p>Шейпер (shaper), используемый для текста. Должен быть одним из &quot;harfbuzz&quot; или &quot;freetype&quot;.
+Шейпер harfbuzz более функционален, но работает только в Ren'Py 8, в то время как
+&quot;freetype&quot; работает и в Ren'Py 7.</p>
+<p>Шейпер принимает последовательность символов и превращает ее в последовательность
+позиционированных глифов. Это используется для таких вещей, как лигатуры, индийские/брахмические
+языки и комбинирование эмодзи.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-size">
+<span class="sig-name descname"><span class="pre">size</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-size" title="Ссылка на это определение"></a></dt>
+<dd><p>Размер шрифта на экране. Хотя номинально это значение в
+пикселях, файлы шрифтов могут иметь творческие интерпретации этого
+значения.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-slow_abortable">
+<span class="sig-name descname"><span class="pre">slow_abortable</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-slow_abortable" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, щелчок, который достигает объекта Text, приведет к прерыванию медленного
+вывода текста, что означает, что оставшийся текст будет
+отображен мгновенно.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-slow_cps">
+<span class="sig-name descname"><span class="pre">slow_cps</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span> <span class="pre">or</span> <span class="pre">True</span><a class="headerlink" href="#style-property-slow_cps" title="Ссылка на это определение"></a></dt>
+<dd><p>Если число, показывает текст со скоростью указанного количества символов в
+секунду. Если True, показывает текст со скоростью, взятой из настройки &quot;Скорость
+текста&quot;.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-slow_cps_multiplier">
+<span class="sig-name descname"><span class="pre">slow_cps_multiplier</span></span> <span class="pre">-</span>&#160; <span class="pre">float</span><a class="headerlink" href="#style-property-slow_cps_multiplier" title="Ссылка на это определение"></a></dt>
+<dd><p>Скорость текста умножается на это число. Это можно
+использовать, чтобы персонаж говорил быстрее, чем обычно.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-strikethrough">
+<span class="sig-name descname"><span class="pre">strikethrough</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-strikethrough" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, через текст проводится линия (зачеркивание).</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-textalign">
+<span class="sig-name descname"><span class="pre">textalign</span></span> <span class="pre">-</span>&#160; <span class="pre">float</span><a class="headerlink" href="#style-property-textalign" title="Ссылка на это определение"></a></dt>
+<dd><p>Используется, когда строка короче ширины отображаемого текста.
+Определяет, какая часть дополнительного пространства размещается слева от
+текста. (и, следовательно, выравнивание текста).</p>
+<p>0.0 даст выравнивание по левому краю, 0.5 — по центру, а 1.0
+— по правому краю.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-underline">
+<span class="sig-name descname"><span class="pre">underline</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-underline" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, к тексту будет добавлено подчеркивание.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-vertical">
+<span class="sig-name descname"><span class="pre">vertical</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-vertical" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, текст будет отображаться вертикально.</p>
+<p>Есть несколько оговорок:</p>
+<ul class="simple">
+<li><p>Если <a class="reference internal" href="#style-property-shaper"><code class="xref std std-propref docutils literal notranslate"><span class="pre">shaper</span></code></a> установлен в &quot;freetype&quot;, вертикальная компоновка, скорее всего, будет некорректной.</p></li>
+<li><p>Harfbuzz преобразует горизонтальные формы в вертикальные, если эти
+формы присутствуют в шрифте.</p></li>
+<li><p>Символы будут располагаться сверху вниз, справа налево, но не будут
+повернуты. Это означает, что горизонтальные символы будут расположены
+один над другим.</p></li>
+<li><p>Если информация о вертикальном тексте отсутствует в шрифте, она будет
+синтезирована, но может быть неверной. В целом, идеографический текст работает
+лучше, чем неидеографический.</p></li>
+</ul>
+</dd></dl>
+
+</section>
+<section id="window-style-properties">
+<span id="id9"></span><h3>Свойства стиля окна<a class="headerlink" href="#window-style-properties" title="Ссылка на этот заголовок"></a></h3>
+<p>Свойства окна используются для определения внешнего вида окон, рамок и
+кнопок. <a class="reference internal" href="#margin-style-properties"><span class="std std-ref">Свойства полей (margin)</span></a> также являются частью этой группы.</p>
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-background">
+<span class="sig-name descname"><span class="pre">background</span></span> <span class="pre">-</span>&#160; <span class="pre">displayable</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-background" title="Ссылка на это определение"></a></dt>
+<dd><p>Отображаемый элемент (displayable), который используется в качестве фона окна.
+Часто это <a class="reference internal" href="displayables.html#Frame" title="Frame"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame()</span></code></a>, что позволяет фону
+масштабироваться вместе с размером окна.</p>
+<p>Если None, фон не рисуется, но другие свойства функционируют так,
+как если бы фон присутствовал.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-foreground">
+<span class="sig-name descname"><span class="pre">foreground</span></span> <span class="pre">-</span>&#160; <span class="pre">displayable</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-foreground" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, этот отображаемый элемент рисуется поверх содержимого
+окна.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-left_padding">
+<span class="sig-name descname"><span class="pre">left_padding</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-left_padding" title="Ссылка на это определение"></a></dt>
+<dd><p>Расстояние в пикселях между фоном и левой стороной содержимого
+окна.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-right_padding">
+<span class="sig-name descname"><span class="pre">right_padding</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-right_padding" title="Ссылка на это определение"></a></dt>
+<dd><p>Расстояние в пикселях между фоном и правой стороной содержимого
+окна.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-xpadding">
+<span class="sig-name descname"><span class="pre">xpadding</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-xpadding" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке одинаковых значений для left_padding и right_padding.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-top_padding">
+<span class="sig-name descname"><span class="pre">top_padding</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-top_padding" title="Ссылка на это определение"></a></dt>
+<dd><p>Расстояние в пикселях между фоном и верхней стороной содержимого
+окна.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-bottom_padding">
+<span class="sig-name descname"><span class="pre">bottom_padding</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-bottom_padding" title="Ссылка на это определение"></a></dt>
+<dd><p>Расстояние в пикселях между фоном и нижней стороной содержимого
+окна.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-ypadding">
+<span class="sig-name descname"><span class="pre">ypadding</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-ypadding" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке одинаковых значений для top_padding и bottom_padding.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-padding">
+<span class="sig-name descname"><span class="pre">padding</span></span> <span class="pre">-</span>&#160; <span class="pre">tuple</span><a class="headerlink" href="#style-property-padding" title="Ссылка на это определение"></a></dt>
+<dd><p>При задании кортежа из двух элементов эквивалентно установке xpadding и
+ypadding. При задании кортежа из четырёх элементов эквивалентно
+установке left_padding, top_padding, right_padding и bottom_padding.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-size_group">
+<span class="sig-name descname"><span class="pre">size_group</span></span> <span class="pre">-</span>&#160; <span class="pre">string</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-size_group" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это должна быть строка. Ren'Py будет отрисовывать все
+окна с одинаковым значением size_group в одном и том же размере.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-modal">
+<span class="sig-name descname"><span class="pre">modal</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span> <span class="pre">or</span> <span class="pre">callable</span><a class="headerlink" href="#style-property-modal" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, окно считается модальным. События перестанут распространяться
+через слои, пока курсор мыши находится в пределах окна или кнопки. Если False,
+окно не является модальным.</p>
+<p>Это также может быть вызываемый объект (callable). Если это так, он вызывается
+с параметрами (ev, x, y, w, h), где <cite>ev</cite> — это событие pygame или None для
+обозначения общего события мыши; <cite>x</cite> и <cite>y</cite> — координаты относительно
+окна, а <cite>w</cite> и <cite>h</cite> — ширина и высота окна.
+Если вызываемый объект возвращает true, окно считается модальным. Если
+возвращает false — нет.</p>
+</dd></dl>
+
+</section>
+<section id="button-style-properties">
+<span id="id10"></span><h3>Свойства стиля кнопки<a class="headerlink" href="#button-style-properties" title="Ссылка на этот заголовок"></a></h3>
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-child">
+<span class="sig-name descname"><span class="pre">child</span></span> <span class="pre">-</span>&#160; <span class="pre">displayable</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-child" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это отображаемый элемент, который заменяет дочерний элемент
+кнопки. Например, это свойство (как insensitive_child) можно использовать, чтобы заменить
+содержимое неактивной кнопки изображением, которое указывает на то, что кнопка
+заблокирована.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-hover_sound">
+<span class="sig-name descname"><span class="pre">hover_sound</span></span> <span class="pre">-</span>&#160; <span class="pre">string</span><a class="headerlink" href="#style-property-hover_sound" title="Ссылка на это определение"></a></dt>
+<dd><p>Звук, который проигрывается, когда кнопка получает фокус.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-activate_sound">
+<span class="sig-name descname"><span class="pre">activate_sound</span></span> <span class="pre">-</span>&#160; <span class="pre">string</span><a class="headerlink" href="#style-property-activate_sound" title="Ссылка на это определение"></a></dt>
+<dd><p>Звук, который проигрывается при активации (нажатии) кнопки. Он также
+проигрывается при активации полосы (bar) или перетаскиваемого элемента (drag).</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-mouse">
+<span class="sig-name descname"><span class="pre">mouse</span></span> <span class="pre">-</span>&#160; <span class="pre">string</span><a class="headerlink" href="#style-property-mouse" title="Ссылка на это определение"></a></dt>
+<dd><p>Стиль курсора мыши, который используется, когда кнопка находится в фокусе.
+Должен быть одним из стилей в <a class="reference internal" href="config.html#var-config.mouse"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.mouse</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-focus_mask">
+<span class="sig-name descname"><span class="pre">focus_mask</span></span> <span class="pre">-</span>&#160; <span class="pre">multiple</span><a class="headerlink" href="#style-property-focus_mask" title="Ссылка на это определение"></a></dt>
+<dd><p>Маска, используемая для контроля того, какие части кнопки могут
+получать фокус и, следовательно, быть нажатыми. Тип этого свойства определяет,
+как оно интерпретируется.</p>
+<dl>
+<dt>Displayable</dt><dd><p>Области отображаемого элемента, которые не являются прозрачными, приводят к тому, что кнопка
+получает фокус.</p>
+</dd>
+<dt>True</dt><dd><p>Сама кнопка используется в качестве отображаемого элемента (таким образом,
+непрозрачные области кнопки приводят к тому, что она получает
+фокус).</p>
+</dd>
+<dt>callable</dt><dd><p>Если передан не-displayable вызываемый объект (например, функция, метод или объект
+с методом <code class="docutils literal notranslate"><span class="pre">__call__</span></code>), он вызывается с двумя
+аргументами: смещениями x и y от верхнего левого угла
+отображаемого элемента.</p>
+<p>Если функция при вызове с двумя аргументами возвращает вызываемый объект,
+тот, в свою очередь, вызывается с четырьмя аргументами — смещениями x и y, а также
+шириной и высотой отображаемого элемента.</p>
+<p>Если функция возвращает true, отображаемый элемент получает фокус.</p>
+</dd>
+<dt>None</dt><dd><p>Если задано None, фокус может получить вся кнопка.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-keyboard_focus">
+<span class="sig-name descname"><span class="pre">keyboard_focus</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-keyboard_focus" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True (по умолчанию), эта кнопка может получить фокус через
+механизм фокуса клавиатуры, если она вообще может быть сфокусирована. Если False, механизм фокуса
+клавиатуры пропустит эту кнопку. (Механизм фокуса клавиатуры используется
+клавиатурами и клавиатуроподобными устройствами, такими как геймпады.)</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-keyboard_focus_insets">
+<span class="sig-name descname"><span class="pre">keyboard_focus_insets</span></span> <span class="pre">-</span>&#160; <span class="pre">(int,</span> <span class="pre">int,</span> <span class="pre">int,</span> <span class="pre">int)</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-keyboard_focus_insets" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это должен быть кортеж из четырёх целых чисел, задающих
+количество пикселей, на которое уменьшаются левая, верхняя, правая и
+нижняя стороны прямоугольника фокуса, когда он используется для фокуса
+клавиатуры.</p>
+<p>Это может быть полезно, когда кнопки перекрываются. Алгоритм фокуса
+клавиатуры не работает с перекрывающимися кнопками, поэтому это свойство можно использовать
+для внутреннего уменьшения размера кнопок, чтобы фокус работал.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-key_events">
+<span class="sig-name descname"><span class="pre">key_events</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-key_events" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, события, сгенерированные клавиатурой, передаются дочерним элементам этой
+кнопки. Если False, эти события не распространяются. В стиле по умолчанию
+это свойство установлено в True, когда кнопка находится под курсором (hovered), и в False в противном случае.</p>
+<p>Установка этого свойства в True может быть использована для передачи событий клавиатуры полю ввода
+внутри кнопки, даже если кнопка не в фокусе.</p>
+</dd></dl>
+
+</section>
+<section id="bar">
+<span id="bar-style-properties"></span><h3>Свойства стиля полосы (Bar)<a class="headerlink" href="#bar" title="Ссылка на этот заголовок"></a></h3>
+<p>Полосы (bars) рисуются с желобками (gutters) слева и справа, нажатие на которые может
+сместить полосу на небольшое значение. Оставшееся пространство — это та часть
+полосы, которая может изменяться, причём её размер с каждой стороны пропорционален
+значению полосы как доле от всего диапазона.</p>
+<p>Бегунок (thumb) — это область в центре полосы, которую пользователь может перетаскивать.</p>
+<p>Когда полоса рисуется, сначала рисуется тень бегунка. Затем левая/нижняя
+и правая/верхняя стороны полосы, а после — сам бегунок.</p>
+<p>Обратите внимание, что используемые стороны полосы зависят от значения свойства bar_vertical.
+Если оно True, используются верхняя и нижняя стороны. В противном случае —
+левая и правая.</p>
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-bar_vertical">
+<span class="sig-name descname"><span class="pre">bar_vertical</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-bar_vertical" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, полоса имеет вертикальную ориентацию. Если False —
+горизонтальную.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-bar_invert">
+<span class="sig-name descname"><span class="pre">bar_invert</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-bar_invert" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, значение полосы представляется на правой/верхней
+стороне, а не на левой/нижней.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-bar_resizing">
+<span class="sig-name descname"><span class="pre">bar_resizing</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-bar_resizing" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, мы изменяем размер сторон полосы. Если False, мы отрисовываем
+стороны полосы в полном размере, а затем обрезаем их.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-left_gutter">
+<span class="sig-name descname"><span class="pre">left_gutter</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-left_gutter" title="Ссылка на это определение"></a></dt>
+<dd><p>Размер желобка с левой стороны полосы в пикселях.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-right_gutter">
+<span class="sig-name descname"><span class="pre">right_gutter</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-right_gutter" title="Ссылка на это определение"></a></dt>
+<dd><p>Размер желобка с правой стороны полосы в пикселях.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-top_gutter">
+<span class="sig-name descname"><span class="pre">top_gutter</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-top_gutter" title="Ссылка на это определение"></a></dt>
+<dd><p>Размер желобка с верхней стороны полосы в пикселях.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-bottom_gutter">
+<span class="sig-name descname"><span class="pre">bottom_gutter</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-bottom_gutter" title="Ссылка на это определение"></a></dt>
+<dd><p>Размер желобка с нижней стороны полосы в пикселях.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-left_bar">
+<span class="sig-name descname"><span class="pre">left_bar</span></span> <span class="pre">-</span>&#160; <span class="pre">displayable</span><a class="headerlink" href="#style-property-left_bar" title="Ссылка на это определение"></a></dt>
+<dd><p>Отображаемый элемент, используемый для левой стороны полосы.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-right_bar">
+<span class="sig-name descname"><span class="pre">right_bar</span></span> <span class="pre">-</span>&#160; <span class="pre">displayable</span><a class="headerlink" href="#style-property-right_bar" title="Ссылка на это определение"></a></dt>
+<dd><p>Отображаемый элемент, используемый для правой стороны полосы.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-top_bar">
+<span class="sig-name descname"><span class="pre">top_bar</span></span> <span class="pre">-</span>&#160; <span class="pre">displayable</span><a class="headerlink" href="#style-property-top_bar" title="Ссылка на это определение"></a></dt>
+<dd><p>Отображаемый элемент, используемый для верхней стороны полосы.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-bottom_bar">
+<span class="sig-name descname"><span class="pre">bottom_bar</span></span> <span class="pre">-</span>&#160; <span class="pre">displayable</span><a class="headerlink" href="#style-property-bottom_bar" title="Ссылка на это определение"></a></dt>
+<dd><p>Отображаемый элемент, используемый для нижней стороны полосы.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-base_bar">
+<span class="sig-name descname"><span class="pre">base_bar</span></span> <span class="pre">-</span>&#160; <span class="pre">displayable</span><a class="headerlink" href="#style-property-base_bar" title="Ссылка на это определение"></a></dt>
+<dd><p>Единый отображаемый элемент, который используется для left_bar/right_bar или
+top_bar/bottom_bar, в зависимости от ориентации. (Может использоваться
+вместе с thumb для создания слайдера или полосы прокрутки.)</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-thumb">
+<span class="sig-name descname"><span class="pre">thumb</span></span> <span class="pre">-</span>&#160; <span class="pre">displayable</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-thumb" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это отображаемый элемент, который рисуется поверх разрыва
+между сторонами полосы.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-thumb_align">
+<span class="sig-name descname"><span class="pre">thumb_align</span></span> <span class="pre">-</span>&#160; <span class="pre">float</span><a class="headerlink" href="#style-property-thumb_align" title="Ссылка на это определение"></a></dt>
+<dd><p>Выравнивание бегунка относительно полосы. Если полоса и
+бегунок имеют разные размеры — например, бегунок выше, чем
+высота горизонтальной полосы — thumb_align можно установить в 0.5, чтобы
+центры полосы и бегунка были выровнены.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-thumb_shadow">
+<span class="sig-name descname"><span class="pre">thumb_shadow</span></span> <span class="pre">-</span>&#160; <span class="pre">displayable</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-thumb_shadow" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это отображаемый элемент, который рисуется поверх разрыва
+между сторонами полосы.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-thumb_offset">
+<span class="sig-name descname"><span class="pre">thumb_offset</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span> <span class="pre">or</span> <span class="pre">tuple</span> <span class="pre">of</span> <span class="pre">(int,</span> <span class="pre">int)</span><a class="headerlink" href="#style-property-thumb_offset" title="Ссылка на это определение"></a></dt>
+<dd><p>Величина, на которую бегунок перекрывает части полосы, в
+пикселях. Чтобы левая и правая части полосы выглядели как единое целое, установите
+это значение равным половине ширины бегунка в пикселях. Это также может быть
+кортеж, в этом случае первое число используется для смещения
+левого/верхнего края бегунка, а второе — для смещения
+правого/нижнего края.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-mouse_alt">
+<span class="sig-name descname"><span class="pre">mouse</span></span> <span class="pre">-</span>&#160; <span class="pre">string</span><a class="headerlink" href="#style-property-mouse_alt" title="Ссылка на это определение"></a></dt>
+<dd><p>Стиль курсора мыши, который используется, когда кнопка находится в фокусе.
+Должен быть одним из стилей в <a class="reference internal" href="config.html#var-config.mouse"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.mouse</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-unscrollable">
+<span class="sig-name descname"><span class="pre">unscrollable</span></span> <span class="pre">-</span>&#160; <span class="pre">string</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-unscrollable" title="Ссылка на это определение"></a></dt>
+<dd><p>Определяет, что происходит, если полоса непрокручиваема (если её диапазон
+установлен в 0, как в случае с viewport, содержащим отображаемый элемент
+меньшего размера, чем сам viewport). Существует три возможных значения:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">None</span></code></dt><dd><p>Отрисовывает полосу как обычно.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;insensitive&quot;</span></code></dt><dd><p>Отрисовывает полосу в неактивном состоянии. Это позволяет
+полосе изменять свой стиль, чтобы отразить свою бесполезность.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;hide&quot;</span></code></dt><dd><p>Полностью отключает отрисовку полосы. Пространство
+для полосы будет выделено, но в нём ничего не будет нарисовано.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-keyboard_focus_alt">
+<span class="sig-name descname"><span class="pre">keyboard_focus</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-keyboard_focus_alt" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True (по умолчанию), эта кнопка может получить фокус через
+механизм фокуса клавиатуры, если она вообще может быть сфокусирована. Если False, механизм фокуса
+клавиатуры пропустит эту кнопку. (Механизм фокуса клавиатуры используется
+клавиатурами и клавиатуроподобными устройствами, такими как геймпады.)</p>
+</dd></dl>
+
+</section>
+<section id="box">
+<span id="box-style-properties"></span><h3>Свойства стиля контейнера (Box)<a class="headerlink" href="#box" title="Ссылка на этот заголовок"></a></h3>
+<p>Используются для горизонтальных и вертикальных контейнеров-компоновок (box layouts).</p>
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-spacing">
+<span class="sig-name descname"><span class="pre">spacing</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-spacing" title="Ссылка на это определение"></a></dt>
+<dd><p>Расстояние в пикселях между элементами этого контейнера.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-first_spacing">
+<span class="sig-name descname"><span class="pre">first_spacing</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-first_spacing" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, расстояние в пикселях между первым и вторым элементами
+этого контейнера. Переопределяет свойство spacing.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-box_reverse">
+<span class="sig-name descname"><span class="pre">box_reverse</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-box_reverse" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, размещение элементов в контейнере будет обратным.
+Когда это свойство равно True, hbox будет заполняться справа налево, а vbox —
+снизу вверх. По умолчанию False.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-box_wrap">
+<span class="sig-name descname"><span class="pre">box_wrap</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-box_wrap" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, контейнеры будут переносить содержимое, когда оно достигнет конца строки или столбца.
+Если False (по умолчанию), они будут выходить за пределы строки.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-box_wrap_spacing">
+<span class="sig-name descname"><span class="pre">box_wrap_spacing</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-box_wrap_spacing" title="Ссылка на это определение"></a></dt>
+<dd><p>Когда box_wrap равно True, это расстояние между перенесёнными строками
+или столбцами. (То есть, это вертикальное расстояние между строками в hbox
+с переносом и горизонтальное расстояние между столбцами в vbox с переносом.)</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-box_align">
+<span class="sig-name descname"><span class="pre">box_align</span></span> <span class="pre">-</span>&#160; <span class="pre">float</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-box_align" title="Ссылка на это определение"></a></dt>
+<dd><p>Определяет выравнивание строк или столбцов в контейнере. Если 0.0
+(по умолчанию), строки выравниваются по левому краю, а столбцы — по верхнему. Если 0.5,
+перенесённые строки будут центрированы.</p>
+<p>Когда это свойство не равно None, дочернему элементу не будет предложено дополнительное пространство
+при установке <a class="reference internal" href="#style-property-xfill"><code class="xref std std-propref docutils literal notranslate"><span class="pre">xfill</span></code></a> или <a class="reference internal" href="#style-property-yfill"><code class="xref std std-propref docutils literal notranslate"><span class="pre">yfill</span></code></a>, игнорируя позицию дочернего элемента
+в основном направлении контейнера.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-order_reverse">
+<span class="sig-name descname"><span class="pre">order_reverse</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-order_reverse" title="Ссылка на это определение"></a></dt>
+<dd><p>Если False (по умолчанию), элементы в контейнере будут отрисовываться от первого к последнему,
+причём первый элемент будет находиться под вторым, и так далее. Если True,
+этот порядок будет обратным, и первый элемент в контейнере будет находиться над
+всеми остальными элементами.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-box_justify">
+<span class="sig-name descname"><span class="pre">box_justify</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span> <span class="pre">or</span> <span class="pre">&quot;first&quot;</span> <span class="pre">or</span> <span class="pre">&quot;all&quot;</span><a class="headerlink" href="#style-property-box_justify" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не False, содержимое контейнера будет выровнено по ширине — то есть,
+расстояние между элементами внутри контейнера будет скорректировано так, чтобы они равномерно
+занимали всё пространство контейнера. True приведёт к выравниванию всех строк, кроме последней.
+&quot;first&quot; приведёт к выравниванию только первой строки. &quot;all&quot;
+приведёт к выравниванию всех строк, включая последнюю. Выровненные
+строки не подчиняются box_align, за исключением случаев, когда в строке только один элемент.</p>
+<p>Когда это свойство не равно false, дочернему элементу не будет предложено дополнительное пространство
+при установке <a class="reference internal" href="#style-property-xfill"><code class="xref std std-propref docutils literal notranslate"><span class="pre">xfill</span></code></a> или <a class="reference internal" href="#style-property-yfill"><code class="xref std std-propref docutils literal notranslate"><span class="pre">yfill</span></code></a>, игнорируя позицию дочернего элемента
+в основном направлении контейнера.</p>
+</dd></dl>
+
+</section>
+<section id="grid">
+<span id="grid-style-properties"></span><h3>Свойства стиля сетки (Grid)<a class="headerlink" href="#grid" title="Ссылка на этот заголовок"></a></h3>
+<p>Это свойства, используемые отображаемыми элементами grid и vpgrid.
+<a class="reference internal" href="#margin-style-properties"><span class="std std-ref">Свойства полей (margin)</span></a> также являются частью этой группы.</p>
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-spacing_alt">
+<span class="sig-name descname"><span class="pre">spacing</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-spacing_alt" title="Ссылка на это определение"></a></dt>
+<dd><p>Расстояние в пикселях между ячейками сетки.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-xspacing">
+<span class="sig-name descname"><span class="pre">xspacing</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-xspacing" title="Ссылка на это определение"></a></dt>
+<dd><p>Расстояние в пикселях между ячейками сетки по горизонтали.
+Имеет приоритет над свойством spacing, если не равно None.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-yspacing">
+<span class="sig-name descname"><span class="pre">yspacing</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span> <span class="pre">or</span> <span class="pre">None</span><a class="headerlink" href="#style-property-yspacing" title="Ссылка на это определение"></a></dt>
+<dd><p>Расстояние в пикселях между ячейками сетки по вертикали.
+Имеет приоритет над свойством spacing, если не равно None.</p>
+</dd></dl>
+
+</section>
+<section id="fixed">
+<span id="fixed-style-properties"></span><h3>Свойства стиля фиксированной компоновки (Fixed)<a class="headerlink" href="#fixed" title="Ссылка на этот заголовок"></a></h3>
+<p>Используются с фиксированной компоновкой (fixed layout).</p>
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-fit_first">
+<span class="sig-name descname"><span class="pre">fit_first</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span> <span class="pre">or</span> <span class="pre">&quot;width&quot;</span> <span class="pre">or</span> <span class="pre">&quot;height&quot;</span><a class="headerlink" href="#style-property-fit_first" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, размер фиксированной компоновки уменьшается до размера
+первого элемента в ней. Если &quot;width&quot;, изменяется только ширина
+(компоновка будет заполнять экран по вертикали). Аналогично, &quot;height&quot; изменяет
+только высоту.</p>
+<p>Позиция дочернего элемента игнорируется для целей fit_first.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-xfit">
+<span class="sig-name descname"><span class="pre">xfit</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-xfit" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, размер фиксированной компоновки уменьшается по горизонтали, чтобы соответствовать
+правому краю самого правого дочернего элемента.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-yfit">
+<span class="sig-name descname"><span class="pre">yfit</span></span> <span class="pre">-</span>&#160; <span class="pre">boolean</span><a class="headerlink" href="#style-property-yfit" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, размер фиксированной компоновки уменьшается по вертикали, чтобы соответствовать
+нижнему краю самого нижнего дочернего элемента.</p>
+</dd></dl>
+
+<p>Когда эти свойства заданы, дочерним элементам сначала предлагается
+вся область, выделенная для fixed-компоновки её родителем. После того как размер
+и расположение дочерних элементов становятся известны, эти свойства используются
+для определения размера самой fixed-компоновки.</p>
+</section>
+<section id="margin">
+<span id="margin-style-properties"></span><h3>Свойства полей (Margin)<a class="headerlink" href="#margin" title="Ссылка на этот заголовок"></a></h3>
+<p>Свойства полей используются для добавления прозрачного пространства вокруг
+некоторых отображаемых элементов. В первую очередь: окон, рамок, кнопок и вокруг
+сеток grid или vpgrid.</p>
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-left_margin">
+<span class="sig-name descname"><span class="pre">left_margin</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-left_margin" title="Ссылка на это определение"></a></dt>
+<dd><p>Размер прозрачного пространства слева от отображаемого элемента в
+пикселях.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-right_margin">
+<span class="sig-name descname"><span class="pre">right_margin</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-right_margin" title="Ссылка на это определение"></a></dt>
+<dd><p>Размер прозрачного пространства справа от отображаемого элемента в
+пикселях.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-xmargin">
+<span class="sig-name descname"><span class="pre">xmargin</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-xmargin" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке одинаковых значений для left_margin и right_margin.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-top_margin">
+<span class="sig-name descname"><span class="pre">top_margin</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-top_margin" title="Ссылка на это определение"></a></dt>
+<dd><p>Размер прозрачного пространства над отображаемым элементом в пикселях.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-bottom_margin">
+<span class="sig-name descname"><span class="pre">bottom_margin</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-bottom_margin" title="Ссылка на это определение"></a></dt>
+<dd><p>Размер прозрачного пространства под отображаемым элементом в пикселях.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-ymargin">
+<span class="sig-name descname"><span class="pre">ymargin</span></span> <span class="pre">-</span>&#160; <span class="pre">int</span><a class="headerlink" href="#style-property-ymargin" title="Ссылка на это определение"></a></dt>
+<dd><p>Эквивалентно установке одинаковых значений для top_margin и bottom_margin.</p>
+</dd></dl>
+
+<dl class="std style-property">
+<dt class="sig sig-object std" id="style-property-margin">
+<span class="sig-name descname"><span class="pre">margin</span></span> <span class="pre">-</span>&#160; <span class="pre">tuple</span><a class="headerlink" href="#style-property-margin" title="Ссылка на это определение"></a></dt>
+<dd><p>При задании кортежа из двух элементов эквивалентно установке xmargin и
+ymargin. При задании кортежа из четырёх элементов эквивалентно
+установке left_margin, top_margin, right_margin и bottom_margin.</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="style.html" class="btn btn-neutral float-left" title="Стили" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="screens.html" class="btn btn-neutral float-right" title="Экраны и язык экранов" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

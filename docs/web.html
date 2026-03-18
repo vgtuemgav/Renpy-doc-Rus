@@ -1,0 +1,499 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web / HTML5 &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/web.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Chrome OS/Chromebook" href="chromeos.html" />
+    <link rel="prev" title="iOS" href="ios.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Web / HTML5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Ограничения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Поддерживаемые браузеры</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Сборка игры</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Сгенерированные папки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Загрузка игры</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#presplash">Предзагрузочное изображение (Presplash)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">Иконка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#progressive-downloading">Прогрессивная загрузка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">Аудио и видео</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#javascript">Javascript</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.emscripten.run_script"><code class="docutils literal notranslate"><span class="pre">renpy.emscripten.run_script()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.emscripten.run_script_int"><code class="docutils literal notranslate"><span class="pre">renpy.emscripten.run_script_int()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.emscripten.run_script_string"><code class="docutils literal notranslate"><span class="pre">renpy.emscripten.run_script_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">Меню-гамбургер</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Web / HTML5</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/web.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="web-html5">
+<h1>Web / HTML5<a class="headerlink" href="#web-html5" title="Ссылка на этот заголовок"></a></h1>
+<p>Ren'Py поддерживает запуск игр в веб-браузере. Это достигается с помощью
+версии Ren'Py, скомпилированной в WebAssembly, что позволяет выполнять
+в браузере как можно большую часть Ren'Py. На этой странице будут объяснены
+некоторые ограничения запуска в браузере, даны советы по разработке
+игры для хорошей работы в вебе и описано, как собрать вашу игру для веба.</p>
+<section id="id1">
+<h2>Ограничения<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
+<p>Как и все игры, работающие в веб-браузере, игры на Ren'Py имеют ряд
+ограничений. Некоторые из них налагаются песочницей браузера,
+в то время как другие были выбраны, чтобы уменьшить объём данных, который
+необходимо загрузить перед запуском игры.</p>
+<p>Некоторые ограничения:</p>
+<ul class="simple">
+<li><p>Воспроизведение видео осуществляется с помощью встроенного в браузер проигрывателя. Это
+ограничивает форматы, которые могут быть воспроизведены, теми, которые
+поддерживаются веб-браузером, и поддерживается только <a class="reference internal" href="movie.html#renpy.movie_cutscene" title="renpy.movie_cutscene"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.movie_cutscene()</span></code></a>.</p></li>
+<li><p>Воспроизведение аудио может использовать аудиоформат браузера, что быстро,
+или может использовать встроенную систему воспроизведения аудио Ren'Py,
+которая медленнее, но поддерживает больше форматов. См. раздел ниже.</p></li>
+<li><p>Веб-порт не поддерживает многопоточность, поэтому функции вроде
+<a class="reference internal" href="other.html#renpy.invoke_in_thread" title="renpy.invoke_in_thread"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.invoke_in_thread()</span></code></a> и Python-модуль <code class="docutils literal notranslate"><span class="pre">threading</span></code> не
+поддерживаются. Это также может ограничивать производительность некоторых игр — на десктопных
+и мобильных платформах Ren'Py может предзагружать изображения в фоновом режиме, но
+на веб-порте это невозможно, и поэтому загрузка изображений может вызывать
+падение частоты кадров.</p></li>
+<li><p>Сетевые функции не поддерживаются. Это может показаться удивительным, но
+песочница браузера не позволяет Ren'Py делать произвольные сетевые
+запросы. Это означает, что сокеты и библиотека requests будут возвращать
+ошибки при запуске в веб-браузере.</p></li>
+<li><p>Live2D не поддерживается.</p></li>
+</ul>
+<p>Кроме того, есть некоторые ограничения, которые могут быть вызваны тем, где вы
+размещаете свою игру. Некоторые хостинг-провайдеры ограничивают размер
+игры и количество файлов, которые могут быть включены в проект. Например,
+<a class="reference external" href="https://itch.io/docs/creators/html5#zip-file-requirements">itch.io</a>
+документирует эти ограничения. Браузеры накладывают другие ограничения —
+файлы размером более 50 МБ не будут кэшироваться, что означает,
+что большие файлы будут загружаться каждый раз при запуске вашей игры.</p>
+</section>
+<section id="id2">
+<h2>Поддерживаемые браузеры<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Мы стараемся поддерживать работу Ren'Py в последних версиях вечнозелёных
+браузеров, таких как Chrome, Edge, Firefox и Safari, а также в мобильных версиях
+этих браузеров на iOS и Android. Ren'Py может работать и в других браузерах,
+но это зависит от поддержки браузером WebAssembly и других
+функций, необходимых Ren'Py.</p>
+<p>Ren'Py требует множество современных веб-функций и поэтому не будет работать, если эти
+функции заблокированы или отключены.</p>
+<p>Хотя мы стараемся поддерживать работу Ren'Py, Ren'Py может использовать
+возможности браузера на пределе, и поэтому возможно, что изменения
+в браузерах сделают их неспособными запускать игры. Мы работаем с
+разработчиками браузеров, чтобы обеспечить их работоспособность, но
+возможно, что изменение в браузере потребует обновления вашей игры.</p>
+</section>
+<section id="id3">
+<h2>Сборка игры<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Игры Ren'Py можно упаковать для веба, используя раздел &quot;Web (Beta)&quot;
+в лаунчере. В нём есть четыре основные опции.</p>
+<dl>
+<dt>Собрать веб-приложение (Build Web Application)</dt><dd><p>Эта опция упаковывает вашу игру для веба. Будет создан файл web.zip,
+содержащий всю вашу игру, и папка, содержащая каждый
+из отдельных файлов, составляющих вашу игру. (Запуск игры
+непосредственно из этой папки не поддерживается, так как игра должна быть
+размещена на веб-сервере.)</p>
+</dd>
+<dt>Собрать и открыть в браузере (Build and Open in Browser)</dt><dd><p>Эта опция упаковывает вашу игру для веба, а затем открывает её в локальном
+веб-браузере для тестирования. На вашем компьютере будет запущен веб-сервер,
+который будет отдавать игру, а затем откроется браузер, обращающийся к
+этому веб-серверу.</p>
+<p>Это обычный способ тестирования вашей игры.</p>
+</dd>
+<dt>Открыть в браузере (Open in Browser)</dt><dd><p>Эта опция открывает локальный веб-браузер, который обращается к веб-серверу
+на вашем компьютере, без полного процесса сборки.</p>
+</dd>
+<dt>Открыть папку сборки (Open build Directory)</dt><dd><p>Эта опция открывает папку, содержащую файлы, созданные в процессе сборки.</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h2>Сгенерированные папки<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<p>Допустим, ваш проект находится в папке renpy/projects/main/yourproject. Тогда вы
+найдёте новую папку renpy/projects/main/yourproject-1.0-dists. Эта папка
+содержит подпапку yourproject-1.0-web, и её заархивированную версию,
+файл yourproject-1.0-web.zip.</p>
+</section>
+<section id="id5">
+<h2>Загрузка игры<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h2>
+<p>После того как вы собрали игру, вам нужно будет загрузить её на общедоступный
+веб-сервер. Для игровых хостингов, таких как itch.io, вам нужно будет загрузить
+файл web.zip, который содержит все файлы. Для других вариантов хостинга
+вам нужно будет загрузить каждый файл из сгенерированного каталога web.</p>
+<p>Если вы размещаете игру самостоятельно, убедитесь, что ваш веб-сервер
+отдаёт файлы .wasm с MIME-типом application/wasm. Это
+ускорит загрузку игры и предотвратит появление предупреждения.</p>
+<p>Некоторые веб-хосты могут отклонять файл game.zip. В таком случае переименуйте
+его в game.data и отредактируйте index.html, изменив game.zip на game.data.</p>
+</section>
+<section id="presplash">
+<span id="web-presplash"></span><h2>Предзагрузочное изображение (Presplash)<a class="headerlink" href="#presplash" title="Ссылка на этот заголовок"></a></h2>
+<p>Веб-платформа по умолчанию использует стандартное предзагрузочное изображение. Чтобы его переопределить,
+вы можете предоставить изображение с именем <cite>web-presplash</cite> в формате <cite>.jpg</cite>, <cite>.png</cite> или <cite>.webp</cite>,
+и оно заменит стандартное.</p>
+<p>Формат <cite>.webp</cite> позволяет использовать анимированное предзагрузочное изображение, если это необходимо.</p>
+</section>
+<section id="id6">
+<h2>Иконка<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h2>
+<p>Иконку веб-страницы можно настроить, поместив файл изображения с именем <cite>web-icon.png</cite>
+в базовый каталог вашего проекта. Это изображение должно иметь минимальное разрешение
+512x512, а его ширина и высота должны быть равны.
+Если пользовательское изображение не предоставлено, используется стандартная иконка Ren'Py.</p>
+</section>
+<section id="progressive-downloading">
+<span id="id7"></span><h2>Прогрессивная загрузка<a class="headerlink" href="#progressive-downloading" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py поддерживает функцию прогрессивной загрузки, которая настраивается
+путем редактирования файла с именем <code class="docutils literal notranslate"><span class="pre">progressive_download.txt</span></code> в базовом каталоге
+вашего проекта. Если этого файла не существует, он будет создан при первой
+сборке вашей игры для веба. Содержимое этого файла по умолчанию таково:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># RenPyWeb progressive download rules - first match applies&quot;</span>
+<span class="c1"># &#39;+&#39; = progressive download, &#39;-&#39; = keep in game.data (default)</span>
+<span class="c1"># See https://www.renpy.org/doc/html/build.html#classifying-and-ignoring-files for matching</span>
+<span class="c1">#</span>
+<span class="c1"># +/- тип путь</span>
+<span class="o">-</span> <span class="k">image</span> <span class="n">game</span><span class="o">/</span><span class="n">gui</span><span class="o">/**</span>
+<span class="o">+</span> <span class="k">image</span> <span class="n">game</span><span class="o">/**</span>
+<span class="o">+</span> <span class="k">music</span> <span class="n">game</span><span class="o">/</span><span class="n">audio</span><span class="o">/**</span>
+<span class="o">+</span> <span class="k">voice</span> <span class="n">game</span><span class="o">/</span><span class="k">voice</span><span class="o">/**</span>
+</pre></div>
+</div>
+<p>Этот файл определяет, какие файлы загружаются до начала игры, а какие —
+по мере необходимости. Строки, начинающиеся с #, являются комментариями.
+Строки, начинающиеся с -, соответствуют файлам, которые должны быть
+загружены при запуске игры — обычно это файлы, используемые на
+начальном экране. Строки, начинающиеся с +, соответствуют файлам, которые
+должны загружаться по мере необходимости.</p>
+<p>Второй столбец определяет тип файла и то, как Ren'Py обрабатывает эти
+файлы. Типы бывают следующими:</p>
+<dl>
+<dt>image</dt><dd><p>Файлы изображений заменяются пикселизированной версией изображения, а
+затем заменяются полным изображением, когда оно загружается. Во многих
+случаях Ren'Py может предсказать и загрузить изображение до того, как
+оно понадобится, поэтому пикселизированное изображение будет видно только
+тогда, когда эта загрузка не может завершиться вовремя.</p>
+<p>Если полное изображение так и не загружается, вероятно, на
+веб-сервере находятся неверные данные.</p>
+</dd>
+<dt>music</dt><dd><p>Музыкальные файлы заменяются тишиной и начинают воспроизводиться после
+завершения загрузки.</p>
+</dd>
+<dt>voice</dt><dd><p>Голосовые файлы заменяются тишиной и начинают воспроизводиться после
+завершения загрузки.</p>
+</dd>
+</dl>
+<p>Наконец, последний столбец — это путь для сопоставления.</p>
+</section>
+<section id="id8">
+<h2>Аудио и видео<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h2>
+<p>Из-за ограничений в браузере, предназначенных для предотвращения
+воспроизведения аудио в рекламе, звуковые и музыкальные файлы не будут
+воспроизводиться, пока пользователь хотя бы раз не кликнет внутри игры.</p>
+<p>В Ren'Py есть два способа воспроизведения аудиофайлов. Первый — использовать
+систему webaudio внутри браузера, а второй — использовать собственную
+систему воспроизведения аудио. Система webaudio быстрее, но в Safari
+формат OGG не поддерживается.</p>
+<p>Переменная <a class="reference internal" href="config.html#var-config.webaudio_required_types"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.webaudio_required_types</span></code></a> контролирует, какая аудиосистема
+используется, проверяя браузер на поддерживаемые им типы. Если ваша игра
+использует только mp3, это можно изменить с помощью:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">webaudio_required_types</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;audio/mpeg&quot;</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Воспроизведение видео также поддерживается. Его контролируют две переменные:</p>
+<dl>
+<dt><a class="reference internal" href="config.html#var-config.web_video_base"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.web_video_base</span></code></a></dt><dd><p>Это URL, который добавляется к имени файла видео, чтобы получить полный URL
+для воспроизведения видео. Он может включать в себя каталоги, так что
+&quot;<a class="reference external" href="https://share.renpy.org/movies-for-mygame/">https://share.renpy.org/movies-for-mygame/</a>&quot; также будет допустимым значением.</p>
+<p>Это полезно, если вы хотите разместить видео на другом сервере,
+отличном от сервера с остальной частью вашей игры.</p>
+</dd>
+<dt><code class="xref std std-var docutils literal notranslate"><span class="pre">config.web_video_prompt</span></code></dt><dd><p>В Mobile Safari на iOS по умолчанию игроку потребуется нажать, чтобы
+воспроизвести видео со звуком. Эта переменная задаёт сообщение, которое
+используется для того, чтобы предложить игрокам нажать.</p>
+</dd>
+</dl>
+<p>Есть ещё одна функция, связанная с Safari. Поскольку Safari не поддерживает
+современные форматы, такие как webm, поддержка веб-видео имеет запасной
+вариант (fallback). Если первая попытка не удалась, будет предпринята попытка
+загрузить URL с расширением, заменённым на .mp4. В Safari произойдет следующее:
+будет предпринята попытка загрузить <a class="reference external" href="https://share.renpy.org/oa4_launch.webm">https://share.renpy.org/oa4_launch.webm</a>,
+она не удастся как неподдерживаемая, а затем, если он существует, будет
+предпринята попытка загрузить <a class="reference external" href="https://share.renpy.org/oa4_launch.mp4">https://share.renpy.org/oa4_launch.mp4</a>.</p>
+</section>
+<section id="javascript">
+<h2>Javascript<a class="headerlink" href="#javascript" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py может выполнять Javascript с помощью трёх функций в модуле
+<code class="docutils literal notranslate"><span class="pre">emscripten</span></code>. Этот модуль доступен как <a class="reference internal" href="other.html#var-renpy.emscripten"><code class="xref std std-var docutils literal notranslate"><span class="pre">renpy.emscripten</span></code></a> при
+запуске на веб-платформе. При запуске не на веб-платформе
+renpy.emscripten имеет значение False.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.emscripten.run_script">
+<span class="sig-prename descclassname"><span class="pre">renpy.emscripten.</span></span><span class="sig-name descname"><span class="pre">run_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.emscripten.run_script" title="Ссылка на это определение"></a></dt>
+<dd><p>Выполняет указанный Javascript-скрипт. Эта функция не возвращает результат.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.emscripten.run_script_int">
+<span class="sig-prename descclassname"><span class="pre">renpy.emscripten.</span></span><span class="sig-name descname"><span class="pre">run_script_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.emscripten.run_script_int" title="Ссылка на это определение"></a></dt>
+<dd><p>Выполняет указанный Javascript-скрипт и возвращает его результат в виде
+целого числа.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.emscripten.run_script_string">
+<span class="sig-prename descclassname"><span class="pre">renpy.emscripten.</span></span><span class="sig-name descname"><span class="pre">run_script_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.emscripten.run_script_string" title="Ссылка на это определение"></a></dt>
+<dd><p>Выполняет указанный Javascript-скрипт и возвращает его результат в виде
+строки.</p>
+</dd></dl>
+
+<p>Вы можете добавлять функции Javascript в свою игру, редактируя файл <code class="docutils literal notranslate"><span class="pre">web/index.html</span></code>
+и включая скрипты, которые будет вызывать Ren'Py. Обратите внимание, что этот
+файл может быть заменён при обновлении Ren'Py.</p>
+<p>Javascript также может вызывать Ren'Py с помощью функций window.renpy_exc,
+window.renpy_get и window.renpy_set. Для ознакомления с документацией по этим
+функциям, пожалуйста, прочитайте <code class="docutils literal notranslate"><span class="pre">web/renpy-pre.js</span></code>.</p>
+</section>
+<section id="id9">
+<h2>Меню-гамбургер<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h2>
+<p>Меню-гамбургер — это меню, которое появляется в верхнем левом углу игры.
+У него есть три опции:</p>
+<dl class="simple">
+<dt>Импорт сохранений (Import saves)</dt><dd><p>Позволяет пользователю загружать файлы сохранений Ren'Py и персистентные
+данные в веб-браузер.</p>
+</dd>
+<dt>Экспорт сохранений (Export saves)</dt><dd><p>Позволяет пользователю скачать zip-файл со своими сохранениями и
+персистентными данными. Этот файл можно загрузить в другой веб-браузер,
+сохранить для резервного копирования или даже распаковать и загрузить в
+десктопную версию игры.</p>
+</dd>
+<dt>Лог Ren'Py (Ren'Py log)</dt><dd><p>Скачивает лог Ren'Py, который содержит отладочную информацию.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="ios.html" class="btn btn-neutral float-left" title="iOS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="chromeos.html" class="btn btn-neutral float-right" title="Chrome OS/Chromebook" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

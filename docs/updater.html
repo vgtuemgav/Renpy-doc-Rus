@@ -1,0 +1,530 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTTPS/HTTP Updater &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/updater.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Загрузчик для больших игр на мобильных устройствах" href="downloader.html" />
+    <link rel="prev" title="Внутриигровые покупки" href="iap.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">HTTPS/HTTP Updater</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Требования к серверу</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Сборка обновления</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Функции</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#updater.Update"><code class="docutils literal notranslate"><span class="pre">updater.Update()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#updater.UpdateVersion"><code class="docutils literal notranslate"><span class="pre">updater.UpdateVersion()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#updater.can_update"><code class="docutils literal notranslate"><span class="pre">updater.can_update()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#updater.get_installed_packages"><code class="docutils literal notranslate"><span class="pre">updater.get_installed_packages()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#updater.update"><code class="docutils literal notranslate"><span class="pre">updater.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Экран</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#updater.Updater"><code class="docutils literal notranslate"><span class="pre">updater.Updater</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#updater.Updater.state"><code class="docutils literal notranslate"><span class="pre">updater.Updater.state</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updater.Updater.message"><code class="docutils literal notranslate"><span class="pre">updater.Updater.message</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updater.Updater.progress"><code class="docutils literal notranslate"><span class="pre">updater.Updater.progress</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updater.Updater.can_proceed"><code class="docutils literal notranslate"><span class="pre">updater.Updater.can_proceed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updater.Updater.proceed"><code class="docutils literal notranslate"><span class="pre">updater.Updater.proceed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updater.Updater.can_cancel"><code class="docutils literal notranslate"><span class="pre">updater.Updater.can_cancel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updater.Updater.cancel"><code class="docutils literal notranslate"><span class="pre">updater.Updater.cancel</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">HTTPS/HTTP Updater</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/updater.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="https-http-updater">
+<h1>HTTPS/HTTP Updater<a class="headerlink" href="#https-http-updater" title="Ссылка на этот заголовок"></a></h1>
+<p>В Ren'Py встроено средство обновления (updater), которое может автоматически
+загружать и устанавливать обновления для игры Ren'Py с веб-хоста. Обновления
+работают на десктопных платформах, за исключением приложений для macOS.</p>
+<p>Во время этого процесса средство обновления Ren'Py показывает экран обновления,
+предлагая пользователю продолжить и позволяя отменить операцию при
+необходимости.</p>
+<p>Поддерживаются два формата обновлений. Современный формат называется rpu
+и был представлен в Ren'Py 8.2. Старый формат, называемый zsync, устарел,
+но может быть сгенерирован для обновления со старых версий.</p>
+<section id="id1">
+<h2>Требования к серверу<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
+<p>Средство обновления требует, чтобы вы предоставили свой собственный хостинг.
+Вы должны иметь возможность загружать файлы обновлений, переходя по
+соответствующему URL напрямую, и ваш сервер должен поддерживать HTTP range
+queries (запросы диапазонов).</p>
+</section>
+<section id="id2">
+<h2>Сборка обновления<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Обновления создаются автоматически при сборке дистрибутивов. Чтобы собрать
+обновление, установите <a class="reference internal" href="build.html#var-build.include_update"><code class="xref std std-var docutils literal notranslate"><span class="pre">build.include_update</span></code></a> в True в options.rpy. Это
+разблокирует опцию &quot;Build Updates&quot; в разделе &quot;Build Distributions&quot;
+лаунчера. Отметьте эту опцию, и Ren'Py создаст файлы обновления.</p>
+<p>Файлы обновления состоят из:</p>
+<dl class="simple">
+<dt>updates.json</dt><dd><p>Индекс доступных обновлений и их версий.</p>
+</dd>
+<dt>updates.ecdsa</dt><dd><p>Подпись файла updates.json, используемая для проверки того, что он не
+был изменён.</p>
+</dd>
+<dt>rpu/</dt><dd><p>Каталог rpu содержит метаданные и данные, используемые для обновлений.</p>
+</dd>
+</dl>
+<p>Вы должны загрузить их в одно и то же место на вашем веб-сервере.</p>
+</section>
+<section id="id3">
+<h2>Функции<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Чтобы запустить обновление, вызовите либо updater.update, либо
+действие updater.Update.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="updater.Update">
+<span class="sig-prename descclassname"><span class="pre">updater.</span></span><span class="sig-name descname"><span class="pre">Update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#updater.Update" title="Ссылка на это определение"></a></dt>
+<dd><p>Действие, которое вызывает <a class="reference internal" href="#updater.update" title="updater.update"><code class="xref py py-func docutils literal notranslate"><span class="pre">updater.update()</span></code></a>. Все аргументы
+сохраняются и передаются в эту функцию.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="updater.UpdateVersion">
+<span class="sig-prename descclassname"><span class="pre">updater.</span></span><span class="sig-name descname"><span class="pre">UpdateVersion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">21600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#updater.UpdateVersion" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта функция связывается с сервером по адресу <cite>url</cite> и определяет, доступна ли
+по этому адресу более новая версия программного обеспечения. Если да, функция
+возвращает новую версию. В противном случае она возвращает None.</p>
+<p>Поскольку обращение к серверу может занять некоторое время, эта функция запускает
+фоновый поток и немедленно возвращает версию, полученную при последнем
+обращении к серверу, или None, если обращений к серверу не было. Фоновый
+поток перезапустит текущее взаимодействие после установления связи с сервером,
+что приведёт к обновлению экранов, вызывающих эту функцию.</p>
+<p>Обращение к каждому url происходит не более одного раза за сессию Ren'Py и не
+чаще, чем каждые <cite>check_interval</cite> секунд. Когда обращение к серверу не
+выполняется, возвращаются кэшированные данные.</p>
+<p>Дополнительные именованные аргументы (включая <cite>simulate</cite>) передаются в механизм
+обновления, как если бы они были переданы в <a class="reference internal" href="#updater.update" title="updater.update"><code class="xref py py-func docutils literal notranslate"><span class="pre">updater.update()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="updater.can_update">
+<span class="sig-prename descclassname"><span class="pre">updater.</span></span><span class="sig-name descname"><span class="pre">can_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#updater.can_update" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает true, если обновление может быть успешно выполнено. Возвращает false,
+если обновление совершенно невозможно (например, если папка с обновлениями была
+удалена).</p>
+<p>Обратите внимание, что эта функция не определяет, доступно ли обновление
+в действительности. Для этого используйте <a class="reference internal" href="#updater.UpdateVersion" title="updater.UpdateVersion"><code class="xref py py-func docutils literal notranslate"><span class="pre">updater.UpdateVersion()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="updater.get_installed_packages">
+<span class="sig-prename descclassname"><span class="pre">updater.</span></span><span class="sig-name descname"><span class="pre">get_installed_packages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#updater.get_installed_packages" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает список имён установленных DLC-пакетов.</p>
+<dl class="simple">
+<dt><cite>base</cite></dt><dd><p>Базовая папка для обновления. По умолчанию используется базовая папка
+текущего проекта.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="updater.update">
+<span class="sig-prename descclassname"><span class="pre">updater.</span></span><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">public_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confirm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefer_rpu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_empty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">done_pause</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_cancel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'updater'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#updater.update" title="Ссылка на это определение"></a></dt>
+<dd><p>Обновляет текущую игру Ren'Py до последней версии.</p>
+<dl>
+<dt><cite>url</cite></dt><dd><p>URL к файлу updates.json.</p>
+</dd>
+<dt><cite>base</cite></dt><dd><p>Базовая папка для обновления. По умолчанию — папка текущей игры.
+(Обычно этот параметр можно игнорировать.)</p>
+</dd>
+<dt><cite>force</cite></dt><dd><p>Принудительно выполнить обновление, даже если номера версий совпадают.
+(Используется для тестирования.)</p>
+</dd>
+<dt><cite>public_key</cite></dt><dd><p>Путь к PEM-файлу, содержащему публичный ключ, по которому
+проверяется подпись обновления. (Обычно этот параметр можно игнорировать.)</p>
+</dd>
+<dt><cite>simulate</cite></dt><dd><p>Используется для тестирования интерфейсов обновления без фактического выполнения
+обновления. Может принимать значения:</p>
+<ul class="simple">
+<li><p>None, чтобы выполнить обновление.</p></li>
+<li><p>&quot;available&quot; для тестирования случая, когда обновление доступно.</p></li>
+<li><p>&quot;not_available&quot; для тестирования случая, когда обновление недоступно.</p></li>
+<li><p>&quot;error&quot; для тестирования ошибки обновления.</p></li>
+</ul>
+</dd>
+<dt><cite>add</cite></dt><dd><p>Список пакетов для добавления во время этого обновления. Необходимо
+только для DLC.</p>
+</dd>
+<dt><cite>restart</cite></dt><dd><p>Если true, игра будет перезапущена по завершении обновления. Если
+указано &quot;utter&quot;, будет вызвана функция <code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.utter_restart()</span></code>. Если False,
+обновление просто завершится.</p>
+</dd>
+<dt><cite>confirm</cite></dt><dd><p>Должен ли Ren'Py запрашивать у пользователя подтверждение обновления? Если False,
+обновление продолжится без подтверждения.</p>
+</dd>
+<dt><cite>patch</cite></dt><dd><p>Если true, Ren'Py попытается применить патч к игре, загружая только
+изменённые данные. Если false, Ren'Py загрузит полную копию
+игры и обновит её из этой копии. Этот параметр автоматически устанавливается
+в false, если url не начинается с &quot;http:&quot;.</p>
+<p>Игнорируется, если используется формат обновления RPU.</p>
+</dd>
+<dt><cite>prefer_rpu</cite></dt><dd><p>Если True, Ren'Py будет предпочитать формат RPU для обновлений, если
+доступны и zsync, и RPU.</p>
+</dd>
+<dt><cite>allow_empty</cite></dt><dd><p>Если True, Ren'Py разрешит обновление, даже если базовая папка
+не содержит информации для обновления. (В этом случае должен
+быть предоставлен параметр <cite>add</cite>).</p>
+</dd>
+<dt><cite>done_pause</cite></dt><dd><p>Если true, игра приостановится после завершения обновления. Если false,
+она немедленно продолжит выполнение (перезапустится или вернётся).</p>
+</dd>
+<dt><cite>allow_cancel</cite></dt><dd><p>Если true, пользователь сможет отменить обновление. Если false,
+пользователь не сможет отменить обновление.</p>
+</dd>
+<dt><cite>screen</cite></dt><dd><p>Имя экрана для использования.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="id4">
+<h2>Экран<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<p>Чтобы настроить внешний вид средства обновления, вы можете переопределить экран <code class="docutils literal notranslate"><span class="pre">updater</span></code>.
+Вот пример такого экрана:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">screen</span> <span class="n">updater</span><span class="p">(</span><span class="n">u</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+   <span class="k">add</span> <span class="s2">&quot;#000&quot;</span>
+
+   <span class="k">frame</span><span class="p">:</span>
+      <span class="na">style_group</span> <span class="s2">&quot;&quot;</span>
+
+      <span class="k">has</span> <span class="k">side</span> <span class="s2">&quot;t c b&quot;</span><span class="p">:</span>
+         <span class="na">spacing</span> <span class="n">gui</span><span class="o">.</span><span class="n">_scale</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+      <span class="k">label</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Updater&quot;</span><span class="p">)</span>
+
+      <span class="k">fixed</span><span class="p">:</span>
+
+         <span class="k">vbox</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">u</span><span class="o">.</span><span class="n">ERROR</span><span class="p">:</span>
+               <span class="k">text</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Произошла ошибка:&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">u</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">u</span><span class="o">.</span><span class="n">CHECKING</span><span class="p">:</span>
+               <span class="k">text</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Проверка обновлений.&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">u</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">u</span><span class="o">.</span><span class="n">UPDATE_NOT_AVAILABLE</span><span class="p">:</span>
+               <span class="k">text</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Программа обновлена до последней версии.&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">u</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">u</span><span class="o">.</span><span class="n">UPDATE_AVAILABLE</span><span class="p">:</span>
+               <span class="k">text</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;[u.version] доступна. Вы хотите её установить?&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">u</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">u</span><span class="o">.</span><span class="n">PREPARING</span><span class="p">:</span>
+               <span class="k">text</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Подготовка к загрузке обновлений.&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">u</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">u</span><span class="o">.</span><span class="n">DOWNLOADING</span><span class="p">:</span>
+               <span class="k">text</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Загрузка обновлений.&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">u</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">u</span><span class="o">.</span><span class="n">UNPACKING</span><span class="p">:</span>
+               <span class="k">text</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Распаковка обновлений.&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">u</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">u</span><span class="o">.</span><span class="n">FINISHING</span><span class="p">:</span>
+               <span class="k">text</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Завершение.&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">u</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">u</span><span class="o">.</span><span class="n">DONE</span><span class="p">:</span>
+               <span class="k">text</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Обновления установлены. Программа будет перезапущена.&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">u</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">u</span><span class="o">.</span><span class="n">DONE_NO_RESTART</span><span class="p">:</span>
+               <span class="k">text</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Обновления установлены.&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">u</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">u</span><span class="o">.</span><span class="n">CANCELLED</span><span class="p">:</span>
+               <span class="k">text</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Обновления были отменены.&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">message</span> <span class="k">is</span> <span class="k">not</span> <span class="kc">None</span><span class="p">:</span>
+               <span class="k">null</span> <span class="na">height</span> <span class="n">gui</span><span class="o">.</span><span class="n">_scale</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+               <span class="k">text</span> <span class="s2">&quot;[u.message!q]&quot;</span>
+
+            <span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">progress</span> <span class="k">is</span> <span class="k">not</span> <span class="kc">None</span><span class="p">:</span>
+               <span class="k">null</span> <span class="na">height</span> <span class="n">gui</span><span class="o">.</span><span class="n">_scale</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+               <span class="k">bar</span> <span class="na">value</span> <span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">progress</span> <span class="k">or</span> <span class="mf">0.0</span><span class="p">)</span> <span class="na">range</span> <span class="mf">1.0</span> <span class="k">style</span> <span class="s2">&quot;_bar&quot;</span>
+
+      <span class="k">hbox</span><span class="p">:</span>
+
+         <span class="na">spacing</span> <span class="n">gui</span><span class="o">.</span><span class="n">_scale</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+
+         <span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">can_proceed</span><span class="p">:</span>
+            <span class="k">textbutton</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Продолжить&quot;</span><span class="p">)</span> <span class="na">action</span> <span class="n">u</span><span class="o">.</span><span class="n">proceed</span>
+
+         <span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">can_cancel</span><span class="p">:</span>
+            <span class="k">textbutton</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Отмена&quot;</span><span class="p">)</span> <span class="na">action</span> <span class="n">u</span><span class="o">.</span><span class="n">cancel</span>
+</pre></div>
+</div>
+<p>Экрану обновления передаётся один параметр, объект Updater, который
+должен называться <cite>u</cite>. Объект Updater имеет следующие поля, которые
+можно использовать для настройки экрана:</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="updater.Updater">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">updater.</span></span><span class="sig-name descname"><span class="pre">Updater</span></span><a class="headerlink" href="#updater.Updater" title="Ссылка на это определение"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="updater.Updater.state">
+<span class="sig-name descname"><span class="pre">state</span></span><a class="headerlink" href="#updater.Updater.state" title="Ссылка на это определение"></a></dt>
+<dd><p>Текущее состояние средства обновления. Возможные значения и их смысл
+смотрите в примере выше. Все значения являются константами
+объекта Updater.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="updater.Updater.message">
+<span class="sig-name descname"><span class="pre">message</span></span><a class="headerlink" href="#updater.Updater.message" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, сообщение для отображения пользователю.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="updater.Updater.progress">
+<span class="sig-name descname"><span class="pre">progress</span></span><a class="headerlink" href="#updater.Updater.progress" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, прогресс текущей операции в виде числа с плавающей запятой
+от 0.0 до 1.0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="updater.Updater.can_proceed">
+<span class="sig-name descname"><span class="pre">can_proceed</span></span><a class="headerlink" href="#updater.Updater.can_proceed" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, экран должен отобразить кнопку, которая позволит
+пользователю продолжить обновление.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="updater.Updater.proceed">
+<span class="sig-name descname"><span class="pre">proceed</span></span><a class="headerlink" href="#updater.Updater.proceed" title="Ссылка на это определение"></a></dt>
+<dd><p>Если can_proceed имеет значение True, это действие, которое должно быть
+вызвано, когда пользователь нажимает кнопку продолжения.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="updater.Updater.can_cancel">
+<span class="sig-name descname"><span class="pre">can_cancel</span></span><a class="headerlink" href="#updater.Updater.can_cancel" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, экран должен отобразить кнопку, которая позволит
+пользователю отменить обновление.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="updater.Updater.cancel">
+<span class="sig-name descname"><span class="pre">cancel</span></span><a class="headerlink" href="#updater.Updater.cancel" title="Ссылка на это определение"></a></dt>
+<dd><p>Если can_cancel имеет значение True, это действие, которое должно быть
+вызвано, когда пользователь нажимает кнопку отмены.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="iap.html" class="btn btn-neutral float-left" title="Внутриигровые покупки" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="downloader.html" class="btn btn-neutral float-right" title="Загрузчик для больших игр на мобильных устройствах" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

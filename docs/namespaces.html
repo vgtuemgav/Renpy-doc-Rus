@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Пространства имён &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/namespaces.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Пространства имён</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/namespaces.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Пространства имён<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Ren'Py использует пространства имён для организации переменных и методов. Этот файл содержит описания некоторых
+пространств имён, которые использует Ren'Py, в основном для помощи редакторам в предоставлении автодополнения и документации.</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-achievement">
+<span class="sig-name descname"><span class="pre">achievement</span></span><a class="headerlink" href="#var-achievement" title="Ссылка на это определение"></a></dt>
+<dd><p>Пространство имён, содержащее функции, которые предоставляют и управляют <a class="reference internal" href="achievement.html"><span class="doc">достижениями</span></a>. Оно также содержит большую часть
+интеграции со Steamworks.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-bubble">
+<span class="sig-name descname"><span class="pre">bubble:</span></span><a class="headerlink" href="#var-bubble" title="Ссылка на это определение"></a></dt>
+<dd><p>Пространство имён, содержащее переменные, которые управляют отображением <a class="reference internal" href="bubble.html"><span class="doc">диалоговых пузырей</span></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build">
+<span class="sig-name descname"><span class="pre">build:</span></span><a class="headerlink" href="#var-build" title="Ссылка на это определение"></a></dt>
+<dd><p>Пространство имён, содержащее переменные, которые управляют <a class="reference internal" href="build.html"><span class="doc">процессом сборки</span></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config">
+<span class="sig-name descname"><span class="pre">config:</span></span><a class="headerlink" href="#var-config" title="Ссылка на это определение"></a></dt>
+<dd><p>Пространство имён, содержащее переменные, которые управляют <a class="reference internal" href="config.html"><span class="doc">конфигурацией</span></a> Ren'Py. Эти переменные должны
+быть установлены во время инициализации (в блоках <code class="docutils literal notranslate"><span class="pre">init</span> <span class="pre">python</span></code> или с помощью <code class="docutils literal notranslate"><span class="pre">define</span></code>) и не должны изменяться после запуска
+игры.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-define">
+<span class="sig-name descname"><span class="pre">define:</span></span><a class="headerlink" href="#var-define" title="Ссылка на это определение"></a></dt>
+<dd><p>Пространство имён <cite>define</cite> содержит функции, которые определяют новые переменные, такие как семейства переходов.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-director">
+<span class="sig-name descname"><span class="pre">director:</span></span><a class="headerlink" href="#var-director" title="Ссылка на это определение"></a></dt>
+<dd><p>Пространство имён <cite>director</cite> содержит функции, которые управляют <a class="reference internal" href="director.html"><span class="doc">интерактивным режиссёром</span></a>, который
+позволяет интерактивно вставлять изображения и музыку в игру.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-gui">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">gui</span></span><a class="headerlink" href="#var-gui" title="Ссылка на это определение"></a></dt>
+<dd><p>Пространство имён <cite>gui</cite> содержит функции, которые управляют <a class="reference internal" href="gui.html"><span class="doc">стандартной системой GUI</span></a>. Эти переменные имеют значение только
+в том случае, если вы используете стандартную систему GUI, и могут не использоваться, если вы её заменили. Инструкции <cite>define</cite>,
+влияющие на пространство имён <cite>gui</cite>, повторно выполняются при изменении перевода.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-iap">
+<span class="sig-name descname"><span class="pre">iap</span></span><a class="headerlink" href="#var-iap" title="Ссылка на это определение"></a></dt>
+<dd><p>Пространство имён <cite>iap</cite> содержит функции, которые управляют <a class="reference internal" href="iap.html"><span class="doc">системой внутриигровых покупок</span></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-im">
+<span class="sig-name descname"><span class="pre">im</span></span><a class="headerlink" href="#var-im" title="Ссылка на это определение"></a></dt>
+<dd><p><strong>Примечание: Большинство функций в пространстве имён `im` устарели.</strong></p>
+<p>Пространство имён <cite>im</cite> содержит манипуляторы изображений, которые загружают или обрабатывают изображения на CPU. Большинство функций здесь
+можно выполнить на GPU с помощью <a class="reference internal" href="transforms.html#Transform" title="Transform"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transform</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-layeredimage">
+<span class="sig-name descname"><span class="pre">layeredimage</span></span><a class="headerlink" href="#var-layeredimage" title="Ссылка на это определение"></a></dt>
+<dd><p><a class="reference internal" href="layeredimage.html"><span class="doc">Слоистые изображения</span></a> — это способ объединения нескольких изображений в одно, используя атрибуты
+и условия для управления тем, какие изображения показываются. Пространство имён <cite>layeredimage</cite> содержит классы, которые позволяют
+создавать и манипулировать слоистыми изображениями из Python, что эквивалентно инструкции <code class="docutils literal notranslate"><span class="pre">layeredimage</span></code>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-persistent">
+<span class="sig-name descname"><span class="pre">persistent</span></span><a class="headerlink" href="#var-persistent" title="Ссылка на это определение"></a></dt>
+<dd><p>Пространство имён <cite>persistent</cite> содержит <a class="reference internal" href="persistent.html"><span class="doc">постоянные</span></a> данные. Поля этого объекта изначально имеют значение None и сохраняют
+свои значения между запусками игры, даже если слот сохранения не загружен.</p>
+<p>Значения полей объекта <cite>persistent</cite> должны быть типами, предоставляемыми Python, такими как булевы значения, числа,
+строки, списки, кортежи, словари и множества. Классы, которые вы определяете, не должны присваиваться объекту <cite>persistent</cite>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences">
+<span class="sig-name descname"><span class="pre">preferences</span></span><a class="headerlink" href="#var-preferences" title="Ссылка на это определение"></a></dt>
+<dd><p>Пространство имён <a class="reference internal" href="preferences.html"><span class="doc">preferences</span></a> содержит переменные, которые содержат настройки. Хотя их можно читать и устанавливать,
+наиболее распространённое использование — с инструкцией <code class="docutils literal notranslate"><span class="pre">default</span></code>, используя синтаксис вроде:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">default</span> <span class="n">preferences</span><span class="o">.</span><span class="n">fullscreen</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-preferences.volume">
+<span class="sig-name descname"><span class="pre">preferences.volume</span></span><a class="headerlink" href="#var-preferences.volume" title="Ссылка на это определение"></a></dt>
+<dd><p>Пространство имён <a class="reference internal" href="preferences.html"><span class="doc">preferences</span></a> содержит переменные, которые устанавливают громкость по умолчанию для каждого микшера. Их
+следует устанавливать с помощью инструкции <code class="docutils literal notranslate"><span class="pre">default</span></code>, например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">default</span> <span class="n">preferences</span><span class="o">.</span><span class="n">volume</span><span class="o">.</span><span class="k">music</span> <span class="o">=</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-renpy">
+<span class="sig-name descname"><span class="pre">renpy</span></span><a class="headerlink" href="#var-renpy" title="Ссылка на это определение"></a></dt>
+<dd><p>Пространство имён <cite>renpy</cite> содержит функции и классы, которые являются частью самого движка Ren'Py. Они могут быть
+эквивалентны инструкциям языка Ren'Py или вводить функциональность, которая не заслуживает отдельной инструкции.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-renpy.audio.filter">
+<span class="sig-name descname"><span class="pre">renpy.audio.filter</span></span><a class="headerlink" href="#var-renpy.audio.filter" title="Ссылка на это определение"></a></dt>
+<dd><p>Пространство имён <cite>renpy.audio.filter</cite> содержит классы и функции, которые создают <a class="reference internal" href="audio_filters.html"><span class="doc">аудиофильтры</span></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-renpy.music">
+<span class="sig-name descname"><span class="pre">renpy.music</span></span><a class="headerlink" href="#var-renpy.music" title="Ссылка на это определение"></a></dt>
+<dd><p>Пространство имён <cite>renpy.audio.music</cite> содержит функции, которые управляют <a class="reference internal" href="audio.html"><span class="doc">аудиосистемой</span></a>. Эти функции
+по умолчанию работают с музыкальным каналом.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-renpy.sound">
+<span class="sig-name descname"><span class="pre">renpy.sound</span></span><a class="headerlink" href="#var-renpy.sound" title="Ссылка на это определение"></a></dt>
+<dd><p>Пространство имён <cite>renpy.audio.sound</cite> содержит функции, которые управляют <a class="reference internal" href="audio.html"><span class="doc">аудиосистемой</span></a>. Эти функции
+по умолчанию работают со звуковым каналом. Большинство функций задокументированы под их эквивалентами в <cite>renpy.music</cite>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-style">
+<span class="sig-name descname"><span class="pre">style</span></span><a class="headerlink" href="#var-style" title="Ссылка на это определение"></a></dt>
+<dd><p>Пространство имён <cite>style</cite> содержит стили и функции, которые управляют стилями. Стили используются для управления внешним видом
+текста, изображений и других элементов в Ren'Py. Использование инструкции <cite>style</cite> предпочтительнее прямого использования пространства имён
+<cite>style</cite>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-ui">
+<span class="sig-name descname"><span class="pre">ui</span></span><a class="headerlink" href="#var-ui" title="Ссылка на это определение"></a></dt>
+<dd><p><strong>Примечание: Большинство функций в пространстве имён `ui` устарели.</strong></p>
+<p>Пространство имён <cite>ui</cite> содержит старые функции и классы, используемые для отображения элементов пользовательского интерфейса. За исключением
+<cite>ui.adjustment</cite>, <cite>ui.interact</cite>, <cite>ui.callsinnewcontext</cite> и <cite>ui.invokesinnewcontext</cite>, эти функции
+устарели.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-updater">
+<span class="sig-name descname"><span class="pre">updater</span></span><a class="headerlink" href="#var-updater" title="Ссылка на это определение"></a></dt>
+<dd><p>Пространство имён <cite>updater</cite> содержит функции, классы и переменные, которые управляют <a class="reference internal" href="updater.html"><span class="doc">обновлениями по HTTP/HTTPS</span></a>.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

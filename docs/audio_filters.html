@@ -1,0 +1,550 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Аудиофильтры &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/audio_filters.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Видео" href="movie.html" />
+    <link rel="prev" title="Аудио" href="audio.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Аудиофильтры</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Повторное использование фильтра</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Заполнение тишиной</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Аудиофильтры</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.audio.filter.Allpass"><code class="docutils literal notranslate"><span class="pre">renpy.audio.filter.Allpass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.audio.filter.Bandpass"><code class="docutils literal notranslate"><span class="pre">renpy.audio.filter.Bandpass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.audio.filter.Comb"><code class="docutils literal notranslate"><span class="pre">renpy.audio.filter.Comb</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.audio.filter.Delay"><code class="docutils literal notranslate"><span class="pre">renpy.audio.filter.Delay</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.audio.filter.Highpass"><code class="docutils literal notranslate"><span class="pre">renpy.audio.filter.Highpass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.audio.filter.Highshelf"><code class="docutils literal notranslate"><span class="pre">renpy.audio.filter.Highshelf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.audio.filter.Lowpass"><code class="docutils literal notranslate"><span class="pre">renpy.audio.filter.Lowpass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.audio.filter.Lowshelf"><code class="docutils literal notranslate"><span class="pre">renpy.audio.filter.Lowshelf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.audio.filter.Mix"><code class="docutils literal notranslate"><span class="pre">renpy.audio.filter.Mix</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.audio.filter.Multiply"><code class="docutils literal notranslate"><span class="pre">renpy.audio.filter.Multiply</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.audio.filter.Notch"><code class="docutils literal notranslate"><span class="pre">renpy.audio.filter.Notch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.audio.filter.Null"><code class="docutils literal notranslate"><span class="pre">renpy.audio.filter.Null</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.audio.filter.Peaking"><code class="docutils literal notranslate"><span class="pre">renpy.audio.filter.Peaking()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.audio.filter.Reverb"><code class="docutils literal notranslate"><span class="pre">renpy.audio.filter.Reverb()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.audio.filter.Sequence"><code class="docutils literal notranslate"><span class="pre">renpy.audio.filter.Sequence</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.audio.filter.WetDry"><code class="docutils literal notranslate"><span class="pre">renpy.audio.filter.WetDry</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Аудиофильтры</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/audio_filters.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Аудиофильтры<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Аудиофильтры позволяют игре изменять звук на канале, отличая его от того, что присутствует в аудиофайле.
+Их можно использовать для добавления эффектов к звуку, включая реверберацию, задержку/эхо и фильтры верхних/нижних частот.</p>
+<p>Аудиофильтры находятся в модуле <cite>renpy.audio.filter</cite>. Хотя это и не является строго обязательным, рекомендуется присвоить этому модулю более короткий псевдоним, например, <code class="docutils literal notranslate"><span class="pre">af</span></code>, используя:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">af</span> <span class="o">=</span> <span class="n">renpy</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">filter</span>
+</pre></div>
+</div>
+<p>Затем фильтры можно применить с помощью функции <a class="reference internal" href="audio.html#renpy.music.set_audio_filter" title="renpy.music.set_audio_filter"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.music.set_audio_filter()</span></code></a>, например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">$</span> <span class="n">renpy</span><span class="o">.</span><span class="k">music</span><span class="o">.</span><span class="n">set_audio_filter</span><span class="p">(</span><span class="s2">&quot;music&quot;</span><span class="p">,</span> <span class="n">af</span><span class="o">.</span><span class="n">Reverb</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>По умолчанию фильтр вступает в силу в начале следующего аудиофайла, поставленного в очередь или воспроизводимого. Если вы хотите применить фильтр к текущему воспроизводимому и находящемуся в очереди аудио, можно использовать аргумент <cite>replace</cite>:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">$</span> <span class="n">renpy</span><span class="o">.</span><span class="k">music</span><span class="o">.</span><span class="n">set_audio_filter</span><span class="p">(</span><span class="s2">&quot;music&quot;</span><span class="p">,</span> <span class="n">af</span><span class="o">.</span><span class="n">Lowpass</span><span class="p">(</span><span class="mi">440</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Это применит фильтр к аудио как можно скорее.</p>
+<p>Наконец, вы можете удалить фильтр с канала, передав <cite>None</cite> в качестве фильтра:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">$</span> <span class="n">renpy</span><span class="o">.</span><span class="k">music</span><span class="o">.</span><span class="n">set_audio_filter</span><span class="p">(</span><span class="s2">&quot;music&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(Также можно передать <cite>None</cite> с <cite>replace</cite>, установленным в <cite>True</cite>.)</p>
+<section id="id2">
+<h2>Повторное использование фильтра<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Когда на канале установлен фильтр, он будет фильтровать весь звук, воспроизводимый на этом канале. В частности, фильтры <cite>Comb</cite>, <cite>Delay</cite> и <cite>Reverb</cite> будут продолжать выводить информацию из старых аудиофайлов в течение некоторого времени после начала воспроизведения нового аудиофайла, при условии, что фильтр не будет изменен.</p>
+<p>Это означает, что Ren'Py хранит аудиоинформацию внутри объекта фильтра.
+Из-за этого, как правило, не рекомендуется использовать одни и те же объекты фильтров для разных каналов или использовать один объект фильтра несколько раз на одном канале.</p>
+</section>
+<section id="id3">
+<h2>Заполнение тишиной<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Когда аудиофильтр активен и последний звук в очереди на канале завершает воспроизведение, Ren'Py добавит 2 секунды тишины в канал, чтобы у фильтров задержки и реверберации было время завершить свою работу.</p>
+<p>Если вам нужно больше тишины, ее можно добавить в очередь с помощью:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">queue</span> <span class="k">sound</span> <span class="s2">&quot;&lt;silence 10&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>Аудиофильтры<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<p>Везде, где принимается фильтр, вместо него можно передать список, представляющий собой <a class="reference internal" href="#renpy.audio.filter.Sequence" title="renpy.audio.filter.Sequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">renpy.audio.filter.Sequence</span></code></a> из этих фильтров.
+Таким образом, запись:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">renpy</span><span class="o">.</span><span class="k">music</span><span class="o">.</span><span class="n">set_audio_filter</span><span class="p">(</span><span class="s2">&quot;music&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">af</span><span class="o">.</span><span class="n">Reverb</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">af</span><span class="o">.</span><span class="n">Lowpass</span><span class="p">(</span><span class="mi">440</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>эквивалентна:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">renpy</span><span class="o">.</span><span class="k">music</span><span class="o">.</span><span class="n">set_audio_filter</span><span class="p">(</span><span class="s2">&quot;music&quot;</span><span class="p">,</span>
+    <span class="n">af</span><span class="o">.</span><span class="n">Sequence</span><span class="p">([</span>
+        <span class="n">af</span><span class="o">.</span><span class="n">Reverb</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+        <span class="n">af</span><span class="o">.</span><span class="n">Lowpass</span><span class="p">(</span><span class="mi">440</span><span class="p">),</span>
+        <span class="p">]))</span>
+</pre></div>
+</div>
+<p>Помимо этого, аудиофильтры состоят из следующих классов. По соображениям производительности определять собственные фильтры невозможно.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.audio.filter.Allpass">
+<span class="sig-prename descclassname"><span class="pre">renpy.audio.filter.</span></span><span class="sig-name descname"><span class="pre">Allpass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">350</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.audio.filter.Allpass" title="Ссылка на это определение"></a></dt>
+<dd><p>Всепропускающий фильтр (all-pass) пропускает все частоты, но изменяет фазовое
+соотношение между различными частотами.</p>
+<dl class="simple">
+<dt><cite>frequency</cite></dt><dd><p>Частота в центре фазового сдвига.</p>
+</dd>
+<dt><cite>q</cite></dt><dd><p>Управляет резкостью фазового сдвига. Чем выше значение, тем
+резче сдвиг.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.audio.filter.Bandpass">
+<span class="sig-prename descclassname"><span class="pre">renpy.audio.filter.</span></span><span class="sig-name descname"><span class="pre">Bandpass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">350</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.audio.filter.Bandpass" title="Ссылка на это определение"></a></dt>
+<dd><p>Полосовой фильтр (band-pass).</p>
+<dl class="simple">
+<dt><cite>frequency</cite></dt><dd><p>Центральная частота.</p>
+</dd>
+<dt><cite>q</cite></dt><dd><p>Управляет шириной полосы. Ширина становится уже с
+увеличением значения Q.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="renpy.audio.filter.Comb">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">renpy.audio.filter.</span></span><span class="sig-name descname"><span class="pre">Comb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.audio.filter.Comb" title="Ссылка на это определение"></a></dt>
+<dd><p>Гребенчатый фильтр (comb filter). Гребенчатый фильтр состоит из задержки, которая фильтруется и
+умножается, смешивается с входным сигналом, а затем подается обратно на вход задержки,
+что приводит к многократному применению фильтра.</p>
+<dl class="simple">
+<dt><cite>delay</cite></dt><dd><p>Задержка в секундах. Если предоставлен список задержек, каждый подканал
+будет задержан на соответствующую величину. Каждая задержка должна быть не менее
+0.01 секунды.</p>
+</dd>
+<dt><cite>filter</cite></dt><dd><p>Фильтр, применяемый к задержанному сигналу. Если None, используется фильтр Null.</p>
+</dd>
+<dt><cite>multiplier</cite></dt><dd><p>Множитель для отфильтрованного сигнала.</p>
+</dd>
+<dt><cite>wet</cite></dt><dd><p>Если True, выходной сигнал фильтра является суммой входного и
+отфильтрованного и умноженного сигналов.  Если False, выходной сигнал — это только отфильтрованный
+и умноженный сигнал.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="renpy.audio.filter.Delay">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">renpy.audio.filter.</span></span><span class="sig-name descname"><span class="pre">Delay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.audio.filter.Delay" title="Ссылка на это определение"></a></dt>
+<dd><p>Этот фильтр реализует задержку. Семплы, поданные на вход,
+появляются на выходе через <cite>delay</cite> секунд.</p>
+<dl class="simple">
+<dt><cite>delay</cite></dt><dd><p>Задержка в секундах. Если предоставлен список задержек, каждый подканал
+будет задержан на соответствующую величину. Каждая задержка должна быть не менее
+0.01 секунды.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.audio.filter.Highpass">
+<span class="sig-prename descclassname"><span class="pre">renpy.audio.filter.</span></span><span class="sig-name descname"><span class="pre">Highpass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">350</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.audio.filter.Highpass" title="Ссылка на это определение"></a></dt>
+<dd><p>Фильтр верхних частот (high-pass) со спадом 12 дБ/октаву.</p>
+<dl class="simple">
+<dt><cite>frequency</cite></dt><dd><p>Частота среза.</p>
+</dd>
+<dt><cite>q</cite></dt><dd><p>Управляет пиком отклика в децибелах. Для этого фильтра
+это значение не является традиционной добротностью (Q), а является значением резонанса в децибелах.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.audio.filter.Highshelf">
+<span class="sig-prename descclassname"><span class="pre">renpy.audio.filter.</span></span><span class="sig-name descname"><span class="pre">Highshelf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">350</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.audio.filter.Highshelf" title="Ссылка на это определение"></a></dt>
+<dd><p>Полочный фильтр верхних частот (high-shelf), который пропускает все частоты, но усиливает те,
+что выше определенной частоты, на заданную величину.</p>
+<dl class="simple">
+<dt><cite>frequency</cite></dt><dd><p>Нижняя частота.</p>
+</dd>
+<dt><cite>gain</cite></dt><dd><p>Величина усиления частот выше нижней частоты,
+в децибелах.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.audio.filter.Lowpass">
+<span class="sig-prename descclassname"><span class="pre">renpy.audio.filter.</span></span><span class="sig-name descname"><span class="pre">Lowpass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">350</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.audio.filter.Lowpass" title="Ссылка на это определение"></a></dt>
+<dd><p>Фильтр нижних частот (low-pass) со спадом 12 дБ/октаву.</p>
+<dl class="simple">
+<dt><cite>frequency</cite></dt><dd><p>Частота среза.</p>
+</dd>
+<dt><cite>q</cite></dt><dd><p>Управляет пиком отклика в децибелах. Для этого фильтра
+это значение не является традиционной добротностью (Q), а является значением резонанса в децибелах.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.audio.filter.Lowshelf">
+<span class="sig-prename descclassname"><span class="pre">renpy.audio.filter.</span></span><span class="sig-name descname"><span class="pre">Lowshelf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">350</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.audio.filter.Lowshelf" title="Ссылка на это определение"></a></dt>
+<dd><p>Полочный фильтр нижних частот (low-shelf), который пропускает все частоты, но усиливает те,
+что ниже определенной частоты, на заданную величину.</p>
+<dl class="simple">
+<dt><cite>frequency</cite></dt><dd><p>Верхняя частота.</p>
+</dd>
+<dt><cite>gain</cite></dt><dd><p>Величина усиления частот ниже верхней частоты,
+в децибелах.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="renpy.audio.filter.Mix">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">renpy.audio.filter.</span></span><span class="sig-name descname"><span class="pre">Mix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.audio.filter.Mix" title="Ссылка на это определение"></a></dt>
+<dd><p>Аудиофильтр, который разделяет входной сигнал на несколько потоков, применяет
+каждый из своих аргументов к одному из потоков и смешивает эти потоки путем их
+суммирования.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+
+    <span class="kn">import</span><span class="w"> </span><span class="nn">renpy.audio.filter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">af</span>
+
+    <span class="c1"># Это смешивает неизмененный входной сигнал с задержкой.</span>
+    <span class="k">$</span> <span class="n">echo</span> <span class="o">=</span> <span class="n">af</span><span class="o">.</span><span class="n">Mix</span><span class="p">(</span><span class="n">af</span><span class="o">.</span><span class="n">Null</span><span class="p">(),</span> <span class="n">af</span><span class="o">.</span><span class="n">Delay</span><span class="p">(</span><span class="mf">.3</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="renpy.audio.filter.Multiply">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">renpy.audio.filter.</span></span><span class="sig-name descname"><span class="pre">Multiply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.audio.filter.Multiply" title="Ссылка на это определение"></a></dt>
+<dd><p>Аудиофильтр, который умножает входной сигнал на <cite>multiplier</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.audio.filter.Notch">
+<span class="sig-prename descclassname"><span class="pre">renpy.audio.filter.</span></span><span class="sig-name descname"><span class="pre">Notch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">350</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.audio.filter.Notch" title="Ссылка на это определение"></a></dt>
+<dd><p>Противоположность полосовому фильтру. Частоты в диапазоне вокруг
+<cite>frequency</cite> подавляются, в то время как другие частоты пропускаются.</p>
+<dl class="simple">
+<dt><cite>frequency</cite></dt><dd><p>Центральная частота.</p>
+</dd>
+<dt><cite>q</cite></dt><dd><p>Управляет шириной выреза (notch). Ширина становится уже с
+увеличением значения q.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="renpy.audio.filter.Null">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">renpy.audio.filter.</span></span><span class="sig-name descname"><span class="pre">Null</span></span><a class="headerlink" href="#renpy.audio.filter.Null" title="Ссылка на это определение"></a></dt>
+<dd><p>Аудиофильтр, который пропускает входной сигнал на выход без изменений.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.audio.filter.Peaking">
+<span class="sig-prename descclassname"><span class="pre">renpy.audio.filter.</span></span><span class="sig-name descname"><span class="pre">Peaking</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">350</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.audio.filter.Peaking" title="Ссылка на это определение"></a></dt>
+<dd><p>Пиковый (peaking) фильтр, который пропускает все частоты, но усиливает те,
+что находятся вокруг определенной частоты, на заданную величину.</p>
+<dl class="simple">
+<dt><cite>frequency</cite></dt><dd><p>Центральная частота.</p>
+</dd>
+<dt><cite>q</cite></dt><dd><p>Управляет резкостью пика. Чем выше значение, тем резче
+пик.</p>
+</dd>
+<dt><cite>gain</cite></dt><dd><p>Величина усиления частот вокруг центральной частоты,
+в децибелах.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.audio.filter.Reverb">
+<span class="sig-prename descclassname"><span class="pre">renpy.audio.filter.</span></span><span class="sig-name descname"><span class="pre">Reverb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resonance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dampening</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">880</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay_multiplier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay_times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.0253,</span> <span class="pre">0.0269,</span> <span class="pre">0.029,</span> <span class="pre">0.0307,</span> <span class="pre">0.0322,</span> <span class="pre">0.0338,</span> <span class="pre">0.0353,</span> <span class="pre">0.0367]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay_subchannel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allpass_frequences</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[225,</span> <span class="pre">556,</span> <span class="pre">441,</span> <span class="pre">341]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.audio.filter.Reverb" title="Ссылка на это определение"></a></dt>
+<dd><p>Фильтр искусственной реверберации, который имитирует звук комнаты или зала,
+отчасти вдохновленный Freeverb.</p>
+<dl class="simple">
+<dt><cite>resonance</cite></dt><dd><p>Количество обратной связи в реверберации. Должно быть от 0 до 1.
+Большие значения делают реверберацию длиннее. Слишком большие значения приведут
+к тому, что реверберация выйдет из-под контроля.</p>
+</dd>
+<dt><cite>dampening</cite></dt><dd><p>Применяет фильтр нижних частот к каждой реверберации, имитируя
+потерю высоких частот при прохождении звука через воздух.</p>
+</dd>
+<dt><cite>wet</cite></dt><dd><p>Множитель, применяемый к сигналу реверберации перед подачей
+на выход.</p>
+</dd>
+<dt><cite>dry</cite></dt><dd><p>Множитель, применяемый к входному сигналу перед подачей
+на выход. Установите в 0.0, чтобы слышать только реверберацию, а не исходный
+звук.</p>
+</dd>
+<dt><cite>delay_multiplier</cite></dt><dd><p>Множитель, применяемый ко времени задержек. Может использоваться для
+регулировки длины реверберации.</p>
+</dd>
+<dt><cite>delay_times</cite></dt><dd><p>Список времен задержек в секундах, которые используются для создания ранних
+отражений. Они используются для создания гребенчатых фильтров.</p>
+</dd>
+<dt><cite>delay_subchannel</cite></dt><dd><p>Промежуток времени в секундах, который добавляется к каждому времени задержки для
+создания второго подканала. Используется для создания стереоэффекта.</p>
+</dd>
+<dt><cite>allpass_frequences</cite></dt><dd><p>Список частот в герцах, которые используются для создания всепропускающих фильтров,
+имитирующих поздние отражения.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="renpy.audio.filter.Sequence">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">renpy.audio.filter.</span></span><span class="sig-name descname"><span class="pre">Sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.audio.filter.Sequence" title="Ссылка на это определение"></a></dt>
+<dd><p>AudioFilter, который последовательно применяет к своему входу несколько фильтров.
+Используется внутри Ren'Py, когда задан список аудиофильтров, поэтому его редко
+используют напрямую.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="renpy.audio.filter.WetDry">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">renpy.audio.filter.</span></span><span class="sig-name descname"><span class="pre">WetDry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.audio.filter.WetDry" title="Ссылка на это определение"></a></dt>
+<dd><p>Фильтр, который смешивает свой входной сигнал с выходным сигналом другого фильтра.</p>
+<dl class="simple">
+<dt><cite>filter</cite></dt><dd><p>Фильтр для применения к входному сигналу.</p>
+</dd>
+<dt><cite>wet</cite></dt><dd><p>Множитель, обычно от 0.0 до 1.0, который управляет количеством
+подмешиваемого сигнала фильтра.</p>
+</dd>
+<dt><cite>dry</cite></dt><dd><p>Множитель, обычно от 0.0 до 1.0, который управляет количеством
+подмешиваемого входного сигнала.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="audio.html" class="btn btn-neutral float-left" title="Аудио" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="movie.html" class="btn btn-neutral float-right" title="Видео" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

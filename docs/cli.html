@@ -1,0 +1,502 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Интерфейс командной строки &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/cli.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Интеграция с текстовым редактором" href="editor.html" />
+    <link rel="prev" title="Шаблонные проекты" href="template_projects.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Интерфейс командной строки</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Команды проверки и тестирования</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lint">Проверка скрипта (Lint)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cli-test">Запуск тест-кейсов</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Команды сборки</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#android">Сборка для Android</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#from">Добавление выражения from</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Компиляция</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Создание дистрибутивов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ios">Создание проекта iOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Заполнение проекта iOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#old-game">Обновление каталога old-game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#web">Сборка для Web</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">Команды лаунчера</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Установка каталога проектов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Установка проекта</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Интерфейс командной строки</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/cli.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Интерфейс командной строки<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Ren'Py включает в себя интерфейс командной строки (CLI), который можно использовать для автоматизации некоторых задач разработки, что позволяет осуществлять непрерывную интеграцию и создавать сценарии для сборки релизов. В большинстве случаев в этом нет необходимости — все эти задачи можно выполнить через лаунчер Ren'Py.</p>
+<p>Примеры на этой странице предполагают, что вы запускаете CLI из каталога Ren'Py SDK (каталога, содержащего renpy.py, renpy.sh и renpy.exe). Примеры также предполагают, что вы работаете на Linux или macOS. В Windows вам нужно будет заменить <code class="docutils literal notranslate"><span class="pre">./renpy.sh</span></code> на <code class="docutils literal notranslate"><span class="pre">lib\\py3-windows-x86_64\\python.exe</span> <span class="pre">renpy.py</span></code>.</p>
+<p>CLI не является стабильным интерфейсом — при необходимости он может меняться между релизами Ren'Py.</p>
+<dl class="describe">
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">&lt;base&gt;</span></span></dt>
+<dd><p>В приведённом ниже описании команд &lt;base&gt; — это путь к базовому каталогу проекта.</p>
+</dd></dl>
+
+<section id="id2">
+<h2>Команды проверки и тестирования<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<section id="lint">
+<h3>Проверка скрипта (Lint)<a class="headerlink" href="#lint" title="Ссылка на этот заголовок"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./renpy.sh &lt;base&gt; lint [ filename ] [ options... ]
+</pre></div>
+</div>
+<p>Эта команда запускает проверку кода (lint) для игры. Это эквивалентно кнопке «Проверить скрипт (Lint)» в лаунчере.</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-filename">
+<span class="sig-name descname"><span class="pre">filename</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-filename" title="Ссылка на это определение"></a></dt>
+<dd><p>Если указано, отчёт о проверке будет записан в этот файл, а не выведен в стандартный поток вывода.</p>
+</dd></dl>
+
+<p>Lint принимает множество параметров, которые могут меняться от релиза к релизу. Чтобы просмотреть их, выполните:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./renpy.sh &lt;base&gt; lint --help
+</pre></div>
+</div>
+</section>
+<section id="cli-test">
+<span id="id3"></span><h3>Запуск тест-кейсов<a class="headerlink" href="#cli-test" title="Ссылка на этот заголовок"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./renpy.sh &lt;base&gt; test [ testcase ] [ options... ]
+</pre></div>
+</div>
+<p>Эта команда запускает <code class="file docutils literal notranslate"><span class="pre">автоматизированные</span> <span class="pre">тесты</span> <span class="pre">&lt;testcases&gt;</span></code> для игры.</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-testcase">
+<span class="sig-name descname"><span class="pre">testcase</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-testcase" title="Ссылка на это определение"></a></dt>
+<dd><p>Имя тест-кейса или набора тестов для запуска. Если не указано, будет запущен «глобальный» набор тестов.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-enable_all">
+<span class="sig-name descname"><span class="pre">--enable_all</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-enable_all" title="Ссылка на это определение"></a></dt>
+<dd><p>Если указано, все тест-кейсы и наборы тестов будут выполнены, независимо от их свойства <code class="docutils literal notranslate"><span class="pre">enabled</span></code>.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-overwrite_screenshots">
+<span class="sig-name descname"><span class="pre">--overwrite_screenshots</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-overwrite_screenshots" title="Ссылка на это определение"></a></dt>
+<dd><p>Если указано, существующие скриншоты будут перезаписаны при выполнении <a class="reference internal" href="testcases.html#test-screenshot-statement"><span class="std std-ref">инструкции screenshot</span></a>.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-hide-header">
+<span class="sig-name descname"><span class="pre">--hide-header</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-hide-header" title="Ссылка на это определение"></a></dt>
+<dd><p>Если указано, заголовок в начале запуска тестов будет отключён.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-hide-execution">
+<span class="sig-name descname"><span class="pre">--hide-execution</span></span><span class="sig-prename descclassname"> <span class="pre">[no|hooks|testcases|all]</span></span><a class="headerlink" href="#cmdoption-hide-execution" title="Ссылка на это определение"></a></dt>
+<dd><p>Если указано, вывод выполнения тестов будет скрыт. <code class="docutils literal notranslate"><span class="pre">hooks</span></code> скрывает хуки, <code class="docutils literal notranslate"><span class="pre">testcases</span></code> скрывает тест-кейсы и хуки, а <code class="docutils literal notranslate"><span class="pre">all</span></code> скрывает всё.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-hide-summary">
+<span class="sig-name descname"><span class="pre">--hide-summary</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-hide-summary" title="Ссылка на это определение"></a></dt>
+<dd><p>Если указано, сводка в конце запуска тестов будет отключена.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-report-detailed">
+<span class="sig-name descname"><span class="pre">--report-detailed</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-report-detailed" title="Ссылка на это определение"></a></dt>
+<dd><p>Если указано, во время выполнения будет отображаться подробная информация о каждом тесте.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-report-skipped">
+<span class="sig-name descname"><span class="pre">--report-skipped</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-report-skipped" title="Ссылка на это определение"></a></dt>
+<dd><p>Если указано, будет отображаться информация о пропущенных тестах. Этот параметр следует использовать вместе с <code class="docutils literal notranslate"><span class="pre">--report-detailed</span></code>.</p>
+</dd></dl>
+
+</section>
+</section>
+<section id="id4">
+<h2>Команды сборки<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>В процессе сборки Ren'Py создаст файлы .rpyc, которые содержат информацию для загрузки игры. Система непрерывной интеграции должна сохранять эти .rpyc-файлы после сборки и предоставлять их для следующей сборки либо напрямую, либо в каталоге old-game. Невыполнение этого требования может привести к тому, что игра не сможет загружать сохранения.</p>
+</div>
+<section id="android">
+<h3>Сборка для Android<a class="headerlink" href="#android" title="Ссылка на этот заголовок"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./renpy.sh launcher android_build &lt;base&gt; [ options... ]
+</pre></div>
+</div>
+<p>Эта команда собирает релиз игры для Android. Предполагается, что лаунчер был использован для установки Android SDK, генерации ключей и настройки проекта.</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-destination">
+<span class="sig-name descname"><span class="pre">--destination</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;directory&gt;</span></span><a class="headerlink" href="#cmdoption-destination" title="Ссылка на это определение"></a></dt>
+<dd><p>Каталог, в который будет помещён результат. По умолчанию это каталог с именем «<cite>name</cite>-<cite>version</cite>-dists» в текущем каталоге, при этом информация берётся из <a class="reference internal" href="build.html#var-build.name"><code class="xref std std-var docutils literal notranslate"><span class="pre">build.name</span></code></a> и <a class="reference internal" href="build.html#var-build.version"><code class="xref std std-var docutils literal notranslate"><span class="pre">build.version</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-bundle">
+<span class="sig-name descname"><span class="pre">--bundle</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-bundle" title="Ссылка на это определение"></a></dt>
+<dd><p>Если указано, Ren'Py создаст бандл в формате .aab. Если не указано, Ren'Py создаст файл .apk.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-install">
+<span class="sig-name descname"><span class="pre">--install</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-install" title="Ссылка на это определение"></a></dt>
+<dd><p>Если указано, Ren'Py установит файл .apk или .aab на подключённое устройство.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-launch">
+<span class="sig-name descname"><span class="pre">--launch</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-launch" title="Ссылка на это определение"></a></dt>
+<dd><p>Если указано, Ren'Py запустит игру на подключённом устройстве. Этот параметр подразумевает <code class="docutils literal notranslate"><span class="pre">--install</span></code>.</p>
+</dd></dl>
+
+</section>
+<section id="from">
+<h3>Добавление выражения from<a class="headerlink" href="#from" title="Ссылка на этот заголовок"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./renpy.sh &lt;base&gt; add_from
+</pre></div>
+</div>
+<p>Эта команда добавляет выражение <code class="docutils literal notranslate"><span class="pre">from</span></code> к каждой инструкции <code class="docutils literal notranslate"><span class="pre">call</span></code>, у которой оно отсутствует. Обычно это следует делать перед выпуском релиза, чтобы помочь Ren'Py определять точку возврата из вызовов в изменённой игре.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Эта команда изменит файлы скриптов вашей игры, и предполагается, что вы включите сделанные ею изменения в свою игру.</p>
+</div>
+</section>
+<section id="id5">
+<h3>Компиляция<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./renpy.sh &lt;base&gt; compile [ --keep-orphan-rpyc ]
+</pre></div>
+</div>
+<p>Эта команда компилирует игру, создавая .rpyc-файлы из .rpy-файлов. Эквивалентно кнопке «Принудительная перекомпиляция» в лаунчере Ren'Py.</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-keep-orphan-rpyc">
+<span class="sig-name descname"><span class="pre">--keep-orphan-rpyc</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-keep-orphan-rpyc" title="Ссылка на это определение"></a></dt>
+<dd><p>По умолчанию Ren'Py удаляет .rpyc-файлы, которые не связаны с .rpy или _ren.py файлами с тем же именем. Если указан этот параметр, Ren'Py не будет удалять эти файлы.</p>
+</dd></dl>
+
+</section>
+<section id="id6">
+<h3>Создание дистрибутивов<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./renpy.sh launcher distribute &lt;base&gt; [ options... ]
+</pre></div>
+</div>
+<p>Эта команда собирает дистрибутивы игры для Windows, macOS и Linux. Некоторые из параметров, которые принимает эта команда:</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-0">
+<span class="sig-name descname"><span class="pre">--destination</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;directory&gt;</span></span><a class="headerlink" href="#cmdoption-0" title="Ссылка на это определение"></a></dt>
+<dd><p>Каталог, в который будут помещены дистрибутивы. По умолчанию это каталог с именем «<cite>name</cite>-<cite>version</cite>-dists» в текущем каталоге, при этом информация берётся из <a class="reference internal" href="build.html#var-build.name"><code class="xref std std-var docutils literal notranslate"><span class="pre">build.name</span></code></a> и <a class="reference internal" href="build.html#var-build.version"><code class="xref std std-var docutils literal notranslate"><span class="pre">build.version</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-no-update">
+<span class="sig-name descname"><span class="pre">--no-update</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-no-update" title="Ссылка на это определение"></a></dt>
+<dd><p>Если указано, Ren'Py не будет создавать файлы обновления.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-package">
+<span class="sig-name descname"><span class="pre">--package</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;package&gt;</span></span><a class="headerlink" href="#cmdoption-package" title="Ссылка на это определение"></a></dt>
+<dd><p>Задаёт имя пакета для сборки, где package — это имя пакета, например «pc», «mac» или «markets». Этот параметр можно указывать несколько раз для сборки нескольких пакетов. По умолчанию собираются все пакеты.</p>
+</dd></dl>
+
+<p>(Есть и другие параметры, но они более полезны для сборки самого Ren'Py.)</p>
+</section>
+<section id="ios">
+<h3>Создание проекта iOS<a class="headerlink" href="#ios" title="Ссылка на этот заголовок"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./renpy.sh launcher ios_create &lt;base&gt; &lt;destination&gt;
+</pre></div>
+</div>
+<p>Эта команда создаёт проект Xcode, который можно использовать для сборки iOS-версии игры. Предполагается, что лаунчер хотя бы раз использовался для установки поддержки iOS.</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-destination">
+<span class="sig-name descname"><span class="pre">destination</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-destination" title="Ссылка на это определение"></a></dt>
+<dd><p>Каталог, в который будет помещён проект Xcode.</p>
+</dd></dl>
+
+</section>
+<section id="id7">
+<h3>Заполнение проекта iOS<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./renpy.sh launcher ios_populate &lt;base&gt; &lt;destination&gt;
+</pre></div>
+</div>
+<p>Эта команда копирует игру в проект Xcode, созданный с помощью <strong class="command">ios_create</strong>. Используется для обновления проекта, созданного с той же версией Ren'Py.</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-0">
+<span class="sig-name descname"><span class="pre">destination</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-0" title="Ссылка на это определение"></a></dt>
+<dd><p>Каталог для обновления.</p>
+</dd></dl>
+
+</section>
+<section id="old-game">
+<h3>Обновление каталога old-game<a class="headerlink" href="#old-game" title="Ссылка на этот заголовок"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./renpy.sh launcher update_old_game &lt;base&gt;
+</pre></div>
+</div>
+<p>Эта команда скопирует .rpyc-файлы из &lt;base&gt;/game в &lt;base&gt;/old-game.</p>
+</section>
+<section id="web">
+<h3>Сборка для Web<a class="headerlink" href="#web" title="Ссылка на этот заголовок"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./renpy.sh launcher web_build &lt;base&gt; [ options... ]
+</pre></div>
+</div>
+<p>Эта команда собирает релиз игры для веб. Предполагается, что лаунчер был использован для установки поддержки веб и что все файлы конфигурации (такие как <code class="docutils literal notranslate"><span class="pre">progressive_download.txt</span></code>) находятся на своих местах.</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-1">
+<span class="sig-name descname"><span class="pre">--destination</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;directory&gt;</span></span><a class="headerlink" href="#cmdoption-1" title="Ссылка на это определение"></a></dt>
+<dd><p>Каталог, в который будет помещён корневой каталог веб-сборки.</p>
+</dd></dl>
+
+</section>
+</section>
+<section id="id8">
+<h2>Команды лаунчера<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h2>
+<p>Эти команды используются для управления лаунчером Ren'Py из командной строки.</p>
+<section id="id9">
+<h3>Установка каталога проектов<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./renpy.sh launcher set_projects_directory &lt;directory&gt;
+</pre></div>
+</div>
+<p>Эта команда устанавливает каталог, который лаунчер Ren'Py использует для хранения проектов. Она предназначена для использования в минималистичных системах, где недоступны другие способы выбора каталога проектов.</p>
+<p>Это можно сделать только тогда, когда лаунчер не запущен.</p>
+</section>
+<section id="id10">
+<h3>Установка проекта<a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./renpy.sh launcher set_project &lt;base&gt;
+</pre></div>
+</div>
+<p>Устанавливает текущий проект в соответствии с указанным. Для достижения этой цели будут изменены каталог проектов и текущий выбранный проект в лаунчере.</p>
+<p>Это можно сделать только тогда, когда лаунчер не запущен.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="template_projects.html" class="btn btn-neutral float-left" title="Шаблонные проекты" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="editor.html" class="btn btn-neutral float-right" title="Интеграция с текстовым редактором" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

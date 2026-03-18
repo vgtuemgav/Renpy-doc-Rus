@@ -1,0 +1,480 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Боковые изображения &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/side_image.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Галерея изображений, музыкальная комната и действия повтора" href="rooms.html" />
+    <link rel="prev" title="Ввод текста" href="input.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Боковые изображения</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Невидимые персонажи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#config-store">Переменные Config и Store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Трансформации и переходы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Функции</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.get_side_image"><code class="docutils literal notranslate"><span class="pre">renpy.get_side_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.set_tag_attributes"><code class="docutils literal notranslate"><span class="pre">renpy.set_tag_attributes()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Боковые изображения</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/side_image.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Боковые изображения<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Многие визуальные новеллы включают в свой интерфейс изображение говорящего
+персонажа. Ren'Py называет это изображение боковым (side image) и имеет
+поддержку для автоматического выбора и отображения бокового изображения
+в рамках диалога.</p>
+<p>Поддержка боковых изображений предполагает, что <a class="reference internal" href="dialogue.html#Character" title="Character"><code class="xref py py-func docutils literal notranslate"><span class="pre">Character()</span></code></a> объявлен
+со связанным тегом изображения:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">e</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s2">&quot;Eileen&quot;</span><span class="p">,</span> <span class="k">image</span><span class="o">=</span><span class="s2">&quot;eileen&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Когда персонаж со связанным тегом изображения говорит, Ren'Py создает пул
+атрибутов изображения. Связанный тег изображения добавляется в этот пул, так же как и
+текущие атрибуты изображения, связанные с этим тегом.</p>
+<p>В дополнение к тегу, в пуле должен быть хотя бы один атрибут.
+Если нет, боковое изображение не показывается.</p>
+<p>Чтобы определить боковое изображение, связанное с тегом, Ren'Py пытается найти
+изображение с тегом &quot;side&quot; и наибольшим количеством атрибутов из
+пула. Если изображение не может быть найдено или несколько изображений имеют
+одинаковое количество атрибутов, вместо него отображается <a class="reference internal" href="displayables.html#Null" title="Null"><code class="xref py py-class docutils literal notranslate"><span class="pre">Null</span></code></a>.</p>
+<p>Например, допустим, у нас есть следующий скрипт:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">e</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s2">&quot;Eileen&quot;</span><span class="p">,</span> <span class="k">image</span><span class="o">=</span><span class="s2">&quot;eileen&quot;</span><span class="p">)</span>
+
+<span class="k">image</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="o">=</span> <span class="s2">&quot;eileen_happy.png&quot;</span>
+<span class="k">image</span> <span class="n">eileen</span> <span class="n">concerned</span> <span class="o">=</span> <span class="s2">&quot;eileen_concerned.png&quot;</span>
+
+<span class="k">image</span> <span class="k">side</span> <span class="n">eileen</span> <span class="n">happy</span> <span class="o">=</span> <span class="s2">&quot;side_eileen_happy.png&quot;</span>
+<span class="k">image</span> <span class="k">side</span> <span class="n">eileen</span> <span class="o">=</span> <span class="s2">&quot;side_eileen.png&quot;</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+
+    <span class="k">show</span> <span class="n">eileen</span> <span class="n">happy</span>
+
+    <span class="n">e</span> <span class="s2">&quot;Let&#39;s call this line Point A.&quot;</span>
+
+    <span class="n">e</span> <span class="n">concerned</span> <span class="s2">&quot;And this one is point B.&quot;</span>
+</pre></div>
+</div>
+<p>В точке A говорит персонаж <code class="docutils literal notranslate"><span class="pre">e</span></code>, который связан с тегом изображения
+&quot;eileen&quot;. Отображается изображение &quot;eileen happy&quot;, поэтому пул атрибутов
+составляет &quot;eileen&quot; и &quot;happy&quot;. Мы ищем изображение с тегом &quot;side&quot; и как
+можно большим количеством этих атрибутов — и находим совпадение с &quot;side eileen happy&quot;,
+что и является боковым изображением, которое Ren'Py отобразит.</p>
+<p>В точке B отображается изображение &quot;eileen concerned&quot;. Пул атрибутов
+теперь составляет &quot;eileen&quot; и &quot;concerned&quot;. Единственное совпадающее изображение — &quot;side eileen&quot;,
+поэтому Ren'Py выбирает его. Если бы существовало изображение &quot;side concerned&quot;,
+возникла бы неоднозначность, и Ren'Py не стал бы отображать изображение.</p>
+<section id="id2">
+<h2>Невидимые персонажи<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Другое применение бокового изображения — показывать изображение персонажа игрока,
+когда у этого персонажа есть реплика. Для этого нужно связать изображение с
+персонажем, а затем использовать конструкцию say with attributes, чтобы выбрать
+боковое изображение для показа.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s2">&quot;Player&quot;</span><span class="p">,</span> <span class="k">image</span><span class="o">=</span><span class="s2">&quot;player&quot;</span><span class="p">)</span>
+
+<span class="k">image</span> <span class="k">side</span> <span class="n">player</span> <span class="n">happy</span> <span class="o">=</span> <span class="s2">&quot;side_player_happy.png&quot;</span>
+<span class="k">image</span> <span class="k">side</span> <span class="n">player</span> <span class="n">concerned</span> <span class="o">=</span> <span class="s2">&quot;side_player_concerned.png&quot;</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+
+    <span class="n">p</span> <span class="n">happy</span> <span class="s2">&quot;This is shown with the &#39;side player happy&#39; image.&quot;</span>
+
+    <span class="n">p</span> <span class="s2">&quot;This is also shown with &#39;side player happy&#39;.&quot;</span>
+
+    <span class="n">p</span> <span class="n">concerned</span> <span class="s2">&quot;This is shown with &#39;side player concerned&#39;.&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="config-store">
+<h2>Переменные Config и Store<a class="headerlink" href="#config-store" title="Ссылка на этот заголовок"></a></h2>
+<p>Существует ряд атрибутов боковых изображений, которыми можно управлять
+с помощью переменных конфигурации.</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_side_image_tag">
+<span class="sig-name descname"><span class="pre">_side_image_tag</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-_side_image_tag" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config.side_image_tag">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">config.side_image_tag</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-config.side_image_tag" title="Ссылка на это определение"></a></dt>
+<dd><p>Если _side_image_tag не равно None, оно имеет приоритет над config.side_image_tag.</p>
+<p>Если это указано, то боковое изображение будет отслеживать данный тег изображения,
+а не изображение, связанное с говорящим в данный момент персонажем. Например,</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">e</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s2">&quot;Eileen&quot;</span><span class="p">,</span> <span class="k">image</span><span class="o">=</span><span class="s2">&quot;eileen&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">side_image_tag</span> <span class="o">=</span> <span class="s2">&quot;eileen&quot;</span>
+</pre></div>
+</div>
+<p>Заставит боковое изображение отслеживать тег &quot;eileen&quot;, который связан
+с персонажем <code class="docutils literal notranslate"><span class="pre">e</span></code>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config.side_image_only_not_showing">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">config.side_image_only_not_showing</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-config.side_image_only_not_showing" title="Ссылка на это определение"></a></dt>
+<dd><p>Если установлено в true, боковое изображение будет отображаться только в том случае, если изображение с этим тегом
+еще не отображается на экране.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_side_image_prefix_tag">
+<span class="sig-name descname"><span class="pre">_side_image_prefix_tag</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-_side_image_prefix_tag" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config.side_image_prefix_tag">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">config.side_image_prefix_tag</span></span> <span class="pre">=</span> <span class="pre">'side'</span><a class="headerlink" href="#var-config.side_image_prefix_tag" title="Ссылка на это определение"></a></dt>
+<dd><p>Если _side_image_prefix_tag не равно None, оно имеет приоритет над
+config.side_image_prefix_tag.</p>
+<p>Префикс, который используется при поиске бокового изображения.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config.side_image_null">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">config.side_image_null</span></span> <span class="pre">=</span> <span class="pre">Null()</span><a class="headerlink" href="#var-config.side_image_null" title="Ссылка на это определение"></a></dt>
+<dd><p>Null displayable-объект, который используется, когда боковое изображение не отображается. Его можно
+изменить, но только на другие Null-объекты. Одной из причин для этого
+может быть установка размера Null (например, <code class="docutils literal notranslate"><span class="pre">Null(width=200,</span> <span class="pre">height=150)</span></code>)
+для предотвращения обрезки dissolve-эффектов.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config.side_image_same_transform">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">config.side_image_same_transform</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-config.side_image_same_transform" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это трансформация, которая используется, когда новое боковое изображение
+имеет тот же тег, что и предыдущее боковое изображение.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config.side_image_change_transform">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">config.side_image_change_transform</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-config.side_image_change_transform" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это трансформация, которая используется, когда новое боковое изображение
+не имеет того же тега изображения (или когда одно из старых или новых
+боковых изображений не существует).</p>
+</dd></dl>
+
+</section>
+<section id="id3">
+<h2>Трансформации и переходы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Трансформации <a class="reference internal" href="#var-config.side_image_same_transform"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.side_image_same_transform</span></code></a> и
+<a class="reference internal" href="#var-config.side_image_change_transform"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.side_image_change_transform</span></code></a> вызываются с двумя
+аргументами — старым и новым displayable-объектами боковых изображений — каждый раз,
+когда отображается боковое изображение. Их можно использовать для перемещения
+боковых изображений или для применения перехода между ними.</p>
+<p>Этот код заставляет боковое изображение выезжать и заезжать при смене
+персонажа, связанного с этим изображением:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">change_transform</span><span class="p">(</span><span class="k">old</span><span class="p">,</span> <span class="k">new</span><span class="p">):</span>
+    <span class="k">contains</span><span class="p">:</span>
+        <span class="k">old</span>
+        <span class="na">yalign</span> <span class="mf">1.0</span>
+        <span class="na">xpos</span> <span class="mf">0.0</span> <span class="na">xanchor</span> <span class="mf">0.0</span>
+        <span class="n">linear</span> <span class="mf">0.2</span> <span class="na">xanchor</span> <span class="mf">1.0</span>
+    <span class="k">contains</span><span class="p">:</span>
+        <span class="k">new</span>
+        <span class="na">yalign</span> <span class="mf">1.0</span>
+        <span class="na">xpos</span> <span class="mf">0.0</span> <span class="na">xanchor</span> <span class="mf">1.0</span>
+        <span class="n">linear</span> <span class="mf">0.2</span> <span class="na">xanchor</span> <span class="mf">0.0</span>
+
+<span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">side_image_change_transform</span> <span class="o">=</span> <span class="n">change_transform</span>
+</pre></div>
+</div>
+<p>Это используется для dissolve-перехода между старым и новым боковыми изображениями,
+когда персонаж остается прежним (например, при смене эмоции).
+Чтобы <a class="reference internal" href="transitions.html#Dissolve" title="Dissolve"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dissolve</span></code></a> работал корректно, оба боковых изображения должны
+быть одинакового размера.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">same_transform</span><span class="p">(</span><span class="k">old</span><span class="p">,</span> <span class="k">new</span><span class="p">):</span>
+    <span class="k">old</span>
+    <span class="k">new</span> <span class="k">with</span> <span class="n">Dissolve</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="na">alpha</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">side_image_same_transform</span> <span class="o">=</span> <span class="n">same_transform</span>
+</pre></div>
+</div>
+<p>Когда <a class="reference internal" href="screen_actions.html#SideImage" title="SideImage"><code class="xref py py-func docutils literal notranslate"><span class="pre">SideImage()</span></code></a> уменьшается, может иметь смысл включить
+мипмаппинг в <a class="reference internal" href="transitions.html#Dissolve" title="Dissolve"><code class="xref py py-func docutils literal notranslate"><span class="pre">Dissolve()</span></code></a>:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">transform</span> <span class="n">same_transform</span><span class="p">(</span><span class="k">old</span><span class="p">,</span> <span class="k">new</span><span class="p">):</span>
+    <span class="k">old</span>
+    <span class="k">new</span> <span class="k">with</span> <span class="n">Dissolve</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="na">alpha</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="na">mipmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">side_image_same_transform</span> <span class="o">=</span> <span class="n">same_transform</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>Функции<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.get_side_image">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">get_side_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix_tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">not_showing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.get_side_image" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта функция пытается найти изображение для показа в качестве бокового изображения.</p>
+<p>Она начинает с определения набора атрибутов изображения. Если <cite>image_tag</cite>
+задан, она получает атрибуты изображения из этого тега. В противном случае, она
+получает их из свойства <cite>image</cite>, переданного текущему говорящему персонажу.
+Если атрибуты недоступны, возвращается None.</p>
+<p>Затем она ищет изображение с тегом <cite>prefix_tag</cite> и атрибутами,
+состоящими из:</p>
+<ul class="simple">
+<li><p>Тега изображения (либо из <cite>image_tag</cite>, либо из свойства <cite>image</cite>,
+переданного текущему говорящему персонажу).</p></li>
+<li><p>Атрибутов.</p></li>
+</ul>
+<p>Если такое изображение существует, оно возвращается.</p>
+<dl class="simple">
+<dt><cite>not_showing</cite></dt><dd><p>Если <cite>not_showing</cite> равно True, эта функция возвращает боковое изображение, только если
+изображение с тегом, из которого берутся атрибуты, в данный момент не
+показано. Если False, она всегда будет возвращать изображение, если это возможно.
+Если None, значение берется из <a class="reference internal" href="#var-config.side_image_only_not_showing"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.side_image_only_not_showing</span></code></a>.</p>
+</dd>
+<dt><cite>layer</cite></dt><dd><p>Если задано, слой, на котором искать тег изображения и атрибуты. Если
+None, используется слой по умолчанию для данного тега.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.set_tag_attributes">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">set_tag_attributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.set_tag_attributes" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта функция устанавливает атрибуты, связанные с тегом изображения, когда
+этот тег изображения не отображается. Основное применение этого — прямое
+установление атрибутов, используемых боковым изображением.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">$</span> <span class="n">renpy</span><span class="o">.</span><span class="n">set_tag_attributes</span><span class="p">(</span><span class="s2">&quot;lucy mad&quot;</span><span class="p">)</span>
+<span class="k">$</span> <span class="n">renpy</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="s2">&quot;Я довольно зла.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>и:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="n">mad</span> <span class="s2">&quot;Я довольно зла.&quot;</span>
+</pre></div>
+</div>
+<p>эквивалентны.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="input.html" class="btn btn-neutral float-left" title="Ввод текста" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="rooms.html" class="btn btn-neutral float-right" title="Галерея изображений, музыкальная комната и действия повтора" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

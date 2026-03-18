@@ -1,0 +1,737 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Достижения &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/achievement.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="История диалогов" href="history.html" />
+    <link rel="prev" title="Настройка раскладки клавиатуры" href="keymap.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Достижения</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#achievement.Sync"><code class="docutils literal notranslate"><span class="pre">achievement.Sync()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#achievement.clear"><code class="docutils literal notranslate"><span class="pre">achievement.clear()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#achievement.clear_all"><code class="docutils literal notranslate"><span class="pre">achievement.clear_all()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#achievement.get_progress"><code class="docutils literal notranslate"><span class="pre">achievement.get_progress()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#achievement.grant"><code class="docutils literal notranslate"><span class="pre">achievement.grant()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#achievement.has"><code class="docutils literal notranslate"><span class="pre">achievement.has()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#achievement.progress"><code class="docutils literal notranslate"><span class="pre">achievement.progress()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#achievement.register"><code class="docutils literal notranslate"><span class="pre">achievement.register()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#achievement.sync"><code class="docutils literal notranslate"><span class="pre">achievement.sync()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-steamworks">API Steamworks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#steam">Приложения Steam</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.dlc_installed"><code class="docutils literal notranslate"><span class="pre">achievement.steam.dlc_installed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.dlc_progress"><code class="docutils literal notranslate"><span class="pre">achievement.steam.dlc_progress()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.get_app_build_id"><code class="docutils literal notranslate"><span class="pre">achievement.steam.get_app_build_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.get_current_beta_name"><code class="docutils literal notranslate"><span class="pre">achievement.steam.get_current_beta_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.get_current_game_language"><code class="docutils literal notranslate"><span class="pre">achievement.steam.get_current_game_language()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.get_steam_ui_language"><code class="docutils literal notranslate"><span class="pre">achievement.steam.get_steam_ui_language()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.install_dlc"><code class="docutils literal notranslate"><span class="pre">achievement.steam.install_dlc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.is_subscribed_app"><code class="docutils literal notranslate"><span class="pre">achievement.steam.is_subscribed_app()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.uninstall_dlc"><code class="docutils literal notranslate"><span class="pre">achievement.steam.uninstall_dlc()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Оверлей Steam</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.activate_overlay"><code class="docutils literal notranslate"><span class="pre">achievement.steam.activate_overlay()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.activate_overlay_to_store"><code class="docutils literal notranslate"><span class="pre">achievement.steam.activate_overlay_to_store()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.activate_overlay_to_web_page"><code class="docutils literal notranslate"><span class="pre">achievement.steam.activate_overlay_to_web_page()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.is_overlay_enabled"><code class="docutils literal notranslate"><span class="pre">achievement.steam.is_overlay_enabled()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.overlay_needs_present"><code class="docutils literal notranslate"><span class="pre">achievement.steam.overlay_needs_present()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.set_overlay_notification_position"><code class="docutils literal notranslate"><span class="pre">achievement.steam.set_overlay_notification_position()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Статистика Steam</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.clear_achievement"><code class="docutils literal notranslate"><span class="pre">achievement.steam.clear_achievement()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.get_achievement"><code class="docutils literal notranslate"><span class="pre">achievement.steam.get_achievement()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.get_float_stat"><code class="docutils literal notranslate"><span class="pre">achievement.steam.get_float_stat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.get_int_stat"><code class="docutils literal notranslate"><span class="pre">achievement.steam.get_int_stat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.grant_achievement"><code class="docutils literal notranslate"><span class="pre">achievement.steam.grant_achievement()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.indicate_achievement_progress"><code class="docutils literal notranslate"><span class="pre">achievement.steam.indicate_achievement_progress()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.list_achievements"><code class="docutils literal notranslate"><span class="pre">achievement.steam.list_achievements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.retrieve_stats"><code class="docutils literal notranslate"><span class="pre">achievement.steam.retrieve_stats()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.set_float_stat"><code class="docutils literal notranslate"><span class="pre">achievement.steam.set_float_stat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.set_int_stat"><code class="docutils literal notranslate"><span class="pre">achievement.steam.set_int_stat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.store_stats"><code class="docutils literal notranslate"><span class="pre">achievement.steam.store_stats()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Хронология Steam</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.add_timeline_event"><code class="docutils literal notranslate"><span class="pre">achievement.steam.add_timeline_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.clear_timeline_state_description"><code class="docutils literal notranslate"><span class="pre">achievement.steam.clear_timeline_state_description()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.set_timeline_state_description"><code class="docutils literal notranslate"><span class="pre">achievement.steam.set_timeline_state_description()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Пользователь Steam</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.cancel_ticket"><code class="docutils literal notranslate"><span class="pre">achievement.steam.cancel_ticket()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.get_account_id"><code class="docutils literal notranslate"><span class="pre">achievement.steam.get_account_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.get_csteam_id"><code class="docutils literal notranslate"><span class="pre">achievement.steam.get_csteam_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.get_game_badge_level"><code class="docutils literal notranslate"><span class="pre">achievement.steam.get_game_badge_level()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.get_persona_name"><code class="docutils literal notranslate"><span class="pre">achievement.steam.get_persona_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.get_session_ticket"><code class="docutils literal notranslate"><span class="pre">achievement.steam.get_session_ticket()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Мастерская Steam</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.get_subscribed_item_path"><code class="docutils literal notranslate"><span class="pre">achievement.steam.get_subscribed_item_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#achievement.steam.get_subscribed_items"><code class="docutils literal notranslate"><span class="pre">achievement.steam.get_subscribed_items()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Достижения</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/achievement.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="achievement">
+<span id="id1"></span><h1>Достижения<a class="headerlink" href="#achievement" title="Ссылка на этот заголовок"></a></h1>
+<p>Модуль достижений позволяет разработчику присваивать достижения игроку,
+очищать достижения и определять, было ли присвоено достижение. Он также позволяет
+записывать прогресс в достижении.</p>
+<p>По умолчанию достижения хранят информацию в persistent-файле. Если
+поддержка Steam доступна и включена, информация о достижениях
+автоматически синхронизируется со Steam.</p>
+<p>Поддержка Steam должна быть добавлена в Ren'Py, чтобы гарантировать, что она распространяется
+только создателями, которые были приняты в партнерскую программу Steam. Чтобы установить
+ее, выберите &quot;preferences&quot;, &quot;Install libraries&quot;, &quot;Install Steam Support&quot;.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.Sync">
+<span class="sig-prename descclassname"><span class="pre">achievement.</span></span><span class="sig-name descname"><span class="pre">Sync</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#achievement.Sync" title="Ссылка на это определение"></a></dt>
+<dd><p>Действие, вызывающее achievement.sync(). Активно, только если достижения не синхронизированы.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.clear">
+<span class="sig-prename descclassname"><span class="pre">achievement.</span></span><span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.clear" title="Ссылка на это определение"></a></dt>
+<dd><p>Стирает достижение с именем <cite>name</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.clear_all">
+<span class="sig-prename descclassname"><span class="pre">achievement.</span></span><span class="sig-name descname"><span class="pre">clear_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#achievement.clear_all" title="Ссылка на это определение"></a></dt>
+<dd><p>Стирает все достижения.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.get_progress">
+<span class="sig-prename descclassname"><span class="pre">achievement.</span></span><span class="sig-name descname"><span class="pre">get_progress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.get_progress" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает текущий прогресс в достижении, идентифицированном по <cite>name</cite>, или 0, если для него не был зарегистрирован прогресс, или если достижение неизвестно.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.grant">
+<span class="sig-prename descclassname"><span class="pre">achievement.</span></span><span class="sig-name descname"><span class="pre">grant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.grant" title="Ссылка на это определение"></a></dt>
+<dd><p>Присуждает достижение с именем <cite>name</cite>, если оно еще не было присуждено.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.has">
+<span class="sig-prename descclassname"><span class="pre">achievement.</span></span><span class="sig-name descname"><span class="pre">has</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.has" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает true, если игроку было присуждено достижение с именем <cite>name</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.progress">
+<span class="sig-prename descclassname"><span class="pre">achievement.</span></span><span class="sig-name descname"><span class="pre">progress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">complete</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.progress" title="Ссылка на это определение"></a></dt>
+<dd><p>Сообщает о прогрессе в достижении с именем <cite>name</cite>, если это достижение еще не было присуждено. Достижение должно быть определено с указанием количества для завершения.</p>
+<dl class="simple">
+<dt><cite>name</cite></dt><dd><p>Имя достижения. Это должно быть имя достижения, а не статистики.</p>
+</dd>
+<dt><cite>complete</cite></dt><dd><p>Целое число, указывающее количество выполненных единиц для достижения.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.register">
+<span class="sig-prename descclassname"><span class="pre">achievement.</span></span><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.register" title="Ссылка на это определение"></a></dt>
+<dd><p>Регистрирует достижение. Достижения не обязательно регистрировать, но это позволяет передавать информацию бэкендам.</p>
+<dl class="simple">
+<dt><cite>name</cite></dt><dd><p>Имя регистрируемого достижения.</p>
+</dd>
+</dl>
+<p>Следующие именованные параметры необязательны.</p>
+<dl class="simple">
+<dt><cite>steam</cite></dt><dd><p>Имя, которое будет использоваться в Steam. Если не указано, по умолчанию используется <cite>name</cite>.</p>
+</dd>
+<dt><cite>stat_max</cite></dt><dd><p>Целочисленное значение статистики, при котором достижение разблокируется.</p>
+</dd>
+<dt><cite>stat_modulo</cite></dt><dd><p>Если остаток от деления прогресса на <cite>stat_max</cite> равен 0, прогресс отображается пользователю. Например, если <cite>stat_modulo</cite> равно 10, прогресс будет отображаться пользователю, когда он достигнет 10, 20, 30 и т.д. Если не указано, по умолчанию равно 0.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.sync">
+<span class="sig-prename descclassname"><span class="pre">achievement.</span></span><span class="sig-name descname"><span class="pre">sync</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#achievement.sync" title="Ссылка на это определение"></a></dt>
+<dd><p>Синхронизирует зарегистрированные достижения между локальным хранилищем и другими бэкендами (например, Steam).</p>
+</dd></dl>
+
+<p>Переменные, которые управляют достижениями:</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-achievement.steam_position">
+<span class="sig-name descname"><span class="pre">achievement.steam_position</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-achievement.steam_position" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, устанавливает положение всплывающего уведомления Steam.
+Это должна быть строка, одна из: &quot;top left&quot;, &quot;top right&quot;, &quot;bottom left&quot;
+или &quot;bottom right&quot;.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config.steam_appid">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">config.steam_appid</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-config.steam_appid" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это должен быть appid Steam. Ren'Py автоматически установит
+этот appid при запуске. Это нужно установить с помощью оператора define:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">steam_appid</span> <span class="o">=</span> <span class="mi">12345</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-config.automatic_steam_timeline">
+<span class="pre">define</span> <span class="sig-name descname"><span class="pre">config.automatic_steam_timeline</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-config.automatic_steam_timeline" title="Ссылка на это определение"></a></dt>
+<dd><p>Если true, то при запуске через Steam игра будет автоматически обновлять Steam Timeline.</p>
+<p>В настоящее время это включает:</p>
+<ul class="simple">
+<li><p>Обновление фазы игры в соответствии с <a class="reference internal" href="store_variables.html#var-save_name"><code class="xref std std-var docutils literal notranslate"><span class="pre">save_name</span></code></a>, если эта переменная установлена.</p></li>
+<li><p>Обновление режима игры, чтобы отразить, когда игрок находится в меню.</p></li>
+</ul>
+</dd></dl>
+
+<section id="api-steamworks">
+<h2>API Steamworks<a class="headerlink" href="#api-steamworks" title="Ссылка на этот заголовок"></a></h2>
+<p>Когда Steam доступен, привязка к API Steamworks на основе ctypes доступна как
+<code class="docutils literal notranslate"><span class="pre">achievement.steamapi</span></code>. Привязка является экземпляром модуля
+steamapi, который можно найти <a class="reference external" href="https://github.com/renpy/renpy-build/blob/master/steamapi/steamapi.py">здесь</a>,
+и представляет собой машинный перевод API C++ Steamworks на Python.</p>
+<p>Кроме того, большое количество функций доступно в объекте achievement.steam, если и только
+если API Steamworks доступен.</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-achievement.steam">
+<span class="sig-name descname"><span class="pre">achievement.steam</span></span><a class="headerlink" href="#var-achievement.steam" title="Ссылка на это определение"></a></dt>
+<dd><p>Если Steam инициализировался успешно, это пространство имен с высокоуровневыми методами Steam. Если Steam не
+инициализировался, это None. Всегда проверяйте, что это не None, перед вызовом метода.</p>
+</dd></dl>
+
+<section id="steam">
+<h3>Приложения Steam<a class="headerlink" href="#steam" title="Ссылка на этот заголовок"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.dlc_installed">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">dlc_installed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">appid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.dlc_installed" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает True, если DLC установлен, иначе False.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.dlc_progress">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">dlc_progress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">appid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.dlc_progress" title="Ссылка на это определение"></a></dt>
+<dd><p>Сообщает о прогрессе загрузки DLC.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.get_app_build_id">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">get_app_build_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.get_app_build_id" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает ID сборки (build ID) установленной игры.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.get_current_beta_name">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">get_current_beta_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.get_current_beta_name" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает имя текущей бета-версии или None, если это невозможно.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.get_current_game_language">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">get_current_game_language</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.get_current_game_language" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает имя языка, выбранного пользователем.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.get_steam_ui_language">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">get_steam_ui_language</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.get_steam_ui_language" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает имя языка, используемого в интерфейсе Steam.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.install_dlc">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">install_dlc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">appid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.install_dlc" title="Ссылка на это определение"></a></dt>
+<dd><p>Запрашивает установку DLC с указанным <cite>appid</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.is_subscribed_app">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">is_subscribed_app</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">appid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.is_subscribed_app" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает true, если пользователь владеет приложением с <cite>appid</cite>, иначе false.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.uninstall_dlc">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">uninstall_dlc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">appid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.uninstall_dlc" title="Ссылка на это определение"></a></dt>
+<dd><p>Запрашивает удаление DLC с указанным <cite>appid</cite>.</p>
+</dd></dl>
+
+</section>
+<section id="id3">
+<h3>Оверлей Steam<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.activate_overlay">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">activate_overlay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialog</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.activate_overlay" title="Ссылка на это определение"></a></dt>
+<dd><p>Активирует оверлей Steam.</p>
+<dl class="simple">
+<dt><cite>dialog</cite></dt><dd><p>Диалог, который нужно открыть в оверлее. Один из: &quot;Friends&quot;, &quot;Community&quot;,
+&quot;Players&quot;, &quot;Settings&quot;, &quot;OfficialGameGroup&quot;, &quot;Stats&quot;, &quot;Achievements&quot;</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.activate_overlay_to_store">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">activate_overlay_to_store</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">appid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.activate_overlay_to_store" title="Ссылка на это определение"></a></dt>
+<dd><p>Открывает оверлей Steam на странице магазина.</p>
+<dl class="simple">
+<dt><cite>appid</cite></dt><dd><p><cite>appid</cite> приложения, которое нужно открыть.</p>
+</dd>
+<dt><cite>flag</cite></dt><dd><p>Один из: achievement.steam.STORE_NONE, .STORE_ADD_TO_CART или .STORE_ADD_TO_CART_AND_SHOW.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.activate_overlay_to_web_page">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">activate_overlay_to_web_page</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.activate_overlay_to_web_page" title="Ссылка на это определение"></a></dt>
+<dd><p>Активирует оверлей Steam и открывает веб-страницу по адресу <cite>url</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.is_overlay_enabled">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">is_overlay_enabled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.is_overlay_enabled" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает true, если оверлей Steam включен. (Может пройти некоторое время
+после запуска игры, прежде чем функция начнет возвращать true.)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.overlay_needs_present">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">overlay_needs_present</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.overlay_needs_present" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает true, если оверлей Steam включен. (Может пройти некоторое время
+после запуска игры, прежде чем функция начнет возвращать true.)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.set_overlay_notification_position">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">set_overlay_notification_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.set_overlay_notification_position" title="Ссылка на это определение"></a></dt>
+<dd><p>Устанавливает позицию оверлея Steam. <cite>position</cite> должен быть одним из
+achievement.steam.POSITION_TOP_LEFT, .POSITION_TOP_RIGHT, .POSITION_BOTTOM_LEFT
+или .POSITION_BOTTOM_RIGHT.</p>
+</dd></dl>
+
+</section>
+<section id="id4">
+<h3>Статистика Steam<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.clear_achievement">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">clear_achievement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.clear_achievement" title="Ссылка на это определение"></a></dt>
+<dd><p>Сбрасывает достижение с именем <cite>name</cite>. Вызовите <code class="xref py py-func docutils literal notranslate"><span class="pre">_renpysteam.store_stats()</span></code>, чтобы
+отправить это изменение на сервер.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.get_achievement">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">get_achievement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.get_achievement" title="Ссылка на это определение"></a></dt>
+<dd><p>Получает состояние достижения с именем <cite>name</cite>. Возвращает True, если
+достижение получено, False, если нет, и None, если достижение
+неизвестно или произошла ошибка.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.get_float_stat">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">get_float_stat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.get_float_stat" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает значение статистики с именем <cite>name</cite> или None, если такой статистики
+не существует.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.get_int_stat">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">get_int_stat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.get_int_stat" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает значение статистики с именем <cite>name</cite> или None, если такой статистики
+не существует.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.grant_achievement">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">grant_achievement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.grant_achievement" title="Ссылка на это определение"></a></dt>
+<dd><p>Выдает достижение с именем <cite>name</cite>. Вызовите <code class="xref py py-func docutils literal notranslate"><span class="pre">_renpysteam.store_stats()</span></code>, чтобы
+отправить это изменение на сервер.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.indicate_achievement_progress">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">indicate_achievement_progress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cur_progress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_progress</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.indicate_achievement_progress" title="Ссылка на это определение"></a></dt>
+<dd><p>Показывает пользователю прогресс достижения. Это <em>не</em> открывает
+достижение.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.list_achievements">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">list_achievements</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.list_achievements" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает список имен достижений.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.retrieve_stats">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">retrieve_stats</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.retrieve_stats" title="Ссылка на это определение"></a></dt>
+<dd><p>Получает достижения и статистику из Steam.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.set_float_stat">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">set_float_stat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.set_float_stat" title="Ссылка на это определение"></a></dt>
+<dd><p>Устанавливает значение статистики с именем <cite>name</cite>, которая должна иметь тип
+FLOAT. Вызовите <code class="xref py py-func docutils literal notranslate"><span class="pre">_renpysteam.store_stats()</span></code>, чтобы отправить это изменение на
+сервер.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.set_int_stat">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">set_int_stat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.set_int_stat" title="Ссылка на это определение"></a></dt>
+<dd><p>Устанавливает значение статистики с именем <cite>name</cite>, которая должна иметь тип
+INT. Вызовите <code class="xref py py-func docutils literal notranslate"><span class="pre">_renpysteam.store_stats()</span></code>, чтобы отправить это изменение на
+сервер.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.store_stats">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">store_stats</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.store_stats" title="Ссылка на это определение"></a></dt>
+<dd><p>Сохраняет статистику и достижения на сервере Steam.</p>
+</dd></dl>
+
+</section>
+<section id="id5">
+<h3>Хронология Steam<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.add_timeline_event">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">add_timeline_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">icon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">possible_clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.add_timeline_event" title="Ссылка на это определение"></a></dt>
+<dd><p>Добавляет событие на временную шкалу (timeline). Обратите внимание, что порядок аргументов здесь отличается от Steam API.</p>
+<dl class="simple">
+<dt><cite>icon</cite></dt><dd><p>Иконка для отображения события. Это должна быть строка с названием одной из стандартных иконок Steam
+или той, что вы загрузили в Steam.</p>
+</dd>
+<dt><cite>title</cite></dt><dd><p>Заголовок события.</p>
+</dd>
+<dt><cite>description</cite></dt><dd><p>Описание события.</p>
+</dd>
+<dt><cite>priority</cite></dt><dd><p>Приоритет события, используется для разрешения конфликтов. Должно быть целым числом от 0 до 1000.</p>
+</dd>
+<dt><cite>start_offset</cite></dt><dd><p>Смещение начала события от текущего времени, в секундах.</p>
+</dd>
+<dt><cite>duration</cite></dt><dd><p>Продолжительность события, в секундах.</p>
+</dd>
+<dt><cite>possible_clip</cite></dt><dd><p>Определяет, может ли событие быть обрезано. Должно быть одной из констант achievement.steam.CLIP_PRIORITY...
+: CLIP_PRIORITY_NONE, CLIP_PRIORITY_STANDARD или CLIP_PRIORITY_FEATURED.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.clear_timeline_state_description">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">clear_timeline_state_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_delta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.clear_timeline_state_description" title="Ссылка на это определение"></a></dt>
+<dd><p>Очищает описание текущего состояния на временной шкале.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.set_timeline_state_description">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">set_timeline_state_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.set_timeline_state_description" title="Ссылка на это определение"></a></dt>
+<dd><p>Устанавливает описание текущего состояния на временной шкале.</p>
+<dl class="simple">
+<dt><cite>description</cite></dt><dd><p>Строка, задающая описание текущего состояния.</p>
+</dd>
+<dt><cite>time_delta</cite></dt><dd><p>Время, прошедшее с последнего изменения состояния.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="id6">
+<h3>Пользователь Steam<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.cancel_ticket">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">cancel_ticket</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.cancel_ticket" title="Ссылка на это определение"></a></dt>
+<dd><p>Отменяет тикет, возвращенный <a class="reference internal" href="#achievement.steam.get_session_ticket" title="achievement.steam.get_session_ticket"><code class="xref py py-func docutils literal notranslate"><span class="pre">achievement.steam.get_session_ticket()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.get_account_id">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">get_account_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.get_account_id" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает ID аккаунта пользователя.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.get_csteam_id">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">get_csteam_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.get_csteam_id" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает полный CSteamID пользователя в виде 64-битного числа.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.get_game_badge_level">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">get_game_badge_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">foil</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.get_game_badge_level" title="Ссылка на это определение"></a></dt>
+<dd><p>Получает уровень значка Steam пользователя для вашей игры.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.get_persona_name">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">get_persona_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.get_persona_name" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает публично видимое имя пользователя.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.get_session_ticket">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">get_session_ticket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.get_session_ticket" title="Ссылка на это определение"></a></dt>
+<dd><p>Получает тикет, который можно отправить на сервер для аутентификации этого пользователя.</p>
+</dd></dl>
+
+</section>
+<section id="id7">
+<h3>Мастерская Steam<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.get_subscribed_item_path">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">get_subscribed_item_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.get_subscribed_item_path" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает путь, по которому был установлен элемент пользовательского контента. Возвращает
+None, если элемент не был установлен.</p>
+<dl class="simple">
+<dt><cite>item_id</cite></dt><dd><p>ID элемента.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="achievement.steam.get_subscribed_items">
+<span class="sig-prename descclassname"><span class="pre">achievement.steam.</span></span><span class="sig-name descname"><span class="pre">get_subscribed_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_disabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#achievement.steam.get_subscribed_items" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает список ID элементов из мастерской Steam, на которые подписан пользователь.</p>
+<dl class="simple">
+<dt><cite>include_disabled</cite></dt><dd><p>Если true, включает в список отключенные элементы.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="keymap.html" class="btn btn-neutral float-left" title="Настройка раскладки клавиатуры" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="history.html" class="btn btn-neutral float-right" title="История диалогов" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

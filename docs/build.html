@@ -1,0 +1,809 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Сборка дистрибутивов &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/build.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Android" href="android.html" />
+    <link rel="prev" title="Скриншоты" href="screenshot.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Сборка дистрибутивов</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Базовая конфигурация</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#special-files">Специальные файлы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Классификация и игнорирование файлов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Документация</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#packages">Пакеты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">Архивы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#old-game">Директория old-game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">Требования</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">Функции сборки</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#build.archive"><code class="docutils literal notranslate"><span class="pre">build.archive()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build.classify"><code class="docutils literal notranslate"><span class="pre">build.classify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build.clear"><code class="docutils literal notranslate"><span class="pre">build.clear()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build.documentation"><code class="docutils literal notranslate"><span class="pre">build.documentation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build.executable"><code class="docutils literal notranslate"><span class="pre">build.executable()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build.package"><code class="docutils literal notranslate"><span class="pre">build.package()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">Информация о сборке</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">Расширенная конфигурация</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Сборка дистрибутивов</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/build.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Сборка дистрибутивов<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Ren'Py включает поддержку для сборки дистрибутивов игры. После выбора
+«Сборка дистрибутивов» (Build Distributions) в лаунчере, Ren'Py просканирует себя и проект,
+чтобы определить, какие файлы включить в дистрибутив, создаст все необходимые
+архивы и соберёт файлы пакетов и обновлений.</p>
+<p>Без какой-либо настройки Ren'Py может собирать следующие типы пакетов:</p>
+<dl class="simple">
+<dt>PC: Windows и Linux</dt><dd><p>Zip-архив для Windows x86_64 и Linux x86_64.</p>
+</dd>
+<dt>Linux</dt><dd><p>Файл tar.bz2 для Linux x86_64. Он также будет включать
+32-битную и 64-битную ARM-версии Ren'Py, если они присутствуют. (Они
+находятся в пакете Ren'Py sdkarm.)</p>
+</dd>
+<dt>Macintosh</dt><dd><p>Zip-архив, содержащий приложение для Macintosh, предназначенное для macOS
+на процессорах Intel и Apple Silicon. Данные игры будут включены
+внутрь приложения, которое для пользователя выглядит как один файл.
+Система обновлений не работает с этим пакетом.</p>
+</dd>
+<dt>Windows</dt><dd><p>Zip-архив для Windows x86_64.</p>
+</dd>
+<dt>Windows, Mac и Linux для торговых площадок</dt><dd><p>Дистрибутив, который содержит информацию, необходимую для запуска
+на таких торговых площадках, как itch.io и Steam. Он не предназначен
+для прямого запуска (и, вероятно, не будет работать на Mac),
+а должен использоваться в процессе загрузки в магазин приложений.</p>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Файлы zip и tar.bz2, которые создаёт Ren'Py, содержат информацию
+о правах доступа, которая должна присутствовать для запуска Ren'Py на
+Linux и Macintosh.</p>
+<p>Распаковка и повторная упаковка zip-файла в Windows с последующим
+запуском на Linux или Macintosh не поддерживается.</p>
+</div>
+<section id="id2">
+<h2>Базовая конфигурация<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Процесс сборки можно настроить, устанавливая переменные и вызывая функции,
+которые находятся в пространстве имён <cite>build</cite>. Это должно быть сделано внутри
+блока <code class="docutils literal notranslate"><span class="pre">init</span> <span class="pre">python</span></code>. Настройки по умолчанию для этих конфигураций установлены
+в файле <code class="file docutils literal notranslate"><span class="pre">options.rpy</span></code>.</p>
+<p>Существует несколько основных переменных и функций, которые используются во многих
+играх.</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.name">
+<span class="sig-name descname"><span class="pre">build.name</span></span> <span class="pre">=</span> <span class="pre">&quot;...&quot;</span><a class="headerlink" href="#var-build.name" title="Ссылка на это определение"></a></dt>
+<dd><p>Используется для автоматической генерации <cite>build.directory_name</cite>
+и <cite>build.executable_name</cite>, если они не заданы. Не должно
+содержать пробелов, двоеточий или точек с запятой.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.directory_name">
+<span class="sig-name descname"><span class="pre">build.directory_name</span></span> <span class="pre">=</span> <span class="pre">&quot;...&quot;</span><a class="headerlink" href="#var-build.directory_name" title="Ссылка на это определение"></a></dt>
+<dd><p>Используется для создания имён директорий в архивных файлах.
+Например, если установить значение «mygame-1.0», то Linux-версия
+проекта будет распаковываться в «mygame-1.0-linux».</p>
+<p>Также используется для определения имени директории, в которую
+помещаются файлы пакетов. Например, если вы установите
+<cite>build.directory_name</cite> в <cite>mygame-1.0</cite>, архивные файлы будут
+помещены в <cite>mygame-1.0-dists</cite> в директории выше базовой.</p>
+<p>Эта переменная не должна содержать специальных символов, таких как пробелы,
+двоеточия и точки с запятой. Если не задана, по умолчанию
+используется <a class="reference internal" href="#var-build.name"><code class="xref std std-var docutils literal notranslate"><span class="pre">build.name</span></code></a>, дефис и версия. Версия берётся
+из <a class="reference internal" href="#var-build.version"><code class="xref std std-var docutils literal notranslate"><span class="pre">build.version</span></code></a>, если она установлена, или из <a class="reference internal" href="config.html#var-config.version"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.version</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.executable_name">
+<span class="sig-name descname"><span class="pre">build.executable_name</span></span> <span class="pre">=</span> <span class="pre">&quot;...&quot;</span><a class="headerlink" href="#var-build.executable_name" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта переменная управляет именем исполняемых файлов, которые
+пользователь запускает для начала игры.</p>
+<p>Эта переменная не должна содержать специальных символов, таких как пробелы,
+двоеточия и точки с запятой. Если не задана, по умолчанию
+используется <a class="reference internal" href="#var-build.name"><code class="xref std std-var docutils literal notranslate"><span class="pre">build.name</span></code></a>.</p>
+<p>Например, если установлено значение «mygame», пользователь сможет запустить
+<cite>mygame.exe</cite> в Windows, <cite>mygame.app</cite> в Macintosh и <cite>mygame.sh</cite> в Linux.</p>
+</dd></dl>
+
+</section>
+<section id="special-files">
+<span id="id3"></span><h2>Специальные файлы<a class="headerlink" href="#special-files" title="Ссылка на этот заголовок"></a></h2>
+<p>Есть два файла, которые можно включить в базовую директорию вашей игры
+для кастомизации сборки.</p>
+<dl class="simple">
+<dt><code class="file docutils literal notranslate"><span class="pre">icon.ico</span></code></dt><dd><p>Иконка, которая используется в Windows.</p>
+</dd>
+<dt><code class="file docutils literal notranslate"><span class="pre">icon.icns</span></code></dt><dd><p>Иконка, которая используется в Macintosh.</p>
+</dd>
+</dl>
+<p>Эти файлы иконок должны быть в определённых форматах. Для их
+конвертации вам понадобится использовать программу или веб-сервис
+(например, <a class="reference external" href="https://anyconv.com/png-to-ico-converter/">https://anyconv.com/png-to-ico-converter/</a> и
+<a class="reference external" href="https://anyconv.com/png-to-icns-converter/">https://anyconv.com/png-to-icns-converter/</a> ).</p>
+</section>
+<section id="id4">
+<h2>Классификация и игнорирование файлов<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<p>Процесс сборки работает путём предварительной классификации файлов дистрибутива Ren'Py
+и вашей игры по спискам файлов. Затем эти списки файлов добавляются
+в файлы пакетов.</p>
+<p>Классификация выполняется функцией <cite>build.classify</cite>. Она принимает
+шаблоны и разделённый пробелами список имён файлов. Шаблоны сопоставляются
+от первого к последнему, причём первое совпадение имеет приоритет
+(даже если за ним следует более конкретный шаблон). Шаблоны сопоставляются
+как с начальным слешем (<cite>/</cite>), так и без него. Шаблоны могут включать следующие
+специальные символы:</p>
+<dl class="simple">
+<dt>/</dt><dd><p>Разделитель директорий.</p>
+</dd>
+<dt>*</dt><dd><p>Соответствует всем символам, кроме разделителя директорий.</p>
+</dd>
+<dt>**</dt><dd><p>Соответствует всем символам.</p>
+</dd>
+</dl>
+<p>Например:</p>
+<dl class="simple">
+<dt>**.txt</dt><dd><p>Соответствует всем txt-файлам.</p>
+</dd>
+<dt>game/*.txt</dt><dd><p>Соответствует txt-файлам в директории <cite>game</cite>.</p>
+</dd>
+</dl>
+<p>По умолчанию существует семь списков файлов, по которым можно классифицировать файлы.
+(Ren'Py помещает свои собственные файлы в первые шесть из них.)</p>
+<dl class="simple">
+<dt>all</dt><dd><p>Эти файлы будут включены во все пакеты и в сборки для Android.</p>
+</dd>
+<dt>linux</dt><dd><p>Эти файлы будут включены в пакеты для Linux.</p>
+</dd>
+<dt>mac</dt><dd><p>Эти файлы будут включены в пакеты для Macintosh.</p>
+</dd>
+<dt>windows</dt><dd><p>Эти файлы будут включены в пакеты для Windows.</p>
+</dd>
+<dt>renpy</dt><dd><p>Эти файлы будут включены в пакеты, для которых требуются
+файлы движка Ren'Py. (Linux, Macintosh и Windows.)</p>
+</dd>
+<dt>android</dt><dd><p>Эти файлы будут включены в сборки для Android.</p>
+</dd>
+</dl>
+<p>Этот набор допустимых списков файлов можно расширить, передавая
+функции <a class="reference internal" href="#build.classify" title="build.classify"><code class="xref py py-func docutils literal notranslate"><span class="pre">build.classify()</span></code></a> новые имена в качестве её аргумента <code class="docutils literal notranslate"><span class="pre">file_list</span></code>.</p>
+<p>Файлы также могут быть классифицированы в архивы. По умолчанию
+объявлен архив «archive»:</p>
+<dl class="simple">
+<dt>archive</dt><dd><p>Эти файлы будут включены в архив <cite>archive.rpa</cite>.</p>
+</dd>
+</dl>
+<p>Набор архивов также можно расширить, используя функцию <a class="reference internal" href="#build.archive" title="build.archive"><code class="xref py py-func docutils literal notranslate"><span class="pre">build.archive()</span></code></a>.</p>
+<p>Файлы, которые не были классифицированы иным образом, помещаются в
+список файлов «all».</p>
+<p>Чтобы исключить файлы из дистрибутива, классифицируйте их как <cite>None</cite>
+или пустую строку. В этом случае * и ** в конце шаблона должны
+соответствовать хотя бы одному символу.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Включить README.txt</span>
+<span class="n">build</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="s2">&quot;README.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">)</span>
+
+<span class="c1"># Но исключить все остальные txt-файлы.</span>
+<span class="n">build</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="s2">&quot;**.txt&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># Добавить png и jpg файлы из директории игры в архив.</span>
+<span class="n">build</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="s2">&quot;game/**.png&quot;</span><span class="p">,</span> <span class="s2">&quot;archive&quot;</span><span class="p">)</span>
+<span class="n">build</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="s2">&quot;game/**.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;archive&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h2>Документация<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h2>
+<p>Вызов функции <cite>build.documentation</cite> с шаблонами помечает файлы,
+соответствующие этим шаблонам, как документацию. Файлы документации
+включаются в приложение для Macintosh дважды – как внутри, так
+и снаружи самого приложения.</p>
+<p>Например, чтобы пометить все txt и html файлы в базовой директории
+как документацию, вызовите:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">build</span><span class="o">.</span><span class="n">documentation</span><span class="p">(</span><span class="s2">&quot;*.txt&quot;</span><span class="p">)</span>
+<span class="n">build</span><span class="o">.</span><span class="n">documentation</span><span class="p">(</span><span class="s2">&quot;*.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="packages">
+<span id="id6"></span><h2>Пакеты<a class="headerlink" href="#packages" title="Ссылка на этот заголовок"></a></h2>
+<p>Также возможно добавлять новые типы пакетов в процесс сборки Ren'Py.
+Это делается путём вызова функции <cite>build.package</cite> с именем пакета,
+типом и строкой, содержащей списки файлов для включения.</p>
+<p>Допустим, мы хотим собрать обычную версию нашей игры и версию
+с бонусными материалами. Мы могли бы классифицировать бонусные файлы
+в список «bonus», а затем объявить пакет <cite>all-premium</cite> с помощью:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Объявить новый архив, принадлежащий новому списку файлов &quot;bonus&quot;.</span>
+<span class="n">build</span><span class="o">.</span><span class="n">archive</span><span class="p">(</span><span class="s2">&quot;bonus_archive&quot;</span><span class="p">,</span> <span class="s2">&quot;bonus&quot;</span><span class="p">)</span>
+
+<span class="c1"># Поместить бонусные файлы в новый архив.</span>
+<span class="n">build</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="s2">&quot;game/bonus/**&quot;</span><span class="p">,</span> <span class="s2">&quot;bonus_archive&quot;</span><span class="p">)</span>
+
+<span class="c1"># Объявить пакет.</span>
+<span class="n">build</span><span class="o">.</span><span class="n">package</span><span class="p">(</span><span class="s2">&quot;all-premium&quot;</span><span class="p">,</span> <span class="s2">&quot;zip&quot;</span><span class="p">,</span> <span class="s2">&quot;windows mac linux renpy all bonus&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Поддерживаемые типы пакетов: «zip» и «tar.bz2» для генерации файлов
+в этих форматах и «directory» для создания директории, заполненной файлами.</p>
+</section>
+<section id="id7">
+<h2>Архивы<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py поддерживает объединение файлов в простой архивный формат.
+Хотя он не очень безопасен, он защищает файлы от случайного копирования.</p>
+<p>По умолчанию все файлы, классифицированные в список «archive», будут
+помещены в архив <cite>archive.rpa</cite>, который включается в список файлов «all».</p>
+<p>Вызывая <cite>build.archive</cite>, можно объявлять новые архивы и списки
+файлов, в которые они будут включены. (Однако редко используется
+что-либо, кроме списка файлов «all».) Чтобы использовать архив,
+классифицируйте файлы в список с его именем.</p>
+<p>Например, следующий код заархивирует изображения в <code class="file docutils literal notranslate"><span class="pre">images.rpa</span></code>,
+а скрипты игры – в <code class="file docutils literal notranslate"><span class="pre">scripts.rpa</span></code>:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="c1"># Объявить два архива.</span>
+<span class="n">build</span><span class="o">.</span><span class="n">archive</span><span class="p">(</span><span class="s2">&quot;scripts&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">)</span>
+<span class="n">build</span><span class="o">.</span><span class="n">archive</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">)</span>
+
+<span class="c1"># Поместить файлы скриптов в архив scripts.</span>
+<span class="n">build</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="s2">&quot;game/**.rpy&quot;</span><span class="p">,</span> <span class="s2">&quot;scripts&quot;</span><span class="p">)</span>
+<span class="n">build</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="s2">&quot;game/**.rpyc&quot;</span><span class="p">,</span> <span class="s2">&quot;scripts&quot;</span><span class="p">)</span>
+
+<span class="c1"># Поместить изображения в архив images.</span>
+<span class="n">build</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="s2">&quot;game/**.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;images&quot;</span><span class="p">)</span>
+<span class="n">build</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="s2">&quot;game/**.png&quot;</span><span class="p">,</span> <span class="s2">&quot;images&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Если архивный файл пуст, он не будет создан.</p>
+<p>Пожалуйста, подумайте дважды, прежде чем архивировать вашу игру.
+Сохранение файлов в открытом виде поможет другим запускать вашу игру на
+будущих платформах — платформах, которых может и не существовать, когда
+вас уже не будет.</p>
+</section>
+<section id="old-game">
+<span id="id8"></span><h2>Директория old-game<a class="headerlink" href="#old-game" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py использует скомпилированные файлы скриптов (называемые <cite>.rpyc</cite>-файлами) для быстрого запуска вашей игры.
+Эти файлы также хранят важные детали, такие как уникальные идентификаторы (ID) для каждой строки диалога или сцены,
+на которые полагаются файлы сохранений. Когда игра обновляется и скрипты <cite>.rpy</cite> изменяются, Ren'Py
+обновляет или создаёт соответствующие <cite>.rpyc</cite>-файлы при запуске игры.</p>
+<p>Такое поведение <cite>.rpyc</cite>-файлов может создавать трудности для разработчиков,
+которые делают несколько релизов, например, при распространении игры через ранний доступ
+или на платформах вроде Patreon, или которые работают над большими играми с участием
+нескольких разработчиков. В процессе разработки легко внести серию изменений в файл
+<cite>.rpy</cite>, что приведёт к тому, что результирующий <cite>.rpyc</cite>-файл будет иметь другие ID,
+чем те, что использовались в вашем текущем стабильном релизе. Для команд это ещё большая
+проблема, поскольку несколько разработчиков могут редактировать один и тот же <cite>.rpy</cite>-файл.
+Как Ren'Py может сохранить свои ID без единого <cite>.rpyc</cite>-файла в качестве определённого источника?</p>
+<p>Чтобы эти изменения не нарушали совместимость сохранений, разработчики могут использовать
+директорию <cite>old-game</cite>. Эта специальная папка, которая находится рядом с директорией
+<cite>game</cite> в папке вашего проекта, позволяет сохранить копию <cite>.rpyc</cite>-файлов
+из вашего предыдущего релиза. Её структура должна соответствовать структуре директории <cite>game</cite>.
+Например, переместите <cite>game/scripts/day1.rpyc</cite> в <cite>old-game/scripts/day1.rpyc</cite>.
+Файлы в <cite>old-game</cite>, не являющиеся <cite>.rpyc</cite>-файлами, игнорируются.</p>
+<p>Когда у вас есть директория <cite>old-game</cite> с <cite>.rpyc</cite>-файлами из вашего последнего релиза, Ren'Py
+использует их для создания новых <cite>.rpyc</cite>-файлов для изменённых <cite>.rpy</cite>-скриптов.
+Он сохраняет те же ID для тех частей вашего скрипта, которые не изменились, так что старые
+файлы сохранений по-прежнему могут загружаться корректно.</p>
+<p><strong>Как извлечь максимальную пользу из директории `old-game`:</strong></p>
+<ul class="simple">
+<li><p>При запуске игры, если <cite>.rpy</cite>-файл был изменён и в <cite>old-game</cite> есть соответствующий <cite>.rpyc</cite>-файл, Ren'Py использует этот <cite>.rpyc</cite>-файл для обновления файла в директории <cite>game</cite>. Это сохраняет согласованность его ID с вашим последним релизом для максимальной совместимости сохранений.</p></li>
+<li><p>Перед сборкой нового релиза, включите опцию «Принудительная перекомпиляция» (Force Recompile) на странице сборки в Ren'Py SDK и нажмите «Обновить old-game» (Update old-game) перед тем, как нажать «Собрать» (Build). Это перекомпилирует все <cite>.rpyc</cite>-файлы, используя файлы из <cite>old-game</cite> в качестве отправной точки, а затем обновит <cite>old-game</cite> этими новыми, стабильными <cite>.rpyc</cite>-файлами для вашего следующего релиза.</p></li>
+<li><p>Если вы уже выпустили игру, вы всё равно можете извлечь пользу из <cite>old-game</cite>, скопировав <cite>.rpyc</cite>-файлы из директории <cite>game</cite> вашего последнего релиза в директорию <cite>old-game</cite> вашего проекта, сохраняя ту же структуру папок.</p></li>
+</ul>
+<p>Более подробную информацию о том, как .rpyc-файлы помогают загружать сохранения в
+изменённых играх, можно найти здесь:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.patreon.com/posts/under-hood-rpyc-23035810">Under the hood: .rpyc files</a></p></li>
+<li><p><a class="reference external" href="https://www.patreon.com/posts/renpy-developer-48146908">Ren'Py developer update: February 2021</a></p></li>
+</ul>
+</section>
+<section id="id9">
+<h2>Требования<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h2>
+<p>Некоторые магазины запрашивают системные требования для запуска приложений на Ren'Py.
+Хотя они варьируются от игры к игре, вот набор минимальных требований для
+типичной визуальной новеллы.</p>
+<p><strong>Windows</strong></p>
+<ul class="simple">
+<li><p>Версия: Windows 10 или новее.</p></li>
+<li><p>Процессор: 2.0 ГГц 64-битный Intel-совместимый</p></li>
+<li><p>ОЗУ: 2.0 ГБ</p></li>
+<li><p>Видеокарта: OpenGL 3.0 или DirectX 11</p></li>
+</ul>
+<p><strong>macOS</strong></p>
+<ul class="simple">
+<li><p>Версия: 10.10+</p></li>
+<li><p>Процессор: 2.0 ГГц 64-битный Intel-совместимый или M1+</p></li>
+<li><p>ОЗУ: 2.0 ГБ</p></li>
+<li><p>Видеокарта: OpenGL 3.0</p></li>
+</ul>
+<p><strong>Linux</strong></p>
+<ul class="simple">
+<li><p>Версия: Ubuntu 20.04+</p></li>
+<li><p>Процессор: 2.0 ГГц 64-битный Intel-совместимый</p></li>
+<li><p>ОЗУ: 2.0 ГБ</p></li>
+<li><p>Видеокарта: OpenGL 3.0</p></li>
+</ul>
+<p>Объём необходимого дискового пространства полностью определяется ассетами вашей
+игры, а требуемый объём процессора и оперативной памяти также может варьироваться.
+Ren'Py также будет работать под OpenGL 2 при наличии определённых расширений.</p>
+</section>
+<section id="id10">
+<h2>Функции сборки<a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="build.archive">
+<span class="sig-prename descclassname"><span class="pre">build.</span></span><span class="sig-name descname"><span class="pre">archive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#build.archive" title="Ссылка на это определение"></a></dt>
+<dd><p>Объявляет о существовании архива, чьё <cite>name</cite> добавляется в список доступных имён архивов, которые можно передать в <a class="reference internal" href="#build.classify" title="build.classify"><code class="xref py py-func docutils literal notranslate"><span class="pre">build.classify()</span></code></a>.</p>
+<p>Если один или несколько файлов классифицированы с именем <cite>name</cite>, <cite>name</cite>.rpa будет собран как архив, а затем распространён в пакетах, включающих указанный здесь <cite>file_list</cite>.</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">build</span><span class="o">.</span><span class="n">archive</span><span class="p">(</span><span class="s2">&quot;secret&quot;</span><span class="p">,</span> <span class="s2">&quot;windows&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Если какой-либо файл включен в архив &quot;secret&quot; с помощью функции <a class="reference internal" href="#build.classify" title="build.classify"><code class="xref py py-func docutils literal notranslate"><span class="pre">build.classify()</span></code></a>, он будет включен в архив secret.rpa в сборках для Windows.</p>
+<p>Как и в функции <a class="reference internal" href="#build.classify" title="build.classify"><code class="xref py py-func docutils literal notranslate"><span class="pre">build.classify()</span></code></a>, если имя, указанное как <cite>file_list</cite>, не существует как имя списка файлов, оно создаётся и добавляется в набор допустимых списков файлов.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="build.classify">
+<span class="sig-prename descclassname"><span class="pre">build.</span></span><span class="sig-name descname"><span class="pre">classify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#build.classify" title="Ссылка на это определение"></a></dt>
+<dd><p>Классифицирует файлы, соответствующие <cite>pattern</cite>, в <cite>file_list</cite>, который также может быть именем архива.</p>
+<p>Если имя, указанное как <cite>file_list</cite>, не существует как имя архива или списка файлов, оно создаётся и добавляется в набор допустимых списков файлов.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="build.clear">
+<span class="sig-prename descclassname"><span class="pre">build.</span></span><span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#build.clear" title="Ссылка на это определение"></a></dt>
+<dd><p>Очищает список шаблонов, используемых для классификации файлов.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="build.documentation">
+<span class="sig-prename descclassname"><span class="pre">build.</span></span><span class="sig-name descname"><span class="pre">documentation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#build.documentation" title="Ссылка на это определение"></a></dt>
+<dd><p>Объявляет шаблон, соответствующий документации. В сборке mac-приложения файлы, соответствующие шаблону документации, хранятся дважды — один раз внутри пакета приложения и еще раз вне его.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="build.executable">
+<span class="sig-prename descclassname"><span class="pre">build.</span></span><span class="sig-name descname"><span class="pre">executable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#build.executable" title="Ссылка на это определение"></a></dt>
+<dd><p>Добавляет шаблон, помечающий файлы как исполняемые на платформах, которые это поддерживают (Linux и Macintosh).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="build.package">
+<span class="sig-prename descclassname"><span class="pre">build.</span></span><span class="sig-name descname"><span class="pre">package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_lists</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dlc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#build.package" title="Ссылка на это определение"></a></dt>
+<dd><p>Объявляет пакет, который может быть собран инструментом упаковки.</p>
+<dl>
+<dt><cite>name</cite></dt><dd><p>Имя пакета.</p>
+</dd>
+<dt><cite>format</cite></dt><dd><p>Формат пакета. Строка, содержащая список форматов, разделённых пробелами:</p>
+<dl class="simple">
+<dt>zip</dt><dd><p>Zip-файл.</p>
+</dd>
+<dt>tar.bz2</dt><dd><p>Tar.bz2-файл.</p>
+</dd>
+<dt>directory</dt><dd><p>Директория, содержащая файлы.</p>
+</dd>
+<dt>dmg</dt><dd><p>Macintosh DMG, содержащий файлы.</p>
+</dd>
+<dt>app-zip</dt><dd><p>Zip-файл, содержащий приложение для Macintosh. Этот формат не поддерживает Ren'Py updater.</p>
+</dd>
+<dt>app-directory</dt><dd><p>Директория, содержащая mac-приложение. Этот формат не поддерживает Ren'Py updater.</p>
+</dd>
+<dt>app-dmg</dt><dd><p>Образ диска Macintosh, содержащий dmg. (Только для Mac.) Этот формат не поддерживает Ren'Py updater.</p>
+</dd>
+<dt>bare-zip</dt><dd><p>Zip-файл без добавления <a class="reference internal" href="#var-build.directory_name"><code class="xref std std-var docutils literal notranslate"><span class="pre">build.directory_name</span></code></a> в начало.</p>
+</dd>
+<dt>bare-tar.bz2</dt><dd><p>tar.bz2-файл без добавления <a class="reference internal" href="#var-build.directory_name"><code class="xref std std-var docutils literal notranslate"><span class="pre">build.directory_name</span></code></a> в начало.</p>
+</dd>
+<dt>null</dt><dd><p>Используется для создания только обновлений, без основного пакета.</p>
+</dd>
+</dl>
+<p>Пустая строка не создаст никаких форматов пакетов (это делает возможным dlc).</p>
+</dd>
+<dt><cite>file_lists</cite></dt><dd><p>Список, содержащий списки файлов, которые будут включены в пакет.</p>
+</dd>
+<dt><cite>description</cite></dt><dd><p>Необязательное описание пакета, который будет собран.</p>
+</dd>
+<dt><cite>update</cite></dt><dd><p>Если True и создаются обновления, для этого пакета будет создано обновление.</p>
+</dd>
+<dt><cite>dlc</cite></dt><dd><p>Если True, любой zip или tar.bz2-файл будет создан в автономном режиме DLC, без каталога обновлений.</p>
+</dd>
+<dt><cite>hidden</cite></dt><dd><p>Если True, пакет будет скрыт из списка пакетов в лаунчере.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="id11">
+<h2>Информация о сборке<a class="headerlink" href="#id11" title="Ссылка на этот заголовок"></a></h2>
+<p>Существуют две переменные, которые можно использовать для предоставления информации
+о сборке. Эта информация используется для генерации файла
+<cite>game/cache/build_info.json</cite>, который загружается при запуске Ren'Py.</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.time">
+<span class="sig-name descname"><span class="pre">build.time</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-build.time" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта переменная по умолчанию имеет значение <cite>None</cite>, но если ваша игра была собрана,
+ей будет присвоено время сборки игры в секундах с
+1 января 1970 года.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.info">
+<span class="sig-name descname"><span class="pre">build.info</span></span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">}</span><a class="headerlink" href="#var-build.info" title="Ссылка на это определение"></a></dt>
+<dd><p>Эта переменная позволяет хранить информацию, которая будет помещена
+в файл <cite>game/cache/build_info.json</cite> в собранной игре. При запуске
+собранной игры <cite>game/cache/build_info.json</cite> загружается, и его
+содержимое помещается в эту переменную.</p>
+<p>Как правило, вы захотите проверить, что поле не существует,
+и установить его, используя <cite>setdefault</cite>.</p>
+<p>Например, это сохраняет имя компьютера, который собрал игру,
+в файл <cite>build_info.json</cite>:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">python</span> <span class="k">hide</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
+    <span class="n">build</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;build_host&quot;</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Информация в этой переменной должна иметь типы, которые можно
+помещать в JSON-файлы (то есть <cite>None</cite>, булевы значения, строки,
+числа, списки и словари).</p>
+</dd></dl>
+
+</section>
+<section id="id12">
+<h2>Расширенная конфигурация<a class="headerlink" href="#id12" title="Ссылка на этот заголовок"></a></h2>
+<p>Следующие переменные обеспечивают дополнительный контроль над процессом сборки:</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.allow_integrated_gpu">
+<span class="sig-name descname"><span class="pre">build.allow_integrated_gpu</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-build.allow_integrated_gpu" title="Ссылка на это определение"></a></dt>
+<dd><p>Разрешает Ren'Py работать на встроенной видеокарте на платформах,
+имеющих как встроенные, так и дискретные видеокарты. В настоящее время
+это поддерживается только в Mac OS X.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.destination">
+<span class="sig-name descname"><span class="pre">build.destination</span></span> <span class="pre">=</span> <span class="pre">&quot;{directory_name}-dists&quot;</span><a class="headerlink" href="#var-build.destination" title="Ссылка на это определение"></a></dt>
+<dd><p>Задаёт путь к директории, в которую будут помещены архивные файлы. Это
+может быть абсолютный или относительный путь. Относительный путь считается
+относительным к директории проектов.</p>
+<p>Следующие значения подставляются с помощью функции Python <code class="docutils literal notranslate"><span class="pre">str.format</span></code>.</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">{directory_name}</span></code></dt><dd><p>Значение <cite>build.directory_name</cite>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">{executable_name}</span></code></dt><dd><p>Значение <cite>build.executable_name</cite>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">{version}</span></code></dt><dd><p>Значение <cite>build.version</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.change_icon_i686">
+<span class="sig-name descname"><span class="pre">build.change_icon_i686</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-build.change_icon_i686" title="Ссылка на это определение"></a></dt>
+<dd><p>Если <cite>True</cite> и <cite>icon.ico</cite> существует, иконка 32-битного исполняемого
+файла Windows будет изменена. Если <cite>False</cite>, иконка не изменится.
+Установка этого значения в <cite>False</cite> может предотвратить ложноположительные
+срабатывания некоторых антивирусных программ для вашей игры.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.exclude_empty_directories">
+<span class="sig-name descname"><span class="pre">build.exclude_empty_directories</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-build.exclude_empty_directories" title="Ссылка на это определение"></a></dt>
+<dd><p>Если <cite>true</cite>, пустые директории (включая директории, оставшиеся
+пустыми после архивации файлов) будут удалены из сгенерированных
+пакетов. Если <cite>false</cite>, пустые директории будут включены.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.game_only_update">
+<span class="sig-name descname"><span class="pre">build.game_only_update</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-build.game_only_update" title="Ссылка на это определение"></a></dt>
+<dd><p>Если <cite>true</cite>, <a class="reference internal" href="#var-build.include_update"><code class="xref std std-var docutils literal notranslate"><span class="pre">build.include_update</span></code></a> включена, и
+становится доступен пакет «Обновление только игры для мобильных устройств» (Game-Only Update for Mobile).</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.include_i686">
+<span class="sig-name descname"><span class="pre">build.include_i686</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-build.include_i686" title="Ссылка на это определение"></a></dt>
+<dd><p>Если <cite>true</cite>, файлы, необходимые для запуска на 32-битных процессорах x86,
+будут включены в сборки для Linux и Mac. Если <cite>False</cite>, эти файлы
+не будут включены.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.include_old_themes">
+<span class="sig-name descname"><span class="pre">build.include_old_themes</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-build.include_old_themes" title="Ссылка на это определение"></a></dt>
+<dd><p>Если <cite>true</cite>, файлы, необходимые для поддержки тем, существовавших
+до Ren'Py 6.99.9, будут включены в сборку. Если <cite>false</cite>,
+такие файлы исключаются.</p>
+<p>Это значение устанавливается в <cite>False</cite> при вызове <a class="reference internal" href="gui_advanced.html#gui.init" title="gui.init"><code class="xref py py-func docutils literal notranslate"><span class="pre">gui.init()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.include_update">
+<span class="sig-name descname"><span class="pre">build.include_update</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-build.include_update" title="Ссылка на это определение"></a></dt>
+<dd><p>Если <cite>true</cite>, Ren'Py создаст файлы, необходимые для работы
+<a class="reference internal" href="updater.html"><span class="doc">системы обновлений</span></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.itch_project">
+<span class="sig-name descname"><span class="pre">build.itch_project</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-build.itch_project" title="Ссылка на это определение"></a></dt>
+<dd><p>Установка этого значения позволяет лаунчеру Ren'Py загружать ваш
+проект на itch.io. Оно должно быть установлено в имя проекта,
+зарегистрированного на itch (например, «renpytom/the-question»).</p>
+<p>После установки этого значения, после сборки дистрибутивов, вы можете
+нажать «Сборка дистрибутивов» (Build distributions), затем «Загрузить на itch.io» (Upload to itch.io),
+чтобы инициировать загрузку.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.itch_channels">
+<span class="sig-name descname"><span class="pre">build.itch_channels</span></span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span><a class="headerlink" href="#var-build.itch_channels" title="Ссылка на это определение"></a></dt>
+<dd><p>Это сопоставляет шаблон имени файла (например, «*-win.zip») со строкой,
+указывающей канал itch, на который следует загрузить файл. По умолчанию это:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;*-all.zip&quot;</span> <span class="p">:</span> <span class="s2">&quot;win-osx-linux&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;*-market.zip&quot;</span> <span class="p">:</span> <span class="s2">&quot;win-osx-linux&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;*-pc.zip&quot;</span> <span class="p">:</span> <span class="s2">&quot;win-linux&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;*-win.zip&quot;</span> <span class="p">:</span> <span class="s2">&quot;win&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;*-mac.zip&quot;</span> <span class="p">:</span> <span class="s2">&quot;osx&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;*-linux.tar.bz2&quot;</span> <span class="p">:</span> <span class="s2">&quot;linux&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;*-release.apk&quot;</span> <span class="p">:</span> <span class="s2">&quot;android&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.mac_info_plist">
+<span class="sig-name descname"><span class="pre">build.mac_info_plist</span></span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">}</span><a class="headerlink" href="#var-build.mac_info_plist" title="Ссылка на это определение"></a></dt>
+<dd><p>Это словарь, сопоставляющий строки со строками, который можно
+использовать для добавления или переопределения ключей в файле
+<cite>Info.plist</cite> для Mac.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.update_formats">
+<span class="sig-name descname"><span class="pre">build.update_formats</span></span> <span class="pre">=</span> <span class="pre">[</span> <span class="pre">&quot;rpu&quot;</span> <span class="pre">]</span><a class="headerlink" href="#var-build.update_formats" title="Ссылка на это определение"></a></dt>
+<dd><p>Это список форматов, которые будет собирать система обновлений. Формат
+по умолчанию, «rpu», поддерживается начиная с Ren'Py 7.7 и 8.2.
+Если вам нужно поддерживать обновления с использованием более ранней
+системы на основе zsync, добавьте «zsync» в список.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-build.version">
+<span class="sig-name descname"><span class="pre">build.version</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-build.version" title="Ссылка на это определение"></a></dt>
+<dd><p>Задаёт версию сборки, используемую в процессе сборки. Если <cite>None</cite>,
+по умолчанию используется <cite>config.version</cite>. Основное предназначение
+этого — позволить <cite>config.version</cite> содержать символы, которые не
+являются допустимыми в именах файлов или директорий.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="screenshot.html" class="btn btn-neutral float-left" title="Скриншоты" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="android.html" class="btn btn-neutral float-right" title="Android" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

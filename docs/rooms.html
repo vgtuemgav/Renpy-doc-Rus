@@ -1,0 +1,1064 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Галерея изображений, музыкальная комната и действия повтора &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/rooms.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Перетаскивание (Drag and Drop)" href="drag_drop.html" />
+    <link rel="prev" title="Боковые изображения" href="side_image.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store_variables.html">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Галерея изображений, музыкальная комната и действия повтора</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#image-gallery">Галерея изображений</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Gallery"><code class="docutils literal notranslate"><span class="pre">Gallery</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.enter_transition"><code class="docutils literal notranslate"><span class="pre">Gallery.enter_transition</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.intra_transition"><code class="docutils literal notranslate"><span class="pre">Gallery.intra_transition</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.exit_transition"><code class="docutils literal notranslate"><span class="pre">Gallery.exit_transition</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.transition"><code class="docutils literal notranslate"><span class="pre">Gallery.transition</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.locked_button"><code class="docutils literal notranslate"><span class="pre">Gallery.locked_button</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.hover_border"><code class="docutils literal notranslate"><span class="pre">Gallery.hover_border</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.idle_border"><code class="docutils literal notranslate"><span class="pre">Gallery.idle_border</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.unlocked_advance"><code class="docutils literal notranslate"><span class="pre">Gallery.unlocked_advance</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.navigation"><code class="docutils literal notranslate"><span class="pre">Gallery.navigation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.span_buttons"><code class="docutils literal notranslate"><span class="pre">Gallery.span_buttons</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.slideshow_delay"><code class="docutils literal notranslate"><span class="pre">Gallery.slideshow_delay</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.Action"><code class="docutils literal notranslate"><span class="pre">Gallery.Action()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.Next"><code class="docutils literal notranslate"><span class="pre">Gallery.Next()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.Previous"><code class="docutils literal notranslate"><span class="pre">Gallery.Previous()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.Return"><code class="docutils literal notranslate"><span class="pre">Gallery.Return()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.ToggleSlideshow"><code class="docutils literal notranslate"><span class="pre">Gallery.ToggleSlideshow()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.allprior"><code class="docutils literal notranslate"><span class="pre">Gallery.allprior()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.button"><code class="docutils literal notranslate"><span class="pre">Gallery.button()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.condition"><code class="docutils literal notranslate"><span class="pre">Gallery.condition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.get_fraction"><code class="docutils literal notranslate"><span class="pre">Gallery.get_fraction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.image"><code class="docutils literal notranslate"><span class="pre">Gallery.image()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.make_button"><code class="docutils literal notranslate"><span class="pre">Gallery.make_button()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.transform"><code class="docutils literal notranslate"><span class="pre">Gallery.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.unlock"><code class="docutils literal notranslate"><span class="pre">Gallery.unlock()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gallery.unlock_image"><code class="docutils literal notranslate"><span class="pre">Gallery.unlock_image()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#music-room">Музыкальная комната</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#MusicRoom"><code class="docutils literal notranslate"><span class="pre">MusicRoom</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#MusicRoom.Next"><code class="docutils literal notranslate"><span class="pre">MusicRoom.Next()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#MusicRoom.Play"><code class="docutils literal notranslate"><span class="pre">MusicRoom.Play()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#MusicRoom.Previous"><code class="docutils literal notranslate"><span class="pre">MusicRoom.Previous()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#MusicRoom.RandomPlay"><code class="docutils literal notranslate"><span class="pre">MusicRoom.RandomPlay()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#MusicRoom.SetLoop"><code class="docutils literal notranslate"><span class="pre">MusicRoom.SetLoop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#MusicRoom.SetShuffle"><code class="docutils literal notranslate"><span class="pre">MusicRoom.SetShuffle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#MusicRoom.SetSingleTrack"><code class="docutils literal notranslate"><span class="pre">MusicRoom.SetSingleTrack()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#MusicRoom.Stop"><code class="docutils literal notranslate"><span class="pre">MusicRoom.Stop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#MusicRoom.ToggleLoop"><code class="docutils literal notranslate"><span class="pre">MusicRoom.ToggleLoop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#MusicRoom.TogglePause"><code class="docutils literal notranslate"><span class="pre">MusicRoom.TogglePause()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#MusicRoom.TogglePlay"><code class="docutils literal notranslate"><span class="pre">MusicRoom.TogglePlay()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#MusicRoom.ToggleShuffle"><code class="docutils literal notranslate"><span class="pre">MusicRoom.ToggleShuffle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#MusicRoom.ToggleSingleTrack"><code class="docutils literal notranslate"><span class="pre">MusicRoom.ToggleSingleTrack()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#MusicRoom.add"><code class="docutils literal notranslate"><span class="pre">MusicRoom.add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#MusicRoom.is_unlocked"><code class="docutils literal notranslate"><span class="pre">MusicRoom.is_unlocked()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#replay">Повтор</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#EndReplay"><code class="docutils literal notranslate"><span class="pre">EndReplay()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Replay"><code class="docutils literal notranslate"><span class="pre">Replay()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.call_replay"><code class="docutils literal notranslate"><span class="pre">renpy.call_replay()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renpy.end_replay"><code class="docutils literal notranslate"><span class="pre">renpy.end_replay()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Галерея изображений, музыкальная комната и действия повтора</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/rooms.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Галерея изображений, музыкальная комната и действия повтора<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<section id="image-gallery">
+<span id="id2"></span><h2>Галерея изображений<a class="headerlink" href="#image-gallery" title="Ссылка на этот заголовок"></a></h2>
+<p>Галерея изображений — это экран, который позволяет игроку разблокировать
+изображения, а затем просматривать их. С экраном связана одна или несколько
+кнопок, и с каждой кнопкой связано одно или несколько изображений. Кнопки
+и изображения также имеют условия, определяющие, разблокированы ли они.</p>
+<p>Галереи изображений управляются экземплярами класса Gallery. Один и тот
+же экземпляр класса Gallery может использоваться несколькими экранами
+галерей изображений.</p>
+<p>С галереей связана одна или несколько кнопок, с кнопкой связано одно
+или несколько изображений, и с каждым изображением связано одно или несколько
+отображаемых объектов (displayables). К кнопкам и изображениям можно
+привязать условия. Кнопка разблокируется, когда все связанные с ней условия
+выполнены и хотя бы одно изображение, связанное с этой кнопкой, разблокировано.
+Изображение разблокируется, когда все связанные с ним условия выполнены.</p>
+<p>Создание галереи изображений состоит из следующих четырех шагов.</p>
+<ol class="arabic">
+<li><p>Создайте экземпляр Gallery.</p></li>
+<li><p>Добавьте в эту галерею кнопки и изображения, а также условия,
+которые определяют, разблокированы ли кнопки и изображения, к
+которым они относятся. Это также многошаговый процесс.</p>
+<ol class="arabic simple">
+<li><p>Объявите новую кнопку, вызвав <a class="reference internal" href="#Gallery.button" title="Gallery.button"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gallery.button()</span></code></a>.</p></li>
+<li><p>По желанию, добавьте к кнопке одно или несколько условий
+разблокировки, вызвав <a class="reference internal" href="#Gallery.unlock" title="Gallery.unlock"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gallery.unlock()</span></code></a> или <a class="reference internal" href="#Gallery.condition" title="Gallery.condition"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gallery.condition()</span></code></a>.</p></li>
+<li><p>Объявите изображение, вызвав <a class="reference internal" href="#Gallery.image" title="Gallery.image"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gallery.image()</span></code></a> с одним или
+несколькими отображаемыми объектами в качестве аргументов. Или
+вместо этого вызовите удобный метод <a class="reference internal" href="#Gallery.unlock_image" title="Gallery.unlock_image"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gallery.unlock_image()</span></code></a>.</p></li>
+<li><p>По желанию, вызовите <a class="reference internal" href="#Gallery.transform" title="Gallery.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gallery.transform()</span></code></a> для привязки
+трансформаций к отображаемым объектам.</p></li>
+<li><p>По желанию, добавьте одно или несколько условий разблокировки
+к изображению, вызвав <a class="reference internal" href="#Gallery.unlock" title="Gallery.unlock"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gallery.unlock()</span></code></a>, <a class="reference internal" href="#Gallery.condition" title="Gallery.condition"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gallery.condition()</span></code></a>
+или <a class="reference internal" href="#Gallery.allprior" title="Gallery.allprior"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gallery.allprior()</span></code></a>.</p></li>
+</ol>
+<p>Дополнительные изображения можно добавить к кнопке, повторив шаги 3–5,
+а дополнительные кнопки можно добавить в галерею, повторив все пять
+шагов.</p>
+</li>
+<li><p>Создайте экран галереи изображений. Экран должен отображать фон
+и содержать навигацию, позволяющую пользователю переключаться на
+другие галереи изображений или возвращаться в главное или
+дополнительное меню.</p></li>
+<li><p>Добавьте способ отображения экрана галереи изображений в главное
+или дополнительное меню.</p></li>
+</ol>
+<p>Вот пример:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+
+    <span class="c1"># Step 1. Create the gallery object.</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">Gallery</span><span class="p">()</span>
+
+    <span class="c1"># Step 2. Add buttons and images to the gallery.</span>
+
+    <span class="c1"># A button with an image that is always unlocked.</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">button</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">)</span>
+
+    <span class="c1"># A button that contains an image that automatically unlocks.</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">button</span><span class="p">(</span><span class="s2">&quot;dawn&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;dawn1&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">unlock</span><span class="p">(</span><span class="s2">&quot;dawn1&quot;</span><span class="p">)</span>
+
+    <span class="c1"># This button has multiple images associated with it. We use unlock_image</span>
+    <span class="c1"># so we don&#39;t have to call both .image and .unlock. We also apply a</span>
+    <span class="c1"># transform to the first image.</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">button</span><span class="p">(</span><span class="s2">&quot;dark&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">unlock_image</span><span class="p">(</span><span class="s2">&quot;bigbeach1&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">transform</span><span class="p">(</span><span class="n">slowpan</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">unlock_image</span><span class="p">(</span><span class="s2">&quot;beach1 mary&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">unlock_image</span><span class="p">(</span><span class="s2">&quot;beach2&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">unlock_image</span><span class="p">(</span><span class="s2">&quot;beach3&quot;</span><span class="p">)</span>
+
+    <span class="c1"># This button has a condition associated with it, allowing the game</span>
+    <span class="c1"># to choose which images unlock.</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">button</span><span class="p">(</span><span class="s2">&quot;end1&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="s2">&quot;persistent.unlock_1&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;transfer&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;moonpic&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;girlpic&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;nogirlpic&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;bad_ending&quot;</span><span class="p">)</span>
+
+    <span class="n">g</span><span class="o">.</span><span class="k">button</span><span class="p">(</span><span class="s2">&quot;end2&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="s2">&quot;persistent.unlock_2&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;library&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;beach1 nomoon&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;bad_ending&quot;</span><span class="p">)</span>
+
+    <span class="c1"># The last image in this button has an condition associated with it,</span>
+    <span class="c1"># so it will only unlock if the user gets both endings.</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">button</span><span class="p">(</span><span class="s2">&quot;end3&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="s2">&quot;persistent.unlock_3&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;littlemary2&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;littlemary&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;good_ending&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="s2">&quot;persistent.unlock_3 and persistent.unlock_4&quot;</span><span class="p">)</span>
+
+    <span class="n">g</span><span class="o">.</span><span class="k">button</span><span class="p">(</span><span class="s2">&quot;end4&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="s2">&quot;persistent.unlock_4&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;hospital1&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;hospital2&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;hospital3&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;heaven&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">image</span><span class="p">(</span><span class="s2">&quot;good_ending&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="s2">&quot;persistent.unlock_3 and persistent.unlock_4&quot;</span><span class="p">)</span>
+
+    <span class="c1"># The final two buttons contain images that show multiple pictures</span>
+    <span class="c1"># at the same time. This can be used to compose character art onto</span>
+    <span class="c1"># a background.</span>
+    <span class="n">g</span><span class="o">.</span><span class="k">button</span><span class="p">(</span><span class="s2">&quot;dawn mary&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">unlock_image</span><span class="p">(</span><span class="s2">&quot;dawn1&quot;</span><span class="p">,</span> <span class="s2">&quot;mary dawn wistful&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">unlock_image</span><span class="p">(</span><span class="s2">&quot;dawn1&quot;</span><span class="p">,</span> <span class="s2">&quot;mary dawn smiling&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">unlock_image</span><span class="p">(</span><span class="s2">&quot;dawn1&quot;</span><span class="p">,</span> <span class="s2">&quot;mary dawn vhappy&quot;</span><span class="p">)</span>
+
+    <span class="n">g</span><span class="o">.</span><span class="k">button</span><span class="p">(</span><span class="s2">&quot;dark mary&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">unlock_image</span><span class="p">(</span><span class="s2">&quot;beach2&quot;</span><span class="p">,</span> <span class="s2">&quot;mary dark wistful&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">unlock_image</span><span class="p">(</span><span class="s2">&quot;beach2&quot;</span><span class="p">,</span> <span class="s2">&quot;mary dark smiling&quot;</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">unlock_image</span><span class="p">(</span><span class="s2">&quot;beach2&quot;</span><span class="p">,</span> <span class="s2">&quot;mary dark vhappy&quot;</span><span class="p">)</span>
+
+    <span class="c1"># The transition used when switching images.</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">transition</span> <span class="o">=</span> <span class="n">dissolve</span>
+
+<span class="c1"># Step 3. The gallery screen we use.</span>
+<span class="k">screen</span> <span class="n">gallery</span><span class="p">:</span>
+
+    <span class="c1"># Ensure this replaces the main menu.</span>
+    <span class="k">tag</span> <span class="k">menu</span>
+
+    <span class="c1"># The background.</span>
+    <span class="k">add</span> <span class="s2">&quot;beach2&quot;</span>
+
+    <span class="c1"># A grid of buttons.</span>
+    <span class="k">grid</span> <span class="mi">3</span> <span class="mi">3</span><span class="p">:</span>
+
+        <span class="na">xfill</span> <span class="kc">True</span>
+        <span class="na">yfill</span> <span class="kc">True</span>
+
+        <span class="c1"># Call make_button to show a particular button.</span>
+        <span class="k">add</span> <span class="n">g</span><span class="o">.</span><span class="n">make_button</span><span class="p">(</span><span class="s2">&quot;dark&quot;</span><span class="p">,</span> <span class="s2">&quot;gal-dark.png&quot;</span><span class="p">,</span> <span class="na">xalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="na">yalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="k">add</span> <span class="n">g</span><span class="o">.</span><span class="n">make_button</span><span class="p">(</span><span class="s2">&quot;dawn&quot;</span><span class="p">,</span> <span class="s2">&quot;gal-dawn.png&quot;</span><span class="p">,</span> <span class="na">xalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="na">yalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="k">add</span> <span class="n">g</span><span class="o">.</span><span class="n">make_button</span><span class="p">(</span><span class="s2">&quot;end1&quot;</span><span class="p">,</span> <span class="s2">&quot;gal-end1.png&quot;</span><span class="p">,</span> <span class="na">xalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="na">yalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+        <span class="k">add</span> <span class="n">g</span><span class="o">.</span><span class="n">make_button</span><span class="p">(</span><span class="s2">&quot;end2&quot;</span><span class="p">,</span> <span class="s2">&quot;gal-end2.png&quot;</span><span class="p">,</span> <span class="na">xalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="na">yalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="k">add</span> <span class="n">g</span><span class="o">.</span><span class="n">make_button</span><span class="p">(</span><span class="s2">&quot;end3&quot;</span><span class="p">,</span> <span class="s2">&quot;gal-end3.png&quot;</span><span class="p">,</span> <span class="na">xalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="na">yalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="k">add</span> <span class="n">g</span><span class="o">.</span><span class="n">make_button</span><span class="p">(</span><span class="s2">&quot;end4&quot;</span><span class="p">,</span> <span class="s2">&quot;gal-end4.png&quot;</span><span class="p">,</span> <span class="na">xalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="na">yalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+        <span class="k">add</span> <span class="n">g</span><span class="o">.</span><span class="n">make_button</span><span class="p">(</span><span class="s2">&quot;dark mary&quot;</span><span class="p">,</span> <span class="s2">&quot;gal-dark_mary.png&quot;</span><span class="p">,</span> <span class="na">xalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="na">yalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="k">add</span> <span class="n">g</span><span class="o">.</span><span class="n">make_button</span><span class="p">(</span><span class="s2">&quot;dawn mary&quot;</span><span class="p">,</span> <span class="s2">&quot;gal-dawn_mary.png&quot;</span><span class="p">,</span> <span class="na">xalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="na">yalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="k">add</span> <span class="n">g</span><span class="o">.</span><span class="n">make_button</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;title.png&quot;</span><span class="p">,</span> <span class="na">xalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="na">yalign</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+
+    <span class="c1"># The screen is responsible for returning to the main menu. It could also</span>
+    <span class="c1"># navigate to other gallery screens.</span>
+    <span class="k">textbutton</span> <span class="s2">&quot;Return&quot;</span> <span class="na">action</span> <span class="n">Return</span><span class="p">()</span> <span class="na">xalign</span> <span class="mf">0.5</span> <span class="na">yalign</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+<p>Шаг 4 будет варьироваться в зависимости от структуры вашей игры,
+но один из способов сделать это — добавить следующую строку:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">textbutton</span> <span class="s2">&quot;Gallery&quot;</span> <span class="na">action</span> <span class="n">ShowMenu</span><span class="p">(</span><span class="s2">&quot;gallery&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>на экран главного меню.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Gallery">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Gallery</span></span><a class="headerlink" href="#Gallery" title="Ссылка на это определение"></a></dt>
+<dd><p>Этот класс поддерживает создание галереи изображений, управляя
+блокировкой изображений, предоставляя действие, которое может показывать
+одно или несколько изображений, и метод, создающий кнопки,
+использующие это действие.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Gallery.enter_transition">
+<span class="sig-name descname"><span class="pre">enter_transition</span></span><a class="headerlink" href="#Gallery.enter_transition" title="Ссылка на это определение"></a></dt>
+<dd><p>Переход, используемый при отображении первого изображения,
+связанного с кнопкой галереи.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Gallery.intra_transition">
+<span class="sig-name descname"><span class="pre">intra_transition</span></span><a class="headerlink" href="#Gallery.intra_transition" title="Ссылка на это определение"></a></dt>
+<dd><p>Переход, используемый при отображении изображений, связанных
+с кнопками галереи, кроме первого.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Gallery.exit_transition">
+<span class="sig-name descname"><span class="pre">exit_transition</span></span><a class="headerlink" href="#Gallery.exit_transition" title="Ссылка на это определение"></a></dt>
+<dd><p>Переход, используемый при возвращении с последнего изображения,
+связанного с кнопкой галереи, на экран галереи.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Gallery.transition">
+<span class="sig-name descname"><span class="pre">transition</span></span><a class="headerlink" href="#Gallery.transition" title="Ссылка на это определение"></a></dt>
+<dd><p>Используется вместо enter_transition, intra_transition или
+exit_transition, если один или несколько из них не установлены.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Gallery.locked_button">
+<span class="sig-name descname"><span class="pre">locked_button</span></span><a class="headerlink" href="#Gallery.locked_button" title="Ссылка на это определение"></a></dt>
+<dd><p>Отображаемый объект по умолчанию, используемый make_button для
+заблокированной кнопки.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Gallery.hover_border">
+<span class="sig-name descname"><span class="pre">hover_border</span></span><a class="headerlink" href="#Gallery.hover_border" title="Ссылка на это определение"></a></dt>
+<dd><p>Рамка при наведении по умолчанию, используемая make_button.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Gallery.idle_border">
+<span class="sig-name descname"><span class="pre">idle_border</span></span><a class="headerlink" href="#Gallery.idle_border" title="Ссылка на это определение"></a></dt>
+<dd><p>Рамка в состоянии покоя по умолчанию, используемая make_button.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Gallery.unlocked_advance">
+<span class="sig-name descname"><span class="pre">unlocked_advance</span></span><a class="headerlink" href="#Gallery.unlocked_advance" title="Ссылка на это определение"></a></dt>
+<dd><p>Если true, галерея будет переключаться только между
+разблокированными изображениями.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Gallery.navigation">
+<span class="sig-name descname"><span class="pre">navigation</span></span><a class="headerlink" href="#Gallery.navigation" title="Ссылка на это определение"></a></dt>
+<dd><p>Если true, галерея будет отображать кнопки навигации и
+слайд-шоу поверх изображений.</p>
+<p>Чтобы настроить внешний вид навигации, вы можете переопределить
+экран gallery_navigation. Экран по умолчанию определён
+в renpy/common/00gallery.rpy</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Gallery.span_buttons">
+<span class="sig-name descname"><span class="pre">span_buttons</span></span><a class="headerlink" href="#Gallery.span_buttons" title="Ссылка на это определение"></a></dt>
+<dd><p>Если true, галерея будет переключаться между кнопками.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Gallery.slideshow_delay">
+<span class="sig-name descname"><span class="pre">slideshow_delay</span></span><a class="headerlink" href="#Gallery.slideshow_delay" title="Ссылка на это определение"></a></dt>
+<dd><p>Время, через которое галерея будет переключаться между изображениями
+в режиме слайд-шоу.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">image_screen</span> <span class="pre">=</span> <span class="pre">&quot;_gallery&quot;</span></span></dt>
+<dd><p>Экран, который используется для показа отдельных изображений в
+этой галерее. Этому экрану передаются следующие именованные
+аргументы:</p>
+<dl class="simple">
+<dt><cite>locked</cite></dt><dd><p>True, если изображение заблокировано.</p>
+</dd>
+<dt><cite>displayables</cite></dt><dd><p>Список преобразованных отображаемых объектов, которые
+должны быть показаны пользователю.</p>
+</dd>
+<dt><cite>index</cite></dt><dd><p>Индекс отображаемого изображения, начиная с 1.</p>
+</dd>
+<dt><cite>count</cite></dt><dd><p>Количество изображений, привязанных к текущей кнопке.</p>
+</dd>
+<dt><cite>gallery</cite></dt><dd><p>Объект галереи изображений.</p>
+</dd>
+</dl>
+<p>Дополнительные аргументы могут быть переданы путем добавления к
+ним префикса <cite>show_</cite> в вызовах Gallery.image и Gallery.unlock_image.</p>
+<p>Экран по умолчанию определён в конце файла renpy/common/00gallery.rpy.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Gallery.Action">
+<span class="sig-name descname"><span class="pre">Action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Gallery.Action" title="Ссылка на это определение"></a></dt>
+<dd><p>Действие, которое отображает изображения, связанные с указанным
+именем кнопки.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Gallery.Next">
+<span class="sig-name descname"><span class="pre">Next</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unlocked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Gallery.Next" title="Ссылка на это определение"></a></dt>
+<dd><p>Переходит к следующему изображению в галерее.</p>
+<dl class="simple">
+<dt><cite>unlocked</cite></dt><dd><p>Если true, учитывает только разблокированные изображения.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Gallery.Previous">
+<span class="sig-name descname"><span class="pre">Previous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unlocked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Gallery.Previous" title="Ссылка на это определение"></a></dt>
+<dd><p>Переходит к предыдущему изображению в галерее.</p>
+<dl class="simple">
+<dt><cite>unlocked</cite></dt><dd><p>Если true, учитывает только разблокированные изображения.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Gallery.Return">
+<span class="sig-name descname"><span class="pre">Return</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Gallery.Return" title="Ссылка на это определение"></a></dt>
+<dd><p>Прекращает показ изображений галереи.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Gallery.ToggleSlideshow">
+<span class="sig-name descname"><span class="pre">ToggleSlideshow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Gallery.ToggleSlideshow" title="Ссылка на это определение"></a></dt>
+<dd><p>Переключает режим слайд-шоу.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Gallery.allprior">
+<span class="sig-name descname"><span class="pre">allprior</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Gallery.allprior" title="Ссылка на это определение"></a></dt>
+<dd><p>Условие, которое истинно, если все предыдущие изображения,
+связанные с текущей кнопкой, были разблокированы.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Gallery.button">
+<span class="sig-name descname"><span class="pre">button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Gallery.button" title="Ссылка на это определение"></a></dt>
+<dd><p>Создаёт новую кнопку с именем <cite>name</cite>.</p>
+<dl class="simple">
+<dt><cite>name</cite></dt><dd><p>Имя создаваемой кнопки.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Gallery.condition">
+<span class="sig-name descname"><span class="pre">condition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expression</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Gallery.condition" title="Ссылка на это определение"></a></dt>
+<dd><p>Условие, которое выполняется, когда выражение оценивается
+как истинное.</p>
+<dl class="simple">
+<dt><cite>expression</cite></dt><dd><p>Строка, содержащая выражение Python.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Gallery.get_fraction">
+<span class="sig-name descname"><span class="pre">get_fraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'{seen}/{total}'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Gallery.get_fraction" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает текстовую строку с количеством разблокированных
+изображений и общим количеством изображений в кнопке с именем
+<cite>name</cite>. Если <cite>name</cite> равно None, возвращает ту же информацию
+для всех кнопок.</p>
+<dl>
+<dt><cite>format</cite></dt><dd><p>Строка форматирования Python, используемая для форматирования
+чисел. В неё можно подставить три значения:</p>
+<dl class="simple">
+<dt>{seen}</dt><dd><p>Количество просмотренных изображений.</p>
+</dd>
+<dt>{total}</dt><dd><p>Общее количество изображений в кнопке.</p>
+</dd>
+<dt>{locked}</dt><dd><p>Количество изображений, которые всё ещё заблокированы.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Gallery.image">
+<span class="sig-name descname"><span class="pre">image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">displayables</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Gallery.image" title="Ссылка на это определение"></a></dt>
+<dd><p>Добавляет новое изображение к текущей кнопке, где изображение
+состоит из одного или нескольких отображаемых объектов (displayables).</p>
+<p>У свойств, начинающихся с <cite>show_</cite>, этот префикс отбрасывается,
+и они передаются экрану gallery.image_screen в качестве
+дополнительных именованных аргументов.</p>
+<p>Принимает один именованный аргумент:</p>
+<dl class="simple">
+<dt><cite>movie</cite></dt><dd><p>Следует установить в true, если один из отображаемых объектов
+является видео со звуком. Это приведёт к тому, что видео
+будет скрыто во время перехода.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Gallery.make_button">
+<span class="sig-name descname"><span class="pre">make_button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unlocked</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hover_border</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idle_border</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Gallery.make_button" title="Ссылка на это определение"></a></dt>
+<dd><p>Создаёт кнопку, которая отображает изображения, связанные
+с указанным именем кнопки.</p>
+<dl class="simple">
+<dt><cite>name</cite></dt><dd><p>Имя создаваемой кнопки.</p>
+</dd>
+<dt><cite>unlocked</cite></dt><dd><p>Отображаемый объект, который показывается для этой кнопки,
+когда она разблокирована.</p>
+</dd>
+<dt><cite>locked</cite></dt><dd><p>Отображаемый объект, который показывается для этой кнопки,
+когда она заблокирована. Если None, вместо него используется
+поле locked_button объекта галереи.</p>
+</dd>
+<dt><cite>hover_border</cite></dt><dd><p>Отображаемый объект, который накладывается на эту кнопку,
+когда она разблокирована и находится в фокусе. Если None,
+используется поле hover_border объекта галереи.</p>
+</dd>
+<dt><cite>idle_border</cite></dt><dd><p>Отображаемый объект, который накладывается на эту кнопку,
+когда она разблокирована, но не в фокусе. Если None,
+используется поле idle_border объекта галереи.</p>
+</dd>
+<dt><cite>style</cite></dt><dd><p>Стиль, который наследует кнопка. Если None, по умолчанию
+используется стиль &quot;empty&quot;, чтобы не наследовать рамки
+и т.д.</p>
+</dd>
+</dl>
+<p>Дополнительные именованные аргументы становятся свойствами
+стиля созданного объекта кнопки.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Gallery.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">transforms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Gallery.transform" title="Ссылка на это определение"></a></dt>
+<dd><p>Применяет трансформации к последнему зарегистрированному
+изображению. Следует вызывать с таким же количеством трансформаций,
+сколько отображаемых объектов у изображения. Трансформации
+применяются к соответствующим отображаемым объектам.</p>
+<p>Если трансформация равна None, используется трансформация
+по умолчанию.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Gallery.unlock">
+<span class="sig-name descname"><span class="pre">unlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">images</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Gallery.unlock" title="Ссылка на это определение"></a></dt>
+<dd><p>Условие, которое принимает одно или несколько имён изображений
+в качестве аргумента и выполняется, когда все указанные
+изображения были просмотрены игроком. Имена изображений должны
+быть строками.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Gallery.unlock_image">
+<span class="sig-name descname"><span class="pre">unlock_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">images</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">properties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Gallery.unlock_image" title="Ссылка на это определение"></a></dt>
+<dd><p>Удобный метод, эквивалентный вызову image и unlock с теми
+же параметрами. (Именованные аргументы, начинающиеся с
+<code class="docutils literal notranslate"><span class="pre">show_</span></code>, передаются только в image.) Это приведёт к
+отображению изображения, если оно было просмотрено ранее.</p>
+<p>Изображения следует указывать в виде строк, содержащих
+их имена.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="music-room">
+<span id="id3"></span><h2>Музыкальная комната<a class="headerlink" href="#music-room" title="Ссылка на этот заголовок"></a></h2>
+<p>Музыкальная комната — это экран, который позволяет пользователю
+выбирать и воспроизводить музыкальные треки из игры. Эти треки могут
+быть заблокированы, когда пользователь только начинает играть, и будут
+разблокированы по мере того, как пользователь слушает музыку во время
+прохождения игры.</p>
+<p>Музыкальная комната управляется экземпляром класса MusicRoom. В одной
+игре может быть несколько экземпляров MusicRoom, что позволяет иметь
+несколько музыкальных комнат. Создание музыкальной комнаты состоит из
+следующих четырех шагов:</p>
+<ol class="arabic">
+<li><p>Создайте экземпляр MusicRoom. Конструктор MusicRoom принимает
+параметры для управления каналом, на котором воспроизводится музыка,
+и временем затухания и возобновления музыки.</p></li>
+<li><p>Добавьте музыкальные файлы в этот экземпляр.</p></li>
+<li><p>Создайте экран, который использует экземпляр MusicRoom для создания
+действий для кнопок, кнопок-изображений или активных областей.
+Эти действия могут выбирать трек, следующий или предыдущий трек,
+а также останавливать и запускать музыку.</p>
+<p>Обратите внимание, что используемые действия являются членами
+экземпляра MusicRoom, поэтому если экземпляр MusicRoom называется
+<code class="docutils literal notranslate"><span class="pre">mr</span></code>, то <code class="docutils literal notranslate"><span class="pre">mr.Play(&quot;track1.ogg&quot;)</span></code> — это способ использовать
+действие воспроизведения.</p>
+</li>
+<li><p>Добавьте экран музыкальной комнаты в главное или дополнительное
+меню.</p></li>
+</ol>
+<p>Вот пример:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">init</span> <span class="k">python</span><span class="p">:</span>
+
+    <span class="c1"># Step 1. Create a MusicRoom instance.</span>
+    <span class="n">mr</span> <span class="o">=</span> <span class="n">MusicRoom</span><span class="p">(</span><span class="n">fadeout</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="c1"># Step 2. Add music files.</span>
+    <span class="n">mr</span><span class="o">.</span><span class="k">add</span><span class="p">(</span><span class="s2">&quot;track1.ogg&quot;</span><span class="p">,</span> <span class="n">always_unlocked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">mr</span><span class="o">.</span><span class="k">add</span><span class="p">(</span><span class="s2">&quot;track2.ogg&quot;</span><span class="p">)</span>
+    <span class="n">mr</span><span class="o">.</span><span class="k">add</span><span class="p">(</span><span class="s2">&quot;track3.ogg&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Step 3. Create the music room screen.</span>
+<span class="k">screen</span> <span class="n">music_room</span><span class="p">:</span>
+
+    <span class="k">tag</span> <span class="k">menu</span>
+
+    <span class="k">frame</span><span class="p">:</span>
+        <span class="k">has</span> <span class="k">vbox</span>
+
+        <span class="c1"># The buttons that play each track.</span>
+        <span class="k">textbutton</span> <span class="s2">&quot;Track 1&quot;</span> <span class="na">action</span> <span class="n">mr</span><span class="o">.</span><span class="n">Play</span><span class="p">(</span><span class="s2">&quot;track1.ogg&quot;</span><span class="p">)</span>
+        <span class="k">textbutton</span> <span class="s2">&quot;Track 2&quot;</span> <span class="na">action</span> <span class="n">mr</span><span class="o">.</span><span class="n">Play</span><span class="p">(</span><span class="s2">&quot;track2.ogg&quot;</span><span class="p">)</span>
+        <span class="k">textbutton</span> <span class="s2">&quot;Track 3&quot;</span> <span class="na">action</span> <span class="n">mr</span><span class="o">.</span><span class="n">Play</span><span class="p">(</span><span class="s2">&quot;track3.ogg&quot;</span><span class="p">)</span>
+
+        <span class="k">null</span> <span class="na">height</span> <span class="mi">20</span>
+
+        <span class="c1"># Buttons that let us advance tracks.</span>
+        <span class="k">textbutton</span> <span class="s2">&quot;Next&quot;</span> <span class="na">action</span> <span class="n">mr</span><span class="o">.</span><span class="n">Next</span><span class="p">()</span>
+        <span class="k">textbutton</span> <span class="s2">&quot;Previous&quot;</span> <span class="na">action</span> <span class="n">mr</span><span class="o">.</span><span class="n">Previous</span><span class="p">()</span>
+
+        <span class="k">null</span> <span class="na">height</span> <span class="mi">20</span>
+
+        <span class="c1"># The button that lets the user exit the music room.</span>
+        <span class="k">textbutton</span> <span class="s2">&quot;Main Menu&quot;</span> <span class="na">action</span> <span class="n">ShowMenu</span><span class="p">(</span><span class="s2">&quot;main_menu&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Start the music playing on entry to the music room.</span>
+    <span class="k">on</span> <span class="s2">&quot;replace&quot;</span> <span class="na">action</span> <span class="n">mr</span><span class="o">.</span><span class="n">Play</span><span class="p">()</span>
+
+    <span class="c1"># Restore the main menu music upon leaving.</span>
+    <span class="k">on</span> <span class="s2">&quot;replaced&quot;</span> <span class="na">action</span> <span class="n">Play</span><span class="p">(</span><span class="s2">&quot;music&quot;</span><span class="p">,</span> <span class="s2">&quot;track1.ogg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Шаг 4 будет варьироваться в зависимости от структуры вашей игры, но один
+из способов сделать это — добавить следующую строку:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">textbutton</span> <span class="s2">&quot;Music Room&quot;</span> <span class="na">action</span> <span class="n">ShowMenu</span><span class="p">(</span><span class="s2">&quot;music_room&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>на экран главного меню.</p>
+<p>Используя функцию <code class="xref py py-func docutils literal notranslate"><span class="pre">Preferences()</span></code>, особенно
+<code class="docutils literal notranslate"><span class="pre">Preferences(&quot;music</span> <span class="pre">volume&quot;)</span></code>, можно добавить на музыкальный
+экран ползунок громкости.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="MusicRoom">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MusicRoom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'music'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fadeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fadein</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">single_track</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shuffle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MusicRoom" title="Ссылка на это определение"></a></dt>
+<dd><p>Музыкальная комната, которая содержит серию песен, которые могут быть разблокированы пользователем, и действий, которые могут воспроизводить композиции из списка по порядку.</p>
+<dl class="simple">
+<dt><cite>channel</cite></dt><dd><p>Канал, на котором будет работать эта музыкальная комната.</p>
+</dd>
+<dt><cite>fadeout</cite></dt><dd><p>Количество секунд, необходимое для затухания старой музыки при смене треков.</p>
+</dd>
+<dt><cite>fadein</cite></dt><dd><p>Количество секунд, необходимое для нарастания громкости новой музыки при смене треков.</p>
+</dd>
+<dt><cite>loop</cite></dt><dd><p>Определяет, будет ли воспроизведение зацикливаться или останавливаться, когда достигнет конца плейлиста.</p>
+</dd>
+<dt><cite>single_track</cite></dt><dd><p>Если true, будет воспроизводиться только один трек. Если loop имеет значение true, этот трек будет зациклен. В противном случае воспроизведение остановится после завершения трека.</p>
+</dd>
+<dt><cite>shuffle</cite></dt><dd><p>Если true, треки перемешиваются и воспроизводятся в случайном порядке. Если false, треки воспроизводятся в том порядке, в котором они были добавлены в MusicRoom.</p>
+</dd>
+<dt><cite>stop_action</cite></dt><dd><p>Действие, которое выполняется при остановке музыки.</p>
+</dd>
+</dl>
+<p>Single_track и shuffle конфликтуют друг с другом. Только один из них должен быть true в каждый момент времени. (Действия, которые устанавливают single_track и shuffle, обеспечивают это.)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="MusicRoom.Next">
+<span class="sig-name descname"><span class="pre">Next</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MusicRoom.Next" title="Ссылка на это определение"></a></dt>
+<dd><p>Действие, которое заставляет музыкальную комнату воспроизвести следующий разблокированный файл в плейлисте.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MusicRoom.Play">
+<span class="sig-name descname"><span class="pre">Play</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MusicRoom.Play" title="Ссылка на это определение"></a></dt>
+<dd><p>Это действие заставляет музыкальную комнату начать воспроизведение. Если указан <cite>filename</cite>, начинает воспроизводиться этот файл. В противном случае текущий воспроизводимый файл начинается заново (если он разблокирован), или начинает воспроизводиться первый файл.</p>
+<p>Если указан <cite>filename</cite>, кнопки с этим действием будут неактивны, пока <cite>filename</cite> заблокирован, и будут выбраны, когда <cite>filename</cite> воспроизводится.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MusicRoom.Previous">
+<span class="sig-name descname"><span class="pre">Previous</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MusicRoom.Previous" title="Ссылка на это определение"></a></dt>
+<dd><p>Действие, которое заставляет музыкальную комнату воспроизвести предыдущий разблокированный файл в плейлисте.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MusicRoom.RandomPlay">
+<span class="sig-name descname"><span class="pre">RandomPlay</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MusicRoom.RandomPlay" title="Ссылка на это определение"></a></dt>
+<dd><p>Это действие заставляет музыкальную комнату начать воспроизведение случайно выбранного разблокированного музыкального трека.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MusicRoom.SetLoop">
+<span class="sig-name descname"><span class="pre">SetLoop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MusicRoom.SetLoop" title="Ссылка на это определение"></a></dt>
+<dd><p>Это действие устанавливает значение свойства loop.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MusicRoom.SetShuffle">
+<span class="sig-name descname"><span class="pre">SetShuffle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MusicRoom.SetShuffle" title="Ссылка на это определение"></a></dt>
+<dd><p>Это действие устанавливает значение свойства shuffle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MusicRoom.SetSingleTrack">
+<span class="sig-name descname"><span class="pre">SetSingleTrack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MusicRoom.SetSingleTrack" title="Ссылка на это определение"></a></dt>
+<dd><p>Это действие устанавливает значение свойства single_track.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MusicRoom.Stop">
+<span class="sig-name descname"><span class="pre">Stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MusicRoom.Stop" title="Ссылка на это определение"></a></dt>
+<dd><p>Это действие останавливает музыку.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MusicRoom.ToggleLoop">
+<span class="sig-name descname"><span class="pre">ToggleLoop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MusicRoom.ToggleLoop" title="Ссылка на это определение"></a></dt>
+<dd><p>Это действие переключает значение свойства loop.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MusicRoom.TogglePause">
+<span class="sig-name descname"><span class="pre">TogglePause</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MusicRoom.TogglePause" title="Ссылка на это определение"></a></dt>
+<dd><p>Если музыка воспроизводится, ставит на паузу или снимает с паузы музыку.</p>
+<p>Эта кнопка выбирается, когда музыка на паузе.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MusicRoom.TogglePlay">
+<span class="sig-name descname"><span class="pre">TogglePlay</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MusicRoom.TogglePlay" title="Ссылка на это определение"></a></dt>
+<dd><p>Если музыка в данный момент не воспроизводится, это действие начинает воспроизведение первого разблокированного трека. В противном случае останавливает текущую музыку.</p>
+<p>Эта кнопка выбирается, когда воспроизводится любая музыка.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MusicRoom.ToggleShuffle">
+<span class="sig-name descname"><span class="pre">ToggleShuffle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MusicRoom.ToggleShuffle" title="Ссылка на это определение"></a></dt>
+<dd><p>Это действие переключает значение свойства shuffle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MusicRoom.ToggleSingleTrack">
+<span class="sig-name descname"><span class="pre">ToggleSingleTrack</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MusicRoom.ToggleSingleTrack" title="Ссылка на это определение"></a></dt>
+<dd><p>Это действие переключает значение свойства single_track.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MusicRoom.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">always_unlocked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MusicRoom.add" title="Ссылка на это определение"></a></dt>
+<dd><p>Добавляет музыкальный файл <cite>filename</cite> в эту музыкальную комнату. Музыкальная комната будет воспроизводить разблокированные файлы в том порядке, в котором они были добавлены.</p>
+<dl>
+<dt><cite>always_unlocked</cite></dt><dd><p>Если true, музыкальный файл всегда будет разблокирован. Это позволяет файлу появиться в музыкальной комнате до того, как он был воспроизведён в игре.</p>
+</dd>
+<dt><cite>action</cite></dt><dd><p>Это действие или список действий. Они вызываются при воспроизведении этого файла.</p>
+<p>Например, эти действия используются для изменения экрана, фона или описания в зависимости от воспроизводимого файла.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MusicRoom.is_unlocked">
+<span class="sig-name descname"><span class="pre">is_unlocked</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MusicRoom.is_unlocked" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает true, если <cite>filename</cite> был разблокирован (или всегда разблокирован), и false, если он всё ещё заблокирован.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="replay">
+<span id="id4"></span><h2>Повтор<a class="headerlink" href="#replay" title="Ссылка на этот заголовок"></a></h2>
+<p>Ren'Py также включает возможность повторного воспроизведения сцены из
+главного или игрового меню. Это можно использовать для создания
+&quot;галереи сцен&quot; или галереи воспоминаний, которая позволяет игроку
+повторять важные сцены. После завершения сцены Ren'Py возвращается
+туда, откуда был запущен повтор.</p>
+<p>Повтор сцен также возможен с помощью действия <a class="reference internal" href="screen_actions.html#Start" title="Start"><code class="xref py py-func docutils literal notranslate"><span class="pre">Start()</span></code></a>. Различия
+между двумя режимами:</p>
+<ul class="simple">
+<li><p>Повтор можно запустить с любого экрана, в то время как Start
+можно использовать только в главном меню или на экранах, показанных
+из главного меню.</p></li>
+<li><p>Когда повтор заканчивается, управление возвращается в точку, откуда
+был вызван повтор. Эта точка может находиться, например, внутри
+главного или игрового меню. Если игра находится в процессе выполнения
+при вызове повтора, состояние игры сохраняется.</p></li>
+<li><p>Сохранение отключено в режиме повтора. Перезагрузка, которая
+требует сохранения, также отключена.</p></li>
+<li><p>В режиме повтора вызов <a class="reference internal" href="#renpy.end_replay" title="renpy.end_replay"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.end_replay()</span></code></a> завершит повтор.
+В обычном режиме end_replay ничего не делает.</p></li>
+</ul>
+<p>Чтобы воспользоваться режимом повтора, сцена должна начинаться с
+метки (label) и заканчиваться вызовом <a class="reference internal" href="#renpy.end_replay" title="renpy.end_replay"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.end_replay()</span></code></a>.
+Сцена не должна делать никаких предположений о состоянии слоев
+или переменных, которые могут сильно отличаться в обычном режиме
+и режиме повтора (за исключением тех, что установлены через
+параметр <cite>scope</cite> при входе в режим повтора). Когда начинается
+повтор, метка вызывается с черного экрана.</p>
+<p>Например:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span>    <span class="s2">&quot;And finally, I met the wizard himself.&quot;</span>
+
+<span class="k">label</span> <span class="n">meaning_of_life</span><span class="p">:</span>
+
+    <span class="k">scene</span> <span class="n">revelation</span>
+
+    <span class="s2">&quot;Mage&quot;</span> <span class="s2">&quot;What is the meaning of life, you say?&quot;</span>
+
+    <span class="s2">&quot;Mage&quot;</span> <span class="s2">&quot;I&#39;ve thought about it long and hard. A long time, I&#39;ve</span>
+            <span class="n">spent</span> <span class="n">pondering</span> <span class="n">that</span> <span class="n">very</span> <span class="n">thing</span><span class="o">.</span><span class="s2">&quot;</span>
+
+    <span class="s2">&quot;Mage&quot;</span> <span class="s2">&quot;And I&#39;ll say - the answer - the meaning of life</span>
+            <span class="n">itself</span><span class="o">...</span><span class="s2">&quot;</span>
+
+    <span class="s2">&quot;Mage&quot;</span> <span class="s2">&quot;Is forty-three.&quot;</span>
+
+    <span class="k">$</span> <span class="n">renpy</span><span class="o">.</span><span class="n">end_replay</span><span class="p">()</span>
+
+    <span class="s2">&quot;Mage&quot;</span> <span class="s2">&quot;Something like that, anyway.&quot;</span>
+</pre></div>
+</div>
+<p>С такой определенной сценой повтор можно вызвать с помощью
+действия Replay:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">textbutton</span> <span class="s2">&quot;The meaning of life&quot;</span> <span class="na">action</span> <span class="n">Replay</span><span class="p">(</span><span class="s2">&quot;meaning_of_life&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>В режиме повтора используется одна переменная хранилища (store):</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_in_replay">
+<span class="sig-name descname"><span class="pre">_in_replay</span></span><a class="headerlink" href="#var-_in_replay" title="Ссылка на это определение"></a></dt>
+<dd><p>В режиме повтора эта переменная отправляется в метку, с которой
+начался режим повтора — в ту метку, которая была вызвана, а не ту,
+из которой произошел вызов. Вне режима повтора эта переменная
+равна None.</p>
+</dd></dl>
+
+<p>Кроме того, <a class="reference internal" href="config.html#var-config.enter_replay_transition"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.enter_replay_transition</span></code></a> и
+<a class="reference internal" href="config.html#var-config.exit_replay_transition"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.exit_replay_transition</span></code></a> используются при входе и выходе из
+режима повтора соответственно. <a class="reference internal" href="config.html#var-config.replay_scope"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.replay_scope</span></code></a> добавляет
+переменные в очищенное хранилище (store) при входе в режим повтора
+и по умолчанию устанавливает <a class="reference internal" href="store_variables.html#var-_game_menu_screen"><code class="xref std std-var docutils literal notranslate"><span class="pre">_game_menu_screen</span></code></a>, чтобы правый
+клик мыши в режиме повтора по умолчанию показывал экран настроек.</p>
+<p>В режиме повтора используются следующие переменные и действия:</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="EndReplay">
+<span class="sig-name descname"><span class="pre">EndReplay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">confirm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#EndReplay" title="Ссылка на это определение"></a></dt>
+<dd><p>Завершает текущий реплей.</p>
+<dl class="simple">
+<dt><cite>confirm</cite></dt><dd><p>Если true, запрашивает у пользователя подтверждение перед завершением
+реплея.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Replay">
+<span class="sig-name descname"><span class="pre">Replay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Replay" title="Ссылка на это определение"></a></dt>
+<dd><p>Действие, которое запускает <cite>label</cite> как реплей.</p>
+<dl class="simple">
+<dt><cite>scope</cite></dt><dd><p>Словарь, сопоставляющий имена переменных со значениями. Эти переменные устанавливаются
+при входе в реплей.</p>
+</dd>
+<dt><cite>locked</cite></dt><dd><p>Если true, это действие неактивно и ничего не делает при активации.
+Если false, оно будет вести себя как обычно. Если None, оно будет заблокировано, если метка
+не была просмотрена ни в одном прохождении.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.call_replay">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">call_replay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#renpy.call_replay" title="Ссылка на это определение"></a></dt>
+<dd><p>Вызывает метку как &quot;воспоминание&quot; (memory).</p>
+<p>Аргумент <cite>scope</cite> используется для установки начальных значений переменных в
+контексте &quot;воспоминания&quot;.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="renpy.end_replay">
+<span class="sig-prename descclassname"><span class="pre">renpy.</span></span><span class="sig-name descname"><span class="pre">end_replay</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#renpy.end_replay" title="Ссылка на это определение"></a></dt>
+<dd><p>Если мы находимся в режиме реплея, немедленно его завершает. В противном случае, делает
+ничего.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="side_image.html" class="btn btn-neutral float-left" title="Боковые изображения" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="drag_drop.html" class="btn btn-neutral float-right" title="Перетаскивание (Drag and Drop)" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

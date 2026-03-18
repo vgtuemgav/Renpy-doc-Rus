@@ -1,0 +1,493 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Переменные хранилища &mdash; Ren&#39;Py Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d3995b16" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://www.renpy.org/doc/html/store_variables.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c26c2693"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+      <script src="_static/dark_mode_js/default_dark.js?v=fd565c74"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Пользовательские курсоры мыши" href="mouse.html" />
+    <link rel="prev" title="Переменные настроек" href="preferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<a href="https://www.renpy.org/" style="margin-bottom: 0">Ren'Py Visual Novel Engine
+<img src="_static/navbar-logo.png" alt="Логотип" style="width: 93px; height: 100px; border-radius: 0; margin: 0 auto; padding: 0; margin-top: 5px; background-color: unset;" />
+</a>
+
+<a href="index.html" style="margin-bottom: 0px">8.5.3 Documentation</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Начало работы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Руководство по настройке GUI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Язык Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_basics.html">Основы языка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">Метки и управление потоком</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogue.html">Диалоги и повествование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displaying_images.html">Отображение изображений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Внутриигровые меню</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Инструкции Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional.html">Условные инструкции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio_filters.html">Аудиофильтры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">Видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice.html">Озвучка</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Текст, отображаемые объекты, трансформации и переходы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Текст</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Перевод</a></li>
+<li class="toctree-l1"><a class="reference internal" href="displayables.html">Displayables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforms.html">Трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_properties.html">Свойства трансформации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transitions.html">Переходы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixcolor.html">Matrixcolor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layeredimage.html">Слоёные изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dstage.html">3D-сцена</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live2d.html">Live2D Cubism</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Кастомизация Ren'Py</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="style.html">Стили</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_properties.html">Свойства стилей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">Экраны и язык экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_actions.html">Экранные действия, значения и функции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_special.html">Специальные имена экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_optimization.html">Оптимизация языка экранов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Переменные настроек</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Переменные хранилища</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">Пользовательские курсоры мыши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textshaders.html">Текстовые шейдеры</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Инструменты</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Лаунчер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Инструменты разработчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="director.html">Интерактивный Режиссёр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcases.html">Автоматизированное тестирование</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Другие возможности</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nvl_mode.html">Руководство по NVL-режиму</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bubble.html">Речевые пузыри</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Ввод текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side_image.html">Боковые изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rooms.html">Галерея изображений, музыкальная комната и действия повтора</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_drop.html">Перетаскивание (Drag and Drop)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprites.html">Спрайты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keymap.html">Настройка раскладки клавиатуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achievement.html">Достижения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">История диалогов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple.html">Диалоги нескольких персонажей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splashscreen_presplash.html">Заставка и предзаставка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Жизненный цикл запущенной игры на Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python и Ren'Py</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statement_equivalents.html">Эквиваленты операторов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="save_load_rollback.html">Сохранение, загрузка и откат</a></li>
+<li class="toctree-l1"><a class="reference internal" href="persistent.html">Постоянные данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui_advanced.html">Продвинутый GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screen_python.html">Экраны и Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdd.html">Отображаемые объекты, определяемые автором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cds.html">Пользовательские операторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_text_tags.html">Пользовательские теги текста</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character_callbacks.html">Колбэки персонажа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_python.html">Доступ к файлам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_class.html">Класс Color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Рендеринг на основе моделей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Прочие функции и переменные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ren_py.html">Файлы _ren.py — Ren'Py в Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch.html">Запросы HTTPS/HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshot.html">Скриншоты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Сборка, обновление и другие платформы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Сборка дистрибутивов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web / HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chromeos.html">Chrome OS/Chromebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iap.html">Внутриигровые покупки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updater.html">HTTPS/HTTP Updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Загрузчик для больших игр на мобильных устройствах</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gesture.html">Жесты</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для конечных пользователей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems.html">Решение проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Переменные окружения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_voicing.html">Самоозвучивание</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков библиотек и инструментов</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="template_projects.html">Шаблонные проекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Интерфейс командной строки</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Документация для разработчиков движка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Интеграция с текстовым редактором</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skins.html">Скины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translating_renpy.html">Перевод Ren'Py</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Изменения, лицензия и авторы</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog (Ren'Py 7.x-)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog6.html">Changelog (Ren'Py 6.11 - 6.99)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompatible.html">Несовместимые изменения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Авторы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Спонсоры разработки Ren'Py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ren'Py Visual Novel Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Переменные хранилища</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/vgtuemgav/Renpy-doc-Rus/blob/main/sphinx/source/store_variables.rst" class="fa fa-github"> Редактировать на GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Переменные хранилища<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>В Ren'Py есть ряд переменных хранилища, которые управляют его функциями. Переменные
+хранилища могут быть изменены в любое время. Если переменная хранилища изменяется после
+запуска игры, она будет сохраняться и загружаться системой сохранений
+и откатываться при откате (rollback).</p>
+<dl class="std var">
+<dt class="sig sig-object std" id="var-adv">
+<span class="sig-name descname"><span class="pre">adv</span></span> <span class="pre">=</span> <span class="pre">Character(...)</span><a class="headerlink" href="#var-adv" title="Ссылка на это определение"></a></dt>
+<dd><p>Это шаблонный персонаж ADV-режима и тип персонажа по умолчанию,
+который используется при вызове <a class="reference internal" href="dialogue.html#Character" title="Character"><code class="xref py py-func docutils literal notranslate"><span class="pre">Character()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_autosave">
+<span class="sig-name descname"><span class="pre">_autosave</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-_autosave" title="Ссылка на это определение"></a></dt>
+<dd><p>Эту переменную можно установить в False, чтобы отключить автосохранение.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_confirm_quit">
+<span class="sig-name descname"><span class="pre">_confirm_quit</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-_confirm_quit" title="Ссылка на это определение"></a></dt>
+<dd><p>Определяет, запрашивает ли игра подтверждение при выходе. Устанавливается
+в False во время сплэш-экрана и игнорируется в главном меню.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_constant">
+<span class="sig-name descname"><span class="pre">_constant</span></span><a class="headerlink" href="#var-_constant" title="Ссылка на это определение"></a></dt>
+<dd><p>Если установлено в true в хранилище, указывает, что хранилище является
+константой. См. <a class="reference internal" href="python.html#constant-stores"><span class="std std-ref">Константные хранилища</span></a>.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-default_mouse">
+<span class="sig-name descname"><span class="pre">default_mouse</span></span><a class="headerlink" href="#var-default_mouse" title="Ссылка на это определение"></a></dt>
+<dd><p>По умолчанию не определено. Если определено, и если <a class="reference internal" href="config.html#var-config.mouse"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.mouse</span></code></a>
+установлено при запуске игры, это ключ, который используется для поиска курсора
+мыши, когда текущий курсор не существует или является курсором по умолчанию.
+Используется <a class="reference internal" href="config.html#var-config.mouse"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.mouse</span></code></a> и <a class="reference internal" href="mouse.html#MouseDisplayable" title="MouseDisplayable"><code class="xref py py-func docutils literal notranslate"><span class="pre">MouseDisplayable()</span></code></a>.</p>
+<p>См. <a class="reference internal" href="mouse.html"><span class="doc">Пользовательские курсоры мыши</span></a> для получения дополнительной информации.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_dismiss_pause">
+<span class="sig-name descname"><span class="pre">_dismiss_pause</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-_dismiss_pause" title="Ссылка на это определение"></a></dt>
+<dd><p>Если True, игрок может пропускать паузы и переходы.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_game_menu_screen">
+<span class="sig-name descname"><span class="pre">_game_menu_screen</span></span> <span class="pre">=</span> <span class="pre">&quot;save&quot;</span><a class="headerlink" href="#var-_game_menu_screen" title="Ссылка на это определение"></a></dt>
+<dd><p>Это экран, который отображается при входе в игровое меню без выбора
+конкретного экрана. (Например, при щелчке правой кнопкой мыши, нажатии
+Escape или когда <a class="reference internal" href="screen_actions.html#ShowMenu" title="ShowMenu"><code class="xref py py-func docutils literal notranslate"><span class="pre">ShowMenu()</span></code></a> вызывается без аргумента.) Если None, вход
+в игровое меню запрещён.</p>
+<p>Устанавливается в None в начале сплэш-экрана и восстанавливает
+своё исходное значение по его завершении.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_greedy_rollback">
+<span class="sig-name descname"><span class="pre">_greedy_rollback</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-_greedy_rollback" title="Ссылка на это определение"></a></dt>
+<dd><p>Определяет, выполняет ли игра жадный откат (greedy rollback) после загрузки.
+Жадный откат откатится до состояния сразу после последнего
+оператора, с которым взаимодействовал игрок, а не до состояния прямо перед
+оператором, на котором игра находилась во время загрузки.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_history">
+<span class="sig-name descname"><span class="pre">_history</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-_history" title="Ссылка на это определение"></a></dt>
+<dd><p>Если true, Ren'Py будет записывать историю диалогов при показе реплики.
+(Обратите внимание, что <a class="reference internal" href="config.html#var-config.history_length"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.history_length</span></code></a> также должна быть установлена.)</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_history_list">
+<span class="sig-name descname"><span class="pre">_history_list</span></span> <span class="pre">=</span> <span class="pre">[</span> <span class="pre">]</span><a class="headerlink" href="#var-_history_list" title="Ссылка на это определение"></a></dt>
+<dd><p>Это список объектов истории, соответствующий каждой строке истории
+от самой старой до самой новой. См. раздел <a class="reference internal" href="history.html"><span class="doc">История</span></a>
+для получения дополнительной информации.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_ignore_action">
+<span class="sig-name descname"><span class="pre">_ignore_action</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-_ignore_action" title="Ссылка на это определение"></a></dt>
+<dd><p>Когда это не None, это действие, которое выполняется после нажатия Ignore
+на экране обработки ошибок. Обычно это действие <a class="reference internal" href="screen_actions.html#Jump" title="Jump"><code class="xref py py-func docutils literal notranslate"><span class="pre">Jump()</span></code></a>, чтобы
+перевести игру в место, где можно восстановиться после ошибки. Если None,
+управление переходит к следующему оператору Ren'Py.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-main_menu">
+<span class="sig-name descname"><span class="pre">main_menu</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-main_menu" title="Ссылка на это определение"></a></dt>
+<dd><p>Ren'Py устанавливает эту переменную в True, находясь в главном меню.
+Это можно использовать для разного отображения экранов в главном меню.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_menu">
+<span class="sig-name descname"><span class="pre">_menu</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-_menu" title="Ссылка на это определение"></a></dt>
+<dd><p>Ren'Py устанавливает эту переменную в True при входе в контекст главного
+или игрового меню.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-menu">
+<span class="sig-name descname"><span class="pre">menu</span></span> <span class="pre">=</span> <span class="pre">renpy.display_menu</span><a class="headerlink" href="#var-menu" title="Ссылка на это определение"></a></dt>
+<dd><p>Функция, которая вызывается для отображения внутриигрового меню. Она должна
+принимать те же аргументы, что и <a class="reference internal" href="statement_equivalents.html#renpy.display_menu" title="renpy.display_menu"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.display_menu()</span></code></a>, и передавать
+неизвестные именованные аргументы без изменений. Присвоение
+<a class="reference internal" href="nvl_mode.html#nvl_menu" title="nvl_menu"><code class="xref py py-func docutils literal notranslate"><span class="pre">nvl_menu()</span></code></a> этой переменной отобразит меню NVL-режима.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-mouse_visible">
+<span class="sig-name descname"><span class="pre">mouse_visible</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-mouse_visible" title="Ссылка на это определение"></a></dt>
+<dd><p>Управляет видимостью мыши. Автоматически устанавливается в true при
+входе в стандартные игровые меню.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-name_only">
+<span class="sig-name descname"><span class="pre">name_only</span></span> <span class="pre">=</span> <span class="pre">Character(...)</span><a class="headerlink" href="#var-name_only" title="Ссылка на это определение"></a></dt>
+<dd><p>Это шаблонный персонаж, который используется, когда в операторе say
+в качестве имени персонажа указана строка. Это:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Eileen&quot;</span> <span class="s2">&quot;Hello, world.&quot;</span>
+</pre></div>
+</div>
+<p>эквивалентно:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">$</span> <span class="n">temp_char</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s2">&quot;Eileen&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">name_only</span><span class="p">)</span>
+<span class="n">temp_char</span> <span class="s2">&quot;Hello, world.&quot;</span>
+</pre></div>
+</div>
+<p>за исключением того, что переменная <code class="docutils literal notranslate"><span class="pre">temp_char</span></code> не используется.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-narrator">
+<span class="sig-name descname"><span class="pre">narrator</span></span> <span class="pre">=</span> <span class="pre">Character(...)</span><a class="headerlink" href="#var-narrator" title="Ссылка на это определение"></a></dt>
+<dd><p>Это персонаж, который произносит повествование (операторы say, в которых
+не указан персонаж или его имя). Это:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello, world.&quot;</span>
+</pre></div>
+</div>
+<p>эквивалентно:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="n">narrator</span> <span class="s2">&quot;Hello, world.&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_quit_slot">
+<span class="sig-name descname"><span class="pre">_quit_slot</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-_quit_slot" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это должна быть строка, указывающая имя слота файла.
+Когда Ren'Py завершает работу, игра будет сохранена в этот слот.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_rollback">
+<span class="sig-name descname"><span class="pre">_rollback</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-_rollback" title="Ссылка на это определение"></a></dt>
+<dd><p>Управляет, разрешён ли откат (rollback).</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-say">
+<span class="sig-name descname"><span class="pre">say</span></span> <span class="pre">:</span> <span class="pre">Callable</span><a class="headerlink" href="#var-say" title="Ссылка на это определение"></a></dt>
+<dd><p>Функция, которую Ren'Py вызывает для отображения диалога, когда вместо
+говорящего персонажа используется строка:</p>
+<div class="highlight-renpy notranslate"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">e</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s2">&quot;Eileen&quot;</span><span class="p">,</span> <span class="n">who_color</span><span class="o">=</span><span class="s2">&quot;#0f0&quot;</span><span class="p">)</span>
+
+<span class="k">label</span> <span class="n">start</span><span class="p">:</span>
+    <span class="s2">&quot;Eileen&quot;</span> <span class="s2">&quot;My name is Eileen.&quot;</span> <span class="c1"># вызовет функцию say</span>
+    <span class="n">e</span> <span class="s2">&quot;I like trains !&quot;</span> <span class="c1"># не вызовет функцию say</span>
+</pre></div>
+</div>
+<p>Эта функция должна иметь ту же сигнатуру, что и <a class="reference internal" href="statement_equivalents.html#renpy.say" title="renpy.say"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.say()</span></code></a>.
+Она не должна вызывать <a class="reference internal" href="statement_equivalents.html#renpy.say" title="renpy.say"><code class="xref py py-func docutils literal notranslate"><span class="pre">renpy.say()</span></code></a>, а скорее использовать другие
+<a class="reference internal" href="statement_equivalents.html"><span class="doc">эквиваленты оператора say</span></a>.</p>
+<p>Редко приходится вызывать эту функцию напрямую, так как можно просто
+вызвать персонажа с диалогом. Эта переменная в основном существует для
+переопределения, как способ перехвата оператора say.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-save_name">
+<span class="sig-name descname"><span class="pre">save_name</span></span> <span class="pre">=</span> <span class="pre">&quot;&quot;</span><a class="headerlink" href="#var-save_name" title="Ссылка на это определение"></a></dt>
+<dd><p>Имя сохранения, которое включается в сохранения. Также используется
+временной шкалой Steam, если <a class="reference internal" href="achievement.html#var-config.automatic_steam_timeline"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.automatic_steam_timeline</span></code></a>
+имеет значение true, и лучше всего рассматривать его как название главы.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_scene_show_hide_transition">
+<span class="sig-name descname"><span class="pre">_scene_show_hide_transition</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-_scene_show_hide_transition" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, это переход, который будет выполнен с помощью
+оператора with после серии операторов scene, show и hide,
+за которыми не следует оператор with или оконный переход.</p>
+<div class="admonition seealso">
+<p class="admonition-title">См. также</p>
+<p><a class="reference internal" href="transitions.html#scene-show-hide-transition"><span class="std std-ref">Автоматические переходы после Scene, Show и Hide</span></a></p>
+</div>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_screenshot_pattern">
+<span class="sig-name descname"><span class="pre">_screenshot_pattern</span></span> <span class="pre">=</span> <span class="pre">None</span><a class="headerlink" href="#var-_screenshot_pattern" title="Ссылка на это определение"></a></dt>
+<dd><p>Если не None, эта строка используется вместо <a class="reference internal" href="config.html#var-config.screenshot_pattern"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.screenshot_pattern</span></code></a>
+для определения имени файла скриншота. Пожалуйста, обратитесь к
+документации по этой переменной для формата строки.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_skipping">
+<span class="sig-name descname"><span class="pre">_skipping</span></span> <span class="pre">=</span> <span class="pre">True</span><a class="headerlink" href="#var-_skipping" title="Ссылка на это определение"></a></dt>
+<dd><p>Управляет, разрешён ли пропуск.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_version">
+<span class="sig-name descname"><span class="pre">_version</span></span> <span class="pre">=</span> <span class="pre">...</span><a class="headerlink" href="#var-_version" title="Ссылка на это определение"></a></dt>
+<dd><p>Устанавливается в <a class="reference internal" href="config.html#var-config.version"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.version</span></code></a> при запуске новой игры. Может
+использоваться меткой <code class="docutils literal notranslate"><span class="pre">after_load</span></code> или <a class="reference internal" href="config.html#var-config.after_load_callbacks"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.after_load_callbacks</span></code></a>
+для определения того, какие обновления необходимо выполнить.</p>
+<p>Это устанавливается только один раз, при первом запуске. После этого игра
+сама отвечает за обновление _version по мере необходимости.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_window">
+<span class="sig-name descname"><span class="pre">_window</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-_window" title="Ссылка на это определение"></a></dt>
+<dd><p>Устанавливается операторами <code class="docutils literal notranslate"><span class="pre">window</span> <span class="pre">show</span></code> и <code class="docutils literal notranslate"><span class="pre">window</span> <span class="pre">hide</span></code> и косвенно
+оператором <code class="docutils literal notranslate"><span class="pre">window</span> <span class="pre">auto</span></code>. Если true, окно диалога отображается во время
+недиалоговых операторов.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_window_auto">
+<span class="sig-name descname"><span class="pre">_window_auto</span></span> <span class="pre">=</span> <span class="pre">False</span><a class="headerlink" href="#var-_window_auto" title="Ссылка на это определение"></a></dt>
+<dd><p>Устанавливается в true оператором <code class="docutils literal notranslate"><span class="pre">window</span> <span class="pre">auto</span></code> и в false операторами
+<code class="docutils literal notranslate"><span class="pre">window</span> <span class="pre">show</span></code> и <code class="docutils literal notranslate"><span class="pre">window</span> <span class="pre">hide</span></code>. Если true, происходит автоматическое
+поведение окна.</p>
+</dd></dl>
+
+<dl class="std var">
+<dt class="sig sig-object std" id="var-_window_subtitle">
+<span class="sig-name descname"><span class="pre">_window_subtitle</span></span> <span class="pre">=</span> <span class="pre">''</span><a class="headerlink" href="#var-_window_subtitle" title="Ссылка на это определение"></a></dt>
+<dd><p>Добавляется к <a class="reference internal" href="config.html#var-config.window_title"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.window_title</span></code></a> для создания заголовка игрового
+окна. Автоматически устанавливается в <a class="reference internal" href="config.html#var-config.menu_window_subtitle"><code class="xref std std-var docutils literal notranslate"><span class="pre">config.menu_window_subtitle</span></code></a>
+во время нахождения в игровом меню.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="preferences.html" class="btn btn-neutral float-left" title="Переменные настроек" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="mouse.html" class="btn btn-neutral float-right" title="Пользовательские курсоры мыши" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
