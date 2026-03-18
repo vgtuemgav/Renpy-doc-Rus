@@ -1,0 +1,11 @@
+.. Automatically generated file - do not modify.
+
+.. function:: updater.continue_game_download(screen='downloader')
+    
+    Продолжает загрузку игровых данных. Цикл будет продолжаться до тех пор, пока
+    загрузка не будет завершена или пользователь не выйдет из игры.
+
+.. function:: updater.start_game_download(url, **kwargs)
+    
+    Начинает загрузку игровых данных с `url`. Этот процесс определяет,
+    что необходимо загрузить, и возвращает объект Update.

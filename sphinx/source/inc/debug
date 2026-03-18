@@ -1,0 +1,30 @@
+.. Automatically generated file - do not modify.
+
+.. function:: renpy.filename_line_override(filename: str, line: int)
+    
+    Временно переопределяет имя файла и номер строки. Это менеджер контекста, используйте его так::
+    
+        with renpy.filename_line_override("myfile.rpy", 42):
+            # ...
+
+.. function:: renpy.get_filename_line()
+    
+    Возвращает пару (имя файла, номер строки) для текущей инструкции.
+
+.. function:: renpy.log(msg)
+    
+    Если :var:`config.log` не задана, ничего не делает. В противном случае, открывает лог-файл (если он еще не открыт), форматирует сообщение по ширине :var:`config.log_width` и записывает его в лог-файл.
+
+.. function:: renpy.unwatch(expr)
+    
+    Прекращает отслеживание заданного Python-выражения.
+
+.. function:: renpy.warp_to_line(warp_spec)
+    
+    Принимает в качестве аргумента пару `имя_файла:номер_строки` и пытается перейти к инструкции перед указанной строкой.
+    
+    Работает так же, как команда `--warp`.
+
+.. function:: renpy.watch(expr)
+    
+    Отслеживает заданное Python-выражение, отображая его в правом верхнем углу экрана.

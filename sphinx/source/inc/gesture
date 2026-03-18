@@ -1,0 +1,7 @@
+.. Automatically generated file - do not modify.
+
+.. function:: renpy.cancel_gesture()
+    
+    Отменяет текущий жест, предотвращая его распознавание.
+    Эту функцию следует вызывать в displayable-объектах, которые
+    имеют поведение, подобное жестам.

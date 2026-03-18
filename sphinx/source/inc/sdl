@@ -1,0 +1,13 @@
+.. Automatically generated file - do not modify.
+
+.. function:: renpy.get_sdl_dll()
+    
+    Возвращает объект ctypes.cdll, который ссылается на библиотеку, содержащую
+    экземпляр SDL2, используемый Ren'Py. Если это не удается, возвращается None.
+
+.. function:: renpy.get_sdl_window_pointer()
+    
+    :rtype: ctypes.c_void_p | None
+    
+    Возвращает указатель на главное окно, или None, если главное окно не
+    отображается (или возникает какая-то другая проблема).

@@ -1,0 +1,81 @@
+.. Automatically generated file - do not modify.
+
+.. function:: CycleDict(dict, key, values, *, reverse=False, loop=True)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: CycleField(object, field, values, *, reverse=False, loop=True)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: CycleLocalVariable(name, values, *, reverse=False, loop=True)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: CycleScreenVariable(name, values, *, reverse=False, loop=True)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: CycleVariable(name, values, *, reverse=False, loop=True)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: IncrementDict(dict, key, amount=1)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: IncrementField(object, field, amount=1)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: IncrementLocalVariable(name, amount=1)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: IncrementScreenVariable(name, amount=1)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: IncrementVariable(name, amount=1)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: SetDict(dict, key, value)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: SetField(object, field, value)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: SetLocalVariable(name, value)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: SetScreenVariable(name, value)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: SetVariable(name, value)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: ToggleDict(dict, key, true_value=None, false_value=None)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: ToggleField(object, field, true_value=None, false_value=None)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: ToggleLocalVariable(name, true_value=None, false_value=None)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: ToggleScreenVariable(name, true_value=None, false_value=None)
+    
+    Смотрите :ref:`data-actions`.
+
+.. function:: ToggleVariable(name, true_value=None, false_value=None)
+    
+    Смотрите :ref:`data-actions`.

@@ -1,0 +1,6 @@
+.. Automatically generated file - do not modify.
+
+.. function:: renpy.has_live2d()
+    
+    Возвращает True, если Live2D поддерживается на текущей платформе, и
+    False в противном случае.

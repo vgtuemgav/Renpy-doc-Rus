@@ -1,0 +1,42 @@
+.. Automatically generated file - do not modify.
+
+.. function:: achievement.steam.add_timeline_event(icon, title, description, priority=0, start_offset=0.0, duration=0.0, possible_clip=None)
+    
+    Добавляет событие на временную шкалу (timeline). Обратите внимание, что порядок аргументов здесь отличается от Steam API.
+    
+    `icon`
+        Иконка для отображения события. Это должна быть строка с названием одной из стандартных иконок Steam
+        или той, что вы загрузили в Steam.
+    
+    `title`
+        Заголовок события.
+    
+    `description`
+        Описание события.
+    
+    `priority`
+        Приоритет события, используется для разрешения конфликтов. Должно быть целым числом от 0 до 1000.
+    
+    `start_offset`
+        Смещение начала события от текущего времени, в секундах.
+    
+    `duration`
+        Продолжительность события, в секундах.
+    
+    `possible_clip`
+        Определяет, может ли событие быть обрезано. Должно быть одной из констант achievement.steam.CLIP_PRIORITY...
+        : CLIP_PRIORITY_NONE, CLIP_PRIORITY_STANDARD или CLIP_PRIORITY_FEATURED.
+
+.. function:: achievement.steam.clear_timeline_state_description(time_delta)
+    
+    Очищает описание текущего состояния на временной шкале.
+
+.. function:: achievement.steam.set_timeline_state_description(description, time_delta=0.0)
+    
+    Устанавливает описание текущего состояния на временной шкале.
+    
+    `description`
+        Строка, задающая описание текущего состояния.
+    
+    `time_delta`
+        Время, прошедшее с последнего изменения состояния.

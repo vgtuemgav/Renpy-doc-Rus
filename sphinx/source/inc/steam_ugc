@@ -1,0 +1,16 @@
+.. Automatically generated file - do not modify.
+
+.. function:: achievement.steam.get_subscribed_item_path(item_id)
+    
+    Возвращает путь, по которому был установлен элемент пользовательского контента. Возвращает
+    None, если элемент не был установлен.
+    
+    `item_id`
+        ID элемента.
+
+.. function:: achievement.steam.get_subscribed_items(include_disabled=False)
+    
+    Возвращает список ID элементов из мастерской Steam, на которые подписан пользователь.
+    
+    `include_disabled`
+        Если true, включает в список отключенные элементы.

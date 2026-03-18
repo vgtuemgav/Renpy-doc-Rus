@@ -1,0 +1,9 @@
+.. Automatically generated file - do not modify.
+
+.. function:: DownloadSync()
+    
+    Это действие начинает процесс загрузки Sync с сервера Ren'Py Sync.
+
+.. function:: UploadSync()
+    
+    Это действие начинает процесс загрузки последних сохранений на сервер Ren'Py Sync.

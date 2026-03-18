@@ -1,0 +1,7 @@
+.. Automatically generated file - do not modify.
+
+.. function:: GetCharacterVolume(voice_tag)
+    
+    Возвращает громкость, связанную с `voice_tag`, число
+    от 0.0 до 1.0, которое интерпретируется как доля
+    громкости микшера для канала `voice`.

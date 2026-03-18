@@ -1,0 +1,56 @@
+.. Automatically generated file - do not modify.
+
+.. function:: achievement.steam.clear_achievement(name)
+    
+    Сбрасывает достижение с именем `name`. Вызовите :func:`_renpysteam.store_stats`, чтобы
+    отправить это изменение на сервер.
+
+.. function:: achievement.steam.get_achievement(name)
+    
+    Получает состояние достижения с именем `name`. Возвращает True, если
+    достижение получено, False, если нет, и None, если достижение
+    неизвестно или произошла ошибка.
+
+.. function:: achievement.steam.get_float_stat(name)
+    
+    Возвращает значение статистики с именем `name` или None, если такой статистики
+    не существует.
+
+.. function:: achievement.steam.get_int_stat(name)
+    
+    Возвращает значение статистики с именем `name` или None, если такой статистики
+    не существует.
+
+.. function:: achievement.steam.grant_achievement(name)
+    
+    Выдает достижение с именем `name`. Вызовите :func:`_renpysteam.store_stats`, чтобы
+    отправить это изменение на сервер.
+
+.. function:: achievement.steam.indicate_achievement_progress(name, cur_progress, max_progress)
+    
+    Показывает пользователю прогресс достижения. Это *не* открывает
+    достижение.
+
+.. function:: achievement.steam.list_achievements()
+    
+    Возвращает список имен достижений.
+
+.. function:: achievement.steam.retrieve_stats()
+    
+    Получает достижения и статистику из Steam.
+
+.. function:: achievement.steam.set_float_stat(name, value)
+    
+    Устанавливает значение статистики с именем `name`, которая должна иметь тип
+    FLOAT. Вызовите :func:`_renpysteam.store_stats`, чтобы отправить это изменение на
+    сервер.
+
+.. function:: achievement.steam.set_int_stat(name, value)
+    
+    Устанавливает значение статистики с именем `name`, которая должна иметь тип
+    INT. Вызовите :func:`_renpysteam.store_stats`, чтобы отправить это изменение на
+    сервер.
+
+.. function:: achievement.steam.store_stats()
+    
+    Сохраняет статистику и достижения на сервере Steam.

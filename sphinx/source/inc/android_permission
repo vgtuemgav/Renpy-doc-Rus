@@ -1,0 +1,19 @@
+.. Automatically generated file - do not modify.
+
+.. function:: renpy.check_permission(permission)
+    
+    Проверяет, было ли предоставлено приложению разрешение Android.
+    
+    `permission`
+        Строка, содержащая имя разрешения, например, "android.permission.WRITE_EXTERNAL_STORAGE".
+    
+    Возвращает true, если разрешение было предоставлено, и false, если нет, или если функция вызвана на платформе, отличной от Android.
+
+.. function:: renpy.request_permission(permission)
+    
+    Запрашивает у Android разрешение для этого приложения. Пользователю может быть предложено предоставить разрешение.
+    
+    `permission`
+        Строка, содержащая имя разрешения, например, "android.permission.WRITE_EXTERNAL_STORAGE".
+    
+    Возвращает true, если разрешение было предоставлено, и false, если нет, или если функция вызвана на платформе, отличной от Android.

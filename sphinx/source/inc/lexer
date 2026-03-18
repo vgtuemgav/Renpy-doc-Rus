@@ -1,0 +1,17 @@
+.. Automatically generated file - do not modify.
+
+.. function:: renpy.lex_string(text: str, filename: str = '<string>', linenumber: int = 1, advance: bool = True) -> renpy.lexer.Lexer
+    
+    Возвращает объект Lexer, который можно использовать для лексического анализа данного текста.
+    
+    `text`
+        Текст для лексического анализа.
+    
+    `filename`
+        Имя файла, для которого будут сообщаться ошибки.
+    
+    `linenumber`
+        Номер строки, для которого будут сообщаться ошибки.
+    
+    `advance`
+        Если true, у лексера будет вызван метод .advance().

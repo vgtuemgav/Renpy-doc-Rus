@@ -1,0 +1,14 @@
+.. Automatically generated file - do not modify.
+
+.. function:: GamepadCalibrate()
+    
+    Действие, которое запускает процедуру калибровки геймпада.
+
+.. function:: GamepadExists(developer=True)
+    
+    Функция, которая возвращает true, если геймпад присутствует,
+    и false в противном случае.
+    
+    `developer`
+        Заставляет эту функцию всегда возвращать true, пока
+        :var:`config.developer` истинно.

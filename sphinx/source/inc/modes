@@ -1,0 +1,5 @@
+.. Automatically generated file - do not modify.
+
+.. function:: renpy.get_mode()
+    
+    Возвращает текущий режим или None, если он не определен.

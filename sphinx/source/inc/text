@@ -1,0 +1,52 @@
+.. Automatically generated file - do not modify.
+
+.. class:: ParameterizedText(style='default', **properties)
+    
+    Это displayable, который может быть показан с дополнительным строковым параметром, который затем отображает эту строку так, как если бы это было изображение.
+    Обычно это используется как часть предопределенного изображения ``text``.
+    
+    Например, можно сделать::
+    
+        show text "Hello, World" at truecenter
+        with dissolve
+        pause 1
+        hide text
+        with dissolve
+    
+    Вы можете использовать ParameterizedText напрямую для определения схожих изображений с другими свойствами стиля. Например, можно написать::
+    
+        image top_text = ParameterizedText(xalign=0.5, yalign=0.0)
+    
+        label start:
+            show top_text "This text is shown at the center-top of the screen"
+
+.. class:: Text(text, slow=None, scope=None, substitute=None, slow_done=None, *, tokenized=False, **properties)
+    
+    Displayable, который отображает текст на экране.
+    
+    `text`
+        Текст для отображения на экране. Это может быть строка или список строк и displayable-объектов.
+    
+    `slow`
+        Определяет, отображается ли текст медленно, выводимый по одному символу за раз.
+        Если None, режим медленного текста определяется свойством стиля :propref:`slow_cps`. В противном случае,
+        истинность этого параметра определяет, используется ли режим медленного текста.
+    
+    `scope`
+        Если не None, это должен быть словарь, который предоставляет дополнительную область видимости (scope) для интерполяции текста.
+    
+    `substitute`
+        Если true, выполняется интерполяция текста. Если false, она не выполняется. Если
+        None, это контролируется :var:`config.new_substitutions`.
+    
+    `slow_done`
+        Если не None, и если включен режим медленного текста (см. параметр `slow`), это
+        функция или вызываемый объект, который вызывается без аргументов, когда текст завершает свое отображение.
+    
+    `tokenized`
+        Если true, `text` должен быть списком токенов, а не строкой. Токены
+        описаны на странице :doc:`custom_text_tags`.
+    
+    `**properties`
+        Как и другие Displayable, Text принимает свойства стиля, включая (среди многих других)
+        свойство :propref:`mipmap`.

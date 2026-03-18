@@ -1,0 +1,25 @@
+.. Automatically generated file - do not modify.
+
+.. function:: _window_hide(trans=False, auto=False)
+    
+    Эквивалент оператора ``window hide`` на Python.
+    
+    `trans`
+        Если False, используется стандартный переход для скрытия окна. Если None,
+        переход не используется. В противном случае используется указанный
+        переход.
+    
+    `auto`
+        Если True, это становится эквивалентом оператора ``window auto hide``.
+
+.. function:: _window_show(trans=False, auto=False)
+    
+    Эквивалент оператора ``window show`` на Python.
+    
+    `trans`
+        Если False, используется стандартный переход для показа окна. Если None,
+        переход не используется. В противном случае используется указанный
+        переход.
+    
+    `auto`
+        Если True, это становится эквивалентом оператора ``window auto show``.

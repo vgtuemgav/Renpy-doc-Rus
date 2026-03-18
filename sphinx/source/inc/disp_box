@@ -1,0 +1,15 @@
+.. Automatically generated file - do not modify.
+
+.. function:: Fixed(*args, **properties)
+    
+    Бокс, заполняющий весь экран. Его элементы
+    располагаются от заднего к переднему, а их
+    положение контролируется свойствами позиции.
+
+.. function:: HBox(*args, **properties)
+    
+    Бокс, располагающий свои элементы слева направо.
+
+.. function:: VBox(*args, **properties)
+    
+    Макет, располагающий свои элементы сверху вниз.

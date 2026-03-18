@@ -1,0 +1,6 @@
+.. Automatically generated file - do not modify.
+
+.. function:: renpy.clear_keymap_cache()
+    
+    Очищает кеш раскладки клавиш (keymap). Это позволяет изменениям в :var:`config.keymap`
+    вступить в силу без перезапуска Ren'Py.

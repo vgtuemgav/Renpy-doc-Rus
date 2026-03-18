@@ -1,0 +1,21 @@
+.. Automatically generated file - do not modify.
+
+.. function:: renpy.mark_translation_seen(tlid: str) -> None
+    
+    Отмечает перевод с заданным tlid как просмотренный.
+    `tlid`
+        Строка, задающая идентификатор перевода.
+
+.. function:: renpy.mark_translation_unseen(tlid: str) -> None
+    
+    Отмечает перевод с заданным tlid как не просмотренный.
+    
+    `tlid`
+        Строка, задающая идентификатор перевода.
+
+.. function:: renpy.seen_translation(tlid: str) -> bool
+    
+    Возвращает True, если перевод с заданным tlid был просмотрен хотя бы один раз.
+    
+    `tlid`
+        Строка, задающая идентификатор перевода.

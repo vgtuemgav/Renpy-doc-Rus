@@ -1,0 +1,103 @@
+.. Automatically generated file - do not modify.
+
+.. function:: renpy.can_load(filename, test=False)
+    
+    Возвращает true, если `filename` (например, '3-2' для страницы 3, слота 2) существует как слот сохранения, и false в противном случае.
+
+.. function:: renpy.copy_save(old, new)
+    
+    Копирует сохранение из `old` в `new`. (Ничего не делает, если `old` не
+    существует.)
+
+.. function:: renpy.get_save_data(filename)
+    
+    Эта функция загружает данные игры из слота сохранения `filename` (например, '3-2' для страницы 3, слота 2),
+    фактически не изменяя состояние игры. Она возвращает словарь, содержащий имена переменных относительно
+    хранилища по умолчанию, сопоставленные со значениями этих переменных на момент сохранения.
+
+.. function:: renpy.list_slots(regexp=None)
+    
+    Возвращает список непустых слотов сохранения. Если `regexp` задан, возвращаются только слоты,
+    начинающиеся с `regexp`. Слоты сортируются в
+    строковом порядке.
+    
+    Список полезных регулярных выражений см. в :func:`list_saved_games`.
+
+.. function:: renpy.load(filename)
+    
+    Загружает состояние игры из слота сохранения `filename` (например, '3-2' для страницы 3, слота 2). Если файл загружен
+    успешно, эта функция никогда не возвращает управление.
+
+.. function:: renpy.newest_slot(regexp=None)
+    
+    Возвращает имя самого нового слота сохранения (слота с самым
+    последним временем изменения) или None, если нет (соответствующих) сохранений.
+    
+    Если `regexp` задан, возвращаются только слоты, начинающиеся с `regexp`.
+    
+    Список полезных регулярных выражений см. в :func:`list_saved_games`.
+
+.. function:: renpy.rename_save(old, new)
+    
+    Переименовывает сохранение из `old` в `new`. (Ничего не делает, если `old` не
+    существует.)
+
+.. function:: renpy.save(filename, extra_info='', *, extra_json=None)
+    
+    Сохраняет игру в слот, определённый `filename`.
+    
+    `filename`
+        Строка, задающая имя слота сохранения. Несмотря на название переменной,
+        это лишь косвенно соответствует именам файлов (например, '3-2' для страницы 3, слота 2).
+    
+    `extra_info`
+        Строка, хранящаяся как поле ``_save_name`` в метаданных файла сохранения. Её можно получить через
+        :func:`renpy.slot_json` (используя ключ "_savename"), :func:`FileJson` (с ``key=None`` или ``key="_save_name"``)
+        или как поле ``extra_info`` в :func:`renpy.list_saved_games`. Обычно используется с глобальной
+        переменной :var:`save_name` (например, ``"Глава 1"``). Если строка пуста, ``_save_name`` будет пустой строкой.
+    
+    `extra_json`
+        Словарь с дополнительными метаданными для сохранения в файле. Он объединяется с метаданными по умолчанию
+        и метаданными из :var:`config.save_json_callbacks`.
+    
+    Пример::
+        $ save_name = "Глава 1"
+        $ renpy.save("1-1", extra_info=save_name)
+    
+    Для хранения дополнительных или сложных метаданных используйте :var:`config.save_json_callbacks` для добавления пользовательских полей в словарь метаданных.
+    
+    Функцию :func:`renpy.take_screenshot` следует вызывать до этой функции.
+
+.. function:: renpy.slot_json(slotname)
+    
+    Возвращает словарь, содержащий метаданные файла сохранения в `slotname`, включая ``_save_name``, ``_renpy_version``, ``_version``, ``_game_runtime``, ``_ctime`` и любые пользовательские поля, добавленные через :var:`config.save_json_callbacks` на момент сохранения. Если слот пуст, возвращается `None`. Для действий на экране сохранения/загрузки :func:`FileJson` предоставляет подмножество этих полей (исключая пользовательские поля).
+    
+    Пример::
+    
+        def show_game_runtime(slot):
+            metadata = renpy.slot_json(slot)
+            name = metadata.get('_save_name', '')
+            runtime = metadata.get('_game_runtime', 0)
+            hours = int(runtime // 3600)
+            minutes = int((runtime % 3600) // 60)
+            seconds = int(runtime % 60)
+            runtime_formatted = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+            renpy.notify("Имя сохранения: [name], Время игры: [runtime_formatted]")
+
+.. function:: renpy.slot_mtime(slotname)
+    
+    Возвращает время изменения для `slot` или None, если слот пуст.
+
+.. function:: renpy.slot_screenshot(slotname)
+    
+    Возвращает displayable, который можно использовать как скриншот для `slotname`,
+    или None, если слот пуст.
+
+.. function:: renpy.take_screenshot()
+    
+    Вызывает создание скриншота. Этот скриншот будет сохранён как часть
+    сохранённой игры.
+
+.. function:: renpy.unlink_save(filename)
+    
+    Удаляет слот сохранения с указанным именем (например, '3-2' для страницы 3, слота 2).

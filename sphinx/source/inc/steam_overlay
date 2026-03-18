@@ -1,0 +1,39 @@
+.. Automatically generated file - do not modify.
+
+.. function:: achievement.steam.activate_overlay(dialog)
+    
+    Активирует оверлей Steam.
+    
+    `dialog`
+        Диалог, который нужно открыть в оверлее. Один из: "Friends", "Community",
+        "Players", "Settings", "OfficialGameGroup", "Stats", "Achievements"
+
+.. function:: achievement.steam.activate_overlay_to_store(appid, flag=None)
+    
+    Открывает оверлей Steam на странице магазина.
+    
+    `appid`
+        `appid` приложения, которое нужно открыть.
+    
+    `flag`
+        Один из: achievement.steam.STORE_NONE, .STORE_ADD_TO_CART или .STORE_ADD_TO_CART_AND_SHOW.
+
+.. function:: achievement.steam.activate_overlay_to_web_page(url)
+    
+    Активирует оверлей Steam и открывает веб-страницу по адресу `url`.
+
+.. function:: achievement.steam.is_overlay_enabled()
+    
+    Возвращает true, если оверлей Steam включен. (Может пройти некоторое время
+    после запуска игры, прежде чем функция начнет возвращать true.)
+
+.. function:: achievement.steam.overlay_needs_present()
+    
+    Возвращает true, если оверлей Steam включен. (Может пройти некоторое время
+    после запуска игры, прежде чем функция начнет возвращать true.)
+
+.. function:: achievement.steam.set_overlay_notification_position(position)
+    
+    Устанавливает позицию оверлея Steam. `position` должен быть одним из
+    achievement.steam.POSITION_TOP_LEFT, .POSITION_TOP_RIGHT, .POSITION_BOTTOM_LEFT
+    или .POSITION_BOTTOM_RIGHT.

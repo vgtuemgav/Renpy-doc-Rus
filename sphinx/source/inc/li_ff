@@ -1,0 +1,45 @@
+.. Automatically generated file - do not modify.
+
+.. function:: layeredimage.format_function(what, name, group, variant, attribute, image, image_format, **kwargs)
+    
+    Эта функция вызывается для форматирования информации об атрибуте
+    или условии в displayable. Она может быть заменена
+    создателем, но новая функция должна игнорировать неизвестные kwargs.
+    
+    `what`
+        Строка, дающая описание форматируемого элемента,
+        которое используется для создания более качественных сообщений об ошибках.
+    
+    `name`
+        Имя layeredimage.
+    
+    `group`
+        Группа атрибута, None, если не указана или если это
+        часть условия.
+    
+    `variant`
+        Аргумент `variant` для группы или None, если он не
+        указан.
+    
+    `attribute`
+        Сам атрибут.
+    
+    `image`
+        Либо displayable, либо строка.
+    
+    `image_format`
+        Аргумент `image_format` для LayeredImage.
+    
+    Если `image` равен None, то `name`, `group` (если не None), `variant` (если не None)
+    и `attribute` объединяются с помощью подчёркиваний для создания `image`, которое
+    затем будет строкой.
+    
+    Если `images` является строкой, а `image_format` не равен None, `image` форматируется
+    в строку для получения конечного displayable.
+    
+    Так, если `name` — "eileen", `group` — "expression", и
+    `attribute` — "happy", `image` будет установлено в "eileen_expression_happy".
+    Если `image_format` — "images/{image}.png",
+    конечное изображение, которое найдёт Ren'Py, будет "images/eileen_expression_happy.png".
+    Но обратите внимание, что он нашёл бы то же изображение и без аргумента
+    форматирования.

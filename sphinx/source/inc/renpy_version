@@ -1,0 +1,9 @@
+.. Automatically generated file - do not modify.
+
+.. function:: renpy.version(tuple=False)
+    
+    Если `tuple` равно false, возвращает строку, содержащую "Ren'Py ", за которой следует
+    текущая версия Ren'Py.
+    
+    Если `tuple` равно true, возвращает кортеж, содержащий каждый компонент
+    версии в виде целого числа.

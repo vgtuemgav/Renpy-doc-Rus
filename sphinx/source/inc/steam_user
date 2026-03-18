@@ -1,0 +1,25 @@
+.. Automatically generated file - do not modify.
+
+.. function:: achievement.steam.cancel_ticket()
+    
+    Отменяет тикет, возвращенный :func:`achievement.steam.get_session_ticket`.
+
+.. function:: achievement.steam.get_account_id()
+    
+    Возвращает ID аккаунта пользователя.
+
+.. function:: achievement.steam.get_csteam_id()
+    
+    Возвращает полный CSteamID пользователя в виде 64-битного числа.
+
+.. function:: achievement.steam.get_game_badge_level(series, foil)
+    
+    Получает уровень значка Steam пользователя для вашей игры.
+
+.. function:: achievement.steam.get_persona_name()
+    
+    Возвращает публично видимое имя пользователя.
+
+.. function:: achievement.steam.get_session_ticket(identity=None)
+    
+    Получает тикет, который можно отправить на сервер для аутентификации этого пользователя.

@@ -1,0 +1,37 @@
+.. Automatically generated file - do not modify.
+
+.. function:: achievement.steam.dlc_installed(appid)
+    
+    Возвращает True, если DLC установлен, иначе False.
+
+.. function:: achievement.steam.dlc_progress(appid)
+    
+    Сообщает о прогрессе загрузки DLC.
+
+.. function:: achievement.steam.get_app_build_id()
+    
+    Возвращает ID сборки (build ID) установленной игры.
+
+.. function:: achievement.steam.get_current_beta_name()
+    
+    Возвращает имя текущей бета-версии или None, если это невозможно.
+
+.. function:: achievement.steam.get_current_game_language()
+    
+    Возвращает имя языка, выбранного пользователем.
+
+.. function:: achievement.steam.get_steam_ui_language()
+    
+    Возвращает имя языка, используемого в интерфейсе Steam.
+
+.. function:: achievement.steam.install_dlc(appid)
+    
+    Запрашивает установку DLC с указанным `appid`.
+
+.. function:: achievement.steam.is_subscribed_app(appid)
+    
+    Возвращает true, если пользователь владеет приложением с `appid`, иначе false.
+
+.. function:: achievement.steam.uninstall_dlc(appid)
+    
+    Запрашивает удаление DLC с указанным `appid`.

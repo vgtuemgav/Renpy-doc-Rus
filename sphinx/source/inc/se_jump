@@ -1,0 +1,6 @@
+.. Automatically generated file - do not modify.
+
+.. function:: renpy.jump(label)
+    
+    Приводит к завершению текущего оператора и переходу управления
+    к указанной метке.

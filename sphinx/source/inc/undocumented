@@ -1,0 +1,15 @@
+.. Automatically generated file - do not modify.
+
+.. function:: renpy.layer_has_transforms(layer)
+    
+    Используется для определения, связаны ли с слоем какие-либо трансформации. Возвращает
+    объект со следующими атрибутами:
+    
+    at_list
+        True, если `at_list` не пуст.
+    
+    camera
+        True, если список камер не пуст.
+    
+    config_layer_transforms
+        True, если список `config.layer_transforms` не пуст.

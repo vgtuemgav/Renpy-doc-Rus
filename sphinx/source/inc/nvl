@@ -1,0 +1,27 @@
+.. Automatically generated file - do not modify.
+
+.. function:: nvl_clear()
+    
+    Python-эквивалент инструкции ``nvl clear``.
+
+.. function:: nvl_hide(with_)
+    
+    Python-эквивалент инструкции ``nvl hide``.
+    
+    `with_`
+        Переход, используемый для скрытия окна в режиме NVL.
+
+.. function:: nvl_menu(items)
+    
+    Python-функция, которая отображает меню в стиле NVL. Она
+    редко используется напрямую. Вместо этого она присваивается переменной
+    :var:`menu`, используя что-то вроде::
+    
+        define menu = nvl_menu
+
+.. function:: nvl_show(with_)
+    
+    Python-эквивалент инструкции ``nvl show``.
+    
+    `with_`
+        Переход, используемый для отображения окна в режиме NVL.

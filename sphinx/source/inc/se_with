@@ -1,0 +1,16 @@
+.. Automatically generated file - do not modify.
+
+.. function:: renpy.with_statement(trans, always=False)
+    
+    Вызывает переход. Это Python-эквивалент
+    оператора with.
+    
+    `trans`
+        Переход.
+    
+    `always`
+        Если True, переход всегда будет происходить, даже если пользователь
+        отключил переходы.
+    
+    Эта функция возвращает true, если пользователь решил прервать переход,
+    и false в противном случае.
